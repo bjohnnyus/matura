@@ -595,6 +595,70 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
           tip: 'Exam Tip: Always read the concluding sentence for a summary of feelings or opinions.'
         }
       ]
+    },
+    {
+      id: 'r16',
+      title: 'Reading: City Library Services',
+      instructions: 'Read the short FAQ and choose the best answer (A, B, or C).',
+      text: "Welcome to the City Library! Registration is free for local residents, but people who live outside the city are required to pay to join. You can check out up to 20 items at a time, including books, e-books, magazines, CDs, and DVDs. The loan period is four weeks. If you would like to keep the items longer, you may renew them in person or online. However, you must bring a photo I.D. and a document that shows your address when you first apply.",
+      questions: [
+        {
+          id: 'q1',
+          text: '1. Who has to pay for library registration?',
+          options: ['A) Local residents.', 'B) People living outside the city.', 'C) Anyone borrowing DVDs.'],
+          correct: 'B) People living outside the city.',
+          explanation: 'The text states that "people who live outside the city are required to pay to join."',
+          tip: 'Exam Tip: Look for contrast words like "but" which introduce exceptions to rules.'
+        },
+        {
+          id: 'q2',
+          text: '2. How many items can a member borrow at once?',
+          options: ['A) 4', 'B) 10', 'C) 20'],
+          correct: 'C) 20',
+          explanation: 'The text explicitly says "You can check out up to 20 items at a time."',
+          tip: 'Exam Tip: Scan the text for the specific number mentioned in the options.'
+        },
+        {
+          id: 'q3',
+          text: '3. How can you renew your borrowed items?',
+          options: ['A) Only in person.', 'B) Only online.', 'C) In person or online.'],
+          correct: 'C) In person or online.',
+          explanation: 'The FAQ states you may renew them "in person or online."',
+          tip: 'Exam Tip: Always read all the options carefully. The word "Only" often makes an option incorrect.'
+        }
+      ]
+    },
+    {
+      id: 'r17',
+      title: 'Reading: Village Gym FAQ',
+      instructions: 'Read the text about the gym and choose the best answer (A, B, or C).',
+      text: "Get answers to the most common questions about membership, classes, and services at Village Gym. You don't need to reserve your place for most classes, but for popular ones like spinning, we highly recommend booking online in advance. If you forget your gym clothes, unfortunately, we don't rent them out, but we do have a lost and found at the reception. Also, if you only want to visit for a single day, you can easily buy a day ticket at the entrance without becoming a full member.",
+      questions: [
+        {
+          id: 'q1',
+          text: '1. When do you need to book a class in advance?',
+          options: ['A) For all classes.', 'B) For popular classes like spinning.', 'C) Never.'],
+          correct: 'B) For popular classes like spinning.',
+          explanation: 'The text recommends booking "for popular ones like spinning".',
+          tip: 'Exam Tip: "Most" does not mean "all". Pay attention to exceptions.'
+        },
+        {
+          id: 'q2',
+          text: '2. What happens if you leave something at the gym?',
+          options: ['A) The gym sells it.', 'B) You can check the lost and found at reception.', 'C) They mail it to your house.'],
+          correct: 'B) You can check the lost and found at reception.',
+          explanation: 'The text mentions "we do have a lost and found at the reception".',
+          tip: 'Exam Tip: Synonyms are important. "Leave something" matches "lost and found".'
+        },
+        {
+          id: 'q3',
+          text: '3. Do you have to become a full member to use the gym?',
+          options: ['A) Yes, it is strictly required.', 'B) No, you can buy a day ticket.', 'C) Only on weekends.'],
+          correct: 'B) No, you can buy a day ticket.',
+          explanation: 'The text says you can "buy a day ticket at the entrance without becoming a full member."',
+          tip: 'Exam Tip: Look for words like "without" to understand alternative options.'
+        }
+      ]
     }
   ],
   useOfEnglish: [
@@ -685,7 +749,7 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       textParts: [
         'My teacher, Mr Jones, taught me a valuable lesson. A watch was stolen during class, and he told us to close our ', 
         ' while he searched our pockets. He found the watch in my pocket, but he kept on searching everyone else\'s. When he finished, he returned the watch to its owner but never ', 
-        ' anyone who had stolen it. That day, he saved my dignity. It was the moment I decided never to ', 
+        ' anyone who had stolen it. That day, he saved my dignity. It was minimal moment I decided never to ', 
         ' a thief again, and I eventually became a teacher myself.'
       ],
       questions: [
@@ -836,6 +900,38 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
         { id: 'q1', answer: 'which', explanation: 'Relative pronoun: Refers back to the non-human noun "organisation". ("That" is also correct).', tip: 'Exam Tip: If you see a gap right after a noun and before a verb, it is almost always a relative pronoun.' },
         { id: 'q2', answer: 'with', explanation: 'Preposition: The verb "assist" is often followed by "with" when referring to helping with a task.', tip: 'Exam Tip: "Help with" and "assist with" use the exact same preposition.' },
         { id: 'q3', answer: 'rest', explanation: 'Fixed phrase: "For the rest of my life" is a common idiom meaning "forever".', tip: 'Exam Tip: Look for complete idiomatic phrases that you have heard in movies and songs.' },
+      ]
+    },
+    {
+      id: 'u16',
+      title: 'Use of English: Gold Coins in a Charity Kettle',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: [
+        'The Salvation Army regularly uses donation kettles to collect money ', 
+        ' charity purposes. Recently, a generous stranger dropped several gold coins ', 
+        ' one of their kettles in a small town. The volunteers were completely surprised ', 
+        ' the discovery. They plan to use the extra funds to provide free meals for homeless people during the winter.'
+      ],
+      questions: [
+        { id: 'q1', answer: 'for', explanation: 'Preposition: Money is collected "for" a purpose.', tip: 'Exam Tip: "For" usually indicates purpose or intended use.' },
+        { id: 'q2', answer: 'into', explanation: 'Preposition of movement: Dropping something "into" a container.', tip: 'Exam Tip: Verbs of movement (drop, put, go) are often followed by "into" when entering an enclosed space.' },
+        { id: 'q3', answer: 'by', explanation: 'Preposition: You are surprised "by" or "at" something.', tip: 'Exam Tip: Passive or adjective phrases describing emotions are often followed by "by" or "at".' },
+      ]
+    },
+    {
+      id: 'u17',
+      title: 'Use of English: The Lost Ring',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: [
+        'A woman who spends her spare time looking ', 
+        ' hidden treasure with a metal detector has found a 17th-century gold ring. When she first dug it up, she thought it was just a piece of rubbish. However, when she took a closer ', 
+        ' at it, she realized it was incredibly valuable. She immediately took it to a museum, ', 
+        ' experts confirmed it was over 300 years old.'
+      ],
+      questions: [
+        { id: 'q1', answer: 'for', explanation: 'Phrasal verb: "look for" means to search for something.', tip: 'Exam Tip: Don\'t confuse "look for" (search) with "look at" (observe).' },
+        { id: 'q2', answer: 'look', explanation: 'Collocation: "take a look" means to examine something.', tip: 'Exam Tip: "Take a closer look" is a very common fixed phrase.' },
+        { id: 'q3', answer: 'where', explanation: 'Relative pronoun: Refers back to a place (the museum).', tip: 'Exam Tip: Use "where" for places in relative clauses when referring to an action happening there.' },
       ]
     }
   ],
@@ -1318,6 +1414,72 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
           tip: 'Exam Tip: Don\'t overthink dates. If a specific year is connected to a specific action (retire), that is your answer.'
         }
       ]
+    },
+    {
+      id: 'l15',
+      title: 'The History of the Bikini',
+      audioFile: 'k_angol_18okt_fl.mp3',
+      instructions: 'Listen to the recording and choose the best answer.',
+      transcript: `In this section, you will hear the story of the birth of the bikini. It was named after the Bikini Atoll, where atomic bomb testing was taking place. The creator thought the swimsuit would cause a similar explosive reaction in the fashion world. Originally, models refused to wear it because they thought it revealed too much. Eventually, a brave dancer agreed to model it in Paris in 1946. It took many years for the bikini to become widely accepted on public beaches.`,
+      questions: [
+        {
+          id: 'q1',
+          text: '1. What inspired the name of the swimsuit?',
+          options: ['A) A famous model.', 'B) A location of atomic bomb tests.', 'C) A French beach.'],
+          correct: 'B) A location of atomic bomb tests.',
+          explanation: 'The transcript says "It was named after the Bikini Atoll, where atomic bomb testing was taking place."',
+          tip: 'Exam Tip: Listen closely for the phrase "named after".'
+        },
+        {
+          id: 'q2',
+          text: '2. Why did models initially refuse to wear it?',
+          options: ['A) It was too expensive.', 'B) It was the wrong colour.', 'C) It revealed too much of their bodies.'],
+          correct: 'C) It revealed too much of their bodies.',
+          explanation: 'The text states models refused "because they thought it revealed too much."',
+          tip: 'Exam Tip: "Revealed too much" refers to showing too much skin.'
+        },
+        {
+          id: 'q3',
+          text: '3. Who was the first person to model the bikini in public?',
+          options: ['A) A professional swimmer.', 'B) A brave dancer.', 'C) A Hollywood actress.'],
+          correct: 'B) A brave dancer.',
+          explanation: 'The transcript mentions that "Eventually, a brave dancer agreed to model it".',
+          tip: 'Exam Tip: Pay attention to specific professions mentioned in the text.'
+        }
+      ]
+    },
+    {
+      id: 'l16',
+      title: 'The Lost Fisherman',
+      audioFile: 'k_angol_16okt_fl.mp3',
+      instructions: 'Listen to the recording and choose the best answer.',
+      transcript: `In this section, you will hear a true story about a Costa Rican fisherman who survived a five-month drift in a boat on the ocean. He originally set out for a simple weekend fishing trip. However, a massive storm hit and destroyed his engine and radio. For months, he survived by drinking rainwater and eating raw fish. He was finally rescued by a passing cargo ship just when he thought he had no hope left. Doctors were amazed at his physical condition after such a long ordeal.`,
+      questions: [
+        {
+          id: 'q1',
+          text: '1. How long was the fisherman\'s trip supposed to be originally?',
+          options: ['A) Five months.', 'B) A weekend.', 'C) One week.'],
+          correct: 'B) A weekend.',
+          explanation: 'He originally set out for "a simple weekend fishing trip".',
+          tip: 'Exam Tip: Differentiate between the planned time (weekend) and the actual time (five months).'
+        },
+        {
+          id: 'q2',
+          text: '2. How did the storm affect his boat?',
+          options: ['A) It broke the sails.', 'B) It flipped the boat over.', 'C) It destroyed the engine and radio.'],
+          correct: 'C) It destroyed the engine and radio.',
+          explanation: 'The storm "destroyed his engine and radio".',
+          tip: 'Exam Tip: Listen for the specific damage caused.'
+        },
+        {
+          id: 'q3',
+          text: '3. Who eventually rescued him?',
+          options: ['A) A police helicopter.', 'B) A passing cargo ship.', 'C) Another fisherman.'],
+          correct: 'B) A passing cargo ship.',
+          explanation: 'He was rescued by "a passing cargo ship".',
+          tip: 'Exam Tip: Distinguish between the different types of vessels or vehicles mentioned.'
+        }
+      ]
     }
   ]
 };
@@ -1773,6 +1935,140 @@ const DailyFlashcards = ({ cards, onFinish }) => {
       >
         <CheckCircle size={24} /> Complete Daily Set
       </button>
+    </div>
+  );
+};
+
+const FlashcardsApp = ({ onBack }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleNext = () => {
+    setIsFlipped(false);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % flashcardsData.length);
+    }, 150);
+  };
+
+  const handlePrev = () => {
+    setIsFlipped(false);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + flashcardsData.length) % flashcardsData.length);
+    }, 150);
+  };
+
+  if (!flashcardsData || flashcardsData.length === 0) return null;
+  const card = flashcardsData[currentIndex];
+
+  return (
+    <div className="max-w-3xl mx-auto animate-fade-in pb-12">
+      <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
+            <Layers className="text-indigo-600" /> Grammar & Vocab Flashcards
+          </h2>
+          <p className="text-slate-500 mt-1">Review key expressions and structures from past exams.</p>
+        </div>
+        <button 
+          onClick={onBack} 
+          className="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors"
+        >
+          Back to Dashboard
+        </button>
+      </div>
+
+      <div className="flex flex-col items-center">
+        {/* Flashcard Container */}
+        <div 
+          className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
+          onClick={() => setIsFlipped(!isFlipped)}
+        >
+           <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+              
+              {/* Front of Card */}
+              <div className="absolute inset-0 w-full h-full bg-white rounded-3xl shadow-lg border border-slate-100 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-xl transition-shadow">
+                 <span className="px-3 py-1 bg-indigo-50 text-indigo-600 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
+                   {card.category}
+                 </span>
+                 <h2 className="text-4xl md:text-5xl font-bold text-slate-800">{card.term}</h2>
+                 <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm">
+                   <ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/>
+                 </div>
+              </div>
+
+              {/* Back of Card */}
+              <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
+                 <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
+                   "{card.context}"
+                 </p>
+                 <div className="bg-indigo-900/40 px-5 py-3 rounded-xl backdrop-blur-sm border border-indigo-500/30">
+                   <p className="text-sm text-indigo-100 font-medium flex items-center gap-2">
+                     <AlertCircle size={16}/> {card.grammar}
+                   </p>
+                 </div>
+              </div>
+
+           </div>
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center gap-6 mt-10">
+          <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
+            <ArrowLeft size={24} />
+          </button>
+          <span className="font-semibold text-slate-500">
+            {currentIndex + 1} / {flashcardsData.length}
+          </span>
+          <button onClick={handleNext} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
+            <ArrowRight size={24} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SpeakingApp = ({ onBack }) => {
+  return (
+    <div className="max-w-4xl mx-auto animate-fade-in pb-12">
+      <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
+            <Mic className="text-purple-600" /> Speaking Practice
+          </h2>
+          <p className="text-slate-500 mt-1">Choose a speaking module to practice.</p>
+        </div>
+        <button 
+          onClick={onBack} 
+          className="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors"
+        >
+          Back to Dashboard
+        </button>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        <a href="https://docs.craft.do/editor/d/9afedc20-1f48-2a8b-e75f-adf59f3c88d9/83ED2C00-2D1D-41AF-86B9-E1D6800F6D34?s=X8KZSkgzyEDCT4Vy5XgyoCvS1biwoFiYNCWsR1qSCmJM" target="_blank" rel="noopener noreferrer" className="group bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-purple-400 hover:shadow-xl transition-all text-center flex flex-col items-center">
+          <div className="w-20 h-20 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Camera size={40} />
+          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-3">Picture Description</h3>
+          <p className="text-slate-500 mb-8 leading-relaxed">Practice talking about images, comparing, and contrasting to build fluency.</p>
+          <span className="w-full py-4 bg-purple-50 text-purple-700 font-semibold rounded-xl flex items-center justify-center gap-2 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+            Open Material <ExternalLink size={18}/>
+          </span>
+        </a>
+
+        <a href="https://docs.craft.do/editor/d/9afedc20-1f48-2a8b-e75f-adf59f3c88d9/23B560C4-FC01-411D-BDFA-B5AFFEA20668?s=VqRDRqX4mT1JWseirwnUuqVHbBbsycw9SyFTUgTC8nBG" target="_blank" rel="noopener noreferrer" className="group bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-pink-400 hover:shadow-xl transition-all text-center flex flex-col items-center">
+          <div className="w-20 h-20 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <MessageSquare size={40} />
+          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-3">Role Play</h3>
+          <p className="text-slate-500 mb-8 leading-relaxed">Simulate real-life conversations and everyday situations with interactive scripts.</p>
+          <span className="w-full py-4 bg-pink-50 text-pink-700 font-semibold rounded-xl flex items-center justify-center gap-2 group-hover:bg-pink-600 group-hover:text-white transition-colors">
+            Open Material <ExternalLink size={18}/>
+          </span>
+        </a>
+      </div>
     </div>
   );
 };
@@ -2292,7 +2588,7 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
           </div>
           <h3 className="text-lg font-semibold text-slate-800 mb-1">Reading</h3>
           <p className="text-slate-500 text-xs mb-4">Texts & multiple choice.</p>
-          <span className="text-red-600 font-medium text-xs mt-auto flex items-center gap-1">Start <ArrowRight size={14}/></span>
+          <span className="text-red-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-red-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
         </button>
 
         <button onClick={() => onSelectTask('useOfEnglish')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all text-left flex flex-col items-start">
@@ -2301,7 +2597,7 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
           </div>
           <h3 className="text-lg font-semibold text-slate-800 mb-1">English Use</h3>
           <p className="text-slate-500 text-xs mb-4">Grammar & gap-fills.</p>
-          <span className="text-blue-600 font-medium text-xs mt-auto flex items-center gap-1">Start <ArrowRight size={14}/></span>
+          <span className="text-blue-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-blue-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
         </button>
 
         <button onClick={() => onSelectTask('listening')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-green-300 hover:shadow-md transition-all text-left flex flex-col items-start">
@@ -2310,7 +2606,7 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
           </div>
           <h3 className="text-lg font-semibold text-slate-800 mb-1">Listening</h3>
           <p className="text-slate-500 text-xs mb-4">Audio & comprehension.</p>
-          <span className="text-green-600 font-medium text-xs mt-auto flex items-center gap-1">Start <ArrowRight size={14}/></span>
+          <span className="text-green-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-green-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
         </button>
 
         <button onClick={onOpenFlashcards} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all text-left flex flex-col items-start">
@@ -2319,7 +2615,7 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
           </div>
           <h3 className="text-lg font-semibold text-slate-800 mb-1">Flashcards</h3>
           <p className="text-slate-500 text-xs mb-4">Review vocab & grammar.</p>
-          <span className="text-indigo-600 font-medium text-xs mt-auto flex items-center gap-1">Study <ArrowRight size={14}/></span>
+          <span className="text-indigo-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-indigo-700 transition-colors">Study <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
         </button>
       </div>
 
@@ -2327,7 +2623,13 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
       <h3 className="text-xl font-bold text-slate-800 mb-4 mt-8 flex items-center gap-2">
         <Mic size={24} className="text-purple-600"/> Speaking Practice
       </h3>
-      <button onClick={onOpenSpeaking} className="w-full group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all text-left flex items-center justify-between mb-8 border-0">
+      <div 
+        role="button"
+        tabIndex={0}
+        onClick={onOpenSpeaking}
+        onKeyDown={(e) => e.key === 'Enter' && onOpenSpeaking()}
+        className="w-full cursor-pointer group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all text-left flex items-center justify-between mb-8 border-0"
+      >
          <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
          
          <div className="flex items-center gap-4 relative z-10">
@@ -2339,10 +2641,10 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
              <p className="text-fuchsia-100 text-sm font-medium">Practice Picture Description and Role-Play tasks.</p>
            </div>
          </div>
-         <span className="text-white font-bold items-center gap-1 hidden sm:flex relative z-10 bg-white/20 px-4 py-2 rounded-lg backdrop-blur-sm group-hover:bg-white/30 transition-colors">
-           Open Module <ArrowRight size={18}/>
-         </span>
-      </button>
+         <div className="text-white font-bold items-center gap-1 hidden sm:flex relative z-20 bg-white/20 px-4 py-2 rounded-lg backdrop-blur-sm group-hover:bg-white/30 hover:bg-white/40 transition-all group-hover:shadow-md">
+           Click to Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/>
+         </div>
+      </div>
 
       {/* Official Website Links */}
       <div className="mt-12 p-6 bg-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-white shadow-lg mb-6">
@@ -2376,13 +2678,30 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
 };
 
 export default function App() {
+  const [tailwindLoaded, setTailwindLoaded] = useState(false);
+
   // --- ADDED: Auto-load Tailwind CSS for external deployments (e.g. Netlify/StackBlitz) ---
   useEffect(() => {
-    if (!document.getElementById('tailwind-cdn')) {
-      const script = document.createElement('script');
+    // If tailwind is already somehow present globally, skip loading
+    if (window.tailwind) {
+      setTailwindLoaded(true);
+      return;
+    }
+    
+    // Check if the script tag already exists
+    let script = document.getElementById('tailwind-cdn');
+    if (!script) {
+      script = document.createElement('script');
       script.id = 'tailwind-cdn';
       script.src = 'https://cdn.tailwindcss.com';
+      script.onload = () => {
+        setTimeout(() => setTailwindLoaded(true), 150); // Small buffer to let the CSS inject properly
+      };
       document.head.appendChild(script);
+    } else {
+      script.addEventListener('load', () => {
+         setTimeout(() => setTailwindLoaded(true), 150);
+      });
     }
   }, []);
   // --------------------------------------------------------------------------------------
@@ -2420,7 +2739,7 @@ export default function App() {
         return JSON.parse(saved);
       }
     } catch (e) {}
-    return [];
+    return [1]; // Start with Day 1 completed
   });
 
   useEffect(() => {
@@ -2545,6 +2864,17 @@ export default function App() {
     setView('speaking');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Do not render the app until Tailwind CSS has successfully loaded.
+  if (!tailwindLoaded) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui, sans-serif', color: '#475569', backgroundColor: '#f8fafc' }}>
+        <div style={{ width: '40px', height: '40px', border: '4px solid #cbd5e1', borderTopColor: '#2563eb', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '16px' }}></div>
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Loading your Matura Tutor...</h2>
+        <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-slate-900 font-sans selection:bg-blue-200">
