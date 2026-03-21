@@ -5,11 +5,12 @@ import { BookOpen, Edit3, Headphones, CheckCircle, XCircle, ArrowRight, ArrowLef
 // Because Netlify does not have a shared database, any link placed here 
 // will be permanently available to all your students on all browsers.
 const TEACHER_AUDIO_LINKS = {
-  'l1': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567/audio-project.mp3',
-  'l2': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566/elevenlabs-untitled-project-1.mp3',
+  'l1': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526675/harry.mp3', // Add the link for "Interview with Harry" here when you have it!
+  'l2': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567/audio-project.mp3', // Interview with an author
+  'l3': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566/elevenlabs-untitled-project-1.mp3', // Supermarket
   'l4': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526542/a-lucky-escape.mp3',
   'l5': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526565/elevenlabs-a-spoonful-of-sugar.mp3',
-  'l6': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550/paul-stout.mp3',
+  'l6': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550/paul-stout.mp3', // Toddler bought a car
   'l7': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526546/duke-the-rescue-dog.mp3',
   'l8': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526547/einstein.mp3',
   'l9': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526549/interview-with-leona-lewis.mp3',
@@ -23,7 +24,7 @@ const TEACHER_AUDIO_LINKS = {
 };
 // -------------------------------------------------------------
 
-// --- DATA: Flashcards (Batch 1 & 2: 1-100) ---
+// --- DATA: Flashcards (Batch 1-4: 1-200) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
   { id: 2, category: 'Adjective + Prep', term: 'bad at', context: "I'm bad at remembering names.", grammar: 'Meaning: rossz vmiben' },
@@ -124,7 +125,107 @@ const flashcardsData = [
   { id: 97, category: 'Phrase', term: "it's high time", context: "It's high time we went home.", grammar: 'Meaning: épp itt az ideje' },
   { id: 98, category: 'Phrase', term: 'as a matter of fact', context: 'As a matter of fact, I hate seafood.', grammar: 'Meaning: őszintén szólva, valójában' },
   { id: 99, category: 'Phrase', term: 'by the way', context: 'By the way, how is your sister doing?', grammar: 'Meaning: mellesleg, apropó' },
-  { id: 100, category: 'Phrase', term: 'sooner or later', context: 'Sooner or later, you will have to tell the truth.', grammar: 'Meaning: előbb vagy utóbb' }
+  { id: 100, category: 'Phrase', term: 'sooner or later', context: 'Sooner or later, you will have to tell the truth.', grammar: 'Meaning: előbb vagy utóbb' },
+  { id: 101, category: 'Verb + Prep', term: 'ask for', context: 'He asked for a glass of water.', grammar: 'Meaning: kér vmit' },
+  { id: 102, category: 'Verb + Prep', term: 'believe in', context: 'Do you believe in ghosts?', grammar: 'Meaning: hisz vmiben' },
+  { id: 103, category: 'Verb + Prep', term: 'care about', context: "She doesn't care about money.", grammar: 'Meaning: törődik vmivel' },
+  { id: 104, category: 'Verb + Prep', term: 'complain to', context: 'I will complain to the manager.', grammar: 'Meaning: panaszkodik vkinek' },
+  { id: 105, category: 'Verb + Prep', term: 'dream about', context: 'I often dream about flying.', grammar: 'Meaning: álmodik vmiről' },
+  { id: 106, category: 'Verb + Prep', term: 'hear about', context: 'Did you hear about the accident?', grammar: 'Meaning: hall vmiről' },
+  { id: 107, category: 'Verb + Prep', term: 'look forward to', context: 'We look forward to seeing you.', grammar: 'Meaning: alig vár vmit' },
+  { id: 108, category: 'Verb + Prep', term: 'pay for', context: 'Let me pay for the coffee.', grammar: 'Meaning: fizet vmiért' },
+  { id: 109, category: 'Verb + Prep', term: 'prepare for', context: 'I need to prepare for my exam.', grammar: 'Meaning: felkészül vmire' },
+  { id: 110, category: 'Verb + Prep', term: 'protect from', context: 'Wear sunglasses to protect your eyes from the sun.', grammar: 'Meaning: megvéd vmitől' },
+  { id: 111, category: 'Verb + Prep', term: 'recover from', context: 'It took him weeks to recover from the flu.', grammar: 'Meaning: felépül vmiből' },
+  { id: 112, category: 'Verb + Prep', term: 'save from', context: 'He saved the child from the fire.', grammar: 'Meaning: megment vmitől' },
+  { id: 113, category: 'Verb + Prep', term: 'smell of', context: 'This room smells of smoke.', grammar: 'Meaning: vmilyen szaga van' },
+  { id: 114, category: 'Verb + Prep', term: 'think about', context: 'What are you thinking about?', grammar: 'Meaning: gondol vmire' },
+  { id: 115, category: 'Verb + Prep', term: 'wait for', context: 'I am waiting for the bus.', grammar: 'Meaning: vár vkire/vmire' },
+  { id: 116, category: 'Phrasal Verb', term: 'give back', context: 'Please give back my pen.', grammar: 'Meaning: visszaad' },
+  { id: 117, category: 'Phrasal Verb', term: 'give in', context: 'He finally gave in and accepted the offer.', grammar: 'Meaning: beadja a derekát' },
+  { id: 118, category: 'Phrasal Verb', term: 'go on', context: 'The show must go on.', grammar: 'Meaning: folytatódik' },
+  { id: 119, category: 'Phrasal Verb', term: 'grow up', context: 'I grew up in a small town.', grammar: 'Meaning: felnő' },
+  { id: 120, category: 'Phrasal Verb', term: 'hold on', context: 'Hold on a minute, please.', grammar: 'Meaning: várj egy kicsit' },
+  { id: 121, category: 'Phrasal Verb', term: 'look after', context: 'Can you look after my dog?', grammar: 'Meaning: vigyáz vkire' },
+  { id: 122, category: 'Phrasal Verb', term: 'look for', context: 'I am looking for my keys.', grammar: 'Meaning: keres vmit' },
+  { id: 123, category: 'Phrasal Verb', term: 'pass away', context: 'Her grandfather passed away last night.', grammar: 'Meaning: elhuny' },
+  { id: 124, category: 'Phrasal Verb', term: 'put on', context: 'Put on your coat, it is cold.', grammar: 'Meaning: felvesz (ruhát)' },
+  { id: 125, category: 'Phrasal Verb', term: 'take off', context: 'The plane took off on time.', grammar: 'Meaning: felszáll (gép) / levesz (ruhát)' },
+  { id: 126, category: 'Phrasal Verb', term: 'turn off', context: 'Turn off the lights before leaving.', grammar: 'Meaning: lekapcsol' },
+  { id: 127, category: 'Phrasal Verb', term: 'turn on', context: 'Please turn on the TV.', grammar: 'Meaning: bekapcsol' },
+  { id: 128, category: 'Phrasal Verb', term: 'wake up', context: 'I usually wake up at 7 AM.', grammar: 'Meaning: felébred' },
+  { id: 129, category: 'Phrasal Verb', term: 'work out', context: 'I work out at the gym twice a week.', grammar: 'Meaning: edz' },
+  { id: 130, category: 'Phrasal Verb', term: 'find out', context: 'We need to find out the truth.', grammar: 'Meaning: kiderít' },
+  { id: 131, category: 'Collocation', term: 'do business', context: 'They do business with foreign companies.', grammar: 'Meaning: üzletel' },
+  { id: 132, category: 'Collocation', term: 'do homework', context: 'I have to do my homework now.', grammar: 'Meaning: házi feladatot ír' },
+  { id: 133, category: 'Collocation', term: 'do the shopping', context: 'My dad usually does the shopping.', grammar: 'Meaning: bevásárol' },
+  { id: 134, category: 'Collocation', term: 'make a mistake', context: 'Everyone makes a mistake sometimes.', grammar: 'Meaning: hibázik' },
+  { id: 135, category: 'Collocation', term: 'make a noise', context: 'Please try not to make a noise.', grammar: 'Meaning: zajt csap' },
+  { id: 136, category: 'Collocation', term: 'make an excuse', context: 'He always makes an excuse for being late.', grammar: 'Meaning: kifogást keres' },
+  { id: 137, category: 'Collocation', term: 'make money', context: 'He makes a lot of money in IT.', grammar: 'Meaning: pénzt keres' },
+  { id: 138, category: 'Collocation', term: 'take a break', context: "Let's take a 10-minute break.", grammar: 'Meaning: szünetet tart' },
+  { id: 139, category: 'Collocation', term: 'take a photo', context: 'Can I take a photo of you?', grammar: 'Meaning: lefényképez' },
+  { id: 140, category: 'Collocation', term: 'take an exam', context: 'I will take my English exam tomorrow.', grammar: 'Meaning: vizsgázik' },
+  { id: 141, category: 'Collocation', term: 'catch a cold', context: 'Dress warmly so you don\'t catch a cold.', grammar: 'Meaning: megfázik' },
+  { id: 142, category: 'Collocation', term: 'catch a bus', context: 'We have to run to catch the bus.', grammar: 'Meaning: eléri a buszt' },
+  { id: 143, category: 'Collocation', term: 'keep a promise', context: 'You should always keep your promises.', grammar: 'Meaning: betartja az ígéretét' },
+  { id: 144, category: 'Collocation', term: 'keep a secret', context: 'Can you keep a secret?', grammar: 'Meaning: titkot tart' },
+  { id: 145, category: 'Collocation', term: 'tell a lie', context: 'I know you are telling a lie.', grammar: 'Meaning: hazudik' },
+  { id: 146, category: 'Collocation', term: 'tell the truth', context: 'You must tell the truth.', grammar: 'Meaning: igazat mond' },
+  { id: 147, category: 'Collocation', term: 'have a good time', context: 'Did you have a good time at the party?', grammar: 'Meaning: jól érzi magát' },
+  { id: 148, category: 'Collocation', term: 'have a word with', context: 'I need to have a word with my boss.', grammar: 'Meaning: beszél vkivel' },
+  { id: 149, category: 'Collocation', term: 'pay in cash', context: 'Would you like to pay in cash?', grammar: 'Meaning: készpénzzel fizet' },
+  { id: 150, category: 'Collocation', term: 'pay by credit card', context: 'I prefer paying by credit card.', grammar: 'Meaning: kártyával fizet' },
+  { id: 151, category: 'Prepositional Phrase', term: 'by chance', context: 'I met him by chance in the city.', grammar: 'Meaning: véletlenül' },
+  { id: 152, category: 'Prepositional Phrase', term: 'by heart', context: 'We had to learn the poem by heart.', grammar: 'Meaning: kívülről (megtanul)' },
+  { id: 153, category: 'Prepositional Phrase', term: 'for example', context: 'Eat more fruit, for example, apples.', grammar: 'Meaning: például' },
+  { id: 154, category: 'Prepositional Phrase', term: 'for sure', context: 'I know for sure that he is coming.', grammar: 'Meaning: biztosan' },
+  { id: 155, category: 'Prepositional Phrase', term: 'in common', context: 'We have a lot in common.', grammar: 'Meaning: közös (bennük)' },
+  { id: 156, category: 'Prepositional Phrase', term: 'in danger', context: 'The animals in the forest are in danger.', grammar: 'Meaning: veszélyben van' },
+  { id: 157, category: 'Prepositional Phrase', term: 'in fact', context: 'In fact, I completely disagree.', grammar: 'Meaning: valójában' },
+  { id: 158, category: 'Prepositional Phrase', term: 'in hurry', context: 'I can\'t talk, I am in a hurry.', grammar: 'Meaning: siet' },
+  { id: 159, category: 'Prepositional Phrase', term: 'in tears', context: 'The little girl was in tears.', grammar: 'Meaning: könnyek között' },
+  { id: 160, category: 'Prepositional Phrase', term: 'on foot', context: 'Do you go to school on foot?', grammar: 'Meaning: gyalog' },
+  { id: 161, category: 'Prepositional Phrase', term: 'on holiday', context: 'My parents are currently on holiday.', grammar: 'Meaning: nyaralni van' },
+  { id: 162, category: 'Prepositional Phrase', term: 'on time', context: 'The train arrived exactly on time.', grammar: 'Meaning: pontosan (időben)' },
+  { id: 163, category: 'Prepositional Phrase', term: 'in time', context: 'We got to the cinema just in time.', grammar: 'Meaning: időben (még nem késve)' },
+  { id: 164, category: 'Prepositional Phrase', term: 'out of breath', context: 'I ran so fast, I was out of breath.', grammar: 'Meaning: kifulladt' },
+  { id: 165, category: 'Prepositional Phrase', term: 'out of date', context: 'This map is out of date.', grammar: 'Meaning: elavult' },
+  { id: 166, category: 'Idiom', term: 'couch potato', context: 'My brother is a real couch potato.', grammar: 'Meaning: lusta ember (TV előtt ülő)' },
+  { id: 167, category: 'Idiom', term: 'cross your fingers', context: 'Cross your fingers for my exam tomorrow.', grammar: 'Meaning: szorít vkinek' },
+  { id: 168, category: 'Idiom', term: 'feel like', context: 'I feel like going to the cinema.', grammar: 'Meaning: kedve van vmihez' },
+  { id: 169, category: 'Idiom', term: 'get on my nerves', context: 'That loud music gets on my nerves.', grammar: 'Meaning: az idegeimre megy' },
+  { id: 170, category: 'Idiom', term: 'have a sweet tooth', context: 'She has a sweet tooth; she loves chocolate.', grammar: 'Meaning: édesszájú' },
+  { id: 171, category: 'Idiom', term: 'keep an eye on', context: 'Keep an eye on your bag at the station.', grammar: 'Meaning: szemmel tart' },
+  { id: 172, category: 'Idiom', term: 'let me know', context: 'Let me know if you need help.', grammar: 'Meaning: tudasd velem' },
+  { id: 173, category: 'Idiom', term: 'make fun of', context: 'It is cruel to make fun of others.', grammar: 'Meaning: gúnyt űz vkiből' },
+  { id: 174, category: 'Idiom', term: 'never mind', context: 'Never mind, it wasn\'t important.', grammar: 'Meaning: ne is törődj vele' },
+  { id: 175, category: 'Idiom', term: 'take place', context: 'The concert will take place in the park.', grammar: 'Meaning: megrendezésre kerül' },
+  { id: 176, category: 'Idiom', term: 'up to you', context: 'Where we eat is up to you.', grammar: 'Meaning: rajtad áll' },
+  { id: 177, category: 'Phrase', term: 'as long as', context: 'You can stay as long as you want.', grammar: 'Meaning: mindaddig, amíg' },
+  { id: 178, category: 'Phrase', term: 'as soon as possible', context: 'Call me back as soon as possible.', grammar: 'Meaning: amint csak lehet' },
+  { id: 179, category: 'Phrase', term: 'even though', context: 'I will go, even though it is raining.', grammar: 'Meaning: annak ellenére, hogy' },
+  { id: 180, category: 'Phrase', term: 'in case', context: 'Take an umbrella in case it rains.', grammar: 'Meaning: arra az esetre, ha' },
+  { id: 181, category: 'Phrase', term: 'in spite of', context: 'He went to work in spite of feeling ill.', grammar: 'Meaning: vmi ellenére' },
+  { id: 182, category: 'Phrase', term: 'instead of', context: 'I will have tea instead of coffee.', grammar: 'Meaning: vmi helyett' },
+  { id: 183, category: 'Phrase', term: 'make sure', context: 'Make sure you lock the door.', grammar: 'Meaning: gondoskodik róla, meggyőződik' },
+  { id: 184, category: 'Phrase', term: 'no wonder', context: 'No wonder you are tired, you didn\'t sleep.', grammar: 'Meaning: nem csoda' },
+  { id: 185, category: 'Phrase', term: 'on the one hand', context: 'On the one hand, the city is beautiful...', grammar: 'Meaning: egyrészről...' },
+  { id: 186, category: 'Phrase', term: 'on the other hand', context: '...on the other hand, it is very noisy.', grammar: 'Meaning: ...másrészről' },
+  { id: 187, category: 'Phrase', term: 'supposed to', context: 'You are supposed to be at school now.', grammar: 'Meaning: kellene (elvárás)' },
+  { id: 188, category: 'Phrase', term: 'tend to', context: 'People tend to eat more in winter.', grammar: 'Meaning: hajlamos vmire' },
+  { id: 189, category: 'Phrase', term: 'used to (+ verb)', context: 'I used to play the piano when I was younger.', grammar: 'Meaning: valaha csinált vmit (már nem)' },
+  { id: 190, category: 'Phrase', term: 'get used to', context: 'I can\'t get used to this cold weather.', grammar: 'Meaning: hozzászokik vmihez' },
+  { id: 191, category: 'Phrasal Verb', term: 'put up with', context: 'I refuse to put up with his bad behavior.', grammar: 'Meaning: elvisel vmit' },
+  { id: 192, category: 'Phrasal Verb', term: 'look down on', context: 'She looks down on people who have less money.', grammar: 'Meaning: lenéz vkit' },
+  { id: 193, category: 'Phrasal Verb', term: 'look up to', context: 'I really look up to my older brother.', grammar: 'Meaning: felnéz vkire' },
+  { id: 194, category: 'Phrasal Verb', term: 'run into', context: 'I ran into an old friend yesterday.', grammar: 'Meaning: véletlenül összefut vkivel' },
+  { id: 195, category: 'Phrasal Verb', term: 'come up with', context: 'We must come up with a new idea.', grammar: 'Meaning: előáll (ötlettel)' },
+  { id: 196, category: 'Phrasal Verb', term: 'cut down on', context: 'I am trying to cut down on sugar.', grammar: 'Meaning: csökkent (fogyasztást)' },
+  { id: 197, category: 'Phrasal Verb', term: 'get over', context: 'It took him a year to get over his illness.', grammar: 'Meaning: túlteszi magát vmin' },
+  { id: 198, category: 'Phrasal Verb', term: 'show off', context: 'He just bought a new car to show off.', grammar: 'Meaning: felvág, dicsekszik' },
+  { id: 199, category: 'Phrasal Verb', term: 'take after', context: 'She really takes after her mother.', grammar: 'Meaning: hasonlít vkire (családban)' },
+  { id: 200, category: 'Phrasal Verb', term: 'work out', context: 'I hope things will work out for you.', grammar: 'Meaning: megoldódik, sikerül' }
 ];
 
 const tasksDatabase = {
@@ -1342,14 +1443,17 @@ const DailySummary = ({ day, scores, onFinish }) => {
 };
 
 const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
-  const [step, setStep] = useState('reading');
+  const [step, setStep] = useState('reading'); // reading -> useOfEnglish -> listening -> flashcards -> summary
   const [scores, setScores] = useState({ reading: null, useOfEnglish: null, listening: null });
 
   const safeDay = Number(day) || 1;
+  
+  // Reverted back to ONE test of each type per day
   const readingTask = tasksDatabase.reading[(safeDay - 1) % tasksDatabase.reading.length];
   const uoeTask = tasksDatabase.useOfEnglish[(safeDay - 1) % tasksDatabase.useOfEnglish.length];
   const listeningTask = tasksDatabase.listening[(safeDay - 1) % tasksDatabase.listening.length];
   
+  // 20 flashcards per day based on day number
   const startIndex = ((safeDay - 1) * 20) % flashcardsData.length;
   const dayFlashcards = [];
   for (let i = 0; i < 20; i++) {
@@ -1584,8 +1688,10 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
       <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
         <div className="flex justify-between items-start mb-6 border-b border-slate-100 pb-4">
           <div>
-            <h2 className="text-2xl font-bold text-slate-800">{taskType === 'listening' ? 'Listening: ' + taskData.title : taskData.title}</h2>
-            <p className="text-slate-500 mt-1">{taskData.instructions}</p>
+            <h2 className="text-2xl font-bold text-slate-800">
+              {taskType === 'listening' ? 'Listening: ' + taskData.title : taskData.title}
+            </h2>
+            <p className="text-slate-500 mt-2">{taskData.instructions}</p>
           </div>
         </div>
 
@@ -1882,7 +1988,7 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
 
     </div>
   );
-};
+}
 
 export default function App() {
   const [tailwindLoaded, setTailwindLoaded] = useState(false);
