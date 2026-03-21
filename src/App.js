@@ -1,7 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { BookOpen, Edit3, Headphones, CheckCircle, XCircle, ArrowRight, ArrowLeft, Award, MessageCircle, AlertCircle, BarChart2, Mic, Camera, MessageSquare, ExternalLink, Settings, Link as LinkIcon, Trash2, Play, Pause, Flame, Layers } from 'lucide-react';
+import { BookOpen, Edit3, Headphones, CheckCircle, XCircle, ArrowRight, ArrowLeft, Award, MessageCircle, AlertCircle, BarChart2, Mic, Camera, MessageSquare, ExternalLink, Settings, Trash2, Play, Pause, Flame, Layers } from 'lucide-react';
 
-// --- DATA: Flashcards (Batch 1 & 2: 1-100 from Important Matura Vocabulary) ---
+// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---
+// Because Netlify does not have a shared database, any link placed here 
+// will be permanently available to all your students on all browsers.
+const TEACHER_AUDIO_LINKS = {
+  'l1': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567/audio-project.mp3',
+  'l2': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566/elevenlabs-untitled-project-1.mp3',
+  'l4': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526542/a-lucky-escape.mp3',
+  'l5': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526565/elevenlabs-a-spoonful-of-sugar.mp3',
+  'l6': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550/paul-stout.mp3',
+  'l7': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526546/duke-the-rescue-dog.mp3',
+  'l8': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526547/einstein.mp3',
+  'l9': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526549/interview-with-leona-lewis.mp3',
+  'l10': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526551/slow-drivers.mp3',
+  'l11': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526544/a-philosop.mp3',
+  'l12': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526548/franz-kafka-and-the-doll.mp3',
+  'l13': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3',
+  'l14': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552/the-emperor-of-long-distance.mp3',
+  'l15': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553/the-history-of-the-bikini.mp3',
+  'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3'
+};
+// -------------------------------------------------------------
+
+// --- DATA: Flashcards (Batch 1 & 2: 1-100) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
   { id: 2, category: 'Adjective + Prep', term: 'bad at', context: "I'm bad at remembering names.", grammar: 'Meaning: rossz vmiben' },
@@ -111,105 +133,33 @@ const tasksDatabase = {
       id: 'r1',
       title: 'Reading: A Lucky Survival',
       instructions: 'Read the short text and choose the best answer (A, B, C, or D) for each question.',
-      text: `Ava was a passionate paraglider. One day, during a flight, she was caught in a massive storm that pulled her up to almost 10,000 metres—higher than Mount Everest! At that incredible height, the temperature dropped to -40°C, and there was very little oxygen in the air. Ava quickly lost consciousness. Her body and her paraglider became completely covered in heavy ice, which caused her to fall rapidly from the sky. 
-
-Miraculously, as she fell into warmer air, the ice melted just enough for her emergency parachute to open automatically. The wings came out and stopped her freefall. She eventually landed safely about 60 kilometres from her starting point. Using her GPS devices, her team located her quickly. Apart from some mild frostbite, she suffered no serious injuries and was flying again within weeks. Experts called her survival "like winning the lottery ten times in a row."`,
+      text: `Ava was a passionate paraglider. One day, during a flight, she was caught in a massive storm that pulled her up to almost 10,000 metres—higher than Mount Everest! At that incredible height, the temperature dropped to -40°C, and there was very little oxygen in the air. Ava quickly lost consciousness. Her body and her paraglider became completely covered in heavy ice, which caused her to fall rapidly from the sky. \n\nMiraculously, as she fell into warmer air, the ice melted just enough for her emergency parachute to open automatically. The wings came out and stopped her freefall. She eventually landed safely about 60 kilometres from her starting point. Using her GPS devices, her team located her quickly. Apart from some mild frostbite, she suffered no serious injuries and was flying again within weeks. Experts called her survival "like winning the lottery ten times in a row."`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What caused Ava to go so high up in the sky?',
-          options: ['A) She wanted to break a world altitude record.', 'B) A strong storm pulled her upwards.', 'C) Her team directed her there by mistake.', 'D) She used a special motor to fly higher.'],
-          correct: 'B) A strong storm pulled her upwards.',
-          explanation: 'The text specifically states she was "caught in a massive storm that pulled her up".',
-          tip: 'Exam Tip: Always look for synonyms in the text. "Caught in a storm" matches the idea in option B.'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did Ava start falling rapidly?',
-          options: ['A) She forgot how to steer the paraglider.', 'B) The paraglider was damaged by lightning.', 'C) The extra weight of the ice pulled her down.', 'D) She wanted to land as quickly as possible.'],
-          correct: 'C) The extra weight of the ice pulled her down.',
-          explanation: 'The text says her paraglider became "covered in heavy ice, which caused her to fall rapidly".',
-          tip: 'Exam Tip: Read the sentence immediately before the result to find the cause.'
-        },
-        {
-          id: 'q3',
-          text: '3. How did her team know where to find her?',
-          options: ['A) They saw her parachute open from the ground.', 'B) She used her electronic devices to contact them.', 'C) A local farmer called them on the phone.', 'D) They guessed her location based on the wind.'],
-          correct: 'B) She used her electronic devices to contact them.',
-          explanation: 'The text mentions "Using her GPS devices, her team located her quickly."',
-          tip: 'Exam Tip: Do not use your own background knowledge; only rely on what is written in the text.'
-        }
+        { id: 'q1', text: '1. What caused Ava to go so high up in the sky?', options: ['A) She wanted to break a world altitude record.', 'B) A strong storm pulled her upwards.', 'C) Her team directed her there by mistake.', 'D) She used a special motor to fly higher.'], correct: 'B) A strong storm pulled her upwards.', explanation: 'The text specifically states she was "caught in a massive storm that pulled her up".', tip: 'Exam Tip: Always look for synonyms in the text. "Caught in a storm" matches the idea in option B.' },
+        { id: 'q2', text: '2. Why did Ava start falling rapidly?', options: ['A) She forgot how to steer the paraglider.', 'B) The paraglider was damaged by lightning.', 'C) The extra weight of the ice pulled her down.', 'D) She wanted to land as quickly as possible.'], correct: 'C) The extra weight of the ice pulled her down.', explanation: 'The text says her paraglider became "covered in heavy ice, which caused her to fall rapidly".', tip: 'Exam Tip: Read the sentence immediately before the result to find the cause.' },
+        { id: 'q3', text: '3. How did her team know where to find her?', options: ['A) They saw her parachute open from the ground.', 'B) She used her electronic devices to contact them.', 'C) A local farmer called them on the phone.', 'D) They guessed her location based on the wind.'], correct: 'B) She used her electronic devices to contact them.', explanation: 'The text mentions "Using her GPS devices, her team located her quickly."', tip: 'Exam Tip: Do not use your own background knowledge; only rely on what is written in the text.' }
       ]
     },
     {
       id: 'r2',
       title: 'Reading: The Dream Job',
       instructions: 'Read the text about a unique job and choose the best answer.',
-      text: `A company named Hush Hush is looking to hire someone whose job is nothing else but to test the quality of yachts and check that they meet high standards, said Aaron Harpin, the founder of the company. You'll spend one week on a yacht and then write a detailed report of everything you find. You'll live, sleep, eat, and shower on a luxury yacht, testing anything and everything on the boat, including every bed, door, shower, or any electrical equipment.
-
-All you need to qualify for this position is to be at least 21 years old and own a passport. It's also quite important that you should have an extremely flexible timetable, as the company might be sending you all over the world to test the next ship at any time. The lucky applicant could potentially be testing up to 50 yachts every year, which means they could earn up to $65,000 a year for their work.`,
+      text: `A company named Hush Hush is looking to hire someone whose job is nothing else but to test the quality of yachts and check that they meet high standards, said Aaron Harpin, the founder of the company. You'll spend one week on a yacht and then write a detailed report of everything you find. You'll live, sleep, eat, and shower on a luxury yacht, testing anything and everything on the boat, including every bed, door, shower, or any electrical equipment.\n\nAll you need to qualify for this position is to be at least 21 years old and own a passport. It's also quite important that you should have an extremely flexible timetable, as the company might be sending you all over the world to test the next ship at any time. The lucky applicant could potentially be testing up to 50 yachts every year, which means they could earn up to $65,000 a year for their work.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What is the main responsibility of the person hired?',
-          options: ['A) To clean the luxury yachts.', 'B) To sell the yachts to rich clients.', 'C) To check the quality of everything on board.', 'D) To design new electrical equipment.'],
-          correct: 'C) To check the quality of everything on board.',
-          explanation: 'The text says the job is to "test the quality of yachts" and "write a detailed report of everything you find."',
-          tip: 'Exam Tip: Read the first paragraph carefully as it usually contains the main idea of the text.'
-        },
-        {
-          id: 'q2',
-          text: '2. Which of the following is a strict requirement for the job?',
-          options: ['A) Previous experience with boats.', 'B) A university degree in engineering.', 'C) Being under 21 years old.', 'D) Having a flexible schedule.'],
-          correct: 'D) Having a flexible schedule.',
-          explanation: 'The text states: "It\'s also quite important that you should have an extremely flexible timetable".',
-          tip: 'Exam Tip: Watch out for opposites in the options! Option C says "under 21", but the text says "at least 21".'
-        },
-        {
-          id: 'q3',
-          text: '3. How much can the tester earn per year?',
-          options: ['A) Exactly $1,300.', 'B) Up to $65,000.', 'C) Over $100,000.', 'D) The text doesn\'t mention annual pay.'],
-          correct: 'B) Up to $65,000.',
-          explanation: 'The final paragraph states they "could earn up to $65,000 a year for their work."',
-          tip: 'Exam Tip: When answering number/money questions, make sure you match the timeframe (per week vs per year).'
-        }
+        { id: 'q1', text: '1. What is the main responsibility of the person hired?', options: ['A) To clean the luxury yachts.', 'B) To sell the yachts to rich clients.', 'C) To check the quality of everything on board.', 'D) To design new electrical equipment.'], correct: 'C) To check the quality of everything on board.', explanation: 'The text says the job is to "test the quality of yachts" and "write a detailed report of everything you find."', tip: 'Exam Tip: Read the first paragraph carefully as it usually contains the main idea of the text.' },
+        { id: 'q2', text: '2. Which of the following is a strict requirement for the job?', options: ['A) Previous experience with boats.', 'B) A university degree in engineering.', 'C) Being under 21 years old.', 'D) Having a flexible schedule.'], correct: 'D) Having a flexible schedule.', explanation: 'The text states: "It\'s also quite important that you should have an extremely flexible timetable".', tip: 'Exam Tip: Watch out for opposites in the options! Option C says "under 21", but the text says "at least 21".' },
+        { id: 'q3', text: '3. How much can the tester earn per year?', options: ['A) Exactly $1,300.', 'B) Up to $65,000.', 'C) Over $100,000.', 'D) The text doesn\'t mention annual pay.'], correct: 'B) Up to $65,000.', explanation: 'The final paragraph states they "could earn up to $65,000 a year for their work."', tip: 'Exam Tip: When answering number/money questions, make sure you match the timeframe (per week vs per year).' }
       ]
     },
     {
       id: 'r3',
       title: 'Reading: Working with Dinosaurs',
       instructions: 'Read the interview with an actress and answer the questions.',
-      text: `Interviewer: Young actors in Steven Spielberg's films are usually very good. Do you know the secret?
-Actress: Steven is very good at choosing actors, and I think he chooses actors that bring the kind of natural quality to their roles that he wants to see. Steven allowed me to be absolutely natural and directed me without actually directing me.
-Interviewer: What about the dinosaurs in the film? Were they actually there, or did you have to imagine them?
-Actress: I would say about 80% of the time the dinosaurs were actually present, and only the rest of the dinosaur scenes were computer-generated. The dinosaurs were absolutely lifelike. I got the chance to actually feel them as if they were real. In fact, when the T-Rex was crashing down on the jeep, it really was!
-Interviewer: Were you excited about dinosaurs before making Jurassic Park?
-Actress: Doing the film was what got me interested in dinosaurs. At the end of the filming, the technical advisor invited me to dig for dinosaur bones in Montana.`,
+      text: `Interviewer: Young actors in Steven Spielberg's films are usually very good. Do you know the secret?\nActress: Steven is very good at choosing actors, and I think he chooses actors that bring the kind of natural quality to their roles that he wants to see. Steven allowed me to be absolutely natural and directed me without actually directing me.\nInterviewer: What about the dinosaurs in the film? Were they actually there, or did you have to imagine them?\nActress: I would say about 80% of the time the dinosaurs were actually present, and only the rest of the dinosaur scenes were computer-generated. The dinosaurs were absolutely lifelike. I got the chance to actually feel them as if they were real. In fact, when the T-Rex was crashing down on the jeep, it really was!\nInterviewer: Were you excited about dinosaurs before making Jurassic Park?\nActress: Doing the film was what got me interested in dinosaurs. At the end of the filming, the technical advisor invited me to dig for dinosaur bones in Montana.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Why does Spielberg’s directing style work well for young actors?',
-          options: ['A) He sends them to expensive acting schools.', 'B) He allows them to act naturally.', 'C) He gives them very strict instructions.', 'D) He rewrites the script for them.'],
-          correct: 'B) He allows them to act naturally.',
-          explanation: 'The actress mentions that he "allowed me to be absolutely natural".',
-          tip: 'Exam Tip: Always read the response immediately following the interviewer\'s question.'
-        },
-        {
-          id: 'q2',
-          text: '2. How were the dinosaur scenes filmed?',
-          options: ['A) They were 100% computer-generated.', 'B) The actors had to imagine all of them.', 'C) Most of the dinosaurs were physically there.', 'D) They used real, living animals.'],
-          correct: 'C) Most of the dinosaurs were physically there.',
-          explanation: 'The actress says "about 80% of the time the dinosaurs were actually present".',
-          tip: 'Exam Tip: Pay attention to percentages and quantifiers (like "80%" -> "Most").'
-        },
-        {
-          id: 'q3',
-          text: '3. What happened after the movie was finished?',
-          options: ['A) The actress bought a dinosaur skeleton.', 'B) She went to search for real dinosaur fossils.', 'C) She studied to become a director.', 'D) She lost her interest in dinosaurs.'],
-          correct: 'B) She went to search for real dinosaur fossils.',
-          explanation: 'She states that the advisor "invited me to dig for dinosaur bones in Montana."',
-          tip: 'Exam Tip: Match the chronological order in the text ("At the end of the filming...") to the question ("after the movie was finished").'
-        }
+        { id: 'q1', text: '1. Why does Spielberg’s directing style work well for young actors?', options: ['A) He sends them to expensive acting schools.', 'B) He allows them to act naturally.', 'C) He gives them very strict instructions.', 'D) He rewrites the script for them.'], correct: 'B) He allows them to act naturally.', explanation: 'The actress mentions that he "allowed me to be absolutely natural".', tip: 'Exam Tip: Always read the response immediately following the interviewer\'s question.' },
+        { id: 'q2', text: '2. How were the dinosaur scenes filmed?', options: ['A) They were 100% computer-generated.', 'B) The actors had to imagine all of them.', 'C) Most of the dinosaurs were physically there.', 'D) They used real, living animals.'], correct: 'C) Most of the dinosaurs were physically there.', explanation: 'The actress says "about 80% of the time the dinosaurs were actually present".', tip: 'Exam Tip: Pay attention to percentages and quantifiers (like "80%" -> "Most").' },
+        { id: 'q3', text: '3. What happened after the movie was finished?', options: ['A) The actress bought a dinosaur skeleton.', 'B) She went to search for real dinosaur fossils.', 'C) She studied to become a director.', 'D) She lost her interest in dinosaurs.'], correct: 'B) She went to search for real dinosaur fossils.', explanation: 'She states that the advisor "invited me to dig for dinosaur bones in Montana."', tip: 'Exam Tip: Match the chronological order in the text ("At the end of the filming...") to the question ("after the movie was finished").' }
       ]
     },
     {
@@ -218,30 +168,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text and choose the best answer (A, B, or C).',
       text: "When Sandy Greenberg suddenly went blind at college, his best friend Art Garfunkel refused to allow him to give up on life. Art convinced Sandy to give college another go and promised that he would be right by his side and be his eyes. Art kept his promise. He organized his life around helping Sandy and went with him everywhere. He even started calling himself 'Darkness' to show empathy.\n\nOne day, Art was guiding Sandy through crowded Grand Central Station when he suddenly said he had to go, leaving his friend alone. Sandy stumbled and fell, but eventually found his way onto the right subway train. When he got off, he bumped into someone who apologized—it was Art! He had followed Sandy the whole way to make sure he was safe, giving him the priceless gift of independence.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. What did Art Garfunkel do when Sandy went blind?',
-          options: ['A) He left college.', 'B) He promised to help Sandy continue his studies.', 'C) He found a doctor for him.'],
-          correct: 'B) He promised to help Sandy continue his studies.',
-          explanation: 'The text says Art "convinced Sandy to give college another go and promised that he would be right by his side".',
-          tip: 'Exam Tip: "Give college another go" is a synonym phrase for continuing his studies.'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did Art call himself "Darkness"?',
-          options: ['A) It was his favourite song.', 'B) He wanted to show he understood Sandy\'s situation.', 'C) He only went out at night.'],
-          correct: 'B) He wanted to show he understood Sandy\'s situation.',
-          explanation: 'The text explicitly states he called himself Darkness "to show empathy".',
-          tip: 'Exam Tip: Vocabulary in context is key. "Empathy" means understanding and sharing another person\'s feelings.'
-        },
-        {
-          id: 'q3',
-          text: '3. Why did Art leave Sandy alone at the station?',
-          options: ['A) He had an urgent appointment.', 'B) He was angry with him.', 'C) He wanted to teach Sandy how to be independent.'],
-          correct: 'C) He wanted to teach Sandy how to be independent.',
-          explanation: 'The text concludes that Art followed him safely to give him "the priceless gift of independence".',
-          tip: 'Exam Tip: Sometimes the answer to a question in the middle of a story is found at the very end.'
-        }
+        { id: 'q1', text: '1. What did Art Garfunkel do when Sandy went blind?', options: ['A) He left college.', 'B) He promised to help Sandy continue his studies.', 'C) He found a doctor for him.'], correct: 'B) He promised to help Sandy continue his studies.', explanation: 'The text says Art "convinced Sandy to give college another go and promised that he would be right by his side".', tip: 'Exam Tip: "Give college another go" is a synonym phrase for continuing his studies.' },
+        { id: 'q2', text: '2. Why did Art call himself "Darkness"?', options: ['A) It was his favourite song.', 'B) He wanted to show he understood Sandy\'s situation.', 'C) He only went out at night.'], correct: 'B) He wanted to show he understood Sandy\'s situation.', explanation: 'The text explicitly states he called himself Darkness "to show empathy".', tip: 'Exam Tip: Vocabulary in context is key. "Empathy" means understanding and sharing another person\'s feelings.' },
+        { id: 'q3', text: '3. Why did Art leave Sandy alone at the station?', options: ['A) He had an urgent appointment.', 'B) He was angry with him.', 'C) He wanted to teach Sandy how to be independent.'], correct: 'C) He wanted to teach Sandy how to be independent.', explanation: 'The text concludes that Art followed him safely to give him "the priceless gift of independence".', tip: 'Exam Tip: Sometimes the answer to a question in the middle of a story is found at the very end.' }
       ]
     },
     {
@@ -250,30 +179,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text and choose the best answer (A, B, or C).',
       text: "If you look at old photographs from the 19th century, you will notice that nobody is smiling. There are a few reasons for this. First, early cameras needed a very long time to take a picture. The exposure time could be several minutes! It is almost impossible to hold a natural smile for that long without moving, so people just kept a relaxed, serious face.\n\nSecond, dental care was very poor back then. Many people had missing or ruined teeth and did not want to show them in a permanent picture. Finally, getting a photograph taken was an expensive, rare event, much like having an oil painting made. People wanted to look serious and respectable for future generations.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. How did camera technology affect people\'s expressions?',
-          options: ['A) The flashes were too bright to keep eyes open.', 'B) They had to sit perfectly still for a long time.', 'C) The cameras could not capture smiles clearly.'],
-          correct: 'B) They had to sit perfectly still for a long time.',
-          explanation: 'The text notes that exposure time was "several minutes" and holding a smile that long without moving is "almost impossible".',
-          tip: 'Exam Tip: Look for cause and effect linking words like "so" to find explanations in texts.'
-        },
-        {
-          id: 'q2',
-          text: '2. What role did dentistry play in old photographs?',
-          options: ['A) Dentists used photos to examine teeth.', 'B) People hid their bad teeth by keeping their mouths closed.', 'C) Only wealthy people with good teeth were photographed.'],
-          correct: 'B) People hid their bad teeth by keeping their mouths closed.',
-          explanation: 'The text explains people had ruined teeth and "did not want to show them in a permanent picture".',
-          tip: 'Exam Tip: Always rule out answers that bring in outside logic not mentioned in the text (like option A or C).'
-        },
-        {
-          id: 'q3',
-          text: '3. How did people view the experience of getting a photograph taken?',
-          options: ['A) As a funny, everyday activity.', 'B) As an important and formal occasion.', 'C) As a cheap way to make memories.'],
-          correct: 'B) As an important and formal occasion.',
-          explanation: 'Taking a picture was an "expensive, rare event" where people wanted to look "respectable".',
-          tip: 'Exam Tip: Synonyms are your best friend! "Serious and respectable" matches the idea of an "important and formal" occasion.'
-        }
+        { id: 'q1', text: '1. How did camera technology affect people\'s expressions?', options: ['A) The flashes were too bright to keep eyes open.', 'B) They had to sit perfectly still for a long time.', 'C) The cameras could not capture smiles clearly.'], correct: 'B) They had to sit perfectly still for a long time.', explanation: 'The text notes that exposure time was "several minutes" and holding a smile that long without moving is "almost impossible".', tip: 'Exam Tip: Look for cause and effect linking words like "so" to find explanations in texts.' },
+        { id: 'q2', text: '2. What role did dentistry play in old photographs?', options: ['A) Dentists used photos to examine teeth.', 'B) People hid their bad teeth by keeping their mouths closed.', 'C) Only wealthy people with good teeth were photographed.'], correct: 'B) People hid their bad teeth by keeping their mouths closed.', explanation: 'The text explains people had ruined teeth and "did not want to show them in a permanent picture".', tip: 'Exam Tip: Always rule out answers that bring in outside logic not mentioned in the text (like option A or C).' },
+        { id: 'q3', text: '3. How did people view the experience of getting a photograph taken?', options: ['A) As a funny, everyday activity.', 'B) As an important and formal occasion.', 'C) As a cheap way to make memories.'], correct: 'B) As an important and formal occasion.', explanation: 'Taking a picture was an "expensive, rare event" where people wanted to look "respectable".', tip: 'Exam Tip: Synonyms are your best friend! "Serious and respectable" matches the idea of an "important and formal" occasion.' }
       ]
     },
     {
@@ -282,30 +190,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text and choose the best answer (A, B, or C).',
       text: "Maria Telkes was a Hungarian-American scientist and inventor who worked on solar energy technologies. She is often called the 'Sun Queen' for her amazing work. Born in Budapest in 1900, she moved to the United States after finishing her studies.\n\nDuring World War II, she invented a miniature solar desalination kit for the military. This device used the sun's heat to remove salt from seawater, saving the lives of sailors and pilots who were stranded on the ocean without drinking water. Later, in 1948, she designed the heating system for the first solar-heated home in Massachusetts. Her inventions proved that the sun could be used for everyday practical purposes.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. Where did Maria Telkes grow up?',
-          options: ['A) In the United States.', 'B) In Massachusetts.', 'C) In Hungary.'],
-          correct: 'C) In Hungary.',
-          explanation: 'The text mentions she was "Born in Budapest" and moved to the US "after finishing her studies".',
-          tip: 'Exam Tip: Pay attention to timelines. She moved to the US later in life, so she grew up in Hungary.'
-        },
-        {
-          id: 'q2',
-          text: '2. How did her invention help soldiers during WWII?',
-          options: ['A) It provided them with clean drinking water.', 'B) It gave them solar-powered radios.', 'C) It heated their tents.'],
-          correct: 'A) It provided them with clean drinking water.',
-          explanation: 'Her desalination kit removed salt from seawater, helping stranded sailors "without drinking water".',
-          tip: 'Exam Tip: If you don\'t know a word like "desalination", read the sentence after it. The text usually explains difficult words!'
-        },
-        {
-          id: 'q3',
-          text: '3. What was special about the house she worked on in 1948?',
-          options: ['A) It was built entirely of glass.', 'B) It was the first house heated by solar energy.', 'C) It was a floating house on the ocean.'],
-          correct: 'B) It was the first house heated by solar energy.',
-          explanation: 'The text explicitly states she designed the heating system for "the first solar-heated home".',
-          tip: 'Exam Tip: Look for absolute words like "first", "only", or "best" in the text to match with the questions.'
-        }
+        { id: 'q1', text: '1. Where did Maria Telkes grow up?', options: ['A) In the United States.', 'B) In Massachusetts.', 'C) In Hungary.'], correct: 'C) In Hungary.', explanation: 'The text mentions she was "Born in Budapest" and moved to the US "after finishing her studies".', tip: 'Exam Tip: Pay attention to timelines. She moved to the US later in life, so she grew up in Hungary.' },
+        { id: 'q2', text: '2. How did her invention help soldiers during WWII?', options: ['A) It provided them with clean drinking water.', 'B) It gave them solar-powered radios.', 'C) It heated their tents.'], correct: 'A) It provided them with clean drinking water.', explanation: 'Her desalination kit removed salt from seawater, helping stranded sailors "without drinking water".', tip: 'Exam Tip: If you don\'t know a word like "desalination", read the sentence after it. The text usually explains difficult words!' },
+        { id: 'q3', text: '3. What was special about the house she worked on in 1948?', options: ['A) It was built entirely of glass.', 'B) It was the first house heated by solar energy.', 'C) It was a floating house on the ocean.'], correct: 'B) It was the first house heated by solar energy.', explanation: 'The text explicitly states she designed the heating system for "the first solar-heated home".', tip: 'Exam Tip: Look for absolute words like "first", "only", or "best" in the text to match with the questions.' }
       ]
     },
     {
@@ -314,30 +201,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text about an eco-friendly invention and choose the best answer (A, B, or C).',
       text: "Earl Forlales, a 23-year-old engineering graduate, has won a £50,000 prize for designing a unique house made of bamboo. The house, which is known as 'Cubo', was awarded first prize by the Royal Institute of Surveyors in a competition to develop cities for the future.\n\nThe judges decided to give the top prize to the Cubo house because of its use of low-cost, eco-friendly material. Furthermore, the speed with which it could be constructed was incredibly impressive. The house can be manufactured in a week and built on-site in less than a day! Earl hopes that this invention will help solve the severe housing problems in crowded cities like Manila.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. What is the primary building material of the Cubo house?',
-          options: ['A) Recycled plastic.', 'B) Bamboo.', 'C) Low-cost wood.'],
-          correct: 'B) Bamboo.',
-          explanation: 'The text states Earl won a prize for "designing a unique house made of bamboo."',
-          tip: 'Exam Tip: The answer is often right in the first sentence. Scan for keywords from the question.'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did the judges select the Cubo house as the winner?',
-          options: ['A) Because it looks like a traditional palace.', 'B) Because it is environmentally friendly and fast to build.', 'C) Because it was the most expensive project.'],
-          correct: 'B) Because it is environmentally friendly and fast to build.',
-          explanation: 'The judges chose it for its "eco-friendly material" and the "speed with which it could be constructed".',
-          tip: 'Exam Tip: Look for combinations of adjectives (low-cost, eco-friendly, fast) to match the options.'
-        },
-        {
-          id: 'q3',
-          text: '3. What major problem does this invention attempt to solve?',
-          options: ['A) A lack of housing in crowded cities.', 'B) Too much bamboo growing in forests.', 'C) A shortage of engineering jobs.'],
-          correct: 'A) A lack of housing in crowded cities.',
-          explanation: 'Earl hopes it will help solve the "severe housing problems in crowded cities like Manila".',
-          tip: 'Exam Tip: Be careful not to use your own logic. Always find the specific evidence in the paragraph.'
-        }
+        { id: 'q1', text: '1. What is the primary building material of the Cubo house?', options: ['A) Recycled plastic.', 'B) Bamboo.', 'C) Low-cost wood.'], correct: 'B) Bamboo.', explanation: 'The text states Earl won a prize for "designing a unique house made of bamboo."', tip: 'Exam Tip: The answer is often right in the first sentence. Scan for keywords from the question.' },
+        { id: 'q2', text: '2. Why did the judges select the Cubo house as the winner?', options: ['A) Because it looks like a traditional palace.', 'B) Because it is environmentally friendly and fast to build.', 'C) Because it was the most expensive project.'], correct: 'B) Because it is environmentally friendly and fast to build.', explanation: 'The judges chose it for its "eco-friendly material" and the "speed with which it could be constructed".', tip: 'Exam Tip: Look for combinations of adjectives (low-cost, eco-friendly, fast) to match the options.' },
+        { id: 'q3', text: '3. What major problem does this invention attempt to solve?', options: ['A) A lack of housing in crowded cities.', 'B) Too much bamboo growing in forests.', 'C) A shortage of engineering jobs.'], correct: 'A) A lack of housing in crowded cities.', explanation: 'Earl hopes it will help solve the "severe housing problems in crowded cities like Manila".', tip: 'Exam Tip: Be careful not to use your own logic. Always find the specific evidence in the paragraph.' }
       ]
     },
     {
@@ -346,30 +212,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text about Stephen Hawking and choose the best answer (A, B, or C).',
       text: "In the afterword of a book about making spaceships, the famous scientist Stephen Hawking explained why he enthusiastically accepted an offer to travel to space. 'I have no fear of adventure,' he wrote. 'Years ago, I travelled down the steepest hills of San Francisco in my wheelchair. I travel widely and have even been to Antarctica.'\n\nHawking believed that humanity desperately needs a new generation of astronauts to explore our solar system. He felt that these first private astronauts will be pioneers who will change the world for good. 'It is my belief that there is no limit to human effort,' he stated. His final advice to the readers was simple: 'Remember to look up at the stars and not down at your feet.'",
       questions: [
-        {
-          id: 'q1',
-          text: '1. How did Stephen Hawking feel about adventure?',
-          options: ['A) He was terrified of it.', 'B) He thought it was only for young people.', 'C) He was not afraid of it at all.'],
-          correct: 'C) He was not afraid of it at all.',
-          explanation: 'Hawking explicitly wrote, "I have no fear of adventure."',
-          tip: 'Exam Tip: "No fear" is perfectly paraphrased as "not afraid of it at all".'
-        },
-        {
-          id: 'q2',
-          text: '2. Where is one of the extreme places he visited on Earth?',
-          options: ['A) The Moon.', 'B) Antarctica.', 'C) The Sahara Desert.'],
-          correct: 'B) Antarctica.',
-          explanation: 'He mentions that he travels widely and has "even been to Antarctica".',
-          tip: 'Exam Tip: Only choose information directly mentioned in the text, even if other options sound plausible.'
-        },
-        {
-          id: 'q3',
-          text: '3. What is his main advice to people?',
-          options: ['A) To build their own spaceships.', 'B) To look up at the stars.', 'C) To stay safe at home.'],
-          correct: 'B) To look up at the stars.',
-          explanation: 'His final advice was: "Remember to look up at the stars and not down at your feet."',
-          tip: 'Exam Tip: Quotes in the text are very often the source of correct answers.'
-        }
+        { id: 'q1', text: '1. How did Stephen Hawking feel about adventure?', options: ['A) He was terrified of it.', 'B) He thought it was only for young people.', 'C) He was not afraid of it at all.'], correct: 'C) He was not afraid of it at all.', explanation: 'Hawking explicitly wrote, "I have no fear of adventure."', tip: 'Exam Tip: "No fear" is perfectly paraphrased as "not afraid of it at all".' },
+        { id: 'q2', text: '2. Where is one of the extreme places he visited on Earth?', options: ['A) The Moon.', 'B) Antarctica.', 'C) The Sahara Desert.'], correct: 'B) Antarctica.', explanation: 'He mentions that he travels widely and has "even been to Antarctica".', tip: 'Exam Tip: Only choose information directly mentioned in the text, even if other options sound plausible.' },
+        { id: 'q3', text: '3. What is his main advice to people?', options: ['A) To build their own spaceships.', 'B) To look up at the stars.', 'C) To stay safe at home.'], correct: 'B) To look up at the stars.', explanation: 'His final advice was: "Remember to look up at the stars and not down at your feet."', tip: 'Exam Tip: Quotes in the text are very often the source of correct answers.' }
       ]
     },
     {
@@ -378,30 +223,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the story about a lost bag and choose the best answer (A, B, or C).',
       text: "An elderly gentleman was doing his weekly shopping in a supermarket in Batley. After he finished and walked out into the street, he suddenly realized that his small black bag was missing! The bag contained his wallet, cash, and several important personal items. He was absolutely devastated.\n\nHe quickly returned to the store and reported it to the customer service desk. Miraculously, a kind customer had found the bag sitting in a shopping trolley in the car park and handed it to the manager. When the gentleman checked his bag, not a single penny was missing! He was so relieved that he wrote a public letter to the local newspaper to thank the honest stranger who saved his day.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. Where was the man when he realized his bag was missing?',
-          options: ['A) Inside the supermarket.', 'B) Out in the street.', 'C) At the police station.'],
-          correct: 'B) Out in the street.',
-          explanation: 'The text says: "After he finished and walked out into the street, he suddenly realized that his small black bag was missing!"',
-          tip: 'Exam Tip: Read carefully! The event (losing it) happened in the shop, but the realization happened in the street.'
-        },
-        {
-          id: 'q2',
-          text: '2. Who found the lost bag?',
-          options: ['A) The supermarket manager.', 'B) The man\'s uncle.', 'C) A kind customer.'],
-          correct: 'C) A kind customer.',
-          explanation: 'The text states that "a kind customer had found the bag sitting in a shopping trolley".',
-          tip: 'Exam Tip: Distinguish between who *found* the bag and who it was *handed to*.'
-        },
-        {
-          id: 'q3',
-          text: '3. How did the man express his gratitude?',
-          options: ['A) He bought a gift for the manager.', 'B) He wrote a letter to the local newspaper.', 'C) He gave the finder a cash reward.'],
-          correct: 'B) He wrote a letter to the local newspaper.',
-          explanation: 'He was so relieved that he "wrote a public letter to the local newspaper to thank the honest stranger".',
-          tip: 'Exam Tip: Look for actions taken after the main problem is resolved.'
-        }
+        { id: 'q1', text: '1. Where was the man when he realized his bag was missing?', options: ['A) Inside the supermarket.', 'B) Out in the street.', 'C) At the police station.'], correct: 'B) Out in the street.', explanation: 'The text says: "After he finished and walked out into the street, he suddenly realized that his small black bag was missing!"', tip: 'Exam Tip: Read carefully! The event (losing it) happened in the shop, but the realization happened in the street.' },
+        { id: 'q2', text: '2. Who found the lost bag?', options: ['A) The supermarket manager.', 'B) The man\'s uncle.', 'C) A kind customer.'], correct: 'C) A kind customer.', explanation: 'The text states that "a kind customer had found the bag sitting in a shopping trolley".', tip: 'Exam Tip: Distinguish between who *found* the bag and who it was *handed to*.' },
+        { id: 'q3', text: '3. How did the man express his gratitude?', options: ['A) He bought a gift for the manager.', 'B) He wrote a letter to the local newspaper.', 'C) He gave the finder a cash reward.'], correct: 'B) He wrote a letter to the local newspaper.', explanation: 'He was so relieved that he "wrote a public letter to the local newspaper to thank the honest stranger".', tip: 'Exam Tip: Look for actions taken after the main problem is resolved.' }
       ]
     },
     {
@@ -410,30 +234,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the article and choose the best answer (A, B, or C).',
       text: "Buckingham Palace hosted its first-ever official football match. Prince William helped organize the event between two of England's oldest amateur clubs to celebrate the 150th anniversary of the Football Association (FA). The Queen gave her permission for the match to take place in the palace gardens.\n\nThe grass was cut specially by the royal gardeners to make it perfect for the game. Prince William, who is the president of the FA, even played a small part in the match himself, much to the excitement of the crowd. It was a historic day for both the monarchy and English football.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. What special event was being celebrated?',
-          options: ['A) The FA\'s 150th anniversary.', 'B) The Queen\'s birthday.', 'C) Prince William\'s graduation.'],
-          correct: 'A) The FA\'s 150th anniversary.',
-          explanation: 'The text states the match was organized "to celebrate the 150th anniversary of the Football Association (FA)."',
-          tip: 'Exam Tip: Scan the text for numbers and capital letters to quickly locate specific information.'
-        },
-        {
-          id: 'q2',
-          text: '2. Who gave permission for the game to be played at the palace?',
-          options: ['A) The royal gardeners.', 'B) The Queen.', 'C) The FA.'],
-          correct: 'B) The Queen.',
-          explanation: 'It clearly says, "The Queen gave her permission for the match to take place in the palace gardens."',
-          tip: 'Exam Tip: Ensure you identify the subject performing the action in the sentence.'
-        },
-        {
-          id: 'q3',
-          text: '3. What did the royal gardeners do?',
-          options: ['A) Played in the match.', 'B) Planted new flowers.', 'C) Prepared the grass.'],
-          correct: 'C) Prepared the grass.',
-          explanation: 'The text mentions, "The grass was cut specially by the royal gardeners to make it perfect for the game."',
-          tip: 'Exam Tip: "Cut the grass" is a synonym for "prepared the grass" in this context.'
-        }
+        { id: 'q1', text: '1. What special event was being celebrated?', options: ['A) The FA\'s 150th anniversary.', 'B) The Queen\'s birthday.', 'C) Prince William\'s graduation.'], correct: 'A) The FA\'s 150th anniversary.', explanation: 'The text states the match was organized "to celebrate the 150th anniversary of the Football Association (FA)."', tip: 'Exam Tip: Scan the text for numbers and capital letters to quickly locate specific information.' },
+        { id: 'q2', text: '2. Who gave permission for the game to be played at the palace?', options: ['A) The royal gardeners.', 'B) The Queen.', 'C) The FA.'], correct: 'B) The Queen.', explanation: 'It clearly says, "The Queen gave her permission for the match to take place in the palace gardens."', tip: 'Exam Tip: Ensure you identify the subject performing the action in the sentence.' },
+        { id: 'q3', text: '3. What did the royal gardeners do?', options: ['A) Played in the match.', 'B) Planted new flowers.', 'C) Prepared the grass.'], correct: 'C) Prepared the grass.', explanation: 'The text mentions, "The grass was cut specially by the royal gardeners to make it perfect for the game."', tip: 'Exam Tip: "Cut the grass" is a synonym for "prepared the grass" in this context.' }
       ]
     },
     {
@@ -442,30 +245,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text about online safety and choose the best answer (A, B, or C).',
       text: "Gaming is incredibly popular among young people, whether on mobile devices or consoles. To play safely, it's crucial to check age ratings. Look for the icon on the game that shows its age classification. Also, never share identifying details like your full name, phone number, or address, as this puts you at risk.\n\nFinally, to avoid being hacked, pick a strong password containing a combination of letters, numbers, and symbols. Treat your password like your toothbrush: you shouldn't share it with anyone else.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. How can players check if a game is appropriate for them?',
-          options: ['A) By looking at the age rating icon.', 'B) By asking other players.', 'C) By reading the game\'s manual.'],
-          correct: 'A) By looking at the age rating icon.',
-          explanation: 'The text advises: "Look for the icon on the game that shows its age classification."',
-          tip: 'Exam Tip: "Classification" is a formal synonym for "rating".'
-        },
-        {
-          id: 'q2',
-          text: '2. Why should players keep their personal details hidden?',
-          options: ['A) To avoid paying extra fees.', 'B) To protect themselves from risks.', 'C) To win the game faster.'],
-          correct: 'B) To protect themselves from risks.',
-          explanation: 'The text warns that sharing identifying details "puts you at risk."',
-          tip: 'Exam Tip: Read the entire sentence to understand the consequence of an action.'
-        },
-        {
-          id: 'q3',
-          text: '3. What is the advice regarding passwords?',
-          options: ['A) Change them every day.', 'B) Share them only with close friends.', 'C) Make them strong and keep them secret.'],
-          correct: 'C) Make them strong and keep them secret.',
-          explanation: 'The text says to "pick a strong password" and "you shouldn\'t share it with anyone else."',
-          tip: 'Exam Tip: Similes (like the toothbrush comparison) are often used in texts to highlight important advice.'
-        }
+        { id: 'q1', text: '1. How can players check if a game is appropriate for them?', options: ['A) By looking at the age rating icon.', 'B) By asking other players.', 'C) By reading the game\'s manual.'], correct: 'A) By looking at the age rating icon.', explanation: 'The text advises: "Look for the icon on the game that shows its age classification."', tip: 'Exam Tip: "Classification" is a formal synonym for "rating".' },
+        { id: 'q2', text: '2. Why should players keep their personal details hidden?', options: ['A) To avoid paying extra fees.', 'B) To protect themselves from risks.', 'C) To win the game faster.'], correct: 'B) To protect themselves from risks.', explanation: 'The text warns that sharing identifying details "puts you at risk."', tip: 'Exam Tip: Read the entire sentence to understand the consequence of an action.' },
+        { id: 'q3', text: '3. What is the advice regarding passwords?', options: ['A) Change them every day.', 'B) Share them only with close friends.', 'C) Make them strong and keep them secret.'], correct: 'C) Make them strong and keep them secret.', explanation: 'The text says to "pick a strong password" and "you shouldn\'t share it with anyone else."', tip: 'Exam Tip: Similes (like the toothbrush comparison) are often used in texts to highlight important advice.' }
       ]
     },
     {
@@ -474,30 +256,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the FAQ and choose the best answer (A, B, or C).',
       text: "City Academy offers a variety of arts courses designed for adults. Anyone over the age of 18 is welcome to join our community. Unfortunately, you cannot just sit in and watch a normal class for free before booking, but we do offer special taster sessions for those who want to see if a course is right for them.\n\nIf you cannot attend a scheduled class, please let Student Services know as soon as possible. We will get in touch with your tutor and pass on any relevant homework for your next class, ensuring you don't fall behind.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. Who can participate in City Academy\'s courses?',
-          options: ['A) Only teenagers.', 'B) Adults over 18.', 'C) Professional artists.'],
-          correct: 'B) Adults over 18.',
-          explanation: 'The text clearly states, "Anyone over the age of 18 is welcome to join".',
-          tip: 'Exam Tip: Always double-check numbers and ages in the text against the options.'
-        },
-        {
-          id: 'q2',
-          text: '2. What can you do if you are unsure about a course?',
-          options: ['A) Try a taster session.', 'B) Watch a normal class for free.', 'C) Talk to the previous students.'],
-          correct: 'A) Try a taster session.',
-          explanation: 'The text says they "offer special taster sessions for those who want to see if a course is right for them."',
-          tip: 'Exam Tip: Watch out for distractors! The text mentions watching a normal class, but explicitly says you CANNOT do that.'
-        },
-        {
-          id: 'q3',
-          text: '3. What happens if a student misses a class?',
-          options: ['A) They get a refund.', 'B) They must leave the course.', 'C) Student Services provides them with homework.'],
-          correct: 'C) Student Services provides them with homework.',
-          explanation: 'If you miss a class, Student Services will "pass on any relevant homework for your next class".',
-          tip: 'Exam Tip: Look for conditional phrases ("If you cannot attend...") to find answers about rules or procedures.'
-        }
+        { id: 'q1', text: '1. Who can participate in City Academy\'s courses?', options: ['A) Only teenagers.', 'B) Adults over 18.', 'C) Professional artists.'], correct: 'B) Adults over 18.', explanation: 'The text clearly states, "Anyone over the age of 18 is welcome to join".', tip: 'Exam Tip: Always double-check numbers and ages in the text against the options.' },
+        { id: 'q2', text: '2. What can you do if you are unsure about a course?', options: ['A) Try a taster session.', 'B) Watch a normal class for free.', 'C) Talk to the previous students.'], correct: 'A) Try a taster session.', explanation: 'The text says they "offer special taster sessions for those who want to see if a course is right for them."', tip: 'Exam Tip: Watch out for distractors! The text mentions watching a normal class, but explicitly says you CANNOT do that.' },
+        { id: 'q3', text: '3. What happens if a student misses a class?', options: ['A) They get a refund.', 'B) They must leave the course.', 'C) Student Services provides them with homework.'], correct: 'C) Student Services provides them with homework.', explanation: 'If you miss a class, Student Services will "pass on any relevant homework for your next class".', tip: 'Exam Tip: Look for conditional phrases ("If you cannot attend...") to find answers about rules or procedures.' }
       ]
     },
     {
@@ -506,30 +267,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text and choose the best answer (A, B, or C).',
       text: "Despite being a minor illness, a common cold can make you feel absolutely miserable. A cold is, in fact, an infection which can affect the nose, throat, or sinuses. The most common symptoms are a blocked nose, a sore throat, and frequent sneezing.\n\nFortunately, there are several things you can do at home to feel better. Medical professionals highly recommend resting, drinking plenty of water, and keeping your room warm. You should also try to eat healthy foods, especially those rich in Vitamin C, like oranges and kiwis. Remember, antibiotics will not cure a cold because it is caused by a virus, not bacteria.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. What parts of the body does a cold typically affect?',
-          options: ['A) The nose and throat.', 'B) The lungs.', 'C) The stomach.'],
-          correct: 'A) The nose and throat.',
-          explanation: 'The text states that a cold can "affect the nose, throat, or sinuses".',
-          tip: 'Exam Tip: Scan for lists in the text when a question asks for examples or parts.'
-        },
-        {
-          id: 'q2',
-          text: '2. What is recommended for someone suffering from a cold?',
-          options: ['A) Taking antibiotics.', 'B) Resting and drinking water.', 'C) Doing light exercise.'],
-          correct: 'B) Resting and drinking water.',
-          explanation: 'Professionals "highly recommend resting, drinking plenty of water".',
-          tip: 'Exam Tip: Be careful with options that represent common misconceptions if they contradict the text (like taking antibiotics).'
-        },
-        {
-          id: 'q3',
-          text: '3. Why are antibiotics useless against a cold?',
-          options: ['A) Because colds are caused by viruses.', 'B) Because they only work for headaches.', 'C) Because they are too expensive.'],
-          correct: 'A) Because colds are caused by viruses.',
-          explanation: 'The text reminds us that "antibiotics will not cure a cold because it is caused by a virus".',
-          tip: 'Exam Tip: Always link the "Why" question to the "Because" statement in the reading.'
-        }
+        { id: 'q1', text: '1. What parts of the body does a cold typically affect?', options: ['A) The nose and throat.', 'B) The lungs.', 'C) The stomach.'], correct: 'A) The nose and throat.', explanation: 'The text states that a cold can "affect the nose, throat, or sinuses".', tip: 'Exam Tip: Scan for lists in the text when a question asks for examples or parts.' },
+        { id: 'q2', text: '2. What is recommended for someone suffering from a cold?', options: ['A) Taking antibiotics.', 'B) Resting and drinking water.', 'C) Doing light exercise.'], correct: 'B) Resting and drinking water.', explanation: 'Professionals "highly recommend resting, drinking plenty of water".', tip: 'Exam Tip: Be careful with options that represent common misconceptions if they contradict the text (like taking antibiotics).' },
+        { id: 'q3', text: '3. Why are antibiotics useless against a cold?', options: ['A) Because colds are caused by viruses.', 'B) Because they only work for headaches.', 'C) Because they are too expensive.'], correct: 'A) Because colds are caused by viruses.', explanation: 'The text reminds us that "antibiotics will not cure a cold because it is caused by a virus".', tip: 'Exam Tip: Always link the "Why" question to the "Because" statement in the reading.' }
       ]
     },
     {
@@ -538,30 +278,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text about public speaking and choose the best answer (A, B, or C).',
       text: "Psychologists say we should never turn down a chance to speak in public, even if it scares us. Fear of public speaking is incredibly common, but avoiding it only makes the fear grow stronger. To overcome this, experts suggest finding a safe place to practice, like a school theatre group or a small debate club.\n\nIn these environments, you can get honest feedback from friends in order to help you improve. Furthermore, using deep breathing techniques right before you step on stage can help you feel relaxed. Remember, the audience usually wants you to succeed, so focus on what you want them to learn rather than your own nerves.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. What do psychologists advise about public speaking?',
-          options: ['A) We should avoid it.', 'B) We should embrace opportunities to do it.', 'C) It is only for professionals.'],
-          correct: 'B) We should embrace opportunities to do it.',
-          explanation: 'Psychologists say "we should never turn down a chance to speak in public".',
-          tip: 'Exam Tip: "Never turn down a chance" is a paraphrase for "embrace opportunities".'
-        },
-        {
-          id: 'q2',
-          text: '2. How can joining a school theatre group help?',
-          options: ['A) It provides a safe space for practice and feedback.', 'B) It guarantees a career in acting.', 'C) It helps you memorize long texts.'],
-          correct: 'A) It provides a safe space for practice and feedback.',
-          explanation: 'The text suggests it as a "safe place to practice" where you can "get honest feedback from friends".',
-          tip: 'Exam Tip: Always match the specific benefits listed in the text with the options.'
-        },
-        {
-          id: 'q3',
-          text: '3. What can you do right before speaking to calm your nerves?',
-          options: ['A) Drink a cup of coffee.', 'B) Practice deep breathing.', 'C) Look at the floor.'],
-          correct: 'B) Practice deep breathing.',
-          explanation: 'The text recommends "using deep breathing techniques right before you step on stage".',
-          tip: 'Exam Tip: Look for specific timing phrases ("right before") to locate the correct action.'
-        }
+        { id: 'q1', text: '1. What do psychologists advise about public speaking?', options: ['A) We should avoid it.', 'B) We should embrace opportunities to do it.', 'C) It is only for professionals.'], correct: 'B) We should embrace opportunities to do it.', explanation: 'Psychologists say "we should never turn down a chance to speak in public".', tip: 'Exam Tip: "Never turn down a chance" is a paraphrase for "embrace opportunities".' },
+        { id: 'q2', text: '2. How can joining a school theatre group help?', options: ['A) It provides a safe space for practice and feedback.', 'B) It guarantees a career in acting.', 'C) It helps you memorize long texts.'], correct: 'A) It provides a safe space for practice and feedback.', explanation: 'The text suggests it as a "safe place to practice" where you can "get honest feedback from friends".', tip: 'Exam Tip: Always match the specific benefits listed in the text with the options.' },
+        { id: 'q3', text: '3. What can you do right before speaking to calm your nerves?', options: ['A) Drink a cup of coffee.', 'B) Practice deep breathing.', 'C) Look at the floor.'], correct: 'B) Practice deep breathing.', explanation: 'The text recommends "using deep breathing techniques right before you step on stage".', tip: 'Exam Tip: Look for specific timing phrases ("right before") to locate the correct action.' }
       ]
     },
     {
@@ -570,30 +289,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the interview summary and choose the best answer (A, B, or C).',
       text: "Have you ever considered a career as an electrician? According to professionals in the field, it is a highly rewarding job, but it requires a specific set of skills. First and foremost, you've got to have a logical, open mind. When a machine breaks down, you have to be able to solve problems quickly and safely. It is not just about connecting wires!\n\nHowever, the job does have some disadvantages. Sometimes, travelling long distances to reach a client and working outside in freezing cold weather can be extremely difficult. Despite these challenges, many electricians love the variety of their daily tasks and the satisfaction of fixing complex issues.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. What is an essential skill for an electrician?',
-          options: ['A) Physical strength.', 'B) A logical mind for problem-solving.', 'C) Excellent customer service skills.'],
-          correct: 'B) A logical mind for problem-solving.',
-          explanation: 'The text explicitly states: "you\'ve got to have a logical, open mind" to "solve problems quickly".',
-          tip: 'Exam Tip: "Essential skill" in the question matches "specific set of skills" and "First and foremost" in the text.'
-        },
-        {
-          id: 'q2',
-          text: '2. What is mentioned as a negative aspect of the job?',
-          options: ['A) The low salary.', 'B) Working in cold weather.', 'C) Working in small teams.'],
-          correct: 'B) Working in cold weather.',
-          explanation: 'The text mentions "disadvantages" including "working outside in freezing cold weather".',
-          tip: 'Exam Tip: Match synonyms for negative ideas (disadvantages = negative aspect).'
-        },
-        {
-          id: 'q3',
-          text: '3. Why do many electricians enjoy their work?',
-          options: ['A) Because they get to travel the world.', 'B) Because they like the variety of tasks.', 'C) Because it is very easy.'],
-          correct: 'B) Because they like the variety of tasks.',
-          explanation: 'Many love "the variety of their daily tasks and the satisfaction of fixing complex issues."',
-          tip: 'Exam Tip: Always read the concluding sentence for a summary of feelings or opinions.'
-        }
+        { id: 'q1', text: '1. What is an essential skill for an electrician?', options: ['A) Physical strength.', 'B) A logical mind for problem-solving.', 'C) Excellent customer service skills.'], correct: 'B) A logical mind for problem-solving.', explanation: 'The text explicitly states: "you\'ve got to have a logical, open mind" to "solve problems quickly".', tip: 'Exam Tip: "Essential skill" in the question matches "specific set of skills" and "First and foremost" in the text.' },
+        { id: 'q2', text: '2. What is mentioned as a negative aspect of the job?', options: ['A) The low salary.', 'B) Working in cold weather.', 'C) Working in small teams.'], correct: 'B) Working in cold weather.', explanation: 'The text mentions "disadvantages" including "working outside in freezing cold weather".', tip: 'Exam Tip: Match synonyms for negative ideas (disadvantages = negative aspect).' },
+        { id: 'q3', text: '3. Why do many electricians enjoy their work?', options: ['A) Because they get to travel the world.', 'B) Because they like the variety of tasks.', 'C) Because it is very easy.'], correct: 'B) Because they like the variety of tasks.', explanation: 'Many love "the variety of their daily tasks and the satisfaction of fixing complex issues."', tip: 'Exam Tip: Always read the concluding sentence for a summary of feelings or opinions.' }
       ]
     },
     {
@@ -602,30 +300,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the short FAQ and choose the best answer (A, B, or C).',
       text: "Welcome to the City Library! Registration is free for local residents, but people who live outside the city are required to pay to join. You can check out up to 20 items at a time, including books, e-books, magazines, CDs, and DVDs. The loan period is four weeks. If you would like to keep the items longer, you may renew them in person or online. However, you must bring a photo I.D. and a document that shows your address when you first apply.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. Who has to pay for library registration?',
-          options: ['A) Local residents.', 'B) People living outside the city.', 'C) Anyone borrowing DVDs.'],
-          correct: 'B) People living outside the city.',
-          explanation: 'The text states that "people who live outside the city are required to pay to join."',
-          tip: 'Exam Tip: Look for contrast words like "but" which introduce exceptions to rules.'
-        },
-        {
-          id: 'q2',
-          text: '2. How many items can a member borrow at once?',
-          options: ['A) 4', 'B) 10', 'C) 20'],
-          correct: 'C) 20',
-          explanation: 'The text explicitly says "You can check out up to 20 items at a time."',
-          tip: 'Exam Tip: Scan the text for the specific number mentioned in the options.'
-        },
-        {
-          id: 'q3',
-          text: '3. How can you renew your borrowed items?',
-          options: ['A) Only in person.', 'B) Only online.', 'C) In person or online.'],
-          correct: 'C) In person or online.',
-          explanation: 'The FAQ states you may renew them "in person or online."',
-          tip: 'Exam Tip: Always read all the options carefully. The word "Only" often makes an option incorrect.'
-        }
+        { id: 'q1', text: '1. Who has to pay for library registration?', options: ['A) Local residents.', 'B) People living outside the city.', 'C) Anyone borrowing DVDs.'], correct: 'B) People living outside the city.', explanation: 'The text states that "people who live outside the city are required to pay to join."', tip: 'Exam Tip: Look for contrast words like "but" which introduce exceptions to rules.' },
+        { id: 'q2', text: '2. How many items can a member borrow at once?', options: ['A) 4', 'B) 10', 'C) 20'], correct: 'C) 20', explanation: 'The text explicitly says "You can check out up to 20 items at a time."', tip: 'Exam Tip: Scan the text for the specific number mentioned in the options.' },
+        { id: 'q3', text: '3. How can you renew your borrowed items?', options: ['A) Only in person.', 'B) Only online.', 'C) In person or online.'], correct: 'C) In person or online.', explanation: 'The FAQ states you may renew them "in person or online."', tip: 'Exam Tip: Always read all the options carefully. The word "Only" often makes an option incorrect.' }
       ]
     },
     {
@@ -634,30 +311,9 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       instructions: 'Read the text about the gym and choose the best answer (A, B, or C).',
       text: "Get answers to the most common questions about membership, classes, and services at Village Gym. You don't need to reserve your place for most classes, but for popular ones like spinning, we highly recommend booking online in advance. If you forget your gym clothes, unfortunately, we don't rent them out, but we do have a lost and found at the reception. Also, if you only want to visit for a single day, you can easily buy a day ticket at the entrance without becoming a full member.",
       questions: [
-        {
-          id: 'q1',
-          text: '1. When do you need to book a class in advance?',
-          options: ['A) For all classes.', 'B) For popular classes like spinning.', 'C) Never.'],
-          correct: 'B) For popular classes like spinning.',
-          explanation: 'The text recommends booking "for popular ones like spinning".',
-          tip: 'Exam Tip: "Most" does not mean "all". Pay attention to exceptions.'
-        },
-        {
-          id: 'q2',
-          text: '2. What happens if you leave something at the gym?',
-          options: ['A) The gym sells it.', 'B) You can check the lost and found at reception.', 'C) They mail it to your house.'],
-          correct: 'B) You can check the lost and found at reception.',
-          explanation: 'The text mentions "we do have a lost and found at the reception".',
-          tip: 'Exam Tip: Synonyms are important. "Leave something" matches "lost and found".'
-        },
-        {
-          id: 'q3',
-          text: '3. Do you have to become a full member to use the gym?',
-          options: ['A) Yes, it is strictly required.', 'B) No, you can buy a day ticket.', 'C) Only on weekends.'],
-          correct: 'B) No, you can buy a day ticket.',
-          explanation: 'The text says you can "buy a day ticket at the entrance without becoming a full member."',
-          tip: 'Exam Tip: Look for words like "without" to understand alternative options.'
-        }
+        { id: 'q1', text: '1. When do you need to book a class in advance?', options: ['A) For all classes.', 'B) For popular classes like spinning.', 'C) Never.'], correct: 'B) For popular classes like spinning.', explanation: 'The text recommends booking "for popular ones like spinning".', tip: 'Exam Tip: "Most" does not mean "all". Pay attention to exceptions.' },
+        { id: 'q2', text: '2. What happens if you leave something at the gym?', options: ['A) The gym sells it.', 'B) You can check the lost and found at reception.', 'C) They mail it to your house.'], correct: 'B) You can check the lost and found at reception.', explanation: 'The text mentions "we do have a lost and found at the reception".', tip: 'Exam Tip: Synonyms are important. "Leave something" matches "lost and found".' },
+        { id: 'q3', text: '3. Do you have to become a full member to use the gym?', options: ['A) Yes, it is strictly required.', 'B) No, you can buy a day ticket.', 'C) Only on weekends.'], correct: 'B) No, you can buy a day ticket.', explanation: 'The text says you can "buy a day ticket at the entrance without becoming a full member."', tip: 'Exam Tip: Look for words like "without" to understand alternative options.' }
       ]
     }
   ],
@@ -666,272 +322,187 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       id: 'u1',
       title: 'Use of English: The Generous Lottery Winners',
       instructions: 'Type ONE correct word into each gap to complete the story.',
-      textParts: [
-        'Mr and Mrs Large recently won a huge lottery jackpot. However, instead of buying expensive cars or luxury holidays, they decided to give most of the money ', 
-        ' to local charities. They only kept a small amount of cash for a rainy ', 
-        ' in case of emergencies. "We believe that we already have everything we need," Mrs Large explained during an interview. When the news of their generosity finally came ', 
-        ', they became celebrities overnight in their small village.'
-      ],
+      textParts: ['Mr and Mrs Large recently won a huge lottery jackpot. However, instead of buying expensive cars or luxury holidays, they decided to give most of the money ', ' to local charities. They only kept a small amount of cash for a rainy ', ' in case of emergencies. "We believe that we already have everything we need," Mrs Large explained during an interview. When the news of their generosity finally came ', ', they became celebrities overnight in their small village.'],
       questions: [
-        { id: 'q1', answer: 'away', explanation: 'Phrasal verb: "give away" means to donate or give something for free.', tip: 'Exam Tip: Read the words directly before and after the gap. "to charities" strongly suggests donating.' },
-        { id: 'q2', answer: 'day', explanation: 'Idiom: "save for a rainy day" means to keep money for a time in the future when you might need it.', tip: 'Exam Tip: The matura exam frequently tests common English idioms and collocations.' },
-        { id: 'q3', answer: 'out', explanation: 'Phrasal verb: "come out" (for news or secrets) means to become known to the public.', tip: 'Exam Tip: Prepositions and adverbial particles are the most commonly tested words in gap-fill tasks.' },
+        { id: 'q1', answer: 'away', explanation: 'Phrasal verb: "give away" means to donate or give something for free.', tip: 'Exam Tip: Read the words directly before and after the gap.' },
+        { id: 'q2', answer: 'day', explanation: 'Idiom: "save for a rainy day" means to keep money for a time in the future when you might need it.', tip: 'Exam Tip: The matura exam frequently tests common English idioms.' },
+        { id: 'q3', answer: 'out', explanation: 'Phrasal verb: "come out" (for news or secrets) means to become known to the public.', tip: 'Exam Tip: Prepositions and adverbial particles are the most commonly tested words.' }
       ]
     },
     {
       id: 'u2',
       title: 'Use of English: A Lesson in Kindness',
       instructions: 'Type ONE correct word into each gap to complete the story.',
-      textParts: [
-        'When I was a teenager, a student\'s watch was stolen ', 
-        ' our classroom. Our teacher told us to stand in a circle and close our eyes. He went from pocket to pocket. When he searched my pockets, he found the watch and took ', 
-        '. However, he kept searching everyone else\'s pockets too. When he was done, he told us to open our eyes, but he never told anyone ', 
-        ' had stolen it. He saved my dignity and taught me a lesson I will never forget.'
-      ],
+      textParts: ['When I was a teenager, a student\'s watch was stolen ', ' our classroom. Our teacher told us to stand in a circle and close our eyes. He went from pocket to pocket. When he searched my pockets, he found the watch and took ', '. However, he kept searching everyone else\'s pockets too. When he was done, he told us to open our eyes, but he never told anyone ', ' had stolen it. He saved my dignity and taught me a lesson I will never forget.'],
       questions: [
-        { id: 'q1', answer: 'in', explanation: 'Preposition of place: "in" or "inside" is used for rooms like a classroom.', tip: 'Exam Tip: Think about prepositions of place and time. They are very common in gap fills.' },
+        { id: 'q1', answer: 'in', explanation: 'Preposition of place: "in" or "inside" is used for rooms like a classroom.', tip: 'Exam Tip: Think about prepositions of place and time.' },
         { id: 'q2', answer: 'it', explanation: 'Pronoun: "it" refers back to the singular object "the watch".', tip: 'Exam Tip: If a sentence feels incomplete, check if a subject or object pronoun is missing.' },
-        { id: 'q3', answer: 'who', explanation: 'Relative pronoun: "who" is used to refer to a person (the thief).', tip: 'Exam Tip: Question words (who, what, where) often act as connecting words in reported speech.' },
+        { id: 'q3', answer: 'who', explanation: 'Relative pronoun: "who" is used to refer to a person (the thief).', tip: 'Exam Tip: Question words often act as connecting words in reported speech.' }
       ]
     },
     {
       id: 'u3',
       title: 'Use of English: The Heavenly Golf Course',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'An old man arrived in heaven and St. Peter showed him a beautiful golf course. Amazed, the old man asked how ', 
-        ' it was going to cost. "Nothing," Peter replied. "This is heaven. You can play for free whenever you wish." They went to the restaurant, and the old man asked where the healthy, low-fat food ', 
-        '. Peter smiled and said, "You can eat whatever you like here, and you will never get fat or sick." The old man looked at his wife angrily and said, "If you hadn\'t made me eat all those boring diets, we ', 
-        ' have arrived here 10 years ago!"'
-      ],
+      textParts: ['An old man arrived in heaven and St. Peter showed him a beautiful golf course. Amazed, the old man asked how ', ' it was going to cost. "Nothing," Peter replied. "This is heaven. You can play for free whenever you wish." They went to the restaurant, and the old man asked where the healthy, low-fat food ', '. Peter smiled and said, "You can eat whatever you like here, and you will never get fat or sick." The old man looked at his wife angrily and said, "If you hadn\'t made me eat all those boring diets, we ', ' have arrived here 10 years ago!"'],
       questions: [
         { id: 'q1', answer: 'much', explanation: 'Question word: "How much" is used to ask about price or uncountable nouns.', tip: 'Exam Tip: Collocations with "how" (how many, how long, how much) are frequent.' },
-        { id: 'q2', answer: 'was', explanation: 'Verb "to be" in past tense. The subject is "food" (uncountable/singular).', tip: 'Exam Tip: Always check the tense of the surrounding sentences. The story is in the past tense.' },
-        { id: 'q3', answer: 'would', explanation: 'Third conditional: "If you hadn\'t made me... we would have arrived..."', tip: 'Exam Tip: Conditional structures (if-clauses) are a standard B1-B2 grammar requirement.' },
+        { id: 'q2', answer: 'was', explanation: 'Verb "to be" in past tense. The subject is "food" (uncountable/singular).', tip: 'Exam Tip: Always check the tense of the surrounding sentences.' },
+        { id: 'q3', answer: 'would', explanation: 'Third conditional: "If you hadn\'t made me... we would have arrived..."', tip: 'Exam Tip: Conditional structures (if-clauses) are a standard B1-B2 grammar requirement.' }
       ]
     },
     {
       id: 'u4',
       title: 'Use of English: The Great White Shark',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Great white sharks can be found throughout the world\'s oceans. They usually ', 
-        ' in cool waters close to the coast. These incredible animals are the largest predatory fish on Earth. They can grow to be about six metres ', 
-        ' and weigh over 2,000 kilograms. Despite their scary reputation in movies, human attacks are actually very ', 
-        '. Scientists believe that when a great white does bite a human, it is usually because it confused the person for a seal or a turtle.'
-      ],
+      textParts: ['Great white sharks can be found throughout the world\'s oceans. They usually ', ' in cool waters close to the coast. These incredible animals are the largest predatory fish on Earth. They can grow to be about six metres ', ' and weigh over 2,000 kilograms. Despite their scary reputation in movies, human attacks are actually very ', '. Scientists believe that when a great white does bite a human, it is usually because it confused the person for a seal or a turtle.'],
       questions: [
         { id: 'q1', answer: 'live', explanation: 'Present simple verb: We need a plural verb for the subject "They".', tip: 'Exam Tip: Check the subject (singular or plural) before filling in a main verb.' },
         { id: 'q2', answer: 'long', explanation: 'Adjective: We use "long" after a measurement to describe length.', tip: 'Exam Tip: Measurements are often followed by adjectives like long, tall, high, or deep.' },
-        { id: 'q3', answer: 'rare', explanation: 'Adjective: "Rare" means not common. The sentence contrasts their scary reputation with the reality.', tip: 'Exam Tip: Words like "Despite" tell you the sentence will contain a contrast or opposite idea.' },
+        { id: 'q3', answer: 'rare', explanation: 'Adjective: "Rare" means not common. The sentence contrasts their scary reputation with the reality.', tip: 'Exam Tip: Words like "Despite" tell you the sentence will contain a contrast.' }
       ]
     },
     {
       id: 'u5',
       title: 'Use of English: Strange Eating Habits',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Have you ever eaten something unusual? Michel Lotito, a French entertainer, was famous ', 
-        ' eating things that normal people could never digest. During his performances, he ate metal, glass, and rubber. He even managed to eat an entire airplane! It took him two years to finish eating the small aircraft, piece ', 
-        ' piece. Doctors who examined Michel found that the lining of his stomach was twice as thick ', 
-        ' a normal human\'s, which protected him from serious injuries.'
-      ],
+      textParts: ['Have you ever eaten something unusual? Michel Lotito, a French entertainer, was famous ', ' eating things that normal people could never digest. During his performances, he ate metal, glass, and rubber. He even managed to eat an entire airplane! It took him two years to finish eating the small aircraft, piece ', ' piece. Doctors who examined Michel found that the lining of his stomach was twice as thick ', ' a normal human\'s, which protected him from serious injuries.'],
       questions: [
-        { id: 'q1', answer: 'for', explanation: 'Preposition: The adjective "famous" is followed by the preposition "for".', tip: 'Exam Tip: Learn adjectives with their dependent prepositions (e.g., interested in, famous for, good at).' },
-        { id: 'q2', answer: 'by', explanation: 'Fixed phrase: "Piece by piece" means doing something one piece at a time.', tip: 'Exam Tip: Look out for repeated words around a gap. It usually forms a fixed phrase like step by step, piece by piece.' },
-        { id: 'q3', answer: 'as', explanation: 'Comparison: The structure "as [adjective] as" is used to compare two things.', tip: 'Exam Tip: If you see "as" before an adjective, there is almost certainly an "as" coming after it!' },
+        { id: 'q1', answer: 'for', explanation: 'Preposition: The adjective "famous" is followed by the preposition "for".', tip: 'Exam Tip: Learn adjectives with their dependent prepositions.' },
+        { id: 'q2', answer: 'by', explanation: 'Fixed phrase: "Piece by piece" means doing something one piece at a time.', tip: 'Exam Tip: Look out for repeated words around a gap. It usually forms a fixed phrase.' },
+        { id: 'q3', answer: 'as', explanation: 'Comparison: The structure "as [adjective] as" is used to compare two things.', tip: 'Exam Tip: If you see "as" before an adjective, there is almost certainly an "as" coming after it!' }
       ]
     },
     {
       id: 'u6',
       title: 'Use of English: A Teacher\'s Secret',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'My teacher, Mr Jones, taught me a valuable lesson. A watch was stolen during class, and he told us to close our ', 
-        ' while he searched our pockets. He found the watch in my pocket, but he kept on searching everyone else\'s. When he finished, he returned the watch to its owner but never ', 
-        ' anyone who had stolen it. That day, he saved my dignity. It was minimal moment I decided never to ', 
-        ' a thief again, and I eventually became a teacher myself.'
-      ],
+      textParts: ['My teacher, Mr Jones, taught me a valuable lesson. A watch was stolen during class, and he told us to close our ', ' while he searched our pockets. He found the watch in my pocket, but he kept on searching everyone else\'s. When he finished, he returned the watch to its owner but never ', ' anyone who had stolen it. That day, he saved my dignity. It was the moment I decided never to ', ' a thief again, and I eventually became a teacher myself.'],
       questions: [
-        { id: 'q1', answer: 'eyes', explanation: 'Noun/Collocation: The common phrase is "to close your eyes".', tip: 'Exam Tip: Visualise the physical action in the story to find missing body parts or verbs.' },
-        { id: 'q2', answer: 'told', explanation: 'Verb: "Tell" is used here because it is followed directly by an object (anyone).', tip: 'Exam Tip: Remember the difference between say and tell: you say something, but you tell SOMEONE something.' },
-        { id: 'q3', answer: 'be', explanation: 'Infinitive Verb: After "decided to", we need the base form of the verb.', tip: 'Exam Tip: The word "to" is almost always followed by a bare infinitive verb.' },
+        { id: 'q1', answer: 'eyes', explanation: 'Noun/Collocation: The common phrase is "to close your eyes".', tip: 'Exam Tip: Visualise the physical action in the story to find missing body parts.' },
+        { id: 'q2', answer: 'told', explanation: 'Verb: "Tell" is used here because it is followed directly by an object (anyone).', tip: 'Exam Tip: Remember the difference between say and tell.' },
+        { id: 'q3', answer: 'be', explanation: 'Infinitive Verb: After "decided to", we need the base form of the verb.', tip: 'Exam Tip: The word "to" is almost always followed by a bare infinitive verb.' }
       ]
     },
     {
       id: 'u7',
       title: 'Use of English: The Loom Band Inventor',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Growing up in Malaysia, Cheong Choon Ng did not have many toys. As a child, he made jumping ropes from rubber ', 
-        '. Many years later, living in the USA, he saw his daughters making bracelets. He ', 
-        ' down and showed them how to link the colorful rubber bands together using a special technique. Soon, children at school were asking for them. He invested all his money in tools and eventually ', 
-        ' a millionaire thanks to his invention.'
-      ],
+      textParts: ['Growing up in Malaysia, Cheong Choon Ng did not have many toys. As a child, he made jumping ropes from rubber ', '. Many years later, living in the USA, he saw his daughters making bracelets. He ', ' down and showed them how to link the colorful rubber bands together using a special technique. Soon, children at school were asking for them. He invested all his money in tools and eventually ', ' a millionaire thanks to his invention.'],
       questions: [
         { id: 'q1', answer: 'bands', explanation: 'Noun: "Rubber bands" is a common collocation (small elastic loops).', tip: 'Exam Tip: Use the context! The text later explicitly mentions "colorful rubber bands".' },
         { id: 'q2', answer: 'sat', explanation: 'Past tense verb: The story is narrated in the past tense (saw, showed). The past tense of "sit" is "sat".', tip: 'Exam Tip: Phrasal verbs with "down" are common. Sit down, lay down, write down.' },
-        { id: 'q3', answer: 'became', explanation: 'Past tense verb: He "became" a millionaire (change of state in the past).', tip: 'Exam Tip: Always check the tense of the surrounding verbs in the paragraph.' },
+        { id: 'q3', answer: 'became', explanation: 'Past tense verb: He "became" a millionaire (change of state in the past).', tip: 'Exam Tip: Always check the tense of the surrounding verbs in the paragraph.' }
       ]
     },
     {
       id: 'u8',
       title: 'Use of English: Smartphone Addiction',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Many people today are completely addicted to their phones. To become a mindful user, you should get ', 
-        ' of unnecessary notifications. Only allow messaging apps to alert you when real people want your attention. Also, try to set yourself a daily screen ', 
-        ' limit so you don\'t stare at the display for hours. Finally, make an effort to interact with your friends in ', 
-        ' rather than just through a digital screen.'
-      ],
+      textParts: ['Many people today are completely addicted to their phones. To become a mindful user, you should get ', ' of unnecessary notifications. Only allow messaging apps to alert you when real people want your attention. Also, try to set yourself a daily screen ', ' limit so you don\'t stare at the display for hours. Finally, make an effort to interact with your friends in ', ' rather than just through a digital screen.'],
       questions: [
         { id: 'q1', answer: 'rid', explanation: 'Phrasal Verb: "Get rid of" means to throw away or eliminate something.', tip: 'Exam Tip: "Get ___ of" is almost always "get rid of" in Matura exams!' },
         { id: 'q2', answer: 'time', explanation: 'Collocation: "Screen time" is the standard term for the hours spent looking at a device.', tip: 'Exam Tip: Think about modern vocabulary. What do we call the limit on our phones? Screen time.' },
-        { id: 'q3', answer: 'person', explanation: 'Phrase: "In person" means face-to-face, physically present.', tip: 'Exam Tip: "In person" is the direct opposite of "online" or "virtually".' },
+        { id: 'q3', answer: 'person', explanation: 'Phrase: "In person" means face-to-face, physically present.', tip: 'Exam Tip: "In person" is the direct opposite of "online" or "virtually".' }
       ]
     },
     {
       id: 'u9',
       title: 'Use of English: The Ketchup Accident',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Richard was having a quick lunch when his colleague, Jenny, accidentally spilled ketchup ', 
-        ' his light-coloured trousers. Jenny apologized immediately. Richard took the trousers to the dry cleaners, and they charged him £4 to clean ', 
-        '. Later that afternoon, he sent Jenny an email asking her to pay the £4. Jenny\'s friends thought Richard was being silly over such a small amount ', 
-        ' money, but she paid it anyway.'
-      ],
+      textParts: ['Richard was having a quick lunch when his colleague, Jenny, accidentally spilled ketchup ', ' his light-coloured trousers. Jenny apologized immediately. Richard took the trousers to the dry cleaners, and they charged him £4 to clean ', '. Later that afternoon, he sent Jenny an email asking her to pay the £4. Jenny\'s friends thought Richard was being silly over such a small amount ', ' money, but she paid it anyway.'],
       questions: [
         { id: 'q1', answer: 'on', explanation: 'Preposition: You spill liquid "on" a surface or clothes.', tip: 'Exam Tip: Visualize the physical action. The ketchup goes ON the trousers.' },
         { id: 'q2', answer: 'them', explanation: 'Pronoun: Refers back to the plural noun "trousers".', tip: 'Exam Tip: Clothes that have two legs (trousers, jeans, shorts) are always plural in English!' },
-        { id: 'q3', answer: 'of', explanation: 'Preposition: "An amount of [noun]" is a standard quantity expression.', tip: 'Exam Tip: Quantity phrases (a piece of, a lot of, an amount of) always use the preposition "of".' },
+        { id: 'q3', answer: 'of', explanation: 'Preposition: "An amount of [noun]" is a standard quantity expression.', tip: 'Exam Tip: Quantity phrases (a piece of, a lot of, an amount of) always use the preposition "of".' }
       ]
     },
     {
       id: 'u10',
       title: 'Use of English: Back to School for Parents',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Parents in Singapore are going back to school ', 
-        ' help their children with homework. They are taking primary school maths classes to understand the new methods. Adults are signing up for these courses ', 
-        ' that they can be more helpful when their kids ask difficult questions. At ', 
-        ' workshops, parents sometimes pay as much as $700 to learn how to teach their own kids.'
-      ],
+      textParts: ['Parents in Singapore are going back to school ', ' help their children with homework. They are taking primary school maths classes to understand the new methods. Adults are signing up for these courses ', ' that they can be more helpful when their kids ask difficult questions. At ', ' workshops, parents sometimes pay as much as $700 to learn how to teach their own kids.'],
       questions: [
         { id: 'q1', answer: 'to', explanation: 'Infinitive of Purpose: We use "to + verb" to explain the reason for doing something.', tip: 'Exam Tip: Infinitives of purpose are frequently tested! Always check if the sentence explains "why" an action was done.' },
         { id: 'q2', answer: 'so', explanation: 'Conjunction: "So that" is used to introduce a clause of purpose or result.', tip: 'Exam Tip: If you see "that" introducing a reason right after a gap, the missing word is often "so".' },
-        { id: 'q3', answer: 'these', explanation: 'Demonstrative Adjective: Refers back to the plural noun "workshops" mentioned previously in the context of "courses".', tip: 'Exam Tip: Pay attention to singular vs. plural nouns when choosing demonstrative words (this vs. these).' },
+        { id: 'q3', answer: 'these', explanation: 'Demonstrative Adjective: Refers back to the plural noun "workshops" mentioned previously in the context of "courses".', tip: 'Exam Tip: Pay attention to singular vs. plural nouns when choosing demonstrative words (this vs. these).' }
       ]
     },
     {
       id: 'u11',
       title: 'Use of English: France Bans Plastic',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Large fast-food chains in France will ', 
-        ' longer be allowed to use disposable plastic containers. The new law forces restaurants with ', 
-        ' than 20 seats to provide reusable cups and plates for customers eating inside. Environmental groups have welcomed the change. They say it is a great step forward in the fight ', 
-        ' plastic waste.'
-      ],
+      textParts: ['Large fast-food chains in France will ', ' longer be allowed to use disposable plastic containers. The new law forces restaurants with ', ' than 20 seats to provide reusable cups and plates for customers eating inside. Environmental groups have welcomed the change. They say it is a great step forward in the fight ', ' plastic waste.'],
       questions: [
         { id: 'q1', answer: 'no', explanation: 'Fixed Phrase: "No longer" means in the past but not now.', tip: 'Exam Tip: "No longer" and "any longer" are essential B1/B2 time phrases.' },
         { id: 'q2', answer: 'more', explanation: 'Comparative: Used with "than" to indicate a greater quantity.', tip: 'Exam Tip: Always look for the word "than" after a gap—it\'s a huge clue for a comparative adjective.' },
-        { id: 'q3', answer: 'against', explanation: 'Preposition: You "fight against" something you want to stop or defeat.', tip: 'Exam Tip: Learn the prepositions that naturally follow common nouns, like "fight against" or "reason for".' },
+        { id: 'q3', answer: 'against', explanation: 'Preposition: You "fight against" something you want to stop or defeat.', tip: 'Exam Tip: Learn the prepositions that naturally follow common nouns, like "fight against" or "reason for".' }
       ]
     },
     {
       id: 'u12',
       title: 'Use of English: Pets at Christmas',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'Christmas is a wonderful time for families, but it can be dangerous ', 
-        ' pets. Many traditional holiday foods are actually toxic to dogs and cats. For example, chocolate contains a chemical ', 
-        ' animals cannot digest safely. If you want to give your pet a special treat, buy something that is ', 
-        ' specifically for them at a pet store.'
-      ],
+      textParts: ['Christmas is a wonderful time for families, but it can be dangerous ', ' pets. Many traditional holiday foods are actually toxic to dogs and cats. For example, chocolate contains a chemical ', ' animals cannot digest safely. If you want to give your pet a special treat, buy something that is ', ' specifically for them at a pet store.'],
       questions: [
         { id: 'q1', answer: 'for', explanation: 'Preposition: Something is "dangerous for" someone or something.', tip: 'Exam Tip: Adjectives are often followed by specific prepositions (e.g., good at, bad for, interested in).' },
         { id: 'q2', answer: 'which', explanation: 'Relative Pronoun: Connects the clause to the non-human noun "chemical". ("That" is also correct here).', tip: 'Exam Tip: "Which" or "that" are used to refer back to things or animals in relative clauses.' },
-        { id: 'q3', answer: 'made', explanation: 'Passive Voice Participle: The treat "is made" by someone for the pets.', tip: 'Exam Tip: Watch out for passive structures (verb "to be" + past participle) when the subject receives the action.' },
+        { id: 'q3', answer: 'made', explanation: 'Passive Voice Participle: The treat "is made" by someone for the pets.', tip: 'Exam Tip: Watch out for passive structures (verb "to be" + past participle) when the subject receives the action.' }
       ]
     },
     {
       id: 'u13',
       title: 'Use of English: The Student Loan',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'My 18-year-old sister, Becky, is leaving school this year and going to university. Yesterday, I got a little worried when I found brochures from various banks in her room. She told me that she was thinking ', 
-        ' taking out a bank loan to cover her living costs. She has even visited the website of one of the banks. I don\'t want her to start her adult life with a huge ', 
-        ' of debt, but I don\'t know ', 
-        ' to change her mind.'
-      ],
+      textParts: ['My 18-year-old sister, Becky, is leaving school this year and going to university. Yesterday, I got a little worried when I found brochures from various banks in her room. She told me that she was thinking ', ' taking out a bank loan to cover her living costs. She has even visited the website of one of the banks. I don\'t want her to start her adult life with a huge ', ' of debt, but I don\'t know ', ' to change her mind.'],
       questions: [
         { id: 'q1', answer: 'of', explanation: 'Preposition: The verb "think" in this context is followed by the preposition "of" or "about".', tip: 'Exam Tip: When expressing an intention or considering an option, "thinking of" is extremely common.' },
         { id: 'q2', answer: 'amount', explanation: 'Noun: "A huge amount of debt" is the correct collocation.', tip: 'Exam Tip: When dealing with uncountable nouns like "debt" or "money", we use the word "amount".' },
-        { id: 'q3', answer: 'how', explanation: 'Question word as connector: "I don\'t know how to [do something]".', tip: 'Exam Tip: "Know" + question word + "to" + infinitive is a very frequent grammar structure in English.' },
+        { id: 'q3', answer: 'how', explanation: 'Question word as connector: "I don\'t know how to [do something]".', tip: 'Exam Tip: "Know" + question word + "to" + infinitive is a very frequent grammar structure in English.' }
       ]
     },
     {
       id: 'u14',
       title: 'Use of English: The High School Party',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'I have been staying in Baltimore with my host family through a student exchange program for more ', 
-        ' two months. Last week, rumors started spreading around the school. Everyone was talking about a huge party that was happening at a popular girl\'s house ', 
-        ' her parents were out of town. I didn\'t know the girl very well, but everyone said it was going to be the best party of the year. I really wanted to go, but I knew that attending a party without adult supervision was strictly against the ', 
-        ' of my exchange program.'
-      ],
+      textParts: ['I have been staying in Baltimore with my host family through a student exchange program for more ', ' two months. Last week, rumors started spreading around the school. Everyone was talking about a huge party that was happening at a popular girl\'s house ', ' her parents were out of town. I didn\'t know the girl very well, but everyone said it was going to be the best party of the year. I really wanted to go, but I knew that attending a party without adult supervision was strictly against the ', ' of my exchange program.'],
       questions: [
         { id: 'q1', answer: 'than', explanation: 'Comparative phrase: "More than" is used to show a greater amount or longer time.', tip: 'Exam Tip: "More" is almost universally followed by "than" when comparing or indicating quantities.' },
         { id: 'q2', answer: 'while', explanation: 'Conjunction of time: "While" connects two things happening at the same time.', tip: 'Exam Tip: You can also use "because" or "when" here, as they all fit the context perfectly.' },
-        { id: 'q3', answer: 'rules', explanation: 'Noun: A program has "rules" that you can be "against".', tip: 'Exam Tip: Use the surrounding vocabulary! "Strictly against the..." usually points to rules or laws.' },
+        { id: 'q3', answer: 'rules', explanation: 'Noun: A program has "rules" that you can be "against".', tip: 'Exam Tip: Use the surrounding vocabulary! "Strictly against the..." usually points to rules or laws.' }
       ]
     },
     {
       id: 'u15',
       title: 'Use of English: Volunteering in Nepal',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'During my gap year, I wanted to find an opportunity where I could try doing something really useful. After some research online, I found Alliance Nepal, a charity organisation ', 
-        ' offers volunteer and internship experiences. I signed up to teach English in a small village. During my time there, I also had the opportunity to assist the local teachers ', 
-        ' other school activities, such as sports and extracurricular projects. It was an amazing experience that I will remember for the ', 
-        ' of my life.'
-      ],
+      textParts: ['During my gap year, I wanted to find an opportunity where I could try doing something really useful. After some research online, I found Alliance Nepal, a charity organisation ', ' offers volunteer and internship experiences. I signed up to teach English in a small village. During my time there, I also had the opportunity to assist the local teachers ', ' other school activities, such as sports and extracurricular projects. It was an amazing experience that I will remember for the ', ' of my life.'],
       questions: [
         { id: 'q1', answer: 'which', explanation: 'Relative pronoun: Refers back to the non-human noun "organisation". ("That" is also correct).', tip: 'Exam Tip: If you see a gap right after a noun and before a verb, it is almost always a relative pronoun.' },
         { id: 'q2', answer: 'with', explanation: 'Preposition: The verb "assist" is often followed by "with" when referring to helping with a task.', tip: 'Exam Tip: "Help with" and "assist with" use the exact same preposition.' },
-        { id: 'q3', answer: 'rest', explanation: 'Fixed phrase: "For the rest of my life" is a common idiom meaning "forever".', tip: 'Exam Tip: Look for complete idiomatic phrases that you have heard in movies and songs.' },
+        { id: 'q3', answer: 'rest', explanation: 'Fixed phrase: "For the rest of my life" is a common idiom meaning "forever".', tip: 'Exam Tip: Look for complete idiomatic phrases that you have heard in movies and songs.' }
       ]
     },
     {
       id: 'u16',
       title: 'Use of English: Gold Coins in a Charity Kettle',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'The Salvation Army regularly uses donation kettles to collect money ', 
-        ' charity purposes. Recently, a generous stranger dropped several gold coins ', 
-        ' one of their kettles in a small town. The volunteers were completely surprised ', 
-        ' the discovery. They plan to use the extra funds to provide free meals for homeless people during the winter.'
-      ],
+      textParts: ['The Salvation Army regularly uses donation kettles to collect money ', ' charity purposes. Recently, a generous stranger dropped several gold coins ', ' one of their kettles in a small town. The volunteers were completely surprised ', ' the discovery. They plan to use the extra funds to provide free meals for homeless people during the winter.'],
       questions: [
         { id: 'q1', answer: 'for', explanation: 'Preposition: Money is collected "for" a purpose.', tip: 'Exam Tip: "For" usually indicates purpose or intended use.' },
         { id: 'q2', answer: 'into', explanation: 'Preposition of movement: Dropping something "into" a container.', tip: 'Exam Tip: Verbs of movement (drop, put, go) are often followed by "into" when entering an enclosed space.' },
-        { id: 'q3', answer: 'by', explanation: 'Preposition: You are surprised "by" or "at" something.', tip: 'Exam Tip: Passive or adjective phrases describing emotions are often followed by "by" or "at".' },
+        { id: 'q3', answer: 'by', explanation: 'Preposition: You are surprised "by" or "at" something.', tip: 'Exam Tip: Passive or adjective phrases describing emotions are often followed by "by" or "at".' }
       ]
     },
     {
       id: 'u17',
       title: 'Use of English: The Lost Ring',
       instructions: 'Type ONE correct word into each gap to complete the text.',
-      textParts: [
-        'A woman who spends her spare time looking ', 
-        ' hidden treasure with a metal detector has found a 17th-century gold ring. When she first dug it up, she thought it was just a piece of rubbish. However, when she took a closer ', 
-        ' at it, she realized it was incredibly valuable. She immediately took it to a museum, ', 
-        ' experts confirmed it was over 300 years old.'
-      ],
+      textParts: ['A woman who spends her spare time looking ', ' hidden treasure with a metal detector has found a 17th-century gold ring. When she first dug it up, she thought it was just a piece of rubbish. However, when she took a closer ', ' at it, she realized it was incredibly valuable. She immediately took it to a museum, ', ' experts confirmed it was over 300 years old.'],
       questions: [
         { id: 'q1', answer: 'for', explanation: 'Phrasal verb: "look for" means to search for something.', tip: 'Exam Tip: Don\'t confuse "look for" (search) with "look at" (observe).' },
         { id: 'q2', answer: 'look', explanation: 'Collocation: "take a look" means to examine something.', tip: 'Exam Tip: "Take a closer look" is a very common fixed phrase.' },
-        { id: 'q3', answer: 'where', explanation: 'Relative pronoun: Refers back to a place (the museum).', tip: 'Exam Tip: Use "where" for places in relative clauses when referring to an action happening there.' },
+        { id: 'q3', answer: 'where', explanation: 'Relative pronoun: Refers back to a place (the museum).', tip: 'Exam Tip: Use "where" for places in relative clauses when referring to an action happening there.' }
       ]
     }
   ],
@@ -941,37 +512,11 @@ Actress: Doing the film was what got me interested in dinosaurs. At the end of t
       title: 'Interview with Harry',
       audioFile: 'k_angol_25okt_fl.mp3',
       instructions: 'Listen to the interview and decide if the statements are True (A), False (B), or if the text Doesn\'t Say (C).',
-      transcript: `Interviewer: Harry, what's the bravest thing you've ever done?
-Harry: Becoming a dad at a young age. Katie and I had our little girl, Ivy, when I was 24. We always wanted to be young parents. Now Ivy has a sister and two brothers.
-Interviewer: When was the last time you cried?
-Harry: Probably when England lost to Portugal on penalties in the Euros in 2004. I remember a few tears that day. My wife doesn't like the fact that I didn't shed tears when our first child was born.
-Interviewer: How do you imagine your perfect Sunday?
-Harry: Having an early game of golf, and then going for a long walk. I love going to the forest for an hour or two. Then I'd come home, have a barbecue. I don't drink alcohol, so I always have a cup of tea, milk, and two sugars to end the night.`,
+      transcript: `Interviewer: Harry, what's the bravest thing you've ever done?\nHarry: Becoming a dad at a young age. Katie and I had our little girl, Ivy, when I was 24. We always wanted to be young parents. Now Ivy has a sister and two brothers.\nInterviewer: When was the last time you cried?\nHarry: Probably when England lost to Portugal on penalties in the Euros in 2004. I remember a few tears that day. My wife doesn't like the fact that I didn't shed tears when our first child was born.\nInterviewer: How do you imagine your perfect Sunday?\nHarry: Having an early game of golf, and then going for a long walk. I love going to the forest for an hour or two. Then I'd come home, have a barbecue. I don't drink alcohol, so I always have a cup of tea, milk, and two sugars to end the night.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Harry believes that having a child early in life was a brave decision.',
-          options: ['A) True', 'B) False', 'C) Doesn\'t Say'],
-          correct: 'A) True',
-          explanation: 'When the interviewer asks about the bravest thing he\'s done, he replies, "Becoming a dad at a young age."',
-          tip: 'Exam Tip: Listen for paraphrasing. "Brave decision" in the question matches "bravest thing... becoming a dad" in the audio.'
-        },
-        {
-          id: 'q2',
-          text: '2. Harry cried tears of joy when his daughter Ivy was born.',
-          options: ['A) True', 'B) False', 'C) Doesn\'t Say'],
-          correct: 'B) False',
-          explanation: 'He explicitly says his wife isn\'t happy because he "didn\'t shed tears" when his first child was born.',
-          tip: 'Exam Tip: Watch out for negative verbs in the listening text ("didn\'t shed tears").'
-        },
-        {
-          id: 'q3',
-          text: '3. Harry usually wins his Sunday golf matches against his friends.',
-          options: ['A) True', 'B) False', 'C) Doesn\'t Say'],
-          correct: 'C) Doesn\'t Say',
-          explanation: 'He mentions playing golf on a perfect Sunday, but says nothing about whether he wins or who he plays with.',
-          tip: 'Exam Tip: If the information is simply missing, do not guess based on what is logical—always choose "Doesn\'t Say".'
-        }
+        { id: 'q1', text: '1. Harry believes that having a child early in life was a brave decision.', options: ['A) True', 'B) False', 'C) Doesn\'t Say'], correct: 'A) True', explanation: 'When the interviewer asks about the bravest thing he\'s done, he replies, "Becoming a dad at a young age."', tip: 'Exam Tip: Listen for paraphrasing.' },
+        { id: 'q2', text: '2. Harry cried tears of joy when his daughter Ivy was born.', options: ['A) True', 'B) False', 'C) Doesn\'t Say'], correct: 'B) False', explanation: 'He explicitly says his wife isn\'t happy because he "didn\'t shed tears" when his first child was born.', tip: 'Exam Tip: Watch out for negative verbs.' },
+        { id: 'q3', text: '3. Harry usually wins his Sunday golf matches against his friends.', options: ['A) True', 'B) False', 'C) Doesn\'t Say'], correct: 'C) Doesn\'t Say', explanation: 'He mentions playing golf on a perfect Sunday, but says nothing about whether he wins or who he plays with.', tip: 'Exam Tip: Do not guess based on what is logical—always choose "Doesn\'t Say".' }
       ]
     },
     {
@@ -979,37 +524,11 @@ Harry: Having an early game of golf, and then going for a long walk. I love goin
       title: 'Interview with an author',
       audioFile: 'k_angol_20okt_fl.mp3',
       instructions: 'Listen to the interview with the author and answer the questions.',
-      transcript: `Interviewer: I've heard you had some funny adventures as a kid.
-Author: Oh yes. Once, I told my mom that a neighbor wanted to borrow her vacuum cleaner. The truth was that my friends and I wanted to use it to catch a ghost which was haunting the local castle. Of course, we never caught it.
-Interviewer: I've heard that you loved reading when you were a child. How did your passion start?
-Author: I lived halfway up a mountain in the highlands of Scotland. It was a 225 km trip to the cinema, and my parents rarely took me there. That's why I developed a real love of books from an early age.
-Interviewer: If you could give a young writer some advice about writing, what would it be?
-Author: There's all the obvious stuff about reading and writing as much as possible, which is all good advice. But to be a good writer, you also have to live a bit, I think. Go outside, hang out with friends, meet new people, have experiences, both good and bad. The more you get into the world, the more stories you'll be inspired to write.`,
+      transcript: `Interviewer: I've heard you had some funny adventures as a kid.\nAuthor: Oh yes. Once, I told my mom that a neighbor wanted to borrow her vacuum cleaner. The truth was that my friends and I wanted to use it to catch a ghost which was haunting the local castle. Of course, we never caught it.\nInterviewer: I've heard that you loved reading when you were a child. How did your passion start?\nAuthor: I lived halfway up a mountain in the highlands of Scotland. It was a 225 km trip to the cinema, and my parents rarely took me there. That's why I developed a real love of books from an early age.\nInterviewer: If you could give a young writer some advice about writing, what would it be?\nAuthor: There's all the obvious stuff about reading and writing as much as possible, which is all good advice. But to be a good writer, you also have to live a bit, I think. Go outside, hang out with friends, meet new people, have experiences, both good and bad. The more you get into the world, the more stories you'll be inspired to write.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What did the author actually want to do with the vacuum cleaner?',
-          options: ['A) Clean the local castle.', 'B) Help out a neighbor.', 'C) Try to catch a ghost.', 'D) Sell it to a friend.'],
-          correct: 'C) Try to catch a ghost.',
-          explanation: 'The author states: "The truth was that my friends and I wanted to use it to catch a ghost".',
-          tip: 'Exam Tip: Speakers often contrast a lie ("told my mom that...") with the truth ("The truth was..."). Listen for these contrast markers.'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did the author start reading so much as a child?',
-          options: ['A) Her parents forced her to read.', 'B) She lived very far away from the cinema.', 'C) There were no other children on the mountain.', 'D) She wanted to be a famous writer.'],
-          correct: 'B) She lived very far away from the cinema.',
-          explanation: 'She explains it was a "225 km trip to the cinema" and her parents "rarely took me there. That\'s why I developed a real love of books".',
-          tip: 'Exam Tip: Listen for phrases that show cause and effect, like "That\'s why...".'
-        },
-        {
-          id: 'q3',
-          text: '3. What advice does the author give to young writers?',
-          options: ['A) Read more books than anyone else.', 'B) Go outside and experience life.', 'C) Move to a big city to meet people.', 'D) Write at least one story every day.'],
-          correct: 'B) Go outside and experience life.',
-          explanation: 'She advises: "Go outside, hang out with friends, meet new people, have experiences".',
-          tip: 'Exam Tip: The speaker might mention an option (like reading a lot), but pay attention to what they emphasize as *their* specific advice ("But to be a good writer, you also have to...").'
-        }
+        { id: 'q1', text: '1. What did the author actually want to do with the vacuum cleaner?', options: ['A) Clean the local castle.', 'B) Help out a neighbor.', 'C) Try to catch a ghost.', 'D) Sell it to a friend.'], correct: 'C) Try to catch a ghost.', explanation: 'The author states: "The truth was that my friends and I wanted to use it to catch a ghost".', tip: 'Exam Tip: Speakers often contrast a lie with the truth.' },
+        { id: 'q2', text: '2. Why did the author start reading so much as a child?', options: ['A) Her parents forced her to read.', 'B) She lived very far away from the cinema.', 'C) There were no other children on the mountain.', 'D) She wanted to be a famous writer.'], correct: 'B) She lived very far away from the cinema.', explanation: 'She explains it was a "225 km trip to the cinema" and her parents "rarely took me there. That\'s why I developed a real love of books".', tip: 'Exam Tip: Listen for phrases that show cause and effect.' },
+        { id: 'q3', text: '3. What advice does the author give to young writers?', options: ['A) Read more books than anyone else.', 'B) Go outside and experience life.', 'C) Move to a big city to meet people.', 'D) Write at least one story every day.'], correct: 'B) Go outside and experience life.', explanation: 'She advises: "Go outside, hang out with friends, meet new people, have experiences".', tip: 'Exam Tip: Pay attention to what they emphasize as their specific advice.' }
       ]
     },
     {
@@ -1017,35 +536,11 @@ Author: There's all the obvious stuff about reading and writing as much as possi
       title: 'The Supermarket Employee',
       audioFile: 'k_angol_25maj_fl.mp3',
       instructions: 'Listen to the funny story and choose the correct answer.',
-      transcript: `Interviewer: You worked in a supermarket for a long time. Did anything funny ever happen?
-Employee: Oh, absolutely. I'm 67 years old now, but I remember this one lady clearly. She was extremely angry because she had bought a box of biscuits, and she said they tasted terrible. She demanded her money back. 
-Interviewer: What did you do?
-Employee: I asked her to show me the box. When she handed it to me, I had to try really hard not to laugh. I gently pointed out to her that she had bought a box of dog biscuits! She turned bright red and quickly left the store.`,
+      transcript: `Interviewer: You worked in a supermarket for a long time. Did anything funny ever happen?\nEmployee: Oh, absolutely. I'm 67 years old now, but I remember this one lady clearly. She was extremely angry because she had bought a box of biscuits, and she said they tasted terrible. She demanded her money back. \nInterviewer: What did you do?\nEmployee: I asked her to show me the box. When she handed it to me, I had to try really hard not to laugh. I gently pointed out to her that she had bought a box of dog biscuits! She turned bright red and quickly left the store.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Why was the lady angry?',
-          options: ['A) She waited too long in line.', 'B) She thought the biscuits tasted bad.', 'C) She was given the wrong change.'],
-          correct: 'B) She thought the biscuits tasted bad.',
-          explanation: 'The employee says she was angry because "she said they tasted terrible".',
-          tip: 'Exam Tip: Listen for the immediate cause of an emotion. Angry -> tasted terrible.'
-        },
-        {
-          id: 'q2',
-          text: '2. How did the employee react when he saw the box?',
-          options: ['A) He started shouting.', 'B) He gave her a full refund immediately.', 'C) He had to stop himself from laughing.'],
-          correct: 'C) He had to stop himself from laughing.',
-          explanation: 'He says, "I had to try really hard not to laugh."',
-          tip: 'Exam Tip: "Try hard not to laugh" and "stop himself from laughing" are perfect paraphrases. Always look for paraphrasing.'
-        },
-        {
-          id: 'q3',
-          text: '3. What was the problem with the biscuits?',
-          options: ['A) They were past their expiration date.', 'B) They were made for dogs.', 'C) The box was completely empty.'],
-          correct: 'B) They were made for dogs.',
-          explanation: 'He points out that "she had bought a box of dog biscuits!"',
-          tip: 'Exam Tip: Don\'t stop listening when you hear a potential answer; the punchline is usually at the very end.'
-        }
+        { id: 'q1', text: '1. Why was the lady angry?', options: ['A) She waited too long in line.', 'B) She thought the biscuits tasted bad.', 'C) She was given the wrong change.'], correct: 'B) She thought the biscuits tasted bad.', explanation: 'The employee says she was angry because "she said they tasted terrible".', tip: 'Exam Tip: Listen for the immediate cause of an emotion.' },
+        { id: 'q2', text: '2. How did the employee react when he saw the box?', options: ['A) He started shouting.', 'B) He gave her a full refund immediately.', 'C) He had to stop himself from laughing.'], correct: 'C) He had to stop himself from laughing.', explanation: 'He says, "I had to try really hard not to laugh."', tip: 'Exam Tip: Paraphrasing is often used for the correct answer.' },
+        { id: 'q3', text: '3. What was the problem with the biscuits?', options: ['A) They were past their expiration date.', 'B) They were made for dogs.', 'C) The box was completely empty.'], correct: 'B) They were made for dogs.', explanation: 'He points out that "she had bought a box of dog biscuits!"', tip: 'Exam Tip: The punchline is usually at the very end.' }
       ]
     },
     {
@@ -1053,35 +548,11 @@ Employee: I asked her to show me the box. When she handed it to me, I had to try
       title: 'A Lucky Escape',
       audioFile: 'k_angol_20okt_fl.mp3',
       instructions: 'Listen to the news report and choose the best answer.',
-      transcript: `Host: Today we're talking about lucky escapes. Mr. Christopher McCabe had quite an adventure in his garden, didn't he?
-Reporter: Yes, he did! Christopher was digging in his garden in England when his shovel hit something hard. He dug it up and found an old, rusty metal object. He didn't know what it was, so he just threw it into a bucket of water to clean it. 
-Host: And what was it?
-Reporter: It turned out to be a live bomb from World War II! When the police arrived, they told him he was incredibly lucky. Throwing it around and hitting it with a shovel could have easily made it explode. The bomb squad safely removed it from his garden.`,
+      transcript: `Host: Today we're talking about lucky escapes. Mr. Christopher McCabe had quite an adventure in his garden, didn't he?\nReporter: Yes, he did! Christopher was digging in his garden in England when his shovel hit something hard. He dug it up and found an old, rusty metal object. He didn't know what it was, so he just threw it into a bucket of water to clean it. \nHost: And what was it?\nReporter: It turned out to be a live bomb from World War II! When the police arrived, they told him he was incredibly lucky. Throwing it around and hitting it with a shovel could have easily made it explode. The bomb squad safely removed it from his garden.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Where did Christopher find the object?',
-          options: ['A) In the street.', 'B) In a bucket of water.', 'C) In his garden.'],
-          correct: 'C) In his garden.',
-          explanation: 'The reporter explicitly states he was "digging in his garden".',
-          tip: 'Exam Tip: Usually, the first question in a listening task relates to the very beginning of the audio.'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did he throw it into a bucket?',
-          options: ['A) He wanted to clean it.', 'B) He knew it was a bomb and wanted to cool it.', 'C) He didn\'t want to look at it.'],
-          correct: 'A) He wanted to clean it.',
-          explanation: 'He threw it into a bucket of water "to clean it" because it was a rusty object.',
-          tip: 'Exam Tip: Pay attention to motives ("so he just threw it... to clean it").'
-        },
-        {
-          id: 'q3',
-          text: '3. How did the police describe Christopher?',
-          options: ['A) Very foolish.', 'B) Incredibly lucky.', 'C) Extremely brave.'],
-          correct: 'B) Incredibly lucky.',
-          explanation: 'When the police arrived, "they told him he was incredibly lucky."',
-          tip: 'Exam Tip: Listen for exact adjectives. "Lucky escape" was also mentioned at the beginning by the host.'
-        }
+        { id: 'q1', text: '1. Where did Christopher find the object?', options: ['A) In the street.', 'B) In a bucket of water.', 'C) In his garden.'], correct: 'C) In his garden.', explanation: 'The reporter explicitly states he was "digging in his garden".', tip: 'Exam Tip: Usually, the first question relates to the very beginning of the audio.' },
+        { id: 'q2', text: '2. Why did he throw it into a bucket?', options: ['A) He wanted to clean it.', 'B) He knew it was a bomb and wanted to cool it.', 'C) He didn\'t want to look at it.'], correct: 'A) He wanted to clean it.', explanation: 'He threw it into a bucket of water "to clean it" because it was a rusty object.', tip: 'Exam Tip: Pay attention to motives.' },
+        { id: 'q3', text: '3. How did the police describe Christopher?', options: ['A) Very foolish.', 'B) Incredibly lucky.', 'C) Extremely brave.'], correct: 'B) Incredibly lucky.', explanation: 'When the police arrived, "they told him he was incredibly lucky."', tip: 'Exam Tip: Listen for exact adjectives.' }
       ]
     },
     {
@@ -1091,30 +562,9 @@ Reporter: It turned out to be a live bomb from World War II! When the police arr
       instructions: 'Listen to the story and choose the best answer.',
       transcript: `Speaker: You might know the famous song "A Spoonful of Sugar" from the movie Mary Poppins. But do you know the true story behind it? The songwriter, Robert Sherman, was struggling to write a song for the movie. One day, he went home and asked his children how their day was. His son said they had received the polio vaccine at school. Robert asked if it hurt, expecting his son to say he had an injection. Instead, his son explained that the nurses had put the medicine onto a sugar cube, and he just had to eat it! This gave Robert the brilliant idea for the song: "A spoonful of sugar helps the medicine go down."`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What was the songwriter having trouble with?',
-          options: ['A) Finding a doctor for his son.', 'B) Writing a song for a movie.', 'C) Baking a cake.'],
-          correct: 'B) Writing a song for a movie.',
-          explanation: 'The speaker states that Robert Sherman "was struggling to write a song for the movie."',
-          tip: 'Exam Tip: "Struggling to do something" means having trouble with it.'
-        },
-        {
-          id: 'q2',
-          text: '2. How did his son receive the vaccine at school?',
-          options: ['A) Through an injection in his arm.', 'B) In a glass of water.', 'C) On a sugar cube.'],
-          correct: 'C) On a sugar cube.',
-          explanation: 'The son explained that the nurses "put the medicine onto a sugar cube".',
-          tip: 'Exam Tip: Notice the contrast. The father expected an injection (A), but the reality was a sugar cube (C).'
-        },
-        {
-          id: 'q3',
-          text: '3. What did the son\'s story inspire Robert to do?',
-          options: ['A) Write his most famous song.', 'B) Give his children more sugar.', 'C) Go to the school and complain.'],
-          correct: 'A) Write his most famous song.',
-          explanation: 'The story gave Robert "the brilliant idea for the song: A spoonful of sugar".',
-          tip: 'Exam Tip: The word "idea" connects perfectly to the concept of being "inspired" to write.'
-        }
+        { id: 'q1', text: '1. What was the songwriter having trouble with?', options: ['A) Finding a doctor for his son.', 'B) Writing a song for a movie.', 'C) Baking a cake.'], correct: 'B) Writing a song for a movie.', explanation: 'The speaker states that Robert Sherman "was struggling to write a song for the movie."', tip: 'Exam Tip: "Struggling to do something" means having trouble with it.' },
+        { id: 'q2', text: '2. How did his son receive the vaccine at school?', options: ['A) Through an injection in his arm.', 'B) In a glass of water.', 'C) On a sugar cube.'], correct: 'C) On a sugar cube.', explanation: 'The son explained that the nurses "put the medicine onto a sugar cube".', tip: 'Exam Tip: Notice the contrast. The father expected an injection, but the reality was a sugar cube.' },
+        { id: 'q3', text: '3. What did the son\'s story inspire Robert to do?', options: ['A) Write his most famous song.', 'B) Give his children more sugar.', 'C) Go to the school and complain.'], correct: 'A) Write his most famous song.', explanation: 'The story gave Robert "the brilliant idea for the song: A spoonful of sugar".', tip: 'Exam Tip: The word "idea" connects perfectly to the concept of being "inspired" to write.' }
       ]
     },
     {
@@ -1122,33 +572,11 @@ Reporter: It turned out to be a live bomb from World War II! When the police arr
       title: 'The Toddler Who Bought a Car',
       audioFile: 'k_angol_15maj_fl.mp3',
       instructions: 'Listen to the news report and choose the best answer.',
-      transcript: `Reporter: Paul Stout was absolutely shocked when he got an email from eBay congratulating him. The email said he had successfully bought a 1962 Austin car for £150. He initially thought it was a joke because he certainly hadn't bid for it! But when he logged into his account, he saw it was true.
-He soon realized what had happened. His 13-month-old daughter, Sorella, who couldn't even speak yet, had been playing with his smartphone. She had accidentally bought the car through the app! Paul decided to pay for it anyway. He plans to repair the old car so it can be a great father-daughter project, and he hopes to give it to Sorella to drive on her 16th birthday.`,
+      transcript: `Reporter: Paul Stout was absolutely shocked when he got an email from eBay congratulating him. The email said he had successfully bought a 1962 Austin car for £150. He initially thought it was a joke because he certainly hadn't bid for it! But when he logged into his account, he saw it was true.\nHe soon realized what had happened. His 13-month-old daughter, Sorella, who couldn't even speak yet, had been playing with his smartphone. She had accidentally bought the car through the app! Paul decided to pay for it anyway. He plans to repair the old car so it can be a great father-daughter project, and he hopes to give it to Sorella to drive on her 16th birthday.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. How did Paul find out he had bought a car?',
-          options: ['A) His wife told him.', 'B) He received an email from eBay.', 'C) The car arrived at his house.'],
-          correct: 'B) He received an email from eBay.',
-          explanation: 'The reporter says Paul was shocked "when he got an email from eBay".',
-          tip: 'Exam Tip: Pay attention to the specific method of communication mentioned in the audio.'
-        },
-        {
-          id: 'q2',
-          text: '2. Who actually clicked the button to buy the car?',
-          options: ['A) His teenage son.', 'B) A hacker on the internet.', 'C) His baby daughter.'],
-          correct: 'C) His baby daughter.',
-          explanation: 'He realized his 13-month-old daughter "had accidentally bought the car through the app".',
-          tip: 'Exam Tip: "13-month-old" is a synonym phrase for a "baby" or "toddler".'
-        },
-        {
-          id: 'q3',
-          text: '3. What does Paul plan to do with the car in the future?',
-          options: ['A) Sell it back on eBay.', 'B) Give it to his daughter when she is 16.', 'C) Throw it away because it is too rusty.'],
-          correct: 'B) Give it to his daughter when she is 16.',
-          explanation: 'The text states "he hopes to give it to Sorella to drive on her 16th birthday".',
-          tip: 'Exam Tip: Listen for future intentions marked by verbs like "hopes", "plans", or "will".'
-        }
+        { id: 'q1', text: '1. How did Paul find out he had bought a car?', options: ['A) His wife told him.', 'B) He received an email from eBay.', 'C) The car arrived at his house.'], correct: 'B) He received an email from eBay.', explanation: 'The reporter says Paul was shocked "when he got an email from eBay".', tip: 'Exam Tip: Pay attention to the specific method of communication.' },
+        { id: 'q2', text: '2. Who actually clicked the button to buy the car?', options: ['A) His teenage son.', 'B) A hacker on the internet.', 'C) His baby daughter.'], correct: 'C) His baby daughter.', explanation: 'He realized his 13-month-old daughter "had accidentally bought the car through the app".', tip: 'Exam Tip: "13-month-old" is a synonym phrase for a "baby" or "toddler".' },
+        { id: 'q3', text: '3. What does Paul plan to do with the car in the future?', options: ['A) Sell it back on eBay.', 'B) Give it to his daughter when she is 16.', 'C) Throw it away because it is too rusty.'], correct: 'B) Give it to his daughter when she is 16.', explanation: 'The text states "he hopes to give it to Sorella to drive on her 16th birthday".', tip: 'Exam Tip: Listen for future intentions marked by verbs like "hopes" or "plans".' }
       ]
     },
     {
@@ -1156,33 +584,11 @@ He soon realized what had happened. His 13-month-old daughter, Sorella, who coul
       title: 'Duke the Rescue Dog',
       audioFile: 'k_angol_16maj_fl.mp3',
       instructions: 'Listen to the story and decide if the statements are True (A), False (B), or if the text Doesn\'t Say (C).',
-      transcript: `News Anchor: Adopting a rescue dog was the best decision Jenna and Tom ever made. One night, they were sleeping soundly when their dog, Duke, suddenly jumped on their bed. He began shaking uncontrollably with fear. Duke was usually a very calm and perfect dog, so they immediately knew something had to be terribly wrong. 
-They ran into their 9-week-old baby's room to check on her. To their horror, the baby had stopped breathing! Tom called an ambulance at once. The paramedics arrived within 10 minutes and managed to save her life. Jenna later told reporters, "If Duke hadn't woken us up, the baby would have died." They hope their story will encourage others to adopt rescue dogs.`,
+      transcript: `News Anchor: Adopting a rescue dog was the best decision Jenna and Tom ever made. One night, they were sleeping soundly when their dog, Duke, suddenly jumped on their bed. He began shaking uncontrollably with fear. Duke was usually a very calm and perfect dog, so they immediately knew something had to be terribly wrong. \nThey ran into their 9-week-old baby's room to check on her. To their horror, the baby had stopped breathing! Tom called an ambulance at once. The paramedics arrived within 10 minutes and managed to save her life. Jenna later told reporters, "If Duke hadn't woken us up, the baby would have died." They hope their story will encourage others to adopt rescue dogs.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Duke was normally a very nervous and loud dog.',
-          options: ['A) True', 'B) False', 'C) Doesn\'t Say'],
-          correct: 'B) False',
-          explanation: 'The text says Duke was "usually a very calm and perfect dog".',
-          tip: 'Exam Tip: Watch out for words that mean the opposite of what is in the text (nervous vs calm).'
-        },
-        {
-          id: 'q2',
-          text: '2. Jenna and Tom woke up because they heard the baby crying.',
-          options: ['A) True', 'B) False', 'C) Doesn\'t Say'],
-          correct: 'B) False',
-          explanation: 'They woke up because Duke "jumped on their bed" and was "shaking uncontrollably". The baby had stopped breathing.',
-          tip: 'Exam Tip: Identify the exact cause of an action in the narrative sequence.'
-        },
-        {
-          id: 'q3',
-          text: '3. The paramedics arrived at the house very quickly.',
-          options: ['A) True', 'B) False', 'C) Doesn\'t Say'],
-          correct: 'A) True',
-          explanation: 'The audio states "The paramedics arrived within 10 minutes", which is very quickly.',
-          tip: 'Exam Tip: Quantifiers and time expressions often hold the key to True/False questions.'
-        }
+        { id: 'q1', text: '1. Duke was normally a very nervous and loud dog.', options: ['A) True', 'B) False', 'C) Doesn\'t Say'], correct: 'B) False', explanation: 'The text says Duke was "usually a very calm and perfect dog".', tip: 'Exam Tip: Watch out for words that mean the opposite of what is in the text.' },
+        { id: 'q2', text: '2. Jenna and Tom woke up because they heard the baby crying.', options: ['A) True', 'B) False', 'C) Doesn\'t Say'], correct: 'B) False', explanation: 'They woke up because Duke "jumped on their bed" and was "shaking uncontrollably".', tip: 'Exam Tip: Identify the exact cause of an action.' },
+        { id: 'q3', text: '3. The paramedics arrived at the house very quickly.', options: ['A) True', 'B) False', 'C) Doesn\'t Say'], correct: 'A) True', explanation: 'The audio states "The paramedics arrived within 10 minutes", which is very quickly.', tip: 'Exam Tip: Quantifiers and time expressions hold the key to True/False questions.' }
       ]
     },
     {
@@ -1190,33 +596,11 @@ They ran into their 9-week-old baby's room to check on her. To their horror, the
       title: 'The Famous Photo of Einstein',
       audioFile: 'k_angol_20okt_fl.mp3',
       instructions: 'Listen to the short history segment and choose the best answer.',
-      transcript: `Host: Have you ever seen that famous photograph of Albert Einstein sticking his tongue out? It's iconic! It was taken by a photographer named Art Sasse on Einstein's 72nd birthday. Einstein was leaving a long birthday party and had just gotten into the back of a car. 
-Several photographers were gathered around, constantly asking him to smile for the camera. But Einstein was extremely tired of smiling all evening. So, instead of giving them a normal smile, he just looked at the camera and stuck his tongue out! Sasse quickly snapped the picture. Surprisingly, Einstein loved the photo so much that he ordered nine copies to send to his close friends as greeting cards.`,
+      transcript: `Host: Have you ever seen that famous photograph of Albert Einstein sticking his tongue out? It's iconic! It was taken by a photographer named Art Sasse on Einstein's 72nd birthday. Einstein was leaving a long birthday party and had just gotten into the back of a car. \nSeveral photographers were gathered around, constantly asking him to smile for the camera. But Einstein was extremely tired of smiling all evening. So, instead of giving them a normal smile, he just looked at the camera and stuck his tongue out! Sasse quickly snapped the picture. Surprisingly, Einstein loved the photo so much that he ordered nine copies to send to his close friends as greeting cards.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What occasion was being celebrated when the photo was taken?',
-          options: ['A) Einstein winning a Nobel Prize.', 'B) Einstein\'s 72nd birthday.', 'C) A university graduation.'],
-          correct: 'B) Einstein\'s 72nd birthday.',
-          explanation: 'The host mentions it was taken "on Einstein\'s 72nd birthday".',
-          tip: 'Exam Tip: Listen specifically for numbers and dates, as they are frequently tested.'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did Einstein stick his tongue out?',
-          options: ['A) He was eating a sour candy.', 'B) He was angry at his driver.', 'C) He was tired of smiling for photographers.'],
-          correct: 'C) He was tired of smiling for photographers.',
-          explanation: 'He stuck his tongue out because he was "extremely tired of smiling all evening".',
-          tip: 'Exam Tip: Connect the character\'s emotion (tired) to their unexpected action (sticking tongue out).'
-        },
-        {
-          id: 'q3',
-          text: '3. How did Einstein feel about the photograph later?',
-          options: ['A) He absolutely hated it.', 'B) He loved it and ordered copies.', 'C) He asked the photographer to delete it.'],
-          correct: 'B) He loved it and ordered copies.',
-          explanation: 'The audio explicitly states: "Einstein loved the photo so much that he ordered nine copies".',
-          tip: 'Exam Tip: Don\'t assume a historical figure would be embarrassed; listen for the actual stated outcome ("surprisingly, he loved the photo").'
-        }
+        { id: 'q1', text: '1. What occasion was being celebrated when the photo was taken?', options: ['A) Einstein winning a Nobel Prize.', 'B) Einstein\'s 72nd birthday.', 'C) A university graduation.'], correct: 'B) Einstein\'s 72nd birthday.', explanation: 'The host mentions it was taken "on Einstein\'s 72nd birthday".', tip: 'Exam Tip: Listen specifically for numbers and dates.' },
+        { id: 'q2', text: '2. Why did Einstein stick his tongue out?', options: ['A) He was eating a sour candy.', 'B) He was angry at his driver.', 'C) He was tired of smiling for photographers.'], correct: 'C) He was tired of smiling for photographers.', explanation: 'He stuck his tongue out because he was "extremely tired of smiling all evening".', tip: 'Exam Tip: Connect the character\'s emotion to their unexpected action.' },
+        { id: 'q3', text: '3. How did Einstein feel about the photograph later?', options: ['A) He absolutely hated it.', 'B) He loved it and ordered copies.', 'C) He asked the photographer to delete it.'], correct: 'B) He loved it and ordered copies.', explanation: 'The audio explicitly states: "Einstein loved the photo so much that he ordered nine copies".', tip: 'Exam Tip: Don\'t assume a historical figure would be embarrassed.' }
       ]
     },
     {
@@ -1224,33 +608,11 @@ Several photographers were gathered around, constantly asking him to smile for t
       title: 'Interview with Leona Lewis',
       audioFile: 'k_angol_15okt_fl.mp3',
       instructions: 'Listen to the interview and choose the correct answer.',
-      transcript: `Interviewer: Today we have Leona Lewis, who won the X Factor in 2006. Leona, how did your life change after winning? 
-Leona: It was incredible. I went from working as a receptionist to singing on huge stages. My debut album was a massive success, but it took a lot of hard work. I had to practice every single day and learn how to handle the pressure of fame.`,
+      transcript: `Interviewer: Today we have Leona Lewis, who won the X Factor in 2006. Leona, how did your life change after winning? \nLeona: It was incredible. I went from working as a receptionist to singing on huge stages. My debut album was a massive success, but it took a lot of hard work. I had to practice every single day and learn how to handle the pressure of fame.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What was Leona\'s job before winning the competition?',
-          options: ['A) A professional singer.', 'B) A receptionist.', 'C) A vocal coach.'],
-          correct: 'B) A receptionist.',
-          explanation: 'She says, "I went from working as a receptionist to singing on huge stages."',
-          tip: 'Exam Tip: Listen for "from X to Y" phrases to understand before-and-after timelines.'
-        },
-        {
-          id: 'q2',
-          text: '2. How does Leona describe her first album?',
-          options: ['A) A massive success.', 'B) A big disappointment.', 'C) A difficult project.'],
-          correct: 'A) A massive success.',
-          explanation: 'She explicitly states, "My debut album was a massive success".',
-          tip: 'Exam Tip: "Debut album" is a synonym for "first album".'
-        },
-        {
-          id: 'q3',
-          text: '3. What did she have to do every day?',
-          options: ['A) Give interviews.', 'B) Practice.', 'C) Travel around the world.'],
-          correct: 'B) Practice.',
-          explanation: 'She mentions, "I had to practice every single day".',
-          tip: 'Exam Tip: Match frequency expressions like "every single day" with the action that follows.'
-        }
+        { id: 'q1', text: '1. What was Leona\'s job before winning the competition?', options: ['A) A professional singer.', 'B) A receptionist.', 'C) A vocal coach.'], correct: 'B) A receptionist.', explanation: 'She says, "I went from working as a receptionist to singing on huge stages."', tip: 'Exam Tip: Listen for "from X to Y" phrases to understand before-and-after timelines.' },
+        { id: 'q2', text: '2. How does Leona describe her first album?', options: ['A) A massive success.', 'B) A big disappointment.', 'C) A difficult project.'], correct: 'A) A massive success.', explanation: 'She explicitly states, "My debut album was a massive success".', tip: 'Exam Tip: "Debut album" is a synonym for "first album".' },
+        { id: 'q3', text: '3. What did she have to do every day?', options: ['A) Give interviews.', 'B) Practice.', 'C) Travel around the world.'], correct: 'B) Practice.', explanation: 'She mentions, "I had to practice every single day".', tip: 'Exam Tip: Match frequency expressions like "every single day" with the action that follows.' }
       ]
     },
     {
@@ -1260,30 +622,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the funny story and choose the best answer.',
       transcript: `A police officer was sitting on the side of the highway waiting to catch speeding drivers. Suddenly, he saw a car traveling at just 22 miles per hour. He stopped the car because driving too slowly can also be dangerous. Inside, he found five terrified elderly ladies. The driver said, "I was doing exactly the speed limit! The sign said 22." The officer laughed and explained, "Ma'am, 22 is the route number of this highway, not the speed limit."`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Why did the police officer stop the car?',
-          options: ['A) It was going too fast.', 'B) It was going too slowly.', 'C) It was driving on the wrong side.'],
-          correct: 'B) It was going too slowly.',
-          explanation: 'The officer stopped the car because "driving too slowly can also be dangerous."',
-          tip: 'Exam Tip: Sometimes the unexpected action is the correct answer. The officer was looking for speeders, but stopped a slow car.'
-        },
-        {
-          id: 'q2',
-          text: '2. How did the passengers in the car feel?',
-          options: ['A) Angry', 'B) Excited', 'C) Terrified'],
-          correct: 'C) Terrified',
-          explanation: 'The audio describes them as "five terrified elderly ladies."',
-          tip: 'Exam Tip: Listen carefully for adjectives describing emotions.'
-        },
-        {
-          id: 'q3',
-          text: '3. What did the number 22 actually mean?',
-          options: ['A) The speed limit.', 'B) The number of the highway.', 'C) The age of the car.'],
-          correct: 'B) The number of the highway.',
-          explanation: 'The officer explained that "22 is the route number of this highway".',
-          tip: 'Exam Tip: In funny stories or jokes, the misunderstanding is usually the focus of the final question.'
-        }
+        { id: 'q1', text: '1. Why did the police officer stop the car?', options: ['A) It was going too fast.', 'B) It was going too slowly.', 'C) It was driving on the wrong side.'], correct: 'B) It was going too slowly.', explanation: 'The officer stopped the car because "driving too slowly can also be dangerous."', tip: 'Exam Tip: Sometimes the unexpected action is the correct answer.' },
+        { id: 'q2', text: '2. How did the passengers in the car feel?', options: ['A) Angry', 'B) Excited', 'C) Terrified'], correct: 'C) Terrified', explanation: 'The audio describes them as "five terrified elderly ladies."', tip: 'Exam Tip: Listen carefully for adjectives describing emotions.' },
+        { id: 'q3', text: '3. What did the number 22 actually mean?', options: ['A) The speed limit.', 'B) The number of the highway.', 'C) The age of the car.'], correct: 'B) The number of the highway.', explanation: 'The officer explained that "22 is the route number of this highway".', tip: 'Exam Tip: In funny stories or jokes, the misunderstanding is usually the focus of the final question.' }
       ]
     },
     {
@@ -1293,30 +634,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the story and choose the correct answer.',
       transcript: `A philosophy professor stood before his class with a large empty jar. He filled it with golf balls and asked the students if it was full. They said yes. Then, he poured small pebbles into the jar, which filled the spaces between the golf balls. Again, they agreed it was full. He explained that the golf balls represent the most important things in life, like family and health, while the pebbles are smaller things like a job or a car.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What did the professor put into the jar first?',
-          options: ['A) Pebbles', 'B) Water', 'C) Golf balls'],
-          correct: 'C) Golf balls',
-          explanation: 'The text says, "He filled it with golf balls and asked the students if it was full."',
-          tip: 'Exam Tip: Pay attention to sequencing words like "first", "then", and "finally".'
-        },
-        {
-          id: 'q2',
-          text: '2. What did the golf balls represent?',
-          options: ['A) The most important things in life.', 'B) Small problems.', 'C) The students\' grades.'],
-          correct: 'A) The most important things in life.',
-          explanation: 'He explained that the golf balls "represent the most important things in life".',
-          tip: 'Exam Tip: The word "represent" directly answers "what do they mean / symbolize".'
-        },
-        {
-          id: 'q3',
-          text: '3. What did the pebbles represent?',
-          options: ['A) Family and friends.', 'B) Less important things like a car.', 'C) Money.'],
-          correct: 'B) Less important things like a car.',
-          explanation: 'The pebbles are described as "smaller things like a job or a car."',
-          tip: 'Exam Tip: "Smaller things" implies they are less important than the main things.'
-        }
+        { id: 'q1', text: '1. What did the professor put into the jar first?', options: ['A) Pebbles', 'B) Water', 'C) Golf balls'], correct: 'C) Golf balls', explanation: 'The text says, "He filled it with golf balls and asked the students if it was full."', tip: 'Exam Tip: Pay attention to sequencing words like "first", "then", and "finally".' },
+        { id: 'q2', text: '2. What did the golf balls represent?', options: ['A) The most important things in life.', 'B) Small problems.', 'C) The students\' grades.'], correct: 'A) The most important things in life.', explanation: 'He explained that the golf balls "represent the most important things in life".', tip: 'Exam Tip: The word "represent" directly answers "what do they mean / symbolize".' },
+        { id: 'q3', text: '3. What did the pebbles represent?', options: ['A) Family and friends.', 'B) Less important things like a car.', 'C) Money.'], correct: 'B) Less important things like a car.', explanation: 'The pebbles are described as "smaller things like a job or a car."', tip: 'Exam Tip: "Smaller things" implies they are less important than the main things.' }
       ]
     },
     {
@@ -1325,30 +645,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the story and choose the correct answer.',
       transcript: `At 40, Franz Kafka, who never married and had no children, was walking through a park one day in Berlin when he met a girl who was crying because she had lost her favorite doll. Kafka offered to help her look for the doll and arranged to meet her the next day at the same spot. When he couldn't find the doll, he wrote a letter "from" the doll and read it to the little girl. The letter explained that the doll had gone off on a journey to see the world. Kafka continued writing and reading these letters to the girl for several weeks, comforting her with stories of the doll's adventures.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Why was the little girl crying in the park?',
-          options: ['A) She was lost.', 'B) She had dropped her ice cream.', 'C) She had lost her favorite doll.'],
-          correct: 'C) She had lost her favorite doll.',
-          explanation: 'The text states that Kafka met a girl "who was crying because she had lost her favorite doll".',
-          tip: 'Exam Tip: Listen for the "because" clauses as they usually contain the answer to "Why" questions.'
-        },
-        {
-          id: 'q2',
-          text: '2. What did Kafka do when he couldn\'t find the toy?',
-          options: ['A) He bought her a new one.', 'B) He wrote letters pretending to be the doll.', 'C) He called the police.'],
-          correct: 'B) He wrote letters pretending to be the doll.',
-          explanation: 'He "wrote a letter \'from\' the doll and read it to the little girl".',
-          tip: 'Exam Tip: Paraphrasing is common! "Pretending to be the doll" is another way of saying he wrote a letter "from" the doll.'
-        },
-        {
-          id: 'q3',
-          text: '3. What did the letter say the doll was doing?',
-          options: ['A) Travelling the world.', 'B) Hiding in the park.', 'C) Visiting a toy hospital.'],
-          correct: 'A) Travelling the world.',
-          explanation: 'The letter explained that the doll "had gone off on a journey to see the world".',
-          tip: 'Exam Tip: Focus on the specific details related to the main characters (in this case, the doll\'s journey).'
-        }
+        { id: 'q1', text: '1. Why was the little girl crying in the park?', options: ['A) She was lost.', 'B) She had dropped her ice cream.', 'C) She had lost her favorite doll.'], correct: 'C) She had lost her favorite doll.', explanation: 'The text states that Kafka met a girl "who was crying because she had lost her favorite doll".', tip: 'Exam Tip: Listen for the "because" clauses.' },
+        { id: 'q2', text: '2. What did Kafka do when he couldn\'t find the toy?', options: ['A) He bought her a new one.', 'B) He wrote letters pretending to be the doll.', 'C) He called the police.'], correct: 'B) He wrote letters pretending to be the doll.', explanation: 'He "wrote a letter \'from\' the doll and read it to the little girl".', tip: 'Exam Tip: Paraphrasing is common! "Pretending to be the doll" is another way of saying he wrote a letter "from" the doll.' },
+        { id: 'q3', text: '3. What did the letter say the doll was doing?', options: ['A) Travelling the world.', 'B) Hiding in the park.', 'C) Visiting a toy hospital.'], correct: 'A) Travelling the world.', explanation: 'The letter explained that the doll "had gone off on a journey to see the world".', tip: 'Exam Tip: Focus on the specific details related to the main characters.' }
       ]
     },
     {
@@ -1357,30 +656,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the news report and choose the best answer.',
       transcript: `An armored truck was driving down the highway when suddenly its back doors flew open. A bag ripped and money spilled out. Then another bag fell out of the truck, and soon, money was flying everywhere! Drivers slammed on their brakes and stopped right in the middle of the highway. People jumped out of their cars and began to pick up the green bills. Mr. Kaiser grabbed a plastic bag of money, put it in his car, and drove away. Later, he counted it and realized he had $57,000! After thinking about it for two hours, he went to the police station and returned all the cash.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. Why did money start flying on the highway?',
-          options: ['A) A bank was robbed nearby.', 'B) The doors of an armored truck opened.', 'C) A helicopter dropped it.'],
-          correct: 'B) The doors of an armored truck opened.',
-          explanation: 'The story begins by explaining an armored truck was driving when "its back doors flew open" and money spilled out.',
-          tip: 'Exam Tip: The first sentence often sets the scene and answers the first question in news reports.'
-        },
-        {
-          id: 'q2',
-          text: '2. How did the drivers react?',
-          options: ['A) They stopped their cars and picked up the money.', 'B) They ignored it and kept driving.', 'C) They called the police immediately.'],
-          correct: 'A) They stopped their cars and picked up the money.',
-          explanation: 'Drivers "stopped right in the middle of the highway... and began to pick up the green bills".',
-          tip: 'Exam Tip: Match the sequence of events. The drivers stopped first, then got out to pick up the money.'
-        },
-        {
-          id: 'q3',
-          text: '3. What did Mr. Kaiser do after counting the $57,000 at home?',
-          options: ['A) He went on a vacation to Florida.', 'B) He bought a new gate for his house.', 'C) He returned the money to the police.'],
-          correct: 'C) He returned the money to the police.',
-          explanation: 'Despite dreaming about a vacation, "he went to the police station and returned all the cash".',
-          tip: 'Exam Tip: Be careful! The text might mention distractors (like his dreams of a vacation) before giving the final, real action.'
-        }
+        { id: 'q1', text: '1. Why did money start flying on the highway?', options: ['A) A bank was robbed nearby.', 'B) The doors of an armored truck opened.', 'C) A helicopter dropped it.'], correct: 'B) The doors of an armored truck opened.', explanation: 'The story begins by explaining an armored truck was driving when "its back doors flew open" and money spilled out.', tip: 'Exam Tip: The first sentence often sets the scene and answers the first question.' },
+        { id: 'q2', text: '2. How did the drivers react?', options: ['A) They stopped their cars and picked up the money.', 'B) They ignored it and kept driving.', 'C) They called the police immediately.'], correct: 'A) They stopped their cars and picked up the money.', explanation: 'Drivers "stopped right in the middle of the highway... and began to pick up the green bills".', tip: 'Exam Tip: Match the sequence of events. The drivers stopped first, then got out.' },
+        { id: 'q3', text: '3. What did Mr. Kaiser do after counting the $57,000 at home?', options: ['A) He went on a vacation to Florida.', 'B) He bought a new gate for his house.', 'C) He returned the money to the police.'], correct: 'C) He returned the money to the police.', explanation: 'Despite dreaming about a vacation, "he went to the police station and returned all the cash".', tip: 'Exam Tip: Be careful! The text might mention distractors before giving the final, real action.' }
       ]
     },
     {
@@ -1389,30 +667,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the radio interview and answer the questions.',
       transcript: `You are listening to Radio Bridge. In the studio, I have the world-famous Ethiopian runner, Haile Gebrselassie, who is commonly called the "Emperor of Long Distance." During his incredible career, he won two Olympic gold medals and eight World Championships, and he set 27 world records! He eventually decided to retire in 2010. Today, I would like to know how his outstanding career started. Mr. Gebrselassie, thank you very much for accepting our invitation and joining us in the studio today.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What sport is Haile Gebrselassie famous for?',
-          options: ['A) Swimming.', 'B) Long-distance running.', 'C) Cycling.'],
-          correct: 'B) Long-distance running.',
-          explanation: 'The host introduces him as the "world-famous Ethiopian runner" and the "Emperor of Long Distance".',
-          tip: 'Exam Tip: Titles and nicknames often contain the core information about a person\'s profession.'
-        },
-        {
-          id: 'q2',
-          text: '2. How many world records did he set during his career?',
-          options: ['A) 2.', 'B) 8.', 'C) 27.'],
-          correct: 'C) 27.',
-          explanation: 'The audio clearly states he "set 27 world records".',
-          tip: 'Exam Tip: Write down numbers as soon as you hear them, as listening tasks often try to confuse you with multiple numbers.'
-        },
-        {
-          id: 'q3',
-          text: '3. In what year did he decide to retire?',
-          options: ['A) 2000.', 'B) 2010.', 'C) 2020.'],
-          correct: 'B) 2010.',
-          explanation: 'The host says, "He eventually decided to retire in 2010."',
-          tip: 'Exam Tip: Don\'t overthink dates. If a specific year is connected to a specific action (retire), that is your answer.'
-        }
+        { id: 'q1', text: '1. What sport is Haile Gebrselassie famous for?', options: ['A) Swimming.', 'B) Long-distance running.', 'C) Cycling.'], correct: 'B) Long-distance running.', explanation: 'The host introduces him as the "world-famous Ethiopian runner" and the "Emperor of Long Distance".', tip: 'Exam Tip: Titles and nicknames often contain the core information about a person\'s profession.' },
+        { id: 'q2', text: '2. How many world records did he set during his career?', options: ['A) 2.', 'B) 8.', 'C) 27.'], correct: 'C) 27.', explanation: 'The audio clearly states he "set 27 world records".', tip: 'Exam Tip: Write down numbers as soon as you hear them.' },
+        { id: 'q3', text: '3. In what year did he decide to retire?', options: ['A) 2000.', 'B) 2010.', 'C) 2020.'], correct: 'B) 2010.', explanation: 'The host says, "He eventually decided to retire in 2010."', tip: 'Exam Tip: Don\'t overthink dates. If a specific year is connected to a specific action (retire), that is your answer.' }
       ]
     },
     {
@@ -1422,30 +679,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the recording and choose the best answer.',
       transcript: `In this section, you will hear the story of the birth of the bikini. It was named after the Bikini Atoll, where atomic bomb testing was taking place. The creator thought the swimsuit would cause a similar explosive reaction in the fashion world. Originally, models refused to wear it because they thought it revealed too much. Eventually, a brave dancer agreed to model it in Paris in 1946. It took many years for the bikini to become widely accepted on public beaches.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. What inspired the name of the swimsuit?',
-          options: ['A) A famous model.', 'B) A location of atomic bomb tests.', 'C) A French beach.'],
-          correct: 'B) A location of atomic bomb tests.',
-          explanation: 'The transcript says "It was named after the Bikini Atoll, where atomic bomb testing was taking place."',
-          tip: 'Exam Tip: Listen closely for the phrase "named after".'
-        },
-        {
-          id: 'q2',
-          text: '2. Why did models initially refuse to wear it?',
-          options: ['A) It was too expensive.', 'B) It was the wrong colour.', 'C) It revealed too much of their bodies.'],
-          correct: 'C) It revealed too much of their bodies.',
-          explanation: 'The text states models refused "because they thought it revealed too much."',
-          tip: 'Exam Tip: "Revealed too much" refers to showing too much skin.'
-        },
-        {
-          id: 'q3',
-          text: '3. Who was the first person to model the bikini in public?',
-          options: ['A) A professional swimmer.', 'B) A brave dancer.', 'C) A Hollywood actress.'],
-          correct: 'B) A brave dancer.',
-          explanation: 'The transcript mentions that "Eventually, a brave dancer agreed to model it".',
-          tip: 'Exam Tip: Pay attention to specific professions mentioned in the text.'
-        }
+        { id: 'q1', text: '1. What inspired the name of the swimsuit?', options: ['A) A famous model.', 'B) A location of atomic bomb tests.', 'C) A French beach.'], correct: 'B) A location of atomic bomb tests.', explanation: 'The transcript says "It was named after the Bikini Atoll, where atomic bomb testing was taking place."', tip: 'Exam Tip: Listen closely for the phrase "named after".' },
+        { id: 'q2', text: '2. Why did models initially refuse to wear it?', options: ['A) It was too expensive.', 'B) It was the wrong colour.', 'C) It revealed too much of their bodies.'], correct: 'C) It revealed too much of their bodies.', explanation: 'The text states models refused "because they thought it revealed too much."', tip: 'Exam Tip: "Revealed too much" refers to showing too much skin.' },
+        { id: 'q3', text: '3. Who was the first person to model the bikini in public?', options: ['A) A professional swimmer.', 'B) A brave dancer.', 'C) A Hollywood actress.'], correct: 'B) A brave dancer.', explanation: 'The transcript mentions that "Eventually, a brave dancer agreed to model it".', tip: 'Exam Tip: Pay attention to specific professions mentioned in the text.' }
       ]
     },
     {
@@ -1455,30 +691,9 @@ Leona: It was incredible. I went from working as a receptionist to singing on hu
       instructions: 'Listen to the recording and choose the best answer.',
       transcript: `In this section, you will hear a true story about a Costa Rican fisherman who survived a five-month drift in a boat on the ocean. He originally set out for a simple weekend fishing trip. However, a massive storm hit and destroyed his engine and radio. For months, he survived by drinking rainwater and eating raw fish. He was finally rescued by a passing cargo ship just when he thought he had no hope left. Doctors were amazed at his physical condition after such a long ordeal.`,
       questions: [
-        {
-          id: 'q1',
-          text: '1. How long was the fisherman\'s trip supposed to be originally?',
-          options: ['A) Five months.', 'B) A weekend.', 'C) One week.'],
-          correct: 'B) A weekend.',
-          explanation: 'He originally set out for "a simple weekend fishing trip".',
-          tip: 'Exam Tip: Differentiate between the planned time (weekend) and the actual time (five months).'
-        },
-        {
-          id: 'q2',
-          text: '2. How did the storm affect his boat?',
-          options: ['A) It broke the sails.', 'B) It flipped the boat over.', 'C) It destroyed the engine and radio.'],
-          correct: 'C) It destroyed the engine and radio.',
-          explanation: 'The storm "destroyed his engine and radio".',
-          tip: 'Exam Tip: Listen for the specific damage caused.'
-        },
-        {
-          id: 'q3',
-          text: '3. Who eventually rescued him?',
-          options: ['A) A police helicopter.', 'B) A passing cargo ship.', 'C) Another fisherman.'],
-          correct: 'B) A passing cargo ship.',
-          explanation: 'He was rescued by "a passing cargo ship".',
-          tip: 'Exam Tip: Distinguish between the different types of vessels or vehicles mentioned.'
-        }
+        { id: 'q1', text: '1. How long was the fisherman\'s trip supposed to be originally?', options: ['A) Five months.', 'B) A weekend.', 'C) One week.'], correct: 'B) A weekend.', explanation: 'He originally set out for "a simple weekend fishing trip".', tip: 'Exam Tip: Differentiate between the planned time (weekend) and the actual time (five months).' },
+        { id: 'q2', text: '2. How did the storm affect his boat?', options: ['A) It broke the sails.', 'B) It flipped the boat over.', 'C) It destroyed the engine and radio.'], correct: 'C) It destroyed the engine and radio.', explanation: 'The storm "destroyed his engine and radio".', tip: 'Exam Tip: Listen for the specific damage caused.' },
+        { id: 'q3', text: '3. Who eventually rescued him?', options: ['A) A police helicopter.', 'B) A passing cargo ship.', 'C) Another fisherman.'], correct: 'B) A passing cargo ship.', explanation: 'He was rescued by "a passing cargo ship".', tip: 'Exam Tip: Distinguish between the different types of vessels or vehicles mentioned.' }
       ]
     }
   ]
@@ -1491,7 +706,6 @@ const ChallengeTracker = ({ completedDays, onStartDay }) => {
   
   return (
     <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 sm:p-8 shadow-sm mb-8 text-white relative overflow-hidden">
-       {/* Decorative background elements */}
        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
        <div className="absolute bottom-0 right-20 w-24 h-24 bg-blue-300 opacity-20 rounded-full blur-xl"></div>
        
@@ -1518,7 +732,7 @@ const ChallengeTracker = ({ completedDays, onStartDay }) => {
                   onClick={() => onStartDay(dayNum)}
                   className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-110
                     ${isCompleted 
-                      ? 'bg-red-500 text-white shadow-md border-2 border-red-500' // Red when completed
+                      ? 'bg-red-500 text-white shadow-md border-2 border-red-500'
                       : 'bg-white/10 text-blue-200 border border-white/30 hover:bg-white/20'}`}
                   title={isCompleted ? `Day ${dayNum} (Completed)` : `Start Day ${dayNum}`}
                 >
@@ -1546,7 +760,6 @@ const CustomAudioPlayer = ({ src }) => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    // Reset player state when the source URL changes
     setIsPlaying(false);
     setCurrentTime(0);
     setHasError(false);
@@ -1652,7 +865,6 @@ const CustomAudioPlayer = ({ src }) => {
         </div>
       </div>
       
-      {/* Zero-configuration workaround for strict Google Drive CORS policies */}
       {hasError && src && (
         <div className="mt-3 p-3 bg-red-50 rounded-xl border border-red-100 flex flex-col gap-2">
           <p className="text-xs text-red-600 flex items-start gap-1.5">
@@ -1672,23 +884,23 @@ const CustomAudioPlayer = ({ src }) => {
       
       {!src && (
         <p className="text-xs text-amber-600 mt-2 ml-1 flex items-center gap-1">
-          <AlertCircle size={14} /> No audio linked. Please link a URL in Manage Audio.
+          <AlertCircle size={14} /> No audio linked. Please check TEACHER_AUDIO_LINKS in the code.
         </p>
       )}
     </div>
   );
 };
 
-const ManageAudio = ({ onBack, audioMap, setAudioMap }) => {
+const ManageAudio = ({ onBack, audioMap, onSaveMap }) => {
   const listeningTasks = tasksDatabase.listening;
   const [urlInputs, setUrlInputs] = useState({});
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [tempMap, setTempMap] = useState(audioMap);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Teacher Access Password - change this if you want a different password!
     if (password === 'teacher2024') { 
       setIsAuthorized(true);
       setError(false);
@@ -1702,36 +914,46 @@ const ManageAudio = ({ onBack, audioMap, setAudioMap }) => {
     setUrlInputs(prev => ({ ...prev, [taskId]: value }));
   };
 
-  const handleSaveUrl = (taskId) => {
+  const handleTestUrl = (taskId) => {
     const input = urlInputs[taskId];
     if (input && input.trim() !== '') {
       let finalUrl = input.trim();
       
-      // Auto-convert Google Drive URLs to direct audio streams
       const driveMatch = finalUrl.match(/\/d\/([a-zA-Z0-9_-]+)/) || finalUrl.match(/id=([a-zA-Z0-9_-]+)/);
       if (finalUrl.includes('drive.google.com') && driveMatch && driveMatch[1]) {
         finalUrl = `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`;
       }
       
-      // Auto-convert Dropbox URLs to direct audio streams
       if (finalUrl.includes('dropbox.com')) {
         finalUrl = finalUrl.replace('www.dropbox.com', 'dl.dropboxusercontent.com').replace('?dl=0', '');
       }
 
-      setAudioMap(prev => ({ ...prev, [taskId]: finalUrl }));
-      setUrlInputs(prev => ({ ...prev, [taskId]: '' })); // Clear input after save
+      setTempMap(prev => ({ ...prev, [taskId]: finalUrl }));
     }
   };
 
-  const handleRemoveUrl = (taskId) => {
-    setAudioMap(prev => {
+  const handleRemoveTempUrl = (taskId) => {
+    setTempMap(prev => {
       const newMap = { ...prev };
       delete newMap[taskId];
       return newMap;
     });
+    setUrlInputs(prev => ({ ...prev, [taskId]: '' }));
   };
 
-  // Password Lock Screen
+  const handleSaveChanges = () => {
+    onSaveMap(tempMap);
+    onBack();
+  };
+
+  const generateCodeSnippet = () => {
+    const lines = Object.entries(tempMap)
+      .filter(([_, url]) => url && url.trim() !== '')
+      .map(([id, url]) => `  '${id}': '${url}',`);
+    if (lines.length === 0) return "  // No links added yet";
+    return lines.join('\n');
+  };
+
   if (!isAuthorized) {
     return (
       <div className="max-w-md mx-auto mt-12 animate-fade-in bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
@@ -1763,7 +985,6 @@ const ManageAudio = ({ onBack, audioMap, setAudioMap }) => {
     );
   }
 
-  // Management Screen (only visible if logged in)
   return (
     <div className="max-w-4xl mx-auto animate-fade-in pb-12">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 border-b border-slate-200 pb-4">
@@ -1771,14 +992,34 @@ const ManageAudio = ({ onBack, audioMap, setAudioMap }) => {
           <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
             <Settings className="text-blue-600" /> Manage Listening Audio
           </h2>
-          <p className="text-slate-500 mt-1">Paste web addresses (URLs) for your custom audio files.</p>
+          <p className="text-slate-500 mt-1">Generate permanent code for your custom audio files.</p>
         </div>
         <button 
-          onClick={onBack} 
+          onClick={handleSaveChanges} 
           className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md flex items-center gap-2"
         >
-          <CheckCircle size={18} /> Save Changes & Return
+          <CheckCircle size={18} /> Save Links & Return
         </button>
+      </div>
+
+      <div className="mb-8 p-6 bg-slate-800 rounded-2xl text-white shadow-lg border border-slate-700">
+        <h3 className="text-xl font-bold mb-2 flex items-center gap-2 text-amber-400">
+          <AlertCircle size={20} /> How to make links permanent
+        </h3>
+        <p className="text-sm text-slate-300 mb-4 leading-relaxed">
+          Because Netlify is a static website host, links saved directly in your browser will vanish when the page refreshes for your students. To permanently share audio links with all your students across all browsers, you must paste your Dropbox links below, then copy the generated code and replace the <code>TEACHER_AUDIO_LINKS</code> dictionary at the very top of your <strong>App.jsx</strong> file in StackBlitz.
+        </p>
+        <div className="bg-slate-900 p-4 rounded-xl border border-slate-700 relative group">
+          <pre className="text-green-400 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
+{`// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---
+// Because Netlify does not have a shared database, any link placed here 
+// will be permanently available to all your students on all browsers.
+const TEACHER_AUDIO_LINKS = {
+${generateCodeSnippet()}
+};
+// -------------------------------------------------------------`}
+          </pre>
+        </div>
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
@@ -1786,71 +1027,53 @@ const ManageAudio = ({ onBack, audioMap, setAudioMap }) => {
           <div key={task.id} className={`p-6 flex flex-col items-start justify-between gap-4 ${index !== listeningTasks.length - 1 ? 'border-b border-slate-100' : ''}`}>
             <div className="w-full flex justify-between items-start">
               <div>
-                <h4 className="font-semibold text-slate-800 text-lg">{task.title}</h4>
-                <p className="text-sm text-slate-500 mt-1">
-                  Link the correct audio file for this task below.
-                </p>
+                <h4 className="font-semibold text-slate-800 text-lg">{task.id.toUpperCase()}: {task.title}</h4>
               </div>
             </div>
             
             <div className="w-full mt-2">
-              {audioMap[task.id] ? (
+              {tempMap[task.id] ? (
                 <div className="w-full animate-fade-in">
-                  <div className="flex items-center gap-3 bg-green-50 p-4 rounded-xl border border-green-200">
-                    <CheckCircle size={20} className="text-green-600 flex-shrink-0" />
+                  <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-xl border border-blue-200">
+                    <CheckCircle size={20} className="text-blue-600 flex-shrink-0" />
                     <div className="flex-1 overflow-hidden">
-                      <p className="text-sm font-bold text-green-800 mb-1">Audio successfully linked!</p>
-                      <p className="text-xs text-green-700 truncate">{audioMap[task.id]}</p>
+                      <p className="text-sm font-bold text-blue-800 mb-1">Added to Code Generator!</p>
+                      <p className="text-xs text-blue-700 truncate">{tempMap[task.id]}</p>
                     </div>
                     <button 
-                      onClick={() => handleRemoveUrl(task.id)}
+                      onClick={() => handleRemoveTempUrl(task.id)}
                       className="text-red-500 hover:text-red-700 p-2 rounded-md hover:bg-red-50 transition-colors"
-                      title="Remove custom audio"
+                      title="Remove from generator"
                     >
                       <Trash2 size={18} />
                     </button>
                   </div>
                   <div className="mt-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
                     <p className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider flex items-center gap-1"><Headphones size={14}/> Test Audio Connection:</p>
-                    <CustomAudioPlayer src={audioMap[task.id]} />
+                    <CustomAudioPlayer src={tempMap[task.id]} />
                   </div>
                 </div>
               ) : (
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                   <input
                     type="url"
-                    placeholder="Paste a Google Drive or Dropbox link here..."
+                    placeholder="Paste a Google Drive or Dropbox link here to test..."
                     value={urlInputs[task.id] || ''}
                     onChange={(e) => handleUrlChange(task.id, e.target.value)}
                     className="flex-1 px-4 py-3 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-shadow"
                   />
                   <button 
-                    onClick={() => handleSaveUrl(task.id)}
+                    onClick={() => handleTestUrl(task.id)}
                     disabled={!urlInputs[task.id]}
                     className="px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
                   >
-                    <CheckCircle size={18} /> Save Link
+                    <Play size={18} /> Add to Generator
                   </button>
                 </div>
               )}
             </div>
           </div>
         ))}
-      </div>
-      
-      <div className="mt-6 p-5 bg-blue-50 rounded-xl border border-blue-200 flex gap-3">
-        <AlertCircle size={24} className="text-blue-600 flex-shrink-0" /> 
-        <div>
-          <h4 className="font-bold text-blue-900 mb-1">
-             Audio Link Workarounds
-          </h4>
-          <p className="text-sm text-blue-800 leading-relaxed mb-2">
-            Google Drive sometimes blocks direct audio streaming in modern browsers. If you see an error playing the audio, a convenient <strong>"Open Audio in New Tab"</strong> button will automatically appear so the student can still easily listen to it!
-          </p>
-          <p className="text-sm text-blue-800 leading-relaxed font-medium">
-            💡 Pro Tip: Dropbox links usually work perfectly for direct streaming! (Paste any Dropbox link and we'll auto-convert it for you).
-          </p>
-        </div>
       </div>
     </div>
   );
@@ -1884,14 +1107,12 @@ const DailyFlashcards = ({ cards, onFinish }) => {
         <p className="text-slate-500 text-center mt-1">Review these {cards.length} key expressions to finish your set.</p>
       </div>
 
-      {/* Flashcard Container */}
       <div 
         className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
         onClick={() => setIsFlipped(!isFlipped)}
       >
          <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
             
-            {/* Front of Card */}
             <div className="absolute inset-0 w-full h-full bg-slate-50 rounded-3xl shadow-sm border border-slate-200 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-md transition-shadow">
                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
                  {card.category}
@@ -1902,7 +1123,6 @@ const DailyFlashcards = ({ cards, onFinish }) => {
                </div>
             </div>
 
-            {/* Back of Card */}
             <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
                <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
                  "{card.context}"
@@ -1916,7 +1136,6 @@ const DailyFlashcards = ({ cards, onFinish }) => {
          </div>
       </div>
 
-      {/* Controls */}
       <div className="flex items-center gap-6 mt-8 mb-8">
         <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
           <ArrowLeft size={24} />
@@ -1978,14 +1197,12 @@ const FlashcardsApp = ({ onBack }) => {
       </div>
 
       <div className="flex flex-col items-center">
-        {/* Flashcard Container */}
         <div 
           className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
           onClick={() => setIsFlipped(!isFlipped)}
         >
            <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
               
-              {/* Front of Card */}
               <div className="absolute inset-0 w-full h-full bg-white rounded-3xl shadow-lg border border-slate-100 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-xl transition-shadow">
                  <span className="px-3 py-1 bg-indigo-50 text-indigo-600 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
                    {card.category}
@@ -1996,7 +1213,6 @@ const FlashcardsApp = ({ onBack }) => {
                  </div>
               </div>
 
-              {/* Back of Card */}
               <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
                  <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
                    "{card.context}"
@@ -2011,7 +1227,6 @@ const FlashcardsApp = ({ onBack }) => {
            </div>
         </div>
 
-        {/* Controls */}
         <div className="flex items-center gap-6 mt-10">
           <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
             <ArrowLeft size={24} />
@@ -2127,17 +1342,14 @@ const DailySummary = ({ day, scores, onFinish }) => {
 };
 
 const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
-  const [step, setStep] = useState('reading'); // reading -> useOfEnglish -> listening -> flashcards -> summary
+  const [step, setStep] = useState('reading');
   const [scores, setScores] = useState({ reading: null, useOfEnglish: null, listening: null });
 
-  // Procedurally generate the exact set for this specific day using modulo math
-  // This guarantees we can have 30 days without crashing, even if we have fewer tasks!
   const safeDay = Number(day) || 1;
   const readingTask = tasksDatabase.reading[(safeDay - 1) % tasksDatabase.reading.length];
   const uoeTask = tasksDatabase.useOfEnglish[(safeDay - 1) % tasksDatabase.useOfEnglish.length];
   const listeningTask = tasksDatabase.listening[(safeDay - 1) % tasksDatabase.listening.length];
   
-  // Get 20 specific flashcards for this day
   const startIndex = ((safeDay - 1) * 20) % flashcardsData.length;
   const dayFlashcards = [];
   for (let i = 0; i < 20; i++) {
@@ -2154,7 +1366,6 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
   return (
     <div className="max-w-4xl mx-auto pb-12 animate-fade-in">
       
-      {/* Daily Progress Header */}
       <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-20 z-10">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-black shadow-inner">
@@ -2179,7 +1390,6 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
         <button onClick={onCancel} className="text-xs text-slate-500 hover:text-slate-800 underline">Cancel Set</button>
       </div>
 
-      {/* Content Injection */}
       {step === 'reading' && (
         <TaskRunner 
           key={`d${safeDay}-reading`}
@@ -2623,12 +1833,9 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
       <h3 className="text-xl font-bold text-slate-800 mb-4 mt-8 flex items-center gap-2">
         <Mic size={24} className="text-purple-600"/> Speaking Practice
       </h3>
-      <div 
-        role="button"
-        tabIndex={0}
-        onClick={onOpenSpeaking}
-        onKeyDown={(e) => e.key === 'Enter' && onOpenSpeaking()}
-        className="w-full cursor-pointer group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all text-left flex items-center justify-between mb-8 border-0"
+      <button 
+        onClick={onOpenSpeaking} 
+        className="w-full text-left group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all flex items-center justify-between mb-8 border-0"
       >
          <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
          
@@ -2641,10 +1848,10 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
              <p className="text-fuchsia-100 text-sm font-medium">Practice Picture Description and Role-Play tasks.</p>
            </div>
          </div>
-         <div className="text-white font-bold items-center gap-1 hidden sm:flex relative z-20 bg-white/20 px-4 py-2 rounded-lg backdrop-blur-sm group-hover:bg-white/30 hover:bg-white/40 transition-all group-hover:shadow-md">
-           Click to Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/>
+         <div className="text-white font-bold text-sm hidden sm:flex items-center gap-1 group-hover:text-fuchsia-100 transition-colors relative z-20">
+           Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/>
          </div>
-      </div>
+      </button>
 
       {/* Official Website Links */}
       <div className="mt-12 p-6 bg-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-white shadow-lg mb-6">
@@ -2680,58 +1887,47 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
 export default function App() {
   const [tailwindLoaded, setTailwindLoaded] = useState(false);
 
-  // --- ADDED: Auto-load Tailwind CSS for external deployments (e.g. Netlify/StackBlitz) ---
   useEffect(() => {
-    // If tailwind is already somehow present globally, skip loading
     if (window.tailwind) {
       setTailwindLoaded(true);
       return;
     }
-    
-    // Check if the script tag already exists
     let script = document.getElementById('tailwind-cdn');
     if (!script) {
       script = document.createElement('script');
       script.id = 'tailwind-cdn';
       script.src = 'https://cdn.tailwindcss.com';
-      script.onload = () => {
-        setTimeout(() => setTailwindLoaded(true), 150); // Small buffer to let the CSS inject properly
-      };
+      script.onload = () => setTailwindLoaded(true);
       document.head.appendChild(script);
     } else {
-      script.addEventListener('load', () => {
-         setTimeout(() => setTailwindLoaded(true), 150);
-      });
+      script.addEventListener('load', () => setTailwindLoaded(true));
     }
   }, []);
-  // --------------------------------------------------------------------------------------
 
-  const [view, setView] = useState('home'); // home, task, summary, manage, flashcards, speaking, dailySet
+  const [view, setView] = useState('home');
   const [activeTaskType, setActiveTaskType] = useState(null);
   const [activeTaskData, setActiveTaskData] = useState(null);
   const [latestScore, setLatestScore] = useState({ score: 0, total: 0 });
   const [currentDailyDay, setCurrentDailyDay] = useState(null);
 
-  // Audio Links Tracker (Persisted in LocalStorage)
+  // Audio Links Tracker: Merges LocalStorage and Code (Code overrides LocalStorage if present)
   const [audioMap, setAudioMap] = useState(() => {
+    let localMap = {};
     try {
       const saved = localStorage.getItem('maturaAudioMap');
-      return saved ? JSON.parse(saved) : {};
-    } catch (e) {
-      console.error('Failed to load audio map', e);
-      return {};
-    }
+      if (saved) localMap = JSON.parse(saved);
+    } catch (e) {}
+    return { ...localMap, ...TEACHER_AUDIO_LINKS };
   });
 
-  useEffect(() => {
+  const handleSaveAudioMap = (newMap) => {
+    setAudioMap(newMap);
     try {
-      localStorage.setItem('maturaAudioMap', JSON.stringify(audioMap));
-    } catch (e) {
-      console.error('Failed to save audio map', e);
-    }
-  }, [audioMap]);
+      localStorage.setItem('maturaAudioMap', JSON.stringify(newMap));
+    } catch(e) {}
+  };
 
-  // 30-Day Challenge Tracker (Stores Array of Completed Day Numbers: [1, 2, 3...])
+  // 30-Day Challenge Tracker
   const [completedDays, setCompletedDays] = useState(() => {
     try {
       const saved = localStorage.getItem('maturaCompletedDaysV2');
@@ -2739,7 +1935,7 @@ export default function App() {
         return JSON.parse(saved);
       }
     } catch (e) {}
-    return [1]; // Start with Day 1 completed
+    return [1]; // Start with Day 1 completed automatically
   });
 
   useEffect(() => {
@@ -2812,13 +2008,11 @@ export default function App() {
   };
 
   const handleCompleteDailySet = (dayNum, dailyScores) => {
-    // Add day to tracker if not already there
     setCompletedDays(prev => {
       if (!prev.includes(dayNum)) return [...prev, dayNum];
       return prev;
     });
 
-    // Feed daily scores into general progress safely
     setProgress(prev => {
       const readingStats = prev.reading || { totalQuestions: 0, correctAnswers: 0, attempts: 0 };
       const uoeStats = prev.useOfEnglish || { totalQuestions: 0, correctAnswers: 0, attempts: 0 };
@@ -2855,25 +2049,8 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const openFlashcards = () => {
-    setView('flashcards');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const openSpeaking = () => {
-    setView('speaking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Do not render the app until Tailwind CSS has successfully loaded.
   if (!tailwindLoaded) {
-    return (
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui, sans-serif', color: '#475569', backgroundColor: '#f8fafc' }}>
-        <div style={{ width: '40px', height: '40px', border: '4px solid #cbd5e1', borderTopColor: '#2563eb', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '16px' }}></div>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Loading your Matura Tutor...</h2>
-        <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
-      </div>
-    );
+    return <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>Loading...</div>;
   }
 
   return (
@@ -2909,8 +2086,8 @@ export default function App() {
             progress={progress} 
             completedDays={completedDays}
             onStartDay={handleStartDay}
-            onOpenFlashcards={openFlashcards}
-            onOpenSpeaking={openSpeaking}
+            onOpenFlashcards={() => setView('flashcards')}
+            onOpenSpeaking={() => setView('speaking')}
           />
         )}
         
@@ -2930,7 +2107,7 @@ export default function App() {
           <ManageAudio 
             onBack={resetToHome} 
             audioMap={audioMap} 
-            setAudioMap={setAudioMap} 
+            onSaveMap={handleSaveAudioMap}
           />
         )}
 
