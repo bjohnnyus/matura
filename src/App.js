@@ -24,7 +24,7 @@ const TEACHER_AUDIO_LINKS = {
 };
 // -------------------------------------------------------------
 
-// --- DATA: Flashcards (Batch 1-4: 1-200) ---
+// --- DATA: Flashcards (Batch 1-5: 1-300) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
   { id: 2, category: 'Adjective + Prep', term: 'bad at', context: "I'm bad at remembering names.", grammar: 'Meaning: rossz vmiben' },
@@ -225,8 +225,127 @@ const flashcardsData = [
   { id: 197, category: 'Phrasal Verb', term: 'get over', context: 'It took him a year to get over his illness.', grammar: 'Meaning: túlteszi magát vmin' },
   { id: 198, category: 'Phrasal Verb', term: 'show off', context: 'He just bought a new car to show off.', grammar: 'Meaning: felvág, dicsekszik' },
   { id: 199, category: 'Phrasal Verb', term: 'take after', context: 'She really takes after her mother.', grammar: 'Meaning: hasonlít vkire (családban)' },
-  { id: 200, category: 'Phrasal Verb', term: 'work out', context: 'I hope things will work out for you.', grammar: 'Meaning: megoldódik, sikerül' }
+  { id: 200, category: 'Phrasal Verb', term: 'work out', context: 'I hope things will work out for you.', grammar: 'Meaning: megoldódik, sikerül' },
+  { id: 201, category: 'Adjective + Prep', term: 'addicted to', context: 'He was addicted to video games.', grammar: 'Meaning: függő, rabja vminek' },
+  { id: 202, category: 'Adjective + Prep', term: 'amazed at', context: 'I was amazed at the size of the building.', grammar: 'Meaning: lenyűgözött' },
+  { id: 203, category: 'Adjective + Prep', term: 'amused by', context: 'The children were amused by the clown.', grammar: 'Meaning: szórakoztatja vmi' },
+  { id: 204, category: 'Adjective + Prep', term: 'angry about', context: 'She is angry about the delay.', grammar: 'Meaning: mérges vmi miatt' },
+  { id: 205, category: 'Adjective + Prep', term: 'eager to', context: 'Everyone was eager to start the game.', grammar: 'Meaning: buzgó, alig várja' },
+  { id: 206, category: 'Adjective + Prep', term: 'familiar with', context: 'Are you familiar with this software?', grammar: 'Meaning: ismerős vmivel' },
+  { id: 207, category: 'Adjective + Prep', term: 'fascinated by', context: 'He was fascinated by ancient history.', grammar: 'Meaning: lenyűgözött' },
+  { id: 208, category: 'Adjective + Prep', term: 'fed up with', context: 'I am fed up with this rainy weather.', grammar: 'Meaning: elege van' },
+  { id: 209, category: 'Adjective + Prep', term: 'friendly to', context: 'The locals were very friendly to us.', grammar: 'Meaning: barátságos vkivel' },
+  { id: 210, category: 'Adjective + Prep', term: 'guilty of', context: 'He was found guilty of stealing.', grammar: 'Meaning: bűnös vmiben' },
+  { id: 211, category: 'Adjective + Prep', term: 'happy with', context: 'I am very happy with my new phone.', grammar: 'Meaning: elégedett vmivel' },
+  { id: 212, category: 'Adjective + Prep', term: 'immune to', context: 'This species is immune to the virus.', grammar: 'Meaning: immunis vmire' },
+  { id: 213, category: 'Adjective + Prep', term: 'jealous of', context: 'She was jealous of her sister\'s success.', grammar: 'Meaning: féltékeny vkire' },
+  { id: 214, category: 'Adjective + Prep', term: 'known as', context: 'He is known as the best doctor in town.', grammar: 'Meaning: ismert mint' },
+  { id: 215, category: 'Adjective + Prep', term: 'necessary for', context: 'Water is necessary for life.', grammar: 'Meaning: szükséges vmihez' },
+  { id: 216, category: 'Adjective + Prep', term: 'obsessed with', context: 'He is obsessed with martial arts.', grammar: 'Meaning: megszállottja vminek' },
+  { id: 217, category: 'Adjective + Prep', term: 'patient with', context: 'You really need to be patient with children.', grammar: 'Meaning: türelmes vkivel' },
+  { id: 218, category: 'Adjective + Prep', term: 'related to', context: 'Are you related to the manager?', grammar: 'Meaning: rokona vkinek / kapcsolódik' },
+  { id: 219, category: 'Adjective + Prep', term: 'rich in', context: 'Oranges are rich in Vitamin C.', grammar: 'Meaning: gazdag vmiben' },
+  { id: 220, category: 'Adjective + Prep', term: 'safe from', context: 'We are safe from the storm here.', grammar: 'Meaning: biztonságban vmitől' },
+  { id: 221, category: 'Collocation', term: 'make a booking', context: 'There is no need to make a booking.', grammar: 'Meaning: foglalást csinál' },
+  { id: 222, category: 'Collocation', term: 'make a call', context: 'I need a quiet place to make a call.', grammar: 'Meaning: telefonál' },
+  { id: 223, category: 'Collocation', term: 'make a connection', context: 'He made a connection between the two events.', grammar: 'Meaning: kapcsolatot teremt' },
+  { id: 224, category: 'Collocation', term: 'make a difference', context: 'Your donation can make a difference.', grammar: 'Meaning: számít, változást hoz' },
+  { id: 225, category: 'Collocation', term: 'make a dream come true', context: 'She finally made her dream come true.', grammar: 'Meaning: valóra váltja az álmát' },
+  { id: 226, category: 'Collocation', term: 'make a fool of', context: 'Don\'t make a fool of yourself.', grammar: 'Meaning: bolondot csinál magából/másból' },
+  { id: 227, category: 'Collocation', term: 'make a good impression', context: 'Dress well to make a good impression.', grammar: 'Meaning: jó benyomást kelt' },
+  { id: 228, category: 'Collocation', term: 'make a profit', context: 'The company made a huge profit this year.', grammar: 'Meaning: nyereséget termel' },
+  { id: 229, category: 'Collocation', term: 'make a request', context: 'Our librarians will make a request for you.', grammar: 'Meaning: kérést tesz' },
+  { id: 230, category: 'Collocation', term: 'make a suggestion', context: 'Can I make a suggestion?', grammar: 'Meaning: javaslatot tesz' },
+  { id: 231, category: 'Collocation', term: 'make amends', context: 'He bought flowers to make amends.', grammar: 'Meaning: jóvátesz, kárpótol' },
+  { id: 232, category: 'Collocation', term: 'make an appointment', context: 'I need to make an appointment with the doctor.', grammar: 'Meaning: időpontot kér' },
+  { id: 233, category: 'Collocation', term: 'make it happen', context: 'Find out what you want and make it happen.', grammar: 'Meaning: megvalósít' },
+  { id: 234, category: 'Collocation', term: 'make notes', context: 'I use a notebook to make notes during class.', grammar: 'Meaning: jegyzetel' },
+  { id: 235, category: 'Collocation', term: 'make progress', context: 'The student is making excellent progress.', grammar: 'Meaning: halad, fejlődik' },
+  { id: 236, category: 'Collocation', term: 'do a course', context: 'She is doing a language course in London.', grammar: 'Meaning: elvégez egy tanfolyamot' },
+  { id: 237, category: 'Collocation', term: 'do charity work', context: 'I decided to take a gap year and do charity work.', grammar: 'Meaning: jótékonysági munkát végez' },
+  { id: 238, category: 'Collocation', term: 'do exercise', context: 'Healthy eating is as important as doing exercise.', grammar: 'Meaning: testmozgást végez' },
+  { id: 239, category: 'Collocation', term: 'do for a living', context: 'What do you do for a living?', grammar: 'Meaning: miből él (mi a munkája)' },
+  { id: 240, category: 'Collocation', term: 'do research', context: 'Scientists do research in the laboratory.', grammar: 'Meaning: kutatást végez' },
+  { id: 241, category: 'Phrasal Verb', term: 'add up', context: 'Pet food and license fees can really add up.', grammar: 'Meaning: összeadódik, sokra rúg' },
+  { id: 242, category: 'Phrasal Verb', term: 'back down', context: 'The company refused to back down.', grammar: 'Meaning: meghátrál' },
+  { id: 243, category: 'Phrasal Verb', term: 'break into', context: 'Burglars broke into the house at night.', grammar: 'Meaning: betör vhova' },
+  { id: 244, category: 'Phrasal Verb', term: 'bring out', context: 'They will bring out a new model next year.', grammar: 'Meaning: kihoz, piacra dob' },
+  { id: 245, category: 'Phrasal Verb', term: 'burn up', context: 'The meteor will burn up in the atmosphere.', grammar: 'Meaning: elég' },
+  { id: 246, category: 'Phrasal Verb', term: 'burst into', context: 'The police burst into the apartment.', grammar: 'Meaning: beront' },
+  { id: 247, category: 'Phrasal Verb', term: 'carry out', context: 'Engineers will carry out an inspection.', grammar: 'Meaning: végrehajt, elvégez' },
+  { id: 248, category: 'Phrasal Verb', term: 'chill out', context: 'We just want to chill out on the weekend.', grammar: 'Meaning: lazít, kikapcsol' },
+  { id: 249, category: 'Phrasal Verb', term: 'draw up', context: 'We drew up a list of guests for the party.', grammar: 'Meaning: felír, megfogalmaz, összeállít' },
+  { id: 250, category: 'Phrasal Verb', term: 'dress up', context: 'We dressed up for the wedding.', grammar: 'Meaning: kiöltözik' },
+  { id: 251, category: 'Phrasal Verb', term: 'end up', context: 'If you don\'t study, you will end up failing.', grammar: 'Meaning: kiköt vhol (eredményképp)' },
+  { id: 252, category: 'Phrasal Verb', term: 'fall in love with', context: 'Romeo fell in love with Juliet instantly.', grammar: 'Meaning: beleszeret vkibe' },
+  { id: 253, category: 'Phrasal Verb', term: 'fill out', context: 'Please fill out this application form.', grammar: 'Meaning: kitölt (nyomtatványt)' },
+  { id: 254, category: 'Phrasal Verb', term: 'frighten off', context: 'The loud noise frightened off the birds.', grammar: 'Meaning: elijeszt' },
+  { id: 255, category: 'Phrasal Verb', term: 'get away with', context: 'He lied, but he got away with it.', grammar: 'Meaning: megúszik vmit' },
+  { id: 256, category: 'Phrasal Verb', term: 'get off', context: 'We need to get off the bus at the next stop.', grammar: 'Meaning: leszáll (járműről)' },
+  { id: 257, category: 'Phrasal Verb', term: 'hang out', context: 'Teenagers love to hang out in the mall.', grammar: 'Meaning: lóg vkivel, időt tölt' },
+  { id: 258, category: 'Phrasal Verb', term: 'head out', context: 'We will head out towards the mountains.', grammar: 'Meaning: elindul vhova' },
+  { id: 259, category: 'Phrasal Verb', term: 'knock out', context: 'The boxer knocked out his opponent.', grammar: 'Meaning: kiüt' },
+  { id: 260, category: 'Phrasal Verb', term: 'point out', context: 'The guide pointed out the famous volcano.', grammar: 'Meaning: rámutat, felhívja a figyelmet' },
+  { id: 261, category: 'Phrasal Verb', term: 'pull up', context: 'A black car pulled up next to me.', grammar: 'Meaning: félreáll, megáll (jármű)' },
+  { id: 262, category: 'Phrasal Verb', term: 'rent out', context: 'They rent out their apartment to tourists.', grammar: 'Meaning: bérbe ad' },
+  { id: 263, category: 'Phrasal Verb', term: 'run away', context: 'The dog ran away from the loud fireworks.', grammar: 'Meaning: elfut, megszökik' },
+  { id: 264, category: 'Phrasal Verb', term: 'save up', context: 'I am saving up for a new laptop.', grammar: 'Meaning: spórol (vmire)' },
+  { id: 265, category: 'Phrasal Verb', term: 'sell out', context: 'The concert tickets will sell out quickly.', grammar: 'Meaning: kiárusít, elfogy' },
+  { id: 266, category: 'Verb + Prep', term: 'accuse of', context: 'He was accused of stealing the money.', grammar: 'Meaning: vádol vmivel' },
+  { id: 267, category: 'Verb + Prep', term: 'agree to', context: 'He agreed to put the painting on display.', grammar: 'Meaning: beleegyezik vmibe' },
+  { id: 268, category: 'Verb + Prep', term: 'argue about', context: 'We rarely argue about money.', grammar: 'Meaning: vitatkozik vmiről' },
+  { id: 269, category: 'Verb + Prep', term: 'arrive at/in', context: 'We will arrive in London at 6 PM.', grammar: 'Meaning: megérkezik' },
+  { id: 270, category: 'Verb + Prep', term: 'associate with', context: 'Big Ben is associated with London.', grammar: 'Meaning: társít vmivel' },
+  { id: 271, category: 'Verb + Prep', term: 'choose from', context: 'There are thirty flavors to choose from.', grammar: 'Meaning: választ vmiből' },
+  { id: 272, category: 'Verb + Prep', term: 'clash with', context: 'The protesters clashed with the police.', grammar: 'Meaning: összecsap vkivel/vmivel' },
+  { id: 273, category: 'Verb + Prep', term: 'commute from/to', context: 'He commutes from the coast to London daily.', grammar: 'Meaning: ingázik' },
+  { id: 274, category: 'Verb + Prep', term: 'compete against', context: 'He competes against the best surfers.', grammar: 'Meaning: versenyez vkivel' },
+  { id: 275, category: 'Verb + Prep', term: 'contribute to', context: 'This charity contributes to saving animals.', grammar: 'Meaning: hozzájárul vmihez' },
+  { id: 276, category: 'Verb + Prep', term: 'converge on', context: 'Thousands converged on the city center.', grammar: 'Meaning: összefut, összegyűlik' },
+  { id: 277, category: 'Verb + Prep', term: 'cope with', context: 'She can easily cope with stress.', grammar: 'Meaning: megbirkózik vmivel' },
+  { id: 278, category: 'Verb + Prep', term: 'crash through', context: 'A meteorite crashed through the roof.', grammar: 'Meaning: áttör vmin, beszakít' },
+  { id: 279, category: 'Verb + Prep', term: 'die of', context: 'Sadly, many people still die of disease.', grammar: 'Meaning: meghal vmiben' },
+  { id: 280, category: 'Verb + Prep', term: 'evolve into', context: 'Dinosaurs eventually evolved into birds.', grammar: 'Meaning: átalakul, fejlődik vmivé' },
+  { id: 281, category: 'Uncountable Noun', term: 'accommodation', context: 'We are looking for cheap accommodation.', grammar: 'Meaning: szállás' },
+  { id: 282, category: 'Uncountable Noun', term: 'advice', context: 'Let me give you some advice.', grammar: 'Meaning: tanács' },
+  { id: 283, category: 'Uncountable Noun', term: 'cash', context: 'There is nothing quite as useful as cash.', grammar: 'Meaning: készpénz' },
+  { id: 284, category: 'Uncountable Noun', term: 'clothing', context: 'They left behind clothing and jewellery.', grammar: 'Meaning: ruházat' },
+  { id: 285, category: 'Uncountable Noun', term: 'curiosity', context: 'Curiosity struck and he opened the box.', grammar: 'Meaning: kíváncsiság' },
+  { id: 286, category: 'Uncountable Noun', term: 'dignity', context: 'That day, the teacher saved my dignity.', grammar: 'Meaning: méltóság' },
+  { id: 287, category: 'Uncountable Noun', term: 'discipline', context: 'Martial arts teaches you discipline.', grammar: 'Meaning: fegyelem' },
+  { id: 288, category: 'Uncountable Noun', term: 'education', context: 'Getting more education increases your ability.', grammar: 'Meaning: oktatás' },
+  { id: 289, category: 'Uncountable Noun', term: 'equipment', context: 'This piece of equipment is very valuable.', grammar: 'Meaning: felszerelés' },
+  { id: 290, category: 'Uncountable Noun', term: 'experience', context: 'His lack of experience did not slow him down.', grammar: 'Meaning: tapasztalat' },
+  { id: 291, category: 'Uncountable Noun', term: 'feedback', context: 'We need faster feedback about performance.', grammar: 'Meaning: visszajelzés' },
+  { id: 292, category: 'Uncountable Noun', term: 'fraud', context: 'He was sentenced to prison for fraud.', grammar: 'Meaning: csalás' },
+  { id: 293, category: 'Uncountable Noun', term: 'furniture', context: 'Building pieces of furniture is fun.', grammar: 'Meaning: bútor' },
+  { id: 294, category: 'Uncountable Noun', term: 'honesty', context: 'The game teaches discipline and honesty.', grammar: 'Meaning: őszinteség' },
+  { id: 295, category: 'Uncountable Noun', term: 'information', context: 'Call us if you require further information.', grammar: 'Meaning: információ' },
+  { id: 296, category: 'Uncountable Noun', term: 'insurance', context: 'The ticket price includes insurance.', grammar: 'Meaning: biztosítás' },
+  { id: 297, category: 'Uncountable Noun', term: 'knowledge', context: 'Schools must spread knowledge.', grammar: 'Meaning: tudás' },
+  { id: 298, category: 'Uncountable Noun', term: 'luck', context: 'The examiner wished the students good luck.', grammar: 'Meaning: szerencse' },
+  { id: 299, category: 'Uncountable Noun', term: 'progress', context: 'I feel I am not making any progress.', grammar: 'Meaning: haladás, fejlődik' },
+  { id: 300, category: 'Uncountable Noun', term: 'scenery', context: 'The route takes you into typical beautiful scenery.', grammar: 'Meaning: táj, látvány' }
 ];
+
+// --- UTILITY: Flashcard Progress Tracking ---
+const getFcProgress = () => {
+  try {
+    const saved = localStorage.getItem('maturaFcProgress');
+    return saved ? JSON.parse(saved) : {};
+  } catch (e) {
+    return {};
+  }
+};
+
+const updateFcStatus = (id, status) => {
+  const prog = getFcProgress();
+  prog[id] = status;
+  try {
+    localStorage.setItem('maturaFcProgress', JSON.stringify(prog));
+  } catch (e) {}
+};
+// --------------------------------------------
 
 const tasksDatabase = {
   reading: [
@@ -1191,11 +1310,9 @@ const DailyFlashcards = ({ cards, onFinish }) => {
     }, 150);
   };
 
-  const handlePrev = () => {
-    setIsFlipped(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
-    }, 150);
+  const handleStatus = (status) => {
+    updateFcStatus(cards[currentIndex].id, status);
+    handleNext();
   };
 
   if (!cards || cards.length === 0) return null;
@@ -1237,21 +1354,31 @@ const DailyFlashcards = ({ cards, onFinish }) => {
          </div>
       </div>
 
-      <div className="flex items-center gap-6 mt-8 mb-8">
-        <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
-          <ArrowLeft size={24} />
-        </button>
-        <span className="font-semibold text-slate-500">
-          {currentIndex + 1} / {cards.length}
+      {/* Interactive Assessment Controls */}
+      <div className="h-16 flex items-center justify-center w-full mt-6 mb-4">
+         {isFlipped ? (
+           <div className="flex gap-4 animate-fade-in">
+             <button onClick={(e) => { e.stopPropagation(); handleStatus('learning'); }} className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
+                <span className="text-xl">🔄</span> Still Learning
+             </button>
+             <button onClick={(e) => { e.stopPropagation(); handleStatus('mastered'); }} className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
+                <span className="text-xl">✅</span> I got it.
+             </button>
+           </div>
+         ) : (
+           <p className="text-slate-400 text-sm font-medium animate-pulse">Click the card to reveal the meaning!</p>
+         )}
+      </div>
+
+      <div className="flex items-center gap-6 mt-2 mb-8">
+        <span className="font-semibold text-slate-400">
+          Card {currentIndex + 1} of {cards.length}
         </span>
-        <button onClick={handleNext} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
-          <ArrowRight size={24} />
-        </button>
       </div>
 
       <button 
         onClick={onFinish}
-        className="w-full max-w-sm px-6 py-4 bg-green-600 text-white text-lg font-bold rounded-xl hover:bg-green-700 transition-colors shadow-md flex items-center justify-center gap-2"
+        className="w-full max-w-sm px-6 py-4 bg-slate-800 text-white text-lg font-bold rounded-xl hover:bg-slate-900 transition-colors shadow-md flex items-center justify-center gap-2"
       >
         <CheckCircle size={24} /> Complete Daily Set
       </button>
@@ -1260,25 +1387,53 @@ const DailyFlashcards = ({ cards, onFinish }) => {
 };
 
 const FlashcardsApp = ({ onBack }) => {
+  const [filter, setFilter] = useState('All Words'); // 'All Words', 'New', 'Learning', 'Mastered'
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [fcProgress, setFcProgress] = useState(getFcProgress());
+
+  // Filter the cards based on current tab selection
+  const filteredCards = flashcardsData.filter(c => {
+    const status = fcProgress[c.id] || 'new';
+    if (filter === 'All Words') return true;
+    if (filter === 'New' && status === 'new') return true;
+    if (filter === 'Learning' && status === 'learning') return true;
+    if (filter === 'Mastered' && status === 'mastered') return true;
+    return false;
+  });
+
+  // Reset index when filter changes
+  useEffect(() => {
+    setCurrentIndex(0);
+    setIsFlipped(false);
+  }, [filter]);
 
   const handleNext = () => {
     setIsFlipped(false);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % flashcardsData.length);
+      if (filteredCards.length > 0) {
+        setCurrentIndex((prev) => (prev + 1) % filteredCards.length);
+      }
     }, 150);
   };
 
   const handlePrev = () => {
     setIsFlipped(false);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + flashcardsData.length) % flashcardsData.length);
+      if (filteredCards.length > 0) {
+        setCurrentIndex((prev) => (prev - 1 + filteredCards.length) % filteredCards.length);
+      }
     }, 150);
   };
 
-  if (!flashcardsData || flashcardsData.length === 0) return null;
-  const card = flashcardsData[currentIndex];
+  const handleStatus = (status) => {
+    if (filteredCards.length > 0) {
+      const currentCard = filteredCards[currentIndex];
+      updateFcStatus(currentCard.id, status);
+      setFcProgress(getFcProgress()); // Refresh local state
+      handleNext();
+    }
+  };
 
   return (
     <div className="max-w-3xl mx-auto animate-fade-in pb-12">
@@ -1297,49 +1452,85 @@ const FlashcardsApp = ({ onBack }) => {
         </button>
       </div>
 
-      <div className="flex flex-col items-center">
-        <div 
-          className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
-          onClick={() => setIsFlipped(!isFlipped)}
-        >
-           <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-              
-              <div className="absolute inset-0 w-full h-full bg-white rounded-3xl shadow-lg border border-slate-100 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-xl transition-shadow">
-                 <span className="px-3 py-1 bg-indigo-50 text-indigo-600 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
-                   {card.category}
-                 </span>
-                 <h2 className="text-4xl md:text-5xl font-bold text-slate-800">{card.term}</h2>
-                 <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm">
-                   <ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/>
-                 </div>
-              </div>
-
-              <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
-                 <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
-                   "{card.context}"
-                 </p>
-                 <div className="bg-indigo-900/40 px-5 py-3 rounded-xl backdrop-blur-sm border border-indigo-500/30">
-                   <p className="text-sm text-indigo-100 font-medium flex items-center gap-2">
-                     <AlertCircle size={16}/> {card.grammar}
-                   </p>
-                 </div>
-              </div>
-
-           </div>
-        </div>
-
-        <div className="flex items-center gap-6 mt-10">
-          <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
-            <ArrowLeft size={24} />
+      {/* TABS FOR CATEGORIES */}
+      <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
+        {['All Words', 'New', 'Learning', 'Mastered'].map(tab => (
+          <button 
+            key={tab}
+            onClick={() => setFilter(tab)} 
+            className={`px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-colors ${filter === tab ? 'bg-indigo-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+          >
+            {tab}
           </button>
-          <span className="font-semibold text-slate-500">
-            {currentIndex + 1} / {flashcardsData.length}
-          </span>
-          <button onClick={handleNext} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
-            <ArrowRight size={24} />
-          </button>
-        </div>
+        ))}
       </div>
+
+      {filteredCards.length === 0 ? (
+        <div className="bg-slate-50 p-12 rounded-3xl border border-slate-200 text-center flex flex-col items-center">
+          <Award size={48} className="text-slate-300 mb-4" />
+          <h3 className="text-xl font-bold text-slate-700">No cards here yet!</h3>
+          <p className="text-slate-500 mt-2">Change your category tab to find more cards to review.</p>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center">
+          <div 
+            className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
+            onClick={() => setIsFlipped(!isFlipped)}
+          >
+             <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+                
+                <div className="absolute inset-0 w-full h-full bg-white rounded-3xl shadow-lg border border-slate-100 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-xl transition-shadow">
+                   <span className="px-3 py-1 bg-indigo-50 text-indigo-600 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
+                     {filteredCards[currentIndex]?.category}
+                   </span>
+                   <h2 className="text-4xl md:text-5xl font-bold text-slate-800">{filteredCards[currentIndex]?.term}</h2>
+                   <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm">
+                     <ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/>
+                   </div>
+                </div>
+
+                <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
+                   <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
+                     "{filteredCards[currentIndex]?.context}"
+                   </p>
+                   <div className="bg-indigo-900/40 px-5 py-3 rounded-xl backdrop-blur-sm border border-indigo-500/30">
+                     <p className="text-sm text-indigo-100 font-medium flex items-center gap-2">
+                       <AlertCircle size={16}/> {filteredCards[currentIndex]?.grammar}
+                     </p>
+                   </div>
+                </div>
+
+             </div>
+          </div>
+
+          <div className="h-16 flex items-center justify-center w-full mt-6 mb-2">
+             {isFlipped ? (
+               <div className="flex gap-4 animate-fade-in">
+                 <button onClick={(e) => { e.stopPropagation(); handleStatus('learning'); }} className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
+                    <span className="text-xl">🔄</span> Still Learning
+                 </button>
+                 <button onClick={(e) => { e.stopPropagation(); handleStatus('mastered'); }} className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
+                    <span className="text-xl">✅</span> I got it.
+                 </button>
+               </div>
+             ) : (
+               <p className="text-slate-400 text-sm font-medium animate-pulse">Click the card to reveal the meaning!</p>
+             )}
+          </div>
+
+          <div className="flex items-center gap-6 mt-4">
+            <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
+              <ArrowLeft size={24} />
+            </button>
+            <span className="font-semibold text-slate-500">
+              {currentIndex + 1} / {filteredCards.length}
+            </span>
+            <button onClick={handleNext} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
+              <ArrowRight size={24} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -1443,17 +1634,16 @@ const DailySummary = ({ day, scores, onFinish }) => {
 };
 
 const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
-  const [step, setStep] = useState('reading'); // reading -> useOfEnglish -> listening -> flashcards -> summary
+  const [step, setStep] = useState('reading');
   const [scores, setScores] = useState({ reading: null, useOfEnglish: null, listening: null });
 
   const safeDay = Number(day) || 1;
   
-  // Reverted back to ONE test of each type per day
+  // Exactly ONE test of each type per day!
   const readingTask = tasksDatabase.reading[(safeDay - 1) % tasksDatabase.reading.length];
   const uoeTask = tasksDatabase.useOfEnglish[(safeDay - 1) % tasksDatabase.useOfEnglish.length];
   const listeningTask = tasksDatabase.listening[(safeDay - 1) % tasksDatabase.listening.length];
   
-  // 20 flashcards per day based on day number
   const startIndex = ((safeDay - 1) * 20) % flashcardsData.length;
   const dayFlashcards = [];
   for (let i = 0; i < 20; i++) {
@@ -1688,9 +1878,7 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
       <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
         <div className="flex justify-between items-start mb-6 border-b border-slate-100 pb-4">
           <div>
-            <h2 className="text-2xl font-bold text-slate-800">
-              {taskType === 'listening' ? 'Listening: ' + taskData.title : taskData.title}
-            </h2>
+            <h2 className="text-2xl font-bold text-slate-800">{taskType === 'listening' ? 'Listening: ' + taskData.title : taskData.title}</h2>
             <p className="text-slate-500 mt-2">{taskData.instructions}</p>
           </div>
         </div>
@@ -1988,7 +2176,7 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
 
     </div>
   );
-}
+};
 
 export default function App() {
   const [tailwindLoaded, setTailwindLoaded] = useState(false);
