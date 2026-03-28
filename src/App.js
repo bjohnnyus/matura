@@ -21,7 +21,30 @@ const TEACHER_AUDIO_LINKS = {
   'l14': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552/the-emperor-of-long-distance.mp3',
   'l15': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553/the-history-of-the-bikini.mp3',
   'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3'
-};
+};'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
+  'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526545/k_angol_07maj_fl.mp3' // University phone calls audio
+// -------------------------------------------------------------// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---
+// Because Netlify does not have a shared database, any link placed here 
+// will be permanently available to all your students on all browsers.
+const TEACHER_AUDIO_LINKS = {
+  'l1': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526675/harry.mp3', // Add the link for "Interview with Harry" here when you have it!
+  'l2': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567/audio-project.mp3', // Interview with an author
+  'l3': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566/elevenlabs-untitled-project-1.mp3', // Supermarket
+  'l4': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526542/a-lucky-escape.mp3',
+  'l5': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526565/elevenlabs-a-spoonful-of-sugar.mp3',
+  'l6': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550/paul-stout.mp3', // Toddler bought a car
+  'l7': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526546/duke-the-rescue-dog.mp3',
+  'l8': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526547/einstein.mp3',
+  'l9': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526549/interview-with-leona-lewis.mp3',
+  'l10': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526551/slow-drivers.mp3',
+  'l11': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526544/a-philosop.mp3',
+  'l12': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526548/franz-kafka-and-the-doll.mp3',
+  'l13': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3',
+  'l14': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552/the-emperor-of-long-distance.mp3',
+  'l15': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553/the-history-of-the-bikini.mp3',
+  'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3'
+};'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
+  'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526545/k_angol_07maj_fl.mp3' // University phone calls audio
 // -------------------------------------------------------------
 
 // --- DATA: Flashcards (Batch 1-5: 1-300) ---
@@ -535,6 +558,17 @@ const tasksDatabase = {
         { id: 'q2', text: '2. What happens if you leave something at the gym?', options: ['A) The gym sells it.', 'B) You can check the lost and found at reception.', 'C) They mail it to your house.'], correct: 'B) You can check the lost and found at reception.', explanation: 'The text mentions "we do have a lost and found at the reception".', tip: 'Exam Tip: Synonyms are important. "Leave something" matches "lost and found".' },
         { id: 'q3', text: '3. Do you have to become a full member to use the gym?', options: ['A) Yes, it is strictly required.', 'B) No, you can buy a day ticket.', 'C) Only on weekends.'], correct: 'B) No, you can buy a day ticket.', explanation: 'The text says you can "buy a day ticket at the entrance without becoming a full member."', tip: 'Exam Tip: Look for words like "without" to understand alternative options.' }
       ]
+    },
+    {
+      id: 'r18',
+      title: 'Reading: The Benefits of Napping',
+      instructions: 'Read the text about taking a nap and choose the best answer (A, B, or C).',
+      text: "According to recent studies, taking a short nap during the day can significantly improve your memory and learning abilities. Just a brief 20-minute sleep will help you remember things better and feel more alert. It's a good idea to have this nap in the early afternoon, ideally around 2:00 PM, because that is when our energy levels naturally drop.\n\nHowever, experts warn against napping for too long. If you sleep for more than 30 minutes, you might wake up feeling even more tired and confused than before, a condition known as sleep inertia.",
+      questions: [
+        { id: 'q1', text: '1. What is one major benefit of a short nap?', options: ['A) It helps you lose weight.', 'B) It improves your memory.', 'C) It makes you sleep better at night.'], correct: 'B) It improves your memory.', explanation: 'The text states that a short nap can "significantly improve your memory".', tip: 'Exam Tip: Look for synonyms in the question and text.' },
+        { id: 'q2', text: '2. When is the best time to take a nap?', options: ['A) In the early morning.', 'B) Late at night.', 'C) In the early afternoon.'], correct: 'C) In the early afternoon.', explanation: 'The text suggests "ideally around 2:00 PM", which is the early afternoon.', tip: 'Exam Tip: Time references are very common in Matura questions.' },
+        { id: 'q3', text: '3. What happens if you nap for an hour?', options: ['A) You will feel fully refreshed.', 'B) You might wake up feeling more tired.', 'C) You will not be able to sleep at night.'], correct: 'B) You might wake up feeling more tired.', explanation: 'The text warns that sleeping for more than 30 minutes can make you wake up "feeling even more tired".', tip: 'Exam Tip: Pay attention to conditional "If" clauses.' }
+      ]
     }
   ],
   useOfEnglish: [
@@ -723,6 +757,17 @@ const tasksDatabase = {
         { id: 'q1', answer: 'for', explanation: 'Phrasal verb: "look for" means to search for something.', tip: 'Exam Tip: Don\'t confuse "look for" (search) with "look at" (observe).' },
         { id: 'q2', answer: 'look', explanation: 'Collocation: "take a look" means to examine something.', tip: 'Exam Tip: "Take a closer look" is a very common fixed phrase.' },
         { id: 'q3', answer: 'where', explanation: 'Relative pronoun: Refers back to a place (the museum).', tip: 'Exam Tip: Use "where" for places in relative clauses when referring to an action happening there.' }
+      ]
+    },
+    {
+      id: 'u18',
+      title: 'Use of English: The Green Thing',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['Checking out at the supermarket, the young cashier suggested to the older woman that she should bring her own grocery bags because plastic bags weren\'t good ', ' the environment. The old woman apologized and said, "We didn\'t have this green thing back in my earlier days." The assistant responded, "That\'s our problem today. Your generation didn\'t care ', ' saving the environment for future generations." The older woman agreed, but pointed ', ' that her generation didn\'t need to, because they returned milk bottles and recycled everything naturally.'],
+      questions: [
+        { id: 'q1', answer: 'for', explanation: 'Preposition: "good for" the environment.', tip: 'Exam Tip: Adjective + preposition combinations are tested frequently.' },
+        { id: 'q2', answer: 'about', explanation: 'Preposition: You "care about" something.', tip: 'Exam Tip: Verb + preposition combinations are tested frequently.' },
+        { id: 'q3', answer: 'out', explanation: 'Phrasal verb: "point out" means to draw attention to a fact.', tip: 'Exam Tip: "Point out" is a very common B2 phrasal verb.' }
       ]
     }
   ],
@@ -914,6 +959,30 @@ const tasksDatabase = {
         { id: 'q1', text: '1. How long was the fisherman\'s trip supposed to be originally?', options: ['A) Five months.', 'B) A weekend.', 'C) One week.'], correct: 'B) A weekend.', explanation: 'He originally set out for "a simple weekend fishing trip".', tip: 'Exam Tip: Differentiate between the planned time (weekend) and the actual time (five months).' },
         { id: 'q2', text: '2. How did the storm affect his boat?', options: ['A) It broke the sails.', 'B) It flipped the boat over.', 'C) It destroyed the engine and radio.'], correct: 'C) It destroyed the engine and radio.', explanation: 'The storm "destroyed his engine and radio".', tip: 'Exam Tip: Listen for the specific damage caused.' },
         { id: 'q3', text: '3. Who eventually rescued him?', options: ['A) A police helicopter.', 'B) A passing cargo ship.', 'C) Another fisherman.'], correct: 'B) A passing cargo ship.', explanation: 'He was rescued by "a passing cargo ship".', tip: 'Exam Tip: Distinguish between the different types of vessels or vehicles mentioned.' }
+      ]
+    },
+    {
+      id: 'l17',
+      title: 'The Highway Money Spill',
+      audioFile: 'k_angol_17maj_fl.mp3',
+      instructions: 'Listen to the news report and choose the best answer.',
+      transcript: `An armored truck was driving down the highway when suddenly its back doors flew open. A bag ripped and money spilled out. Then another bag fell out of the truck and another. Soon, money was flying everywhere. Drivers wondered, are they leaves? Then drivers realized that the green papers were not leaves. They were money! Drivers slammed on their brakes and stopped right in the middle of the highway. People jumped out of their cars and began to pick up money. Mr. Kaiser also got out of his car. He grabbed a plastic bag of money, put the bag in his car, and drove away. Later, Mr. Kaiser counted the money. He had $57,000. After thinking for two hours, he went to the police station and returned the $57,000.`,
+      questions: [
+        { id: 'q1', text: '1. What did drivers initially think the flying green papers were?', options: ['A) Birds.', 'B) Leaves.', 'C) Trash.'], correct: 'B) Leaves.', explanation: 'The transcript says "Drivers wondered, are they leaves?"', tip: 'Exam Tip: Note the transition from their initial guess to the realization.' },
+        { id: 'q2', text: '2. How did the drivers react when they saw the money?', options: ['A) They stopped their cars and jumped out.', 'B) They sped up to chase the truck.', 'C) They called the police.'], correct: 'A) They stopped their cars and jumped out.', explanation: 'Drivers "slammed on their brakes and stopped right in the middle of the highway. People jumped out of their cars".', tip: 'Exam Tip: Pay attention to the physical actions described.' },
+        { id: 'q3', text: '3. What did Mr. Kaiser do after counting the $57,000?', options: ['A) He went on a vacation to Florida.', 'B) He bought a new gate for his house.', 'C) He returned the money to the police.'], correct: 'C) He returned the money to the police.', explanation: 'After thinking about spending it, "he went to the police station and returned the $57,000."', tip: 'Exam Tip: The text often presents distracting thoughts before stating the final action.' }
+      ]
+    },
+    {
+      id: 'l18',
+      title: 'University Phone Calls',
+      audioFile: 'k_angol_07maj_fl.mp3',
+      instructions: 'Listen to the student talking about calling home and choose the best answer.',
+      transcript: `Interviewer: You are studying at a university far from home. Do you call your family often?\nStudent: Oh, yes. I call my grandparents in Ontario, I call my aunts and uncles, and my friends. It's pretty bad because the phone bills are expensive. I'm getting better, though. I haven't talked to my mom in two days! I haven't bought a phone card yet so I can't call her. So, what I'm doing is I'm going to start making weekly phone calls instead, so that it's a lot better. I use phone cards which is a lot cheaper.`,
+      questions: [
+        { id: 'q1', text: '1. Who does the student call frequently?', options: ['A) Only her mother.', 'B) Many relatives and friends.', 'C) Her teachers.'], correct: 'B) Many relatives and friends.', explanation: 'She mentions calling her grandparents, aunts, uncles, and friends.', tip: 'Exam Tip: Listen for lists of people to summarize the general idea.' },
+        { id: 'q2', text: '2. Why hasn\'t she called her mom for two days?', options: ['A) She doesn\'t want to talk to her.', 'B) She hasn\'t bought a phone card.', 'C) Her mom is travelling.'], correct: 'B) She hasn\'t bought a phone card.', explanation: 'She explicitly says, "I haven\'t bought a phone card so I can\'t call her."', tip: 'Exam Tip: Look out for reasons (why/because).' },
+        { id: 'q3', text: '3. How often does she plan to call home in the future?', options: ['A) Every day.', 'B) Twice a month.', 'C) Once a week.'], correct: 'C) Once a week.', explanation: 'She plans to start making "weekly phone calls".', tip: 'Exam Tip: Match synonyms: "weekly" = "once a week".' }
       ]
     }
   ]
@@ -2127,9 +2196,12 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
       <h3 className="text-xl font-bold text-slate-800 mb-4 mt-8 flex items-center gap-2">
         <Mic size={24} className="text-purple-600"/> Speaking Practice
       </h3>
-      <button 
-        onClick={onOpenSpeaking} 
-        className="w-full text-left group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all flex items-center justify-between mb-8 border-0"
+      <div 
+        role="button"
+        tabIndex={0}
+        onClick={onOpenSpeaking}
+        onKeyDown={(e) => e.key === 'Enter' && onOpenSpeaking()}
+        className="w-full cursor-pointer group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all text-left flex items-center justify-between mb-8 border-0"
       >
          <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
          
@@ -2143,9 +2215,9 @@ const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFl
            </div>
          </div>
          <div className="text-white font-bold text-sm hidden sm:flex items-center gap-1 group-hover:text-fuchsia-100 transition-colors relative z-20">
-           Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/>
+           Click to Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/>
          </div>
-      </button>
+      </div>
 
       {/* Official Website Links */}
       <div className="mt-12 p-6 bg-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-white shadow-lg mb-6">
@@ -2433,7 +2505,7 @@ export default function App() {
           to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
-          animation: fadeIn 0.4s ease-out forwards;
+          animation: fadeIn 0.4s forwards;
         }
         .perspective-1000 { perspective: 1000px; }
         .transform-style-3d { transform-style: preserve-3d; }
