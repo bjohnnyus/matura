@@ -1331,7 +1331,13 @@ const CustomAudioPlayer = ({ src }) => {
 
 const ManageAudio = ({ onBack, audioMap, onSaveMap }) => {
   const listeningTasks = tasksDatabase.listening;
-  const [urlInputs, setUrlInputs] = useState({});
+  const [urlInputs, setUrlInputs] = useState(() => {
+    const initial = {};
+    listeningTasks.forEach(task => {
+      initial[task.id] = audioMap[task.id] || '';
+    });
+    return initial;
+  });
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -1470,43 +1476,38 @@ ${generateCodeSnippet()}
             </div>
             
             <div className="w-full mt-2">
-              {tempMap[task.id] ? (
-                <div className="w-full animate-fade-in">
-                  <div className="flex items-center gap-3 bg-blue-50 p-4 rounded-xl border border-blue-200">
-                    <CheckCircle size={20} className="text-blue-600 flex-shrink-0" />
-                    <div className="flex-1 overflow-hidden">
-                      <p className="text-sm font-bold text-blue-800 mb-1">Added to Code Generator!</p>
-                      <p className="text-xs text-blue-700 truncate">{tempMap[task.id]}</p>
-                    </div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4">
+                <input
+                  type="url"
+                  placeholder="Paste a Google Drive or Dropbox link here to test..."
+                  value={urlInputs[task.id] !== undefined ? urlInputs[task.id] : ''}
+                  onChange={(e) => handleUrlChange(task.id, e.target.value)}
+                  className="flex-1 px-4 py-3 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-shadow"
+                />
+                <button 
+                  onClick={() => handleTestUrl(task.id)}
+                  disabled={!urlInputs[task.id]}
+                  className="px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
+                >
+                  {tempMap[task.id] ? 'Update Link' : 'Add Link'}
+                </button>
+              </div>
+
+              {tempMap[task.id] && (
+                <div className="w-full animate-fade-in bg-slate-50 p-4 rounded-xl border border-slate-200">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+                      <Headphones size={14}/> Current Audio Connection:
+                    </p>
                     <button 
                       onClick={() => handleRemoveTempUrl(task.id)}
-                      className="text-red-500 hover:text-red-700 p-2 rounded-md hover:bg-red-50 transition-colors"
+                      className="text-red-500 hover:text-red-700 p-1.5 rounded-md hover:bg-red-50 transition-colors flex items-center gap-1 text-xs font-semibold"
                       title="Remove from generator"
                     >
-                      <Trash2 size={18} />
+                      <Trash2 size={14} /> Remove
                     </button>
                   </div>
-                  <div className="mt-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                    <p className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider flex items-center gap-1"><Headphones size={14}/> Test Audio Connection:</p>
-                    <CustomAudioPlayer src={tempMap[task.id]} />
-                  </div>
-                </div>
-              ) : (
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                  <input
-                    type="url"
-                    placeholder="Paste a Google Drive or Dropbox link here to test..."
-                    value={urlInputs[task.id] || ''}
-                    onChange={(e) => handleUrlChange(task.id, e.target.value)}
-                    className="flex-1 px-4 py-3 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-shadow"
-                  />
-                  <button 
-                    onClick={() => handleTestUrl(task.id)}
-                    disabled={!urlInputs[task.id]}
-                    className="px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
-                  >
-                    <Play size={18} /> Add to Generator
-                  </button>
+                  <CustomAudioPlayer src={tempMap[task.id]} />
                 </div>
               )}
             </div>
@@ -2124,9 +2125,6 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
             <div className="mt-4 p-4 border border-amber-200 bg-amber-50 rounded-lg">
                <p className="text-sm text-amber-800 font-medium flex items-center gap-2 mb-2">
                  <AlertCircle size={16}/> Simulated Transcript Feature
-               </p>
-               <p className="text-xs text-amber-700 mb-4">
-                 (Since this is a web simulation and the local MP3 file might not load, you can read the transcript below to complete the task, just like in the exam!)
                </p>
                <p className="text-slate-700 italic text-sm whitespace-pre-line border-l-4 border-amber-300 pl-4 py-2">
                  {taskData.transcript}
