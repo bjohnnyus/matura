@@ -20,31 +20,12 @@ const TEACHER_AUDIO_LINKS = {
   'l13': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3',
   'l14': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552/the-emperor-of-long-distance.mp3',
   'l15': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553/the-history-of-the-bikini.mp3',
-  'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3'
-};'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
-  'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526545/k_angol_07maj_fl.mp3' // University phone calls audio
-// -------------------------------------------------------------// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---
-// Because Netlify does not have a shared database, any link placed here 
-// will be permanently available to all your students on all browsers.
-const TEACHER_AUDIO_LINKS = {
-  'l1': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526675/harry.mp3', // Add the link for "Interview with Harry" here when you have it!
-  'l2': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567/audio-project.mp3', // Interview with an author
-  'l3': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566/elevenlabs-untitled-project-1.mp3', // Supermarket
-  'l4': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526542/a-lucky-escape.mp3',
-  'l5': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526565/elevenlabs-a-spoonful-of-sugar.mp3',
-  'l6': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550/paul-stout.mp3', // Toddler bought a car
-  'l7': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526546/duke-the-rescue-dog.mp3',
-  'l8': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526547/einstein.mp3',
-  'l9': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526549/interview-with-leona-lewis.mp3',
-  'l10': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526551/slow-drivers.mp3',
-  'l11': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526544/a-philosop.mp3',
-  'l12': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526548/franz-kafka-and-the-doll.mp3',
-  'l13': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3',
-  'l14': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552/the-emperor-of-long-distance.mp3',
-  'l15': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553/the-history-of-the-bikini.mp3',
-  'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3'
-};'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
-  'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526545/k_angol_07maj_fl.mp3' // University phone calls audio
+  'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3',
+  'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
+  'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536796/university-phone-calls.mp3', // University phone calls audio
+  'l19': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536795/the-delayed-flight.mp3', // Placeholder for delayed flight
+  'l20': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536794/interview-with-a-skydiver.mp3' // Placeholder for extreme sports
+};
 // -------------------------------------------------------------
 
 // --- DATA: Flashcards (Batch 1-5: 1-300) ---
@@ -348,7 +329,107 @@ const flashcardsData = [
   { id: 297, category: 'Uncountable Noun', term: 'knowledge', context: 'Schools must spread knowledge.', grammar: 'Meaning: tudás' },
   { id: 298, category: 'Uncountable Noun', term: 'luck', context: 'The examiner wished the students good luck.', grammar: 'Meaning: szerencse' },
   { id: 299, category: 'Uncountable Noun', term: 'progress', context: 'I feel I am not making any progress.', grammar: 'Meaning: haladás, fejlődik' },
-  { id: 300, category: 'Uncountable Noun', term: 'scenery', context: 'The route takes you into typical beautiful scenery.', grammar: 'Meaning: táj, látvány' }
+  { id: 300, category: 'Uncountable Noun', term: 'scenery', context: 'The route takes you into typical beautiful scenery.', grammar: 'Meaning: táj, látvány' },
+  { id: 301, category: 'Phrasal Verb', term: 'break out', context: 'The war broke out in 1939.', grammar: 'Meaning: kitör (háború, járvány)' },
+  { id: 302, category: 'Phrasal Verb', term: 'bring about', context: 'The new president brought about many changes.', grammar: 'Meaning: előidéz, okoz' },
+  { id: 303, category: 'Phrasal Verb', term: 'call for', context: 'This situation calls for immediate action.', grammar: 'Meaning: megkövetel, igényel' },
+  { id: 304, category: 'Phrasal Verb', term: 'come across', context: 'I came across an old photo yesterday.', grammar: 'Meaning: rábukkan, véletlenül talál' },
+  { id: 305, category: 'Phrasal Verb', term: 'count on', context: 'You can always count on me.', grammar: 'Meaning: számít vkire' },
+  { id: 306, category: 'Phrasal Verb', term: 'deal with', context: 'She deals with difficult customers every day.', grammar: 'Meaning: foglalkozik vmivel, kezel' },
+  { id: 307, category: 'Phrasal Verb', term: 'do without', context: 'We will have to do without sugar today.', grammar: 'Meaning: meglenni vmi nélkül' },
+  { id: 308, category: 'Phrasal Verb', term: 'fall through', context: 'Our holiday plans fell through.', grammar: 'Meaning: meghiúsul, kútba esik' },
+  { id: 309, category: 'Phrasal Verb', term: 'get along', context: 'I get along well with my brother.', grammar: 'Meaning: jól kijön vkivel' },
+  { id: 310, category: 'Phrasal Verb', term: 'go off', context: 'The alarm clock went off at 6 AM.', grammar: 'Meaning: megszólal (riasztó, ébresztő)' },
+  { id: 311, category: 'Phrasal Verb', term: 'keep up', context: 'Keep up the good work!', grammar: 'Meaning: folytat (jó munkát), lépést tart' },
+  { id: 312, category: 'Phrasal Verb', term: 'leave out', context: 'Please do not leave out any details.', grammar: 'Meaning: kihagy' },
+  { id: 313, category: 'Phrasal Verb', term: 'look over', context: 'Let me look over your essay before you submit it.', grammar: 'Meaning: átnéz, átolvas' },
+  { id: 314, category: 'Phrasal Verb', term: 'make out', context: 'I could not make out what he was saying.', grammar: 'Meaning: kivesz, megért' },
+  { id: 315, category: 'Phrasal Verb', term: 'pass out', context: 'It was so hot that she passed out.', grammar: 'Meaning: elájul' },
+  { id: 316, category: 'Phrasal Verb', term: 'put forward', context: 'He put forward a new plan.', grammar: 'Meaning: előterjeszt, javasol' },
+  { id: 317, category: 'Phrasal Verb', term: 'stand for', context: 'What does WHO stand for?', grammar: 'Meaning: jelent vmit, rövidítése vminek' },
+  { id: 318, category: 'Phrasal Verb', term: 'take in', context: 'The lesson was difficult to take in.', grammar: 'Meaning: felfog, megért' },
+  { id: 319, category: 'Phrasal Verb', term: 'turn up', context: 'He turned up two hours late.', grammar: 'Meaning: felbukkan, megjelenik' },
+  { id: 320, category: 'Phrasal Verb', term: 'wear out', context: 'These shoes are completely worn out.', grammar: 'Meaning: elhasználódik, elkopik' },
+  { id: 321, category: 'Phrasal Verb', term: 'give off', context: 'The milk is giving off a bad smell.', grammar: 'Meaning: kibocsát (szagot, hőt)' },
+  { id: 322, category: 'Phrasal Verb', term: 'hold up', context: 'Sorry I am late, I was held up in traffic.', grammar: 'Meaning: feltart, feltartóztat' },
+  { id: 323, category: 'Phrasal Verb', term: 'look into', context: 'The police are looking into the matter.', grammar: 'Meaning: kivizsgál' },
+  { id: 324, category: 'Phrasal Verb', term: 'make for', context: 'He made for the door as fast as he could.', grammar: 'Meaning: elindul vmi felé' },
+  { id: 325, category: 'Phrasal Verb', term: 'set out', context: 'We set out early in the morning.', grammar: 'Meaning: útnak indul' },
+  { id: 326, category: 'Idiom', term: 'beat around the bush', context: 'Stop beating around the bush and tell me!', grammar: 'Meaning: kerülgeti a forró kását' },
+  { id: 327, category: 'Idiom', term: 'bite the bullet', context: 'I have to bite the bullet and go to the dentist.', grammar: 'Meaning: lenyeli a békát, beletörődik a rosszba' },
+  { id: 328, category: 'Idiom', term: 'call it a day', context: 'We are tired, let\'s call it a day.', grammar: 'Meaning: mára ennyi, befejezi a munkát' },
+  { id: 329, category: 'Idiom', term: 'cut corners', context: 'They cut corners to save money on the project.', grammar: 'Meaning: spórol a minőségen/időn' },
+  { id: 330, category: 'Idiom', term: 'get out of hand', context: 'The party got completely out of hand.', grammar: 'Meaning: kicsúszik az irányítás alól' },
+  { id: 331, category: 'Idiom', term: 'hang in there', context: 'Exams are tough, but hang in there!', grammar: 'Meaning: tarts ki!' },
+  { id: 332, category: 'Idiom', term: 'hit the sack', context: 'I am exhausted, it is time to hit the sack.', grammar: 'Meaning: lefekszik aludni' },
+  { id: 333, category: 'Idiom', term: 'miss the boat', context: 'Apply now or you will miss the boat.', grammar: 'Meaning: lemarad egy lehetőségről' },
+  { id: 334, category: 'Idiom', term: 'on the ball', context: 'Our new manager is really on the ball.', grammar: 'Meaning: topon van, ügyes, figyelmes' },
+  { id: 335, category: 'Idiom', term: 'pull someone\'s leg', context: 'Are you serious or just pulling my leg?', grammar: 'Meaning: ugrat vkit' },
+  { id: 336, category: 'Idiom', term: 'speak of the devil', context: 'Speak of the devil! Here comes John.', grammar: 'Meaning: emlegetett szamár' },
+  { id: 337, category: 'Idiom', term: 'wrap your head around', context: 'I can\'t wrap my head around this math problem.', grammar: 'Meaning: megért (bonyolult dolgot)' },
+  { id: 338, category: 'Idiom', term: 'a blessing in disguise', context: 'Losing that job was a blessing in disguise.', grammar: 'Meaning: szerencse a szerencsétlenségben' },
+  { id: 339, category: 'Idiom', term: 'bite off more than you can chew', context: 'Don\'t bite off more than you can chew by taking three jobs.', grammar: 'Meaning: túl nagy fába vágja a fejszéjét' },
+  { id: 340, category: 'Idiom', term: 'break a leg', context: 'Good luck with the play! Break a leg!', grammar: 'Meaning: kéz a-láb törést! (sok szerencsét)' },
+  { id: 341, category: 'Idiom', term: 'hit the nail on the head', context: 'You hit the nail on the head with that answer.', grammar: 'Meaning: fején találja a szöget' },
+  { id: 342, category: 'Idiom', term: 'let the cat out of the bag', context: 'I accidentally let the cat out of the bag about the surprise party.', grammar: 'Meaning: elszólja magát, kikotyog egy titkot' },
+  { id: 343, category: 'Idiom', term: 'so far so good', context: 'How is your new job? So far so good.', grammar: 'Meaning: eddig minden rendben' },
+  { id: 344, category: 'Idiom', term: 'no pain no gain', context: 'You have to train hard to win. No pain no gain.', grammar: 'Meaning: nincs siker fájdalom nélkül' },
+  { id: 345, category: 'Idiom', term: 'better late than never', context: 'He finally finished the project. Better late than never.', grammar: 'Meaning: jobb később, mint soha' },
+  { id: 346, category: 'Idiom', term: 'the best of both worlds', context: 'Working from home gives you the best of both worlds.', grammar: 'Meaning: két dolog előnyeit egyszerre élvezni' },
+  { id: 347, category: 'Idiom', term: 'to make matters worse', context: 'It rained, and to make matters worse, we lost our keys.', grammar: 'Meaning: ráadásul, a helyzetet rontva' },
+  { id: 348, category: 'Idiom', term: 'under the weather', context: 'I am staying home because I feel a bit under the weather.', grammar: 'Meaning: gyengélkedik, nincs egészen jól' },
+  { id: 349, category: 'Idiom', term: 'costs an arm and a leg', context: 'This designer watch costs an arm and a leg.', grammar: 'Meaning: méregdrága' },
+  { id: 350, category: 'Idiom', term: 'time flies', context: 'Time flies when you are having fun.', grammar: 'Meaning: repül az idő' },
+  { id: 351, category: 'Collocation', term: 'keep in mind', context: 'Keep in mind that the train leaves at 8.', grammar: 'Meaning: észben tart' },
+  { id: 352, category: 'Collocation', term: 'catch fire', context: 'Dry wood can easily catch fire.', grammar: 'Meaning: lángra kap' },
+  { id: 353, category: 'Collocation', term: 'catch sight of', context: 'I caught sight of the famous actor at the airport.', grammar: 'Meaning: megpillant' },
+  { id: 354, category: 'Collocation', term: 'come to an end', context: 'Every great holiday must come to an end.', grammar: 'Meaning: véget ér' },
+  { id: 355, category: 'Collocation', term: 'do damage', context: 'The storm did a lot of damage to the roof.', grammar: 'Meaning: kárt okoz' },
+  { id: 356, category: 'Collocation', term: 'do the ironing', context: 'I hate doing the ironing on Sundays.', grammar: 'Meaning: vasal' },
+  { id: 357, category: 'Collocation', term: 'do wonders', context: 'A good night\'s sleep will do wonders for you.', grammar: 'Meaning: csodát tesz' },
+  { id: 358, category: 'Collocation', term: 'draw attention to', context: 'He drew attention to the mistakes in the report.', grammar: 'Meaning: felhívja a figyelmet vmire' },
+  { id: 359, category: 'Collocation', term: 'keep a diary', context: 'She has been keeping a diary since she was a child.', grammar: 'Meaning: naplót vezet' },
+  { id: 360, category: 'Collocation', term: 'keep control', context: 'It is hard to keep control in an emergency.', grammar: 'Meaning: megőrzi az irányítást' },
+  { id: 361, category: 'Collocation', term: 'keep in touch', context: 'Let\'s keep in touch after graduation.', grammar: 'Meaning: kapcsolatban marad' },
+  { id: 362, category: 'Collocation', term: 'make a mess', context: 'The children made a huge mess in the kitchen.', grammar: 'Meaning: rendetlenséget csinál' },
+  { id: 363, category: 'Collocation', term: 'make an exception', context: 'Normally we don\'t allow dogs, but we\'ll make an exception.', grammar: 'Meaning: kivételt tesz' },
+  { id: 364, category: 'Collocation', term: 'make arrangements', context: 'We need to make arrangements for the trip.', grammar: 'Meaning: elintéz, megszervez' },
+  { id: 365, category: 'Collocation', term: 'make room', context: 'Move those boxes to make room for the sofa.', grammar: 'Meaning: helyet csinál' },
+  { id: 366, category: 'Collocation', term: 'pay a compliment', context: 'He paid her a compliment on her new dress.', grammar: 'Meaning: bókol vkinek' },
+  { id: 367, category: 'Collocation', term: 'pay a visit', context: 'We should pay a visit to our grandparents.', grammar: 'Meaning: meglátogat' },
+  { id: 368, category: 'Collocation', term: 'take a seat', context: 'Please come in and take a seat.', grammar: 'Meaning: foglaljon helyet' },
+  { id: 369, category: 'Collocation', term: 'take action', context: 'The government must take action against pollution.', grammar: 'Meaning: lépéseket tesz, cselekszik' },
+  { id: 370, category: 'Collocation', term: 'take advice', context: 'You should take my advice and stay home.', grammar: 'Meaning: megfogadja a tanácsot' },
+  { id: 371, category: 'Collocation', term: 'take pity on', context: 'She took pity on the stray dog and took it home.', grammar: 'Meaning: megszán vkit' },
+  { id: 372, category: 'Collocation', term: 'save time', context: 'Taking the highway will save us a lot of time.', grammar: 'Meaning: időt spórol' },
+  { id: 373, category: 'Collocation', term: 'spend money on', context: 'She spends a lot of money on clothes.', grammar: 'Meaning: pénzt költ vmire' },
+  { id: 374, category: 'Collocation', term: 'waste time', context: 'Don\'t waste time watching silly videos.', grammar: 'Meaning: időt pazarol' },
+  { id: 375, category: 'Collocation', term: 'bear in mind', context: 'Bear in mind that exams are starting next week.', grammar: 'Meaning: észben tart' },
+  { id: 376, category: 'Adjective + Prep', term: 'absent from', context: 'He was absent from school due to illness.', grammar: 'Meaning: hiányzik vhonnan' },
+  { id: 377, category: 'Adjective + Prep', term: 'accustomed to', context: 'I am accustomed to getting up early.', grammar: 'Meaning: hozzá van szokva vmihez' },
+  { id: 378, category: 'Adjective + Prep', term: 'attached to', context: 'She is very attached to her grandmother.', grammar: 'Meaning: kötődik vkihez/vmihez' },
+  { id: 379, category: 'Adjective + Prep', term: 'connected to', context: 'The printer is connected to the computer.', grammar: 'Meaning: kapcsolódik vmihez' },
+  { id: 380, category: 'Adjective + Prep', term: 'eager for', context: 'The fans were eager for the concert to begin.', grammar: 'Meaning: vágyik vmire, buzgó' },
+  { id: 381, category: 'Adjective + Prep', term: 'engaged to', context: 'She is engaged to her childhood friend.', grammar: 'Meaning: eljegyezve lenni vkivel' },
+  { id: 382, category: 'Adjective + Prep', term: 'enthusiastic about', context: 'They are enthusiastic about the new project.', grammar: 'Meaning: lelkesedik vmiért' },
+  { id: 383, category: 'Adjective + Prep', term: 'free from', context: 'This product is free from artificial colors.', grammar: 'Meaning: mentes vmitől' },
+  { id: 384, category: 'Adjective + Prep', term: 'hopeless at', context: 'I am hopeless at cooking.', grammar: 'Meaning: reménytelen/ügyetlen vmiben' },
+  { id: 385, category: 'Adjective + Prep', term: 'identical to', context: 'His car is identical to mine.', grammar: 'Meaning: azonos vmivel' },
+  { id: 386, category: 'Adjective + Prep', term: 'ignorant of', context: 'He was completely ignorant of the rules.', grammar: 'Meaning: tudatlan/nem ismeri vmit' },
+  { id: 387, category: 'Adjective + Prep', term: 'inferior to', context: 'This model is inferior to the previous one.', grammar: 'Meaning: alulmarad, silányabb' },
+  { id: 388, category: 'Adjective + Prep', term: 'notorious for', context: 'The city is notorious for its traffic jams.', grammar: 'Meaning: hírhedt vmiről' },
+  { id: 389, category: 'Adjective + Prep', term: 'protected from', context: 'Keep the plants protected from the cold.', grammar: 'Meaning: védve van vmitől' },
+  { id: 390, category: 'Adjective + Prep', term: 'relevant to', context: 'This information is not relevant to our discussion.', grammar: 'Meaning: kapcsolódik, releváns vmihez' },
+  { id: 391, category: 'Prepositional Phrase', term: 'at all costs', context: 'We must win this game at all costs.', grammar: 'Meaning: minden áron' },
+  { id: 392, category: 'Prepositional Phrase', term: 'at first sight', context: 'They fell in love at first sight.', grammar: 'Meaning: első látásra' },
+  { id: 393, category: 'Prepositional Phrase', term: 'at least', context: 'It will take at least an hour to get there.', grammar: 'Meaning: legalább' },
+  { id: 394, category: 'Prepositional Phrase', term: 'by accident', context: 'I deleted the file by accident.', grammar: 'Meaning: véletlenül' },
+  { id: 395, category: 'Prepositional Phrase', term: 'for a change', context: 'Let\'s eat out tonight for a change.', grammar: 'Meaning: a változatosság kedvéért' },
+  { id: 396, category: 'Prepositional Phrase', term: 'in a mess', context: 'My room is in a terrible mess.', grammar: 'Meaning: rendetlenségben van' },
+  { id: 397, category: 'Prepositional Phrase', term: 'in detail', context: 'Please explain the plan in detail.', grammar: 'Meaning: részletesen' },
+  { id: 398, category: 'Prepositional Phrase', term: 'in general', context: 'In general, women live longer than men.', grammar: 'Meaning: általában' },
+  { id: 399, category: 'Prepositional Phrase', term: 'in secret', context: 'They planned the surprise party in secret.', grammar: 'Meaning: titokban' },
+  { id: 400, category: 'Prepositional Phrase', term: 'under pressure', context: 'He works well under pressure.', grammar: 'Meaning: nyomás alatt' }
 ];
 
 // --- UTILITY: Flashcard Progress Tracking ---
@@ -569,6 +650,28 @@ const tasksDatabase = {
         { id: 'q2', text: '2. When is the best time to take a nap?', options: ['A) In the early morning.', 'B) Late at night.', 'C) In the early afternoon.'], correct: 'C) In the early afternoon.', explanation: 'The text suggests "ideally around 2:00 PM", which is the early afternoon.', tip: 'Exam Tip: Time references are very common in Matura questions.' },
         { id: 'q3', text: '3. What happens if you nap for an hour?', options: ['A) You will feel fully refreshed.', 'B) You might wake up feeling more tired.', 'C) You will not be able to sleep at night.'], correct: 'B) You might wake up feeling more tired.', explanation: 'The text warns that sleeping for more than 30 minutes can make you wake up "feeling even more tired".', tip: 'Exam Tip: Pay attention to conditional "If" clauses.' }
       ]
+    },
+    {
+      id: 'r19',
+      title: 'Reading: The Cheese Rolling Festival',
+      instructions: 'Read the short text and choose the best answer (A, B, or C).',
+      text: "Every year in Gloucestershire, England, hundreds of people gather at Cooper's Hill to take part in a bizarre and dangerous tradition: cheese rolling. The rules are simple. A large, round wheel of Double Gloucester cheese is rolled down the very steep hill, and competitors run after it. The first person to cross the finish line at the bottom of the hill wins the cheese! Because the hill is so steep and uneven, runners often fall and tumble down, which frequently results in injuries. Despite the risks, the event attracts participants and spectators from all over the world.",
+      questions: [
+        { id: 'q1', text: '1. What is the main prize for the winner of the race?', options: ['A) Money.', 'B) A wheel of cheese.', 'C) A gold medal.'], correct: 'B) A wheel of cheese.', explanation: 'The text says, "The first person to cross the finish line... wins the cheese!"', tip: 'Exam Tip: Look for direct answers about prizes or rewards.' },
+        { id: 'q2', text: '2. Why do competitors often get injured?', options: ['A) Because the cheese is too heavy.', 'B) Because the hill is very steep and uneven.', 'C) Because they push each other.'], correct: 'B) Because the hill is very steep and uneven.', explanation: 'The text mentions, "Because the hill is so steep and uneven, runners often fall... which frequently results in injuries."', tip: 'Exam Tip: Match the cause with the effect described in the text.' },
+        { id: 'q3', text: '3. Who attends the cheese rolling festival?', options: ['A) Only local people from Gloucestershire.', 'B) Only professional athletes.', 'C) People from all over the world.'], correct: 'C) People from all over the world.', explanation: 'The text concludes that "the event attracts participants and spectators from all over the world."', tip: 'Exam Tip: Watch out for options with "Only" as they are often distractors.' }
+      ]
+    },
+    {
+      id: 'r20',
+      title: 'Reading: Drone Deliveries',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "In recent years, several major technology companies have started testing drone delivery services. Instead of relying on traditional delivery vans driven by humans, these companies use small, unmanned flying vehicles to drop packages directly into customers' gardens. This innovative method has several advantages. Firstly, it is incredibly fast, often taking less than 30 minutes from the warehouse to the customer. Secondly, electric drones are much better for the environment because they do not produce exhaust gases like diesel vans. However, there are still challenges to overcome, such as bad weather conditions and the risk of drones crashing into birds or power lines.",
+      questions: [
+        { id: 'q1', text: '1. How do drones deliver packages to customers?', options: ['A) They land on the roof.', 'B) They drop them in the garden.', 'C) They hand them to the customer at the door.'], correct: 'B) They drop them in the garden.', explanation: 'The text says they "drop packages directly into customers\' gardens."', tip: 'Exam Tip: Read carefully to find the exact location mentioned.' },
+        { id: 'q2', text: '2. What is mentioned as an environmental benefit of using drones?', options: ['A) They use solar power.', 'B) They do not produce exhaust gases.', 'C) They are made from recycled plastic.'], correct: 'B) They do not produce exhaust gases.', explanation: 'The text explicitly states "they do not produce exhaust gases like diesel vans."', tip: 'Exam Tip: Scan for the word "environment" and read the surrounding sentence.' },
+        { id: 'q3', text: '3. What is one of the challenges this technology faces?', options: ['A) Bad weather conditions.', 'B) They are too slow.', 'C) They cost too much to build.'], correct: 'A) Bad weather conditions.', explanation: 'The text mentions challenges "such as bad weather conditions".', tip: 'Exam Tip: Always find the exact evidence in the text; don\'t guess based on outside knowledge.' }
+      ]
     }
   ],
   useOfEnglish: [
@@ -768,6 +871,28 @@ const tasksDatabase = {
         { id: 'q1', answer: 'for', explanation: 'Preposition: "good for" the environment.', tip: 'Exam Tip: Adjective + preposition combinations are tested frequently.' },
         { id: 'q2', answer: 'about', explanation: 'Preposition: You "care about" something.', tip: 'Exam Tip: Verb + preposition combinations are tested frequently.' },
         { id: 'q3', answer: 'out', explanation: 'Phrasal verb: "point out" means to draw attention to a fact.', tip: 'Exam Tip: "Point out" is a very common B2 phrasal verb.' }
+      ]
+    },
+    {
+      id: 'u19',
+      title: 'Use of English: The Axolotl',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['The axolotl is a very unusual amphibian that lives in the lakes of Mexico. Unlike most other amphibians, the axolotl does not grow up to live ', ' land. Instead, it remains in the water its entire life. One of the most amazing things about the axolotl is its ability to regenerate lost body parts. If it loses a leg or even part of its heart, it ', ' grow a completely new one in a few weeks! Unfortunately, due to water pollution and the loss of its natural habitat, the axolotl is now critically endangered in the wild, ', ' means we must act quickly to save it.'],
+      questions: [
+        { id: 'q1', answer: 'on', explanation: 'Preposition: Animals or people live "on" land.', tip: 'Exam Tip: Remember standard prepositions for places (in the water, on land, in the air).' },
+        { id: 'q2', answer: 'can', explanation: 'Modal Verb: Expresses ability in the present ("it can grow").', tip: 'Exam Tip: When discussing physical abilities, "can" or "is able to" are the standard choices.' },
+        { id: 'q3', answer: 'which', explanation: 'Relative Pronoun: Refers to the entire previous clause (the fact that it is endangered).', tip: 'Exam Tip: When a relative pronoun comes after a comma and refers to a whole situation, use "which".' }
+      ]
+    },
+    {
+      id: 'u20',
+      title: 'Use of English: A Message in a Bottle',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['In 2014, a fisherman in Germany found an old glass bottle floating in the sea. Inside the bottle, there was a rolled-up piece ', ' paper. When he carefully opened it, he discovered a message that had been written 101 years earlier! The message asked the finder to send the bottle back to an address in Berlin. The fisherman gave the bottle to researchers, ', ' managed to track down the author\'s granddaughter. She was absolutely amazed to receive the message that her grandfather had thrown ', ' the sea more than a century ago.'],
+      questions: [
+        { id: 'q1', answer: 'of', explanation: 'Preposition: "A piece of paper" is a standard noun + preposition combination.', tip: 'Exam Tip: Uncountable materials often use "a piece of" (cake, advice, paper, information).' },
+        { id: 'q2', answer: 'who', explanation: 'Relative Pronoun: Connects the clause to the people ("researchers").', tip: 'Exam Tip: For people, use "who" or "that". After a comma, only "who" is correct.' },
+        { id: 'q3', answer: 'into', explanation: 'Preposition of Movement: You throw something "into" the water/sea.', tip: 'Exam Tip: Verbs involving movement from outside to inside take "into".' }
       ]
     }
   ],
@@ -983,6 +1108,30 @@ const tasksDatabase = {
         { id: 'q1', text: '1. Who does the student call frequently?', options: ['A) Only her mother.', 'B) Many relatives and friends.', 'C) Her teachers.'], correct: 'B) Many relatives and friends.', explanation: 'She mentions calling her grandparents, aunts, uncles, and friends.', tip: 'Exam Tip: Listen for lists of people to summarize the general idea.' },
         { id: 'q2', text: '2. Why hasn\'t she called her mom for two days?', options: ['A) She doesn\'t want to talk to her.', 'B) She hasn\'t bought a phone card.', 'C) Her mom is travelling.'], correct: 'B) She hasn\'t bought a phone card.', explanation: 'She explicitly says, "I haven\'t bought a phone card so I can\'t call her."', tip: 'Exam Tip: Look out for reasons (why/because).' },
         { id: 'q3', text: '3. How often does she plan to call home in the future?', options: ['A) Every day.', 'B) Twice a month.', 'C) Once a week.'], correct: 'C) Once a week.', explanation: 'She plans to start making "weekly phone calls".', tip: 'Exam Tip: Match synonyms: "weekly" = "once a week".' }
+      ]
+    },
+    {
+      id: 'l19',
+      title: 'The Delayed Flight',
+      audioFile: 'k_angol_19_fl.mp3',
+      instructions: 'Listen to the announcement and choose the correct answer.',
+      transcript: `Attention all passengers travelling on flight 4B72 to Madrid. We regret to inform you that your flight has been delayed. This is due to severe thunderstorms over the destination airport, which make it unsafe to land at this time. The new estimated departure time is 4:30 PM, which is a delay of approximately two hours. In the meantime, we would like to offer all passengers a complimentary meal voucher. Please come to gate 14 to collect your voucher, which can be used at any of the restaurants in terminal 2. We sincerely apologize for the inconvenience.`,
+      questions: [
+        { id: 'q1', text: '1. Where is the flight travelling to?', options: ['A) Madrid.', 'B) Berlin.', 'C) London.'], correct: 'A) Madrid.', explanation: 'The announcement says, "Attention all passengers travelling on flight 4B72 to Madrid."', tip: 'Exam Tip: The destination is usually mentioned right at the start of airport announcements.' },
+        { id: 'q2', text: '2. Why is the flight delayed?', options: ['A) A mechanical problem.', 'B) Severe thunderstorms.', 'C) The crew is late.'], correct: 'B) Severe thunderstorms.', explanation: 'It is delayed "due to severe thunderstorms over the destination airport".', tip: 'Exam Tip: "Due to" is a formal phrase that introduces the reason for a delay.' },
+        { id: 'q3', text: '3. What is the airline giving to the delayed passengers?', options: ['A) A free hotel room.', 'B) A ticket discount.', 'C) A free meal voucher.'], correct: 'C) A free meal voucher.', explanation: 'They offer "a complimentary meal voucher".', tip: 'Exam Tip: "Complimentary" is a formal synonym for "free".' }
+      ]
+    },
+    {
+      id: 'l20',
+      title: 'Interview with a Skydiver',
+      audioFile: 'k_angol_20_fl.mp3',
+      instructions: 'Listen to the interview and choose the best answer.',
+      transcript: `Interviewer: Mark, you've completed over a thousand parachute jumps. Does it still feel scary?\nMark: To be honest, yes! Every time I stand at the open door of the airplane, my heart beats incredibly fast. But the moment I jump out, the fear completely disappears and is replaced by a feeling of absolute freedom. \nInterviewer: Have you ever had a serious accident?\nMark: Fortunately, no. Safety is our top priority. We always pack a backup parachute, and we check our equipment three times before every single flight. The most dangerous part of skydiving is actually the drive to the airport!`,
+      questions: [
+        { id: 'q1', text: '1. How does Mark feel right before he jumps out of the plane?', options: ['A) Completely relaxed.', 'B) Very scared.', 'C) Bored.'], correct: 'B) Very scared.', explanation: 'He says yes to it being scary, adding "my heart beats incredibly fast".', tip: 'Exam Tip: Physical symptoms like a fast heartbeat indicate fear or nervousness.' },
+        { id: 'q2', text: '2. How many times do they check their equipment before a flight?', options: ['A) Once.', 'B) Twice.', 'C) Three times.'], correct: 'C) Three times.', explanation: 'Mark explicitly says, "we check our equipment three times before every single flight."', tip: 'Exam Tip: Listen specifically for frequency adverbs and numbers.' },
+        { id: 'q3', text: '3. What does Mark consider the most dangerous part of his sport?', options: ['A) Driving to the airport.', 'B) Landing on the ground.', 'C) Packing the parachute.'], correct: 'A) Driving to the airport.', explanation: 'He jokes that "The most dangerous part of skydiving is actually the drive to the airport!"', tip: 'Exam Tip: Speakers often use irony or contrast to emphasize how safe their extreme sport is.' }
       ]
     }
   ]
