@@ -24,7 +24,12 @@ const TEACHER_AUDIO_LINKS = {
   'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
   'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536796/university-phone-calls.mp3', // University phone calls audio
   'l19': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536795/the-delayed-flight.mp3', // Placeholder for delayed flight
-  'l20': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536794/interview-with-a-skydiver.mp3' // Placeholder for extreme sports
+  'l20': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536794/interview-with-a-skydiver.mp3', // Placeholder for extreme sports
+  'l21': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547939/lost-luggage.mp3', // Placeholder for Lost Luggage
+  'l22': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547940/the-teenage-inventor.mp3', // Placeholder for Teenage Inventor
+  'l23': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547941/thev-haunted-castle.mp3', // Placeholder for Haunted Castle
+  'l24': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547937/cancelling-plans.mp3', // Placeholder for Canceling Plans
+  'l25': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547938/healthy-eating-myths.mp3' // Placeholder for Healthy Eating
 };
 // -------------------------------------------------------------
 
@@ -733,7 +738,7 @@ const tasksDatabase = {
       id: 'r17',
       title: 'Reading: Village Gym FAQ',
       instructions: 'Read the text about the gym and choose the best answer (A, B, or C).',
-      text: "Get answers to the most common questions about membership, classes, and services at Village Gym. You don't need to reserve your place for most classes, but for popular ones like spinning, we highly recommend booking online in advance. If you forget your gym clothes, unfortunately, we don't rent them out, but we do have a lost and found at the reception. Also, if you only want to visit for a single day, you can easily buy a day ticket at the entrance without becoming a full member.",
+      text: "Get answers to the most common questions about membership, classes, and services at Village Gym. You don don't need to reserve your place for most classes, but for popular ones like spinning, we highly recommend booking online in advance. If you forget your gym clothes, unfortunately, we don't rent them out, but we do have a lost and found at the reception. Also, if you only want to visit for a single day, you can easily buy a day ticket at the entrance without becoming a full member.",
       questions: [
         { id: 'q1', text: '1. When do you need to book a class in advance?', options: ['A) For all classes.', 'B) For popular classes like spinning.', 'C) Never.'], correct: 'B) For popular classes like spinning.', explanation: 'The text recommends booking "for popular ones like spinning".', tip: 'Exam Tip: "Most" does not mean "all". Pay attention to exceptions.' },
         { id: 'q2', text: '2. What happens if you leave something at the gym?', options: ['A) The gym sells it.', 'B) You can check the lost and found at reception.', 'C) They mail it to your house.'], correct: 'B) You can check the lost and found at reception.', explanation: 'The text mentions "we do have a lost and found at the reception".', tip: 'Exam Tip: Synonyms are important. "Leave something" matches "lost and found".' },
@@ -1346,62 +1351,62 @@ const tasksDatabase = {
     },
     {
       id: 'l21',
-      title: 'A Trip to the Zoo',
-      audioFile: 'k_angol_21_fl.mp3',
-      instructions: 'Listen to the recording and choose the best answer.',
-      transcript: `I had a great time at the zoo yesterday with my family. We saw so many amazing animals! The monkeys were very funny, swinging from branch to branch. My absolute favorite part, though, was seeing the penguins playing in the cold water. We also wanted to see the lions, but unfortunately, they were fast asleep under a large tree the whole time we were there. We ended the day by eating some ice cream near the exit.`,
+      title: 'Lost Luggage',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the conversation at the airport and choose the correct answer.',
+      transcript: `Passenger: Excuse me, I just arrived on the flight from Paris, but I can't find my suitcase on the baggage carousel.\nClerk: I'm sorry to hear that. Can you describe your luggage?\nPassenger: Yes, it's a large, bright green suitcase with a yellow ribbon tied to the handle. It's very important because it contains all my documents for a business meeting tomorrow.\nClerk: Don't worry, sir. Please fill out this form with your hotel address. If we locate it, we will deliver it directly to your hotel free of charge by this evening.`,
       questions: [
-        { id: 'q1', text: '1. Which animal was the speaker\'s favorite?', options: ['A) The monkeys.', 'B) The lions.', 'C) The penguins.'], correct: 'C) The penguins.', explanation: 'The speaker explicitly states, "My absolute favorite part, though, was seeing the penguins".', tip: 'Exam Tip: Look for words indicating preference like "favorite" or "best".' },
-        { id: 'q2', text: '2. What were the lions doing?', options: ['A) Eating meat.', 'B) Sleeping under a tree.', 'C) Roaring loudly.'], correct: 'B) Sleeping under a tree.', explanation: 'The transcript says they were "fast asleep under a large tree".', tip: 'Exam Tip: Focus on the specific action connected to the subject (lions).' },
-        { id: 'q3', text: '3. How did the family finish their zoo trip?', options: ['A) They watched a bird show.', 'B) They bought souvenirs.', 'C) They ate ice cream.'], correct: 'C) They ate ice cream.', explanation: 'They "ended the day by eating some ice cream".', tip: 'Exam Tip: Synonyms match! "Finished" matches "ended the day".' }
+        { id: 'q1', text: '1. What is the main characteristic of the passenger\'s suitcase?', options: ['A) It is small and black.', 'B) It is bright green with a yellow ribbon.', 'C) It has a broken handle.'], correct: 'B) It is bright green with a yellow ribbon.', explanation: 'The passenger describes it as "a large, bright green suitcase with a yellow ribbon".', tip: 'Exam Tip: Listen for a series of descriptive adjectives.' },
+        { id: 'q2', text: '2. Why is the suitcase so important?', options: ['A) It contains expensive jewelry.', 'B) It has his business documents inside.', 'C) It holds his medicine.'], correct: 'B) It has his business documents inside.', explanation: 'He mentions "it contains all my documents for a business meeting tomorrow."', tip: 'Exam Tip: Pay attention to the "because" clauses.' },
+        { id: 'q3', text: '3. What does the clerk promise to do?', options: ['A) Give him money to buy new clothes.', 'B) Call the police.', 'C) Deliver the bag to his hotel for free.'], correct: 'C) Deliver the bag to his hotel for free.', explanation: 'The clerk says, "we will deliver it directly to your hotel free of charge".', tip: 'Exam Tip: "Free of charge" is a formal way to say "for free".' }
       ]
     },
     {
       id: 'l22',
-      title: 'Hotel Booking Complaint',
-      audioFile: 'k_angol_22_fl.mp3',
-      instructions: 'Listen to the conversation and choose the correct answer.',
-      transcript: `Guest: Good evening. I just checked into room 305, and I'm afraid there has been a mistake. My booking confirmation clearly states that I reserved a large double bed, but this room only has a small single bed. I'm staying here with my wife, so this is quite a problem.\nReceptionist: Could you please check the system again? Ah, I see, the hotel is fully booked tonight. Well, in that case, could you at least bring an extra fold-out bed up to our room?`,
+      title: 'The Teenage Inventor',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the radio interview and choose the best answer.',
+      transcript: `Host: Today we are talking to Sarah, a 16-year-old student who just won a national science prize. Sarah, tell us about your invention.\nSarah: Well, I created a smart water bottle. It has a small sensor at the bottom that tracks how much water you drink. If you haven't had enough water in two hours, it gently glows blue to remind you to take a sip.\nHost: That's brilliant! What gave you the idea?\nSarah: My grandmother often forgets to drink water during the day and gets headaches. I wanted to build something simple to help her stay healthy.`,
       questions: [
-        { id: 'q1', text: '1. What is the problem with the room?', options: ['A) It is too noisy.', 'B) It has the wrong type of bed.', 'C) It hasn\'t been cleaned.'], correct: 'B) It has the wrong type of bed.', explanation: 'The guest reserved a double bed, but the room "only has a small single bed".', tip: 'Exam Tip: Identify the core contrast between expectation and reality.' },
-        { id: 'q2', text: '2. Who is the guest staying with?', options: ['A) Nobody, he is alone.', 'B) His wife.', 'C) A business colleague.'], correct: 'B) His wife.', explanation: 'He mentions, "I\'m staying here with my wife".', tip: 'Exam Tip: Direct factual statements are usually not tricked.' },
-        { id: 'q3', text: '3. What solution does the guest ask for?', options: ['A) Moving to a different hotel.', 'B) Getting a refund.', 'C) Bringing an extra bed to the room.'], correct: 'C) Bringing an extra bed to the room.', explanation: 'He asks, "could you at least bring an extra fold-out bed up to our room?"', tip: 'Exam Tip: The final request is usually the solution.' }
+        { id: 'q1', text: '1. How old is the inventor?', options: ['A) 12 years old.', 'B) 16 years old.', 'C) 20 years old.'], correct: 'B) 16 years old.', explanation: 'The host introduces her as "Sarah, a 16-year-old student".', tip: 'Exam Tip: Note down numbers and ages as soon as you hear them.' },
+        { id: 'q2', text: '2. How does the water bottle remind the user to drink?', options: ['A) It plays a loud song.', 'B) It vibrates on the table.', 'C) It glows blue.'], correct: 'C) It glows blue.', explanation: 'Sarah says, "it gently glows blue to remind you to take a sip."', tip: 'Exam Tip: Visual cues are often tested in describing inventions.' },
+        { id: 'q3', text: '3. Who inspired Sarah to create this bottle?', options: ['A) Her science teacher.', 'B) Her grandmother.', 'C) A famous doctor.'], correct: 'B) Her grandmother.', explanation: 'She states, "My grandmother often forgets to drink water... I wanted to build something simple to help her".', tip: 'Exam Tip: Listen for relationships when asked about inspiration or motivation.' }
       ]
     },
     {
       id: 'l23',
-      title: 'The New Restaurant',
-      audioFile: 'k_angol_23_fl.mp3',
-      instructions: 'Listen to the voicemail message and choose the best answer.',
-      transcript: `Hey Sarah, it's Tom! I just wanted to tell you about that new Italian restaurant that opened downtown. My girlfriend and I went there last night. The pizza was absolutely fantastic—probably the best I've ever had! However, I have to warn you about the service. We waited almost an hour just to get our drinks, and the waiter was quite rude when we asked about it. So, the food gets ten out of ten, but I wouldn't recommend going there if you are in a hurry!`,
+      title: 'The Haunted Castle',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the tour guide and decide the correct answers.',
+      transcript: `Tour Guide: Welcome, everyone, to Blackwood Castle. This magnificent fortress was built in the 14th century to protect the valley. But today, it is most famous for its resident ghost, Lord Henry. Don't be afraid, though! According to the legend, Lord Henry is a very friendly ghost. He was a great musician in his life. Visitors often report hearing soft piano music coming from the empty library at midnight. Many tourists actually come here hoping to hear the music rather than to learn about the history!`,
       questions: [
-        { id: 'q1', text: '1. What kind of food does the new restaurant serve?', options: ['A) Mexican.', 'B) Chinese.', 'C) Italian.'], correct: 'C) Italian.', explanation: 'Tom calls it a "new Italian restaurant".', tip: 'Exam Tip: Categorization adjectives are easy to catch if you listen for national labels.' },
-        { id: 'q2', text: '2. What did Tom complain about?', options: ['A) The food was terrible.', 'B) The service was slow and rude.', 'C) The prices were too high.'], correct: 'B) The service was slow and rude.', explanation: 'He warns about the service, noting they waited an hour and the waiter was rude.', tip: 'Exam Tip: Look out for transition words like "However" introducing negative points.' },
-        { id: 'q3', text: '3. What does Tom advise his friend?', options: ['A) Not to go if she is in a hurry.', 'B) To order pasta instead of pizza.', 'C) To complain to the manager.'], correct: 'A) Not to go if she is in a hurry.', explanation: 'He says, "I wouldn\'t recommend going there if you are in a hurry!"', tip: 'Exam Tip: The final piece of advice is often a conditional (if) statement.' }
+        { id: 'q1', text: '1. When was Blackwood Castle built?', options: ['A) In the 12th century.', 'B) In the 14th century.', 'C) In the 16th century.'], correct: 'B) In the 14th century.', explanation: 'The guide says, "This magnificent fortress was built in the 14th century".', tip: 'Exam Tip: Listen for ordinal numbers (14th) linked to time periods.' },
+        { id: 'q2', text: '2. What is Lord Henry known for doing as a ghost?', options: ['A) Playing piano music.', 'B) Moving furniture around.', 'C) Scaring children.'], correct: 'A) Playing piano music.', explanation: 'Visitors report "hearing soft piano music coming from the empty library".', tip: 'Exam Tip: Link the character\'s past life (musician) to their current action.' },
+        { id: 'q3', text: '3. Why do many tourists visit the castle today?', options: ['A) To study medieval architecture.', 'B) To hide from the rain.', 'C) To try and hear the ghost\'s music.'], correct: 'C) To try and hear the ghost\'s music.', explanation: 'Many come "hoping to hear the music rather than to learn about the history!"', tip: 'Exam Tip: "Rather than" signals that the second option is the incorrect reason.' }
       ]
     },
     {
       id: 'l24',
-      title: 'Weather Forecast',
-      audioFile: 'k_angol_24_fl.mp3',
-      instructions: 'Listen to the weather forecast and choose the correct answer.',
-      transcript: `Welcome to the local weather forecast for the weekend. If you have outdoor plans for Saturday, I highly suggest bringing an umbrella. We are expecting heavy rain starting in the early morning and continuing throughout the afternoon. Temperatures will be quite chilly, around 12 degrees. Fortunately, things will look much better on Sunday. The clouds will disappear, and we'll enjoy plenty of sunshine with temperatures rising to a comfortable 20 degrees. So, save your picnics for Sunday!`,
+      title: 'Canceling Plans',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the voicemail and choose the best answer.',
+      transcript: `Hi Emma, it's Mark. I'm really sorry, but I won't be able to make it to the cinema with you tonight. I was driving on the highway when my car suddenly broke down. The engine just stopped working, and now I'm waiting for a tow truck to take me to the mechanic. I'm so frustrated! I already bought our tickets online, but don't worry, I can get a refund. Do you think we could reschedule our movie night for this Saturday instead? Call me back when you get this.`,
       questions: [
-        { id: 'q1', text: '1. What will the weather be like on Saturday?', options: ['A) Sunny and warm.', 'B) Rainy and cold.', 'C) Windy and cloudy.'], correct: 'B) Rainy and cold.', explanation: 'The forecast predicts "heavy rain" and "chilly" temperatures of 12 degrees.', tip: 'Exam Tip: Correlate adjectives like "chilly" with "cold".' },
-        { id: 'q2', text: '2. What is the forecasted temperature for Sunday?', options: ['A) 12 degrees.', 'B) 20 degrees.', 'C) 30 degrees.'], correct: 'B) 20 degrees.', explanation: 'On Sunday, temperatures will be "rising to a comfortable 20 degrees".', tip: 'Exam Tip: Write down the temperatures associated with the specific days.' },
-        { id: 'q3', text: '3. What is the forecaster\'s advice for the weekend?', options: ['A) Stay indoors all weekend.', 'B) Have a picnic on Saturday.', 'C) Save outdoor plans like picnics for Sunday.'], correct: 'C) Save outdoor plans like picnics for Sunday.', explanation: 'The forecaster ends by saying, "So, save your picnics for Sunday!"', tip: 'Exam Tip: Direct recommendations are usually marked by imperative verbs like "save".' }
+        { id: 'q1', text: '1. Where were Mark and Emma planning to go?', options: ['A) To a restaurant.', 'B) To the cinema.', 'C) To a concert.'], correct: 'B) To the cinema.', explanation: 'Mark says, "I won\'t be able to make it to the cinema with you tonight."', tip: 'Exam Tip: Initial apologies usually contain the planned location or event.' },
+        { id: 'q2', text: '2. What happened to Mark?', options: ['A) He got sick.', 'B) He had to work late.', 'C) His car broke down.'], correct: 'C) His car broke down.', explanation: 'He explains, "my car suddenly broke down. The engine just stopped working".', tip: 'Exam Tip: Pay attention to the specific problem that causes a change in plans.' },
+        { id: 'q3', text: '3. What does Mark suggest they do?', options: ['A) Go to a different cinema.', 'B) Watch the movie on Saturday instead.', 'C) Meet at the mechanic\'s garage.'], correct: 'B) Watch the movie on Saturday instead.', explanation: 'He asks, "Do you think we could reschedule our movie night for this Saturday instead?"', tip: 'Exam Tip: "Reschedule" means to set a new time for an event.' }
       ]
     },
     {
       id: 'l25',
-      title: 'Job Interview',
-      audioFile: 'k_angol_25_fl.mp3',
-      instructions: 'Listen to the interview and choose the correct answer.',
-      transcript: `Interviewer: Good morning, David. Thank you for coming in. I've looked at your CV, and your experience working in customer service is very impressive. This position for a hotel receptionist requires someone who is highly organized and polite. \nDavid: Yes, I believe my previous job at the call center prepared me well for this role. \nInterviewer: Excellent. One important detail I must mention is the schedule. We need someone who can work evening shifts and at least two weekends a month. Would that be a problem for you?`,
+      title: 'Healthy Eating Myths',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the nutritionist and choose the correct answer.',
+      transcript: `Nutritionist: Welcome back to Health Today. A lot of people believe that to lose weight, you must stop eating carbohydrates completely. This is a dangerous myth! Your body needs complex carbs, like brown rice and oats, for energy. The real problem is usually sugary drinks and processed foods. Another common mistake is skipping breakfast. When you skip a meal, you often feel starving later and end up eating double the amount at lunch. A balanced diet is about eating the right portions, not starving yourself!`,
       questions: [
-        { id: 'q1', text: '1. What position is David applying for?', options: ['A) A call center operator.', 'B) A hotel receptionist.', 'C) A restaurant manager.'], correct: 'B) A hotel receptionist.', explanation: 'The interviewer mentions "This position for a hotel receptionist".', tip: 'Exam Tip: Differentiate between past jobs (call center) and the applied job (receptionist).' },
-        { id: 'q2', text: '2. Why does the interviewer like David\'s CV?', options: ['A) Because he has customer service experience.', 'B) Because he speaks three languages.', 'C) Because he went to a famous university.'], correct: 'A) Because he has customer service experience.', explanation: 'She states, "your experience working in customer service is very impressive".', tip: 'Exam Tip: Look for words like "impressive" directly linked to skills.' },
-        { id: 'q3', text: '3. What is a strict requirement for the job\'s schedule?', options: ['A) Working early mornings.', 'B) Working every single weekend.', 'C) Working evening shifts and some weekends.'], correct: 'C) Working evening shifts and some weekends.', explanation: 'They need someone who can work "evening shifts and at least two weekends a month".', tip: 'Exam Tip: Be careful with absolutes like "every single weekend".' }
+        { id: 'q1', text: '1. What does the nutritionist say about carbohydrates?', options: ['A) You should never eat them.', 'B) Your body needs complex ones for energy.', 'C) Only athletes need them.'], correct: 'B) Your body needs complex ones for energy.', explanation: 'The nutritionist says, "Your body needs complex carbs... for energy."', tip: 'Exam Tip: Look out for words like "myth" which indicate the previous statement was false.' },
+        { id: 'q2', text: '2. What is the real cause of weight problems according to the speaker?', options: ['A) Sugary drinks and processed foods.', 'B) Eating too many vegetables.', 'C) Drinking too much water.'], correct: 'A) Sugary drinks and processed foods.', explanation: 'She points out, "The real problem is usually sugary drinks and processed foods."', tip: 'Exam Tip: Match the direct cause stated by the expert.' },
+        { id: 'q3', text: '3. Why is skipping breakfast a bad idea?', options: ['A) It makes you tired all day.', 'B) It causes you to overeat at lunch.', 'C) It gives you a stomach ache.'], correct: 'B) It causes you to overeat at lunch.', explanation: 'She explains that skipping meals makes you "end up eating double the amount at lunch."', tip: 'Exam Tip: Cause and effect are crucial in listening comprehension.' }
       ]
     }
   ]
