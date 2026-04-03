@@ -33,7 +33,6 @@ const TEACHER_AUDIO_LINKS = {
 };
 // -------------------------------------------------------------
 
-
 // --- DATA: Flashcards (Batch 1-5: 1-300) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
@@ -2145,8 +2144,9 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
      dayFlashcards.push(flashcardsData[(startIndex + i) % flashcardsData.length]);
   }
 
-  const handleStepComplete = (taskType, score, total) => {
+  const handleStepComplete = (score, total, taskType) => {
     setScores(prev => ({ ...prev, [taskType]: { score: Number(score) || 0, total: Number(total) || 0 } }));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (taskType === 'reading') setStep('useOfEnglish');
     if (taskType === 'useOfEnglish') setStep('listening');
     if (taskType === 'listening') setStep('flashcards');
@@ -2185,8 +2185,8 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
           taskType="reading" 
           taskData={readingTask}
           audioMap={audioMap}
-          onComplete={(s, t) => handleStepComplete('reading', s, t)}
-          onSkip={() => handleStepComplete('reading', 0, readingTask.questions.length)}
+          onComplete={handleStepComplete}
+          onSkip={() => handleStepComplete(0, readingTask.questions ? readingTask.questions.length : 0, 'reading')}
           isDailySet={true}
         />
       )}
@@ -2197,8 +2197,8 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
           taskType="useOfEnglish" 
           taskData={uoeTask}
           audioMap={audioMap}
-          onComplete={(s, t) => handleStepComplete('useOfEnglish', s, t)}
-          onSkip={() => handleStepComplete('useOfEnglish', 0, uoeTask.questions.length)}
+          onComplete={handleStepComplete}
+          onSkip={() => handleStepComplete(0, uoeTask.questions ? uoeTask.questions.length : 0, 'useOfEnglish')}
           isDailySet={true}
         />
       )}
@@ -2209,8 +2209,8 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
           taskType="listening" 
           taskData={listeningTask}
           audioMap={audioMap}
-          onComplete={(s, t) => handleStepComplete('listening', s, t)}
-          onSkip={() => handleStepComplete('listening', 0, listeningTask.questions.length)}
+          onComplete={handleStepComplete}
+          onSkip={() => handleStepComplete(0, listeningTask.questions ? listeningTask.questions.length : 0, 'listening')}
           isDailySet={true}
         />
       )}
@@ -2248,8 +2248,8 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
     let currentScore = 0;
     if (taskData && taskData.questions) {
       taskData.questions.forEach(q => {
-        const userAnswer = answers[q.id]?.trim().toLowerCase() || '';
-        const correctAnswer = q.type === 'mc' ? q.correct.toLowerCase() : (q.answer || q.correct).toLowerCase();
+        const userAnswer = (answers[q.id] || '').trim().toLowerCase();
+        const correctAnswer = q.type === 'mc' ? (q.correct || '').trim().toLowerCase() : (q.answer || q.correct || '').trim().toLowerCase();
         
         if (userAnswer === correctAnswer) {
           currentScore += 1;
@@ -2319,7 +2319,7 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
         if (!q) return <span key={`part-${index}`}>{part}</span>;
         
         const userAnswer = answers[q.id] || '';
-        const isCorrect = isSubmitted && userAnswer.trim().toLowerCase() === q.answer.toLowerCase();
+        const isCorrect = isSubmitted && (userAnswer || '').trim().toLowerCase() === (q.answer || '').trim().toLowerCase();
         const showFeedback = isSubmitted;
 
         return (
