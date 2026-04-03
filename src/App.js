@@ -429,7 +429,107 @@ const flashcardsData = [
   { id: 397, category: 'Prepositional Phrase', term: 'in detail', context: 'Please explain the plan in detail.', grammar: 'Meaning: részletesen' },
   { id: 398, category: 'Prepositional Phrase', term: 'in general', context: 'In general, women live longer than men.', grammar: 'Meaning: általában' },
   { id: 399, category: 'Prepositional Phrase', term: 'in secret', context: 'They planned the surprise party in secret.', grammar: 'Meaning: titokban' },
-  { id: 400, category: 'Prepositional Phrase', term: 'under pressure', context: 'He works well under pressure.', grammar: 'Meaning: nyomás alatt' }
+  { id: 400, category: 'Prepositional Phrase', term: 'under pressure', context: 'He works well under pressure.', grammar: 'Meaning: nyomás alatt' },
+  { id: 401, category: 'Phrasal Verb', term: 'back out', context: 'He backed out of the deal at the last minute.', grammar: 'Meaning: kihátrál' },
+  { id: 402, category: 'Phrasal Verb', term: 'bring down', context: 'The scandal brought down the government.', grammar: 'Meaning: megbuktat, lecsökkent' },
+  { id: 403, category: 'Phrasal Verb', term: 'drop off', context: 'Can you drop me off at the station?', grammar: 'Meaning: kitesz vkit (autóból)' },
+  { id: 404, category: 'Phrasal Verb', term: 'fall apart', context: 'My old shoes are falling apart.', grammar: 'Meaning: szétesik' },
+  { id: 405, category: 'Phrasal Verb', term: 'fill in', context: 'Please fill in this application form.', grammar: 'Meaning: kitölt' },
+  { id: 406, category: 'Phrasal Verb', term: 'get by', context: 'We don\'t have much money, but we get by.', grammar: 'Meaning: boldogul, megél' },
+  { id: 407, category: 'Phrasal Verb', term: 'go over', context: 'Let\'s go over the plan one more time.', grammar: 'Meaning: átnéz, áttekint' },
+  { id: 408, category: 'Phrasal Verb', term: 'hand in', context: 'I have to hand in my essay tomorrow.', grammar: 'Meaning: bead, benyújt' },
+  { id: 409, category: 'Phrasal Verb', term: 'look back', context: 'When I look back on my childhood, I smile.', grammar: 'Meaning: visszatekint' },
+  { id: 410, category: 'Phrasal Verb', term: 'hand out', context: 'The teacher handed out the worksheets.', grammar: 'Meaning: kioszt' },
+  { id: 411, category: 'Phrasal Verb', term: 'pick up', context: 'I will pick you up at 8 PM.', grammar: 'Meaning: felvesz, értemegy' },
+  { id: 412, category: 'Phrasal Verb', term: 'put away', context: 'Put away your toys before dinner.', grammar: 'Meaning: elrak, eltesz' },
+  { id: 413, category: 'Phrasal Verb', term: 'set up', context: 'They set up a new company last year.', grammar: 'Meaning: alapít, létrehoz' },
+  { id: 414, category: 'Phrasal Verb', term: 'show up', context: 'He didn\'t show up for the meeting.', grammar: 'Meaning: megjelenik, feltűnik' },
+  { id: 415, category: 'Phrasal Verb', term: 'take over', context: 'Another company took over the business.', grammar: 'Meaning: átvesz (irányítást)' },
+  { id: 416, category: 'Phrasal Verb', term: 'turn into', context: 'The caterpillar turned into a butterfly.', grammar: 'Meaning: átváltozik vmivé' },
+  { id: 417, category: 'Phrasal Verb', term: 'calm down', context: 'Calm down and tell me what happened.', grammar: 'Meaning: lenyugszik' },
+  { id: 418, category: 'Phrasal Verb', term: 'cheer up', context: 'I bought her some flowers to cheer her up.', grammar: 'Meaning: felvidít' },
+  { id: 419, category: 'Phrasal Verb', term: 'clear up', context: 'I hope the weather clears up later.', grammar: 'Meaning: kiderül (időjárás), kitisztul' },
+  { id: 420, category: 'Phrasal Verb', term: 'stand out', context: 'Her bright red hair made her stand out.', grammar: 'Meaning: kitűnik' },
+  { id: 421, category: 'Adjective + Prep', term: 'cruel to', context: 'It is wrong to be cruel to animals.', grammar: 'Meaning: kegyetlen vkivel' },
+  { id: 422, category: 'Adjective + Prep', term: 'curious about', context: 'I am curious about the history of this city.', grammar: 'Meaning: kíváncsi vmire' },
+  { id: 423, category: 'Adjective + Prep', term: 'doubtful about', context: 'She is doubtful about the new plan.', grammar: 'Meaning: kételkedik vmiben' },
+  { id: 424, category: 'Adjective + Prep', term: 'eligible for', context: 'You are eligible for a discount.', grammar: 'Meaning: jogosult vmire' },
+  { id: 425, category: 'Adjective + Prep', term: 'experienced in', context: 'He is highly experienced in management.', grammar: 'Meaning: tapasztalt vmiben' },
+  { id: 426, category: 'Adjective + Prep', term: 'generous to', context: 'She has always been very generous to us.', grammar: 'Meaning: nagylelkű vkivel' },
+  { id: 427, category: 'Adjective + Prep', term: 'guilty about', context: 'I feel guilty about forgetting his birthday.', grammar: 'Meaning: bűntudata van vmi miatt' },
+  { id: 428, category: 'Adjective + Prep', term: 'harmful to', context: 'Smoking is extremely harmful to your lungs.', grammar: 'Meaning: káros vmire' },
+  { id: 429, category: 'Adjective + Prep', term: 'hopeful of', context: 'We are hopeful of a positive outcome.', grammar: 'Meaning: reménykedik vmiben' },
+  { id: 430, category: 'Adjective + Prep', term: 'indifferent to', context: 'He seems indifferent to other people\'s feelings.', grammar: 'Meaning: közömbös vmi iránt' },
+  { id: 431, category: 'Adjective + Prep', term: 'loyal to', context: 'A dog is usually very loyal to its owner.', grammar: 'Meaning: hűséges vkihez' },
+  { id: 432, category: 'Adjective + Prep', term: 'opposed to', context: 'Many residents are opposed to the new factory.', grammar: 'Meaning: ellenez vmit' },
+  { id: 433, category: 'Adjective + Prep', term: 'qualified for', context: 'She is highly qualified for the job.', grammar: 'Meaning: alkalmas vmire, képzett' },
+  { id: 434, category: 'Adjective + Prep', term: 'sensitive to', context: 'My teeth are sensitive to cold drinks.', grammar: 'Meaning: érzékeny vmire' },
+  { id: 435, category: 'Adjective + Prep', term: 'superior to', context: 'This product is superior to all others.', grammar: 'Meaning: jobb vminél, felette áll' },
+  { id: 436, category: 'Adjective + Prep', term: 'sure of', context: 'I am not entirely sure of the answer.', grammar: 'Meaning: biztos vmiben' },
+  { id: 437, category: 'Adjective + Prep', term: 'surprised by', context: 'We were surprised by his sudden visit.', grammar: 'Meaning: meglepődik vmin' },
+  { id: 438, category: 'Adjective + Prep', term: 'suspicious of', context: 'The police were suspicious of the man.', grammar: 'Meaning: gyanakvó vmivel szemben' },
+  { id: 439, category: 'Adjective + Prep', term: 'terrified of', context: 'My little brother is terrified of spiders.', grammar: 'Meaning: retteg vmitől' },
+  { id: 440, category: 'Adjective + Prep', term: 'upset about', context: 'She is still upset about losing her phone.', grammar: 'Meaning: zaklatott vmi miatt' },
+  { id: 441, category: 'Verb + Prep', term: 'adjust to', context: 'It took time to adjust to the new time zone.', grammar: 'Meaning: hozzászokik vmihez' },
+  { id: 442, category: 'Verb + Prep', term: 'aim at', context: 'This campaign is aimed at young voters.', grammar: 'Meaning: céloz vmire' },
+  { id: 443, category: 'Verb + Prep', term: 'apologize to', context: 'You must apologize to your sister.', grammar: 'Meaning: bocsánatot kér vkitől' },
+  { id: 444, category: 'Verb + Prep', term: 'appeal to', context: 'This kind of music doesn\'t appeal to me.', grammar: 'Meaning: vonz vkit, tetszik vkinek' },
+  { id: 445, category: 'Verb + Prep', term: 'apply to', context: 'These rules apply to all students.', grammar: 'Meaning: vonatkozik vkire/vmire' },
+  { id: 446, category: 'Verb + Prep', term: 'approve of', context: 'My parents do not approve of my tattoo.', grammar: 'Meaning: helyesel vmit' },
+  { id: 447, category: 'Verb + Prep', term: 'beg for', context: 'The homeless man was begging for money.', grammar: 'Meaning: könyörög vmiért' },
+  { id: 448, category: 'Verb + Prep', term: 'benefit from', context: 'Everyone can benefit from regular exercise.', grammar: 'Meaning: profitál vmiből' },
+  { id: 449, category: 'Verb + Prep', term: 'blame for', context: 'Don\'t blame me for your mistakes.', grammar: 'Meaning: hibáztat vmiért' },
+  { id: 450, category: 'Verb + Prep', term: 'boast about', context: 'He is always boasting about his expensive car.', grammar: 'Meaning: dicsekszik vmivel' },
+  { id: 451, category: 'Verb + Prep', term: 'borrow from', context: 'Can I borrow a pen from you?', grammar: 'Meaning: kölcsönkér vkitől' },
+  { id: 452, category: 'Verb + Prep', term: 'care for', context: 'Nurses care for the sick in hospitals.', grammar: 'Meaning: gondoskodik vkiről' },
+  { id: 453, category: 'Verb + Prep', term: 'collide with', context: 'The car collided with a bus at the intersection.', grammar: 'Meaning: összeütközik vmivel' },
+  { id: 454, category: 'Verb + Prep', term: 'comment on', context: 'The politician refused to comment on the scandal.', grammar: 'Meaning: megjegyzést tesz vmire' },
+  { id: 455, category: 'Verb + Prep', term: 'compare to', context: 'You can\'t compare this book to the movie.', grammar: 'Meaning: hasonlít vmihez' },
+  { id: 456, category: 'Verb + Prep', term: 'confess to', context: 'He confessed to stealing the money.', grammar: 'Meaning: bevall vkinek vmit' },
+  { id: 457, category: 'Verb + Prep', term: 'congratulate on', context: 'I want to congratulate you on your success.', grammar: 'Meaning: gratulál vmihez' },
+  { id: 458, category: 'Verb + Prep', term: 'consent to', context: 'Her father didn\'t consent to the marriage.', grammar: 'Meaning: beleegyezik vmibe' },
+  { id: 459, category: 'Verb + Prep', term: 'dedicate to', context: 'She dedicated her whole life to helping others.', grammar: 'Meaning: szentel vmit vkinek/vminek' },
+  { id: 460, category: 'Verb + Prep', term: 'disagree with', context: 'I strongly disagree with that statement.', grammar: 'Meaning: nem ért egyet vkivel' },
+  { id: 461, category: 'Collocation', term: 'get a job', context: 'He hopes to get a job in marketing.', grammar: 'Meaning: munkát kap' },
+  { id: 462, category: 'Collocation', term: 'get angry', context: 'Please don\'t get angry with me.', grammar: 'Meaning: mérges lesz' },
+  { id: 463, category: 'Collocation', term: 'get lost', context: 'We got lost in the middle of the forest.', grammar: 'Meaning: eltéved' },
+  { id: 464, category: 'Collocation', term: 'get married', context: 'They plan to get married next spring.', grammar: 'Meaning: megházasodik' },
+  { id: 465, category: 'Collocation', term: 'get ready', context: 'Give me ten minutes to get ready.', grammar: 'Meaning: elkészül' },
+  { id: 466, category: 'Collocation', term: 'get worse', context: 'The weather will get worse by the evening.', grammar: 'Meaning: rosszabbodik' },
+  { id: 467, category: 'Collocation', term: 'have a bath', context: 'I usually have a bath before going to bed.', grammar: 'Meaning: fürdik' },
+  { id: 468, category: 'Collocation', term: 'have a chat', context: 'Let\'s have a chat over a cup of coffee.', grammar: 'Meaning: elbeszélget' },
+  { id: 469, category: 'Collocation', term: 'have a headache', context: 'Can you turn down the music? I have a headache.', grammar: 'Meaning: fáj a feje' },
+  { id: 470, category: 'Collocation', term: 'have an argument', context: 'They had a big argument about money.', grammar: 'Meaning: vitatkozik' },
+  { id: 471, category: 'Collocation', term: 'take a chance', context: 'Sometimes you just have to take a chance in life.', grammar: 'Meaning: kockáztat, megpróbál vmit' },
+  { id: 472, category: 'Collocation', term: 'take a look', context: 'Can you take a look at my computer?', grammar: 'Meaning: megnéz vmit' },
+  { id: 473, category: 'Collocation', term: 'take care', context: 'Goodbye, take care of yourself!', grammar: 'Meaning: vigyáz magára/vkire' },
+  { id: 474, category: 'Collocation', term: 'take part', context: 'Hundreds of students will take part in the event.', grammar: 'Meaning: részt vesz' },
+  { id: 475, category: 'Collocation', term: 'take time', context: 'Learning a new language takes time.', grammar: 'Meaning: időbe telik' },
+  { id: 476, category: 'Collocation', term: 'make a promise', context: 'Don\'t make a promise you can\'t keep.', grammar: 'Meaning: ígéretet tesz' },
+  { id: 477, category: 'Collocation', term: 'make the bed', context: 'I always make the bed after I wake up.', grammar: 'Meaning: bepeti az ágyat' },
+  { id: 478, category: 'Collocation', term: 'make an offer', context: 'They made an offer to buy our house.', grammar: 'Meaning: ajánlatot tesz' },
+  { id: 479, category: 'Collocation', term: 'make trouble', context: 'Those boys are always making trouble.', grammar: 'Meaning: bajt kever' },
+  { id: 480, category: 'Collocation', term: 'make friends', context: 'It is easy to make friends at summer camp.', grammar: 'Meaning: barátkozik' },
+  { id: 481, category: 'Linking Word', term: 'although', context: 'Although it rained, we still enjoyed the trip.', grammar: 'Meaning: bár, habár' },
+  { id: 482, category: 'Linking Word', term: 'therefore', context: 'He was late; therefore, he missed the train.', grammar: 'Meaning: ezért, tehát' },
+  { id: 483, category: 'Linking Word', term: 'however', context: 'I like this dress. However, it is too expensive.', grammar: 'Meaning: azonban' },
+  { id: 484, category: 'Linking Word', term: 'moreover', context: 'The car is reliable; moreover, it is cheap.', grammar: 'Meaning: továbbá' },
+  { id: 485, category: 'Linking Word', term: 'furthermore', context: 'He is smart; furthermore, he is hardworking.', grammar: 'Meaning: sőt, ráadásul' },
+  { id: 486, category: 'Linking Word', term: 'nevertheless', context: 'It was a risky project. Nevertheless, we succeeded.', grammar: 'Meaning: mindazonáltal' },
+  { id: 487, category: 'Linking Word', term: 'otherwise', context: 'Hurry up, otherwise you will be late.', grammar: 'Meaning: máskülönben' },
+  { id: 488, category: 'Linking Word', term: 'in addition', context: 'In addition to music, she also teaches art.', grammar: 'Meaning: ráadásul' },
+  { id: 489, category: 'Linking Word', term: 'on the contrary', context: 'I didn\'t hate it; on the contrary, I loved it.', grammar: 'Meaning: ellenkezőleg' },
+  { id: 490, category: 'Linking Word', term: 'meanwhile', context: 'Mom was cooking. Meanwhile, I set the table.', grammar: 'Meaning: eközben' },
+  { id: 491, category: 'Linking Word', term: 'consequently', context: 'She studied hard and consequently passed the exam.', grammar: 'Meaning: következésképpen' },
+  { id: 492, category: 'Phrase', term: 'as a result', context: 'The flight was cancelled as a result of the snow.', grammar: 'Meaning: ennek eredményeként' },
+  { id: 493, category: 'Phrase', term: 'due to', context: 'The delay was due to heavy traffic.', grammar: 'Meaning: vmi miatt' },
+  { id: 494, category: 'Phrase', term: 'owing to', context: 'The match was cancelled owing to bad weather.', grammar: 'Meaning: köszönhetően, vmi miatt' },
+  { id: 495, category: 'Phrase', term: 'apart from', context: 'Apart from John, everyone was present.', grammar: 'Meaning: eltekintve vmitől/vkitől' },
+  { id: 496, category: 'Phrase', term: 'except for', context: 'The restaurant was empty except for one couple.', grammar: 'Meaning: kivéve' },
+  { id: 497, category: 'Phrase', term: 'regardless of', context: 'We will go regardless of the weather.', grammar: 'Meaning: függetlenül vmitől' },
+  { id: 498, category: 'Phrase', term: 'in order to', context: 'I went to the library in order to study in peace.', grammar: 'Meaning: azért, hogy' },
+  { id: 499, category: 'Phrase', term: 'so as to', context: 'We left early so as to avoid the traffic.', grammar: 'Meaning: abból a célból, hogy' },
+  { id: 500, category: 'Phrase', term: 'to sum up', context: 'To sum up, the project was a huge success.', grammar: 'Meaning: összefoglalva' }
 ];
 
 // --- UTILITY: Flashcard Progress Tracking ---
@@ -672,6 +772,61 @@ const tasksDatabase = {
         { id: 'q2', text: '2. What is mentioned as an environmental benefit of using drones?', options: ['A) They use solar power.', 'B) They do not produce exhaust gases.', 'C) They are made from recycled plastic.'], correct: 'B) They do not produce exhaust gases.', explanation: 'The text explicitly states "they do not produce exhaust gases like diesel vans."', tip: 'Exam Tip: Scan for the word "environment" and read the surrounding sentence.' },
         { id: 'q3', text: '3. What is one of the challenges this technology faces?', options: ['A) Bad weather conditions.', 'B) They are too slow.', 'C) They cost too much to build.'], correct: 'A) Bad weather conditions.', explanation: 'The text mentions challenges "such as bad weather conditions".', tip: 'Exam Tip: Always find the exact evidence in the text; don\'t guess based on outside knowledge.' }
       ]
+    },
+    {
+      id: 'r21',
+      title: 'Reading: The Microwave Oven',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "In 1945, Percy Spencer, an American engineer, was working on radar equipment. While standing next to an active radar set, he noticed that a chocolate bar in his pocket had completely melted. Curious, he placed some popcorn kernels near the machine, and they quickly popped! This accidental discovery led to the invention of the first microwave oven, which was initially huge and very expensive, mainly used in large restaurant kitchens before becoming smaller for home use.",
+      questions: [
+        { id: 'q1', text: '1. What was Percy Spencer originally working on?', options: ['A) A new type of chocolate.', 'B) Radar equipment.', 'C) A cooking machine.'], correct: 'B) Radar equipment.', explanation: 'The text says he "was working on radar equipment."', tip: 'Exam Tip: Scan for the exact keyword "working on".' },
+        { id: 'q2', text: '2. How did he discover the heating effect?', options: ['A) He burnt his hand.', 'B) His chocolate bar melted.', 'C) He intentionally cooked popcorn.'], correct: 'B) His chocolate bar melted.', explanation: 'He discovered it when "a chocolate bar in his pocket had completely melted."', tip: 'Exam Tip: Connect cause and effect.' },
+        { id: 'q3', text: '3. Where were the first microwaves mostly used?', options: ['A) In regular homes.', 'B) In large restaurant kitchens.', 'C) On airplanes.'], correct: 'B) In large restaurant kitchens.', explanation: 'They were "mainly used in large restaurant kitchens".', tip: 'Exam Tip: "Mainly" is a synonym for "mostly".' }
+      ]
+    },
+    {
+      id: 'r22',
+      title: 'Reading: The History of the Sandwich',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "The sandwich is named after John Montagu, the 4th Earl of Sandwich, an English aristocrat who lived in the 18th century. According to the popular story, the Earl was a very passionate gambler. He loved playing cards so much that he didn't want to leave the gaming table to eat a proper meal. He ordered his servants to bring him some meat placed between two slices of bread. This way, he could eat with one hand and keep his cards clean with the other. Soon, other people began ordering 'the same as Sandwich'!",
+      questions: [
+        { id: 'q1', text: '1. Who was the sandwich named after?', options: ['A) A famous chef.', 'B) An English aristocrat.', 'C) A professional card player.'], correct: 'B) An English aristocrat.', explanation: 'The text states he was "an English aristocrat".', tip: 'Exam Tip: Read the appositives (phrases between commas) for character descriptions.' },
+        { id: 'q2', text: '2. Why did he ask for meat between bread?', options: ['A) Because he was too poor for plates.', 'B) So he could eat while playing cards.', 'C) Because it was a traditional English meal.'], correct: 'B) So he could eat while playing cards.', explanation: 'He ordered it because he "loved playing cards so much that he didn\'t want to leave the gaming table".', tip: 'Exam Tip: Inferences are key; if he didn\'t want to leave the table, he wanted to eat while playing.' },
+        { id: 'q3', text: '3. What was the main advantage of this new meal for the Earl?', options: ['A) It kept his cards clean.', 'B) It was very cheap.', 'C) It could be shared with others.'], correct: 'A) It kept his cards clean.', explanation: 'The text notes he could "keep his cards clean with the other" hand.', tip: 'Exam Tip: The direct consequence is often the intended advantage.' }
+      ]
+    },
+    {
+      id: 'r23',
+      title: 'Reading: Sleeping Habits of Animals',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "Did you know that different animals have completely different sleeping habits? For example, horses and cows can sleep while standing up! They have a special locking system in their legs that stops them from falling over. However, they still need to lie down for deep sleep. Sea otters, on the other hand, often sleep floating on their backs in the water. To stop themselves from drifting away in the ocean currents, they hold hands with each other or wrap themselves in seaweed.",
+      questions: [
+        { id: 'q1', text: '1. How do horses usually sleep?', options: ['A) Lying down in trees.', 'B) Standing up.', 'C) Floating on water.'], correct: 'B) Standing up.', explanation: 'The text clearly states, "horses and cows can sleep while standing up!"', tip: 'Exam Tip: Focus on the specific animal asked about in the question.' },
+        { id: 'q2', text: '2. Why don\'t cows fall over when they sleep standing?', options: ['A) They lean against a wall.', 'B) They have a locking system in their legs.', 'C) They never fall fully asleep.'], correct: 'B) They have a locking system in their legs.', explanation: 'They have "a special locking system in their legs that stops them from falling over."', tip: 'Exam Tip: Biological mechanisms are often explained directly after the fact.' },
+        { id: 'q3', text: '3. What do sea otters do to avoid drifting away while sleeping?', options: ['A) They sleep on the beach.', 'B) They hold hands.', 'C) They tie themselves to rocks.'], correct: 'B) They hold hands.', explanation: 'The text says "they hold hands with each other or wrap themselves in seaweed."', tip: 'Exam Tip: "To stop themselves from" means "to avoid".' }
+      ]
+    },
+    {
+      id: 'r24',
+      title: 'Reading: The First Text Message',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "The very first SMS, or text message, was sent on December 3, 1992, by a 22-year-old engineer named Neil Papworth. He sent it from a personal computer to his colleague Richard Jarvis's mobile phone. The phone was a heavy device, weighing almost two kilograms! The message was very simple: 'Merry Christmas.' Interestingly, Jarvis couldn't reply because mobile phones at that time could only receive messages, not send them. It took a few more years before texting became a two-way communication method.",
+      questions: [
+        { id: 'q1', text: '1. What did the first text message say?', options: ['A) Hello world.', 'B) Merry Christmas.', 'C) Can you hear me?'], correct: 'B) Merry Christmas.', explanation: 'The message was very simple: "Merry Christmas."', tip: 'Exam Tip: Direct quotes in the text are easy to spot.' },
+        { id: 'q2', text: '2. What device did Neil use to send the message?', options: ['A) A personal computer.', 'B) A two-kilogram mobile phone.', 'C) A modern smartphone.'], correct: 'A) A personal computer.', explanation: 'He "sent it from a personal computer".', tip: 'Exam Tip: Be careful! The *sender* used a PC, the *receiver* used the mobile phone.' },
+        { id: 'q3', text: '3. Why didn\'t Richard Jarvis reply to the message?', options: ['A) He didn\'t like Christmas.', 'B) He was driving.', 'C) His phone couldn\'t send messages.'], correct: 'C) His phone couldn\'t send messages.', explanation: 'The text explains that "mobile phones at that time could only receive messages, not send them."', tip: 'Exam Tip: Technological limitations are usually explained clearly in historical texts.' }
+      ]
+    },
+    {
+      id: 'r25',
+      title: 'Reading: Left-Handedness',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "Approximately 10% of the world's population is left-handed. For centuries, being left-handed was seen as a negative trait, and many children were forced to write with their right hand in school. The word 'sinister' even comes from the Latin word for 'left'. Today, however, society is much more accepting. Scientists believe that genetics play a big part in determining which hand you prefer, but environmental factors are also important. In modern times, you can easily buy tools, like scissors and guitars, specifically designed for left-handed people.",
+      questions: [
+        { id: 'q1', text: '1. What percentage of people are left-handed?', options: ['A) 5%.', 'B) 10%.', 'C) 20%.'], correct: 'B) 10%.', explanation: 'The text starts with: "Approximately 10% of the world\'s population is left-handed."', tip: 'Exam Tip: Always double-check numbers.' },
+        { id: 'q2', text: '2. How were left-handed children treated in the past?', options: ['A) They were sent to special schools.', 'B) They were forced to use their right hand.', 'C) They were celebrated as geniuses.'], correct: 'B) They were forced to use their right hand.', explanation: 'Many children "were forced to write with their right hand in school."', tip: 'Exam Tip: Contrast phrases like "Today, however..." show how things were different in the past.' },
+        { id: 'q3', text: '3. What determines if a person is left-handed?', options: ['A) Only their genetics.', 'B) Only environmental factors.', 'C) A combination of genetics and the environment.'], correct: 'C) A combination of genetics and the environment.', explanation: 'Scientists believe "genetics play a big part... but environmental factors are also important."', tip: 'Exam Tip: Words like "but... also" mean it\'s a combination of both factors.' }
+      ]
     }
   ],
   useOfEnglish: [
@@ -893,6 +1048,61 @@ const tasksDatabase = {
         { id: 'q1', answer: 'of', explanation: 'Preposition: "A piece of paper" is a standard noun + preposition combination.', tip: 'Exam Tip: Uncountable materials often use "a piece of" (cake, advice, paper, information).' },
         { id: 'q2', answer: 'who', explanation: 'Relative Pronoun: Connects the clause to the people ("researchers").', tip: 'Exam Tip: For people, use "who" or "that". After a comma, only "who" is correct.' },
         { id: 'q3', answer: 'into', explanation: 'Preposition of Movement: You throw something "into" the water/sea.', tip: 'Exam Tip: Verbs involving movement from outside to inside take "into".' }
+      ]
+    },
+    {
+      id: 'u21',
+      title: 'Use of English: The Marathon Runner',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['After training hard for six months, David finally ran his first marathon. He found the first half quite easy, but ', ' the 30-kilometre mark, he felt exhausted. He almost gave ', ', but the cheering crowd encouraged him to keep going. He eventually crossed the finish line ', ' tears in his eyes, proud of his incredible achievement.'],
+      questions: [
+        { id: 'q1', answer: 'at', explanation: 'Preposition of point/place: We use "at" for specific points like "the mark".', tip: 'Exam Tip: "At" refers to specific locations or points in a journey/race.' },
+        { id: 'q2', answer: 'up', explanation: 'Phrasal Verb: "Give up" means to stop trying.', tip: 'Exam Tip: "Give up" is one of the most frequently tested B1 phrasal verbs.' },
+        { id: 'q3', answer: 'with', explanation: 'Preposition: "With tears in his eyes" is a fixed descriptive phrase.', tip: 'Exam Tip: Accompaniment or having a physical feature usually requires "with".' }
+      ]
+    },
+    {
+      id: 'u22',
+      title: 'Use of English: A Strange Hobby',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['My uncle has a very unusual hobby. He is absolutely fascinated ', ' collecting antique doorknobs. He travels all over the country to visit old markets and buys the ones that look unique. He currently has more ', ' five hundred different doorknobs displayed in his living room. He spends hours polishing ', ' to make sure they always look shiny and clean.'],
+      questions: [
+        { id: 'q1', answer: 'by', explanation: 'Adjective + Preposition: You are "fascinated by" something.', tip: 'Exam Tip: Strong adjectives like fascinated, amazed, and shocked are followed by "by" or "at".' },
+        { id: 'q2', answer: 'than', explanation: 'Comparative phrase: "More than" is used for quantities over a certain amount.', tip: 'Exam Tip: "More" is almost always followed by "than"!' },
+        { id: 'q3', answer: 'them', explanation: 'Pronoun: Refers back to the plural noun "doorknobs".', tip: 'Exam Tip: Always read the previous sentence to find the noun a pronoun refers to.' }
+      ]
+    },
+    {
+      id: 'u23',
+      title: 'Use of English: The New Library',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['The city has just opened a brand new library right in the city centre. The building, ', ' was designed by a famous architect, features huge glass windows and comfortable reading areas. Anyone can join the library for free as ', ' as they can prove they live in the city. The mayor said he hopes the library will encourage more young people ', ' read physical books instead of just looking at screens.'],
+      questions: [
+        { id: 'q1', answer: 'which', explanation: 'Relative Pronoun: Refers to the non-human noun "building".', tip: 'Exam Tip: After a comma, you must use "which" (not "that") for things.' },
+        { id: 'q2', answer: 'long', explanation: 'Phrase: "As long as" means provided that or on the condition that.', tip: 'Exam Tip: "As long as" and "as well as" are very common linker phrases.' },
+        { id: 'q3', answer: 'to', explanation: 'Verb pattern: "Encourage someone to do something".', tip: 'Exam Tip: Many verbs of persuasion (encourage, tell, ask, want) take the "to + infinitive" pattern.' }
+      ]
+    },
+    {
+      id: 'u24',
+      title: 'Use of English: Learning Spanish',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['I have always wanted to speak another language fluently. Last year, I decided ', ' start taking Spanish lessons online. At first, it was very difficult to understand the native speakers because they talk so fast. However, I didn\'t let that stop ', ' from practicing every day. Now, I am capable ', ' having a basic conversation with my Spanish colleagues.'],
+      questions: [
+        { id: 'q1', answer: 'to', explanation: 'Verb Pattern: The verb "decide" is followed by a to-infinitive.', tip: 'Exam Tip: Memorize which verbs take "to" (decide, plan, hope) and which take "-ing" (enjoy, avoid, finish).' },
+        { id: 'q2', answer: 'me', explanation: 'Object Pronoun: The speaker is referring to themselves. "Stop me from..."', tip: 'Exam Tip: Read the subject of the paragraph ("I") to figure out the correct object pronoun.' },
+        { id: 'q3', answer: 'of', explanation: 'Adjective + Preposition: "Capable of" doing something.', tip: 'Exam Tip: "Capable" always takes "of", while "able" takes "to"!' }
+      ]
+    },
+    {
+      id: 'u25',
+      title: 'Use of English: The Lost Wallet',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['While walking home from school yesterday, I found a black leather wallet lying ', ' the pavement. I picked it up and looked inside to see if there was an ID card. Fortunately, there was a driver\'s license belonging ', ' a man named Mr. Smith. I took the wallet directly to the local police station ', ' that they could contact the owner and return it to him safely.'],
+      questions: [
+        { id: 'q1', answer: 'on', explanation: 'Preposition of place: Something lies "on" a flat surface like a pavement or floor.', tip: 'Exam Tip: Visualize the physical location. Surfaces take "on".' },
+        { id: 'q2', answer: 'to', explanation: 'Verb + Preposition: Something "belongs to" someone.', tip: 'Exam Tip: "Belong" is exclusively followed by "to".' },
+        { id: 'q3', answer: 'so', explanation: 'Conjunction: "So that" expresses purpose.', tip: 'Exam Tip: If a gap is right before "that" and explains a reason/purpose, it is almost definitely "so".' }
       ]
     }
   ],
@@ -1132,6 +1342,66 @@ const tasksDatabase = {
         { id: 'q1', text: '1. How does Mark feel right before he jumps out of the plane?', options: ['A) Completely relaxed.', 'B) Very scared.', 'C) Bored.'], correct: 'B) Very scared.', explanation: 'He says yes to it being scary, adding "my heart beats incredibly fast".', tip: 'Exam Tip: Physical symptoms like a fast heartbeat indicate fear or nervousness.' },
         { id: 'q2', text: '2. How many times do they check their equipment before a flight?', options: ['A) Once.', 'B) Twice.', 'C) Three times.'], correct: 'C) Three times.', explanation: 'Mark explicitly says, "we check our equipment three times before every single flight."', tip: 'Exam Tip: Listen specifically for frequency adverbs and numbers.' },
         { id: 'q3', text: '3. What does Mark consider the most dangerous part of his sport?', options: ['A) Driving to the airport.', 'B) Landing on the ground.', 'C) Packing the parachute.'], correct: 'A) Driving to the airport.', explanation: 'He jokes that "The most dangerous part of skydiving is actually the drive to the airport!"', tip: 'Exam Tip: Speakers often use irony or contrast to emphasize how safe their extreme sport is.' }
+      ]
+    },
+    {
+      id: 'l21',
+      title: 'A Trip to the Zoo',
+      audioFile: 'k_angol_21_fl.mp3',
+      instructions: 'Listen to the recording and choose the best answer.',
+      transcript: `I had a great time at the zoo yesterday with my family. We saw so many amazing animals! The monkeys were very funny, swinging from branch to branch. My absolute favorite part, though, was seeing the penguins playing in the cold water. We also wanted to see the lions, but unfortunately, they were fast asleep under a large tree the whole time we were there. We ended the day by eating some ice cream near the exit.`,
+      questions: [
+        { id: 'q1', text: '1. Which animal was the speaker\'s favorite?', options: ['A) The monkeys.', 'B) The lions.', 'C) The penguins.'], correct: 'C) The penguins.', explanation: 'The speaker explicitly states, "My absolute favorite part, though, was seeing the penguins".', tip: 'Exam Tip: Look for words indicating preference like "favorite" or "best".' },
+        { id: 'q2', text: '2. What were the lions doing?', options: ['A) Eating meat.', 'B) Sleeping under a tree.', 'C) Roaring loudly.'], correct: 'B) Sleeping under a tree.', explanation: 'The transcript says they were "fast asleep under a large tree".', tip: 'Exam Tip: Focus on the specific action connected to the subject (lions).' },
+        { id: 'q3', text: '3. How did the family finish their zoo trip?', options: ['A) They watched a bird show.', 'B) They bought souvenirs.', 'C) They ate ice cream.'], correct: 'C) They ate ice cream.', explanation: 'They "ended the day by eating some ice cream".', tip: 'Exam Tip: Synonyms match! "Finished" matches "ended the day".' }
+      ]
+    },
+    {
+      id: 'l22',
+      title: 'Hotel Booking Complaint',
+      audioFile: 'k_angol_22_fl.mp3',
+      instructions: 'Listen to the conversation and choose the correct answer.',
+      transcript: `Guest: Good evening. I just checked into room 305, and I'm afraid there has been a mistake. My booking confirmation clearly states that I reserved a large double bed, but this room only has a small single bed. I'm staying here with my wife, so this is quite a problem.\nReceptionist: Could you please check the system again? Ah, I see, the hotel is fully booked tonight. Well, in that case, could you at least bring an extra fold-out bed up to our room?`,
+      questions: [
+        { id: 'q1', text: '1. What is the problem with the room?', options: ['A) It is too noisy.', 'B) It has the wrong type of bed.', 'C) It hasn\'t been cleaned.'], correct: 'B) It has the wrong type of bed.', explanation: 'The guest reserved a double bed, but the room "only has a small single bed".', tip: 'Exam Tip: Identify the core contrast between expectation and reality.' },
+        { id: 'q2', text: '2. Who is the guest staying with?', options: ['A) Nobody, he is alone.', 'B) His wife.', 'C) A business colleague.'], correct: 'B) His wife.', explanation: 'He mentions, "I\'m staying here with my wife".', tip: 'Exam Tip: Direct factual statements are usually not tricked.' },
+        { id: 'q3', text: '3. What solution does the guest ask for?', options: ['A) Moving to a different hotel.', 'B) Getting a refund.', 'C) Bringing an extra bed to the room.'], correct: 'C) Bringing an extra bed to the room.', explanation: 'He asks, "could you at least bring an extra fold-out bed up to our room?"', tip: 'Exam Tip: The final request is usually the solution.' }
+      ]
+    },
+    {
+      id: 'l23',
+      title: 'The New Restaurant',
+      audioFile: 'k_angol_23_fl.mp3',
+      instructions: 'Listen to the voicemail message and choose the best answer.',
+      transcript: `Hey Sarah, it's Tom! I just wanted to tell you about that new Italian restaurant that opened downtown. My girlfriend and I went there last night. The pizza was absolutely fantastic—probably the best I've ever had! However, I have to warn you about the service. We waited almost an hour just to get our drinks, and the waiter was quite rude when we asked about it. So, the food gets ten out of ten, but I wouldn't recommend going there if you are in a hurry!`,
+      questions: [
+        { id: 'q1', text: '1. What kind of food does the new restaurant serve?', options: ['A) Mexican.', 'B) Chinese.', 'C) Italian.'], correct: 'C) Italian.', explanation: 'Tom calls it a "new Italian restaurant".', tip: 'Exam Tip: Categorization adjectives are easy to catch if you listen for national labels.' },
+        { id: 'q2', text: '2. What did Tom complain about?', options: ['A) The food was terrible.', 'B) The service was slow and rude.', 'C) The prices were too high.'], correct: 'B) The service was slow and rude.', explanation: 'He warns about the service, noting they waited an hour and the waiter was rude.', tip: 'Exam Tip: Look out for transition words like "However" introducing negative points.' },
+        { id: 'q3', text: '3. What does Tom advise his friend?', options: ['A) Not to go if she is in a hurry.', 'B) To order pasta instead of pizza.', 'C) To complain to the manager.'], correct: 'A) Not to go if she is in a hurry.', explanation: 'He says, "I wouldn\'t recommend going there if you are in a hurry!"', tip: 'Exam Tip: The final piece of advice is often a conditional (if) statement.' }
+      ]
+    },
+    {
+      id: 'l24',
+      title: 'Weather Forecast',
+      audioFile: 'k_angol_24_fl.mp3',
+      instructions: 'Listen to the weather forecast and choose the correct answer.',
+      transcript: `Welcome to the local weather forecast for the weekend. If you have outdoor plans for Saturday, I highly suggest bringing an umbrella. We are expecting heavy rain starting in the early morning and continuing throughout the afternoon. Temperatures will be quite chilly, around 12 degrees. Fortunately, things will look much better on Sunday. The clouds will disappear, and we'll enjoy plenty of sunshine with temperatures rising to a comfortable 20 degrees. So, save your picnics for Sunday!`,
+      questions: [
+        { id: 'q1', text: '1. What will the weather be like on Saturday?', options: ['A) Sunny and warm.', 'B) Rainy and cold.', 'C) Windy and cloudy.'], correct: 'B) Rainy and cold.', explanation: 'The forecast predicts "heavy rain" and "chilly" temperatures of 12 degrees.', tip: 'Exam Tip: Correlate adjectives like "chilly" with "cold".' },
+        { id: 'q2', text: '2. What is the forecasted temperature for Sunday?', options: ['A) 12 degrees.', 'B) 20 degrees.', 'C) 30 degrees.'], correct: 'B) 20 degrees.', explanation: 'On Sunday, temperatures will be "rising to a comfortable 20 degrees".', tip: 'Exam Tip: Write down the temperatures associated with the specific days.' },
+        { id: 'q3', text: '3. What is the forecaster\'s advice for the weekend?', options: ['A) Stay indoors all weekend.', 'B) Have a picnic on Saturday.', 'C) Save outdoor plans like picnics for Sunday.'], correct: 'C) Save outdoor plans like picnics for Sunday.', explanation: 'The forecaster ends by saying, "So, save your picnics for Sunday!"', tip: 'Exam Tip: Direct recommendations are usually marked by imperative verbs like "save".' }
+      ]
+    },
+    {
+      id: 'l25',
+      title: 'Job Interview',
+      audioFile: 'k_angol_25_fl.mp3',
+      instructions: 'Listen to the interview and choose the correct answer.',
+      transcript: `Interviewer: Good morning, David. Thank you for coming in. I've looked at your CV, and your experience working in customer service is very impressive. This position for a hotel receptionist requires someone who is highly organized and polite. \nDavid: Yes, I believe my previous job at the call center prepared me well for this role. \nInterviewer: Excellent. One important detail I must mention is the schedule. We need someone who can work evening shifts and at least two weekends a month. Would that be a problem for you?`,
+      questions: [
+        { id: 'q1', text: '1. What position is David applying for?', options: ['A) A call center operator.', 'B) A hotel receptionist.', 'C) A restaurant manager.'], correct: 'B) A hotel receptionist.', explanation: 'The interviewer mentions "This position for a hotel receptionist".', tip: 'Exam Tip: Differentiate between past jobs (call center) and the applied job (receptionist).' },
+        { id: 'q2', text: '2. Why does the interviewer like David\'s CV?', options: ['A) Because he has customer service experience.', 'B) Because he speaks three languages.', 'C) Because he went to a famous university.'], correct: 'A) Because he has customer service experience.', explanation: 'She states, "your experience working in customer service is very impressive".', tip: 'Exam Tip: Look for words like "impressive" directly linked to skills.' },
+        { id: 'q3', text: '3. What is a strict requirement for the job\'s schedule?', options: ['A) Working early mornings.', 'B) Working every single weekend.', 'C) Working evening shifts and some weekends.'], correct: 'C) Working evening shifts and some weekends.', explanation: 'They need someone who can work "evening shifts and at least two weekends a month".', tip: 'Exam Tip: Be careful with absolutes like "every single weekend".' }
       ]
     }
   ]
