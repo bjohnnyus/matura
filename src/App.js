@@ -2513,6 +2513,97 @@ const TaskSummary = ({ score, total, taskType, onHome, onNextTask }) => {
   );
 };
 
+const FeedbackWidget = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [category, setCategory] = useState('General Feedback');
+  const [message, setMessage] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!message.trim()) return;
+
+    // Use mailto: to forward the form data directly to the specified email address
+    const subject = encodeURIComponent(`[${category}] Matura Tutor Feedback`);
+    const body = encodeURIComponent(message);
+    window.location.href = `mailto:englishmaturawithjb@gmail.com?subject=${subject}&body=${body}`;
+
+    // Show success momentarily
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+      setIsOpen(false);
+      setMessage('');
+      setCategory('General Feedback');
+    }, 3000);
+  };
+
+  if (!isOpen) {
+    return (
+      <button 
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-xl hover:bg-indigo-700 transition-transform transform hover:scale-105 z-50 flex items-center justify-center group"
+        title="Share Feedback"
+      >
+        <MessageSquare size={24} />
+      </button>
+    );
+  }
+
+  return (
+    <div className="fixed bottom-6 right-6 w-[calc(100vw-3rem)] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-fade-in flex flex-col">
+      <div className="bg-indigo-600 p-4 text-white flex items-center justify-between">
+        <h3 className="font-bold flex items-center gap-2"><MessageSquare size={18}/> Share Feedback</h3>
+        <button onClick={() => setIsOpen(false)} className="text-indigo-200 hover:text-white transition-colors">
+          <XCircle size={20} />
+        </button>
+      </div>
+      
+      {showSuccess ? (
+        <div className="p-8 text-center flex flex-col items-center justify-center bg-slate-50">
+          <CheckCircle size={48} className="text-green-500 mb-4" />
+          <p className="font-bold text-slate-800 text-lg">Opening Email...</p>
+          <p className="text-slate-500 text-sm mt-1">Thank you for your feedback!</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="p-5 flex flex-col gap-4">
+          <div>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Category</label>
+            <select 
+              value={category} 
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white text-slate-700 text-sm"
+            >
+              <option value="General Feedback">General Feedback</option>
+              <option value="Feature Request">Feature Request</option>
+              <option value="Bug Report">Bug Report</option>
+            </select>
+          </div>
+          
+          <div>
+            <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Your Message</label>
+            <textarea 
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Tell us what's on your mind..."
+              required
+              rows={4}
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white text-slate-700 text-sm resize-none"
+            ></textarea>
+          </div>
+          
+          <button 
+            type="submit"
+            className="w-full py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-900 transition-colors mt-2 flex justify-center items-center gap-2"
+          >
+            <MessageCircle size={18}/> Send Feedback
+          </button>
+        </form>
+      )}
+    </div>
+  );
+};
+
 const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFlashcards, onOpenSpeaking }) => {
   const calculatePercentage = (correct, total) => total === 0 ? 0 : Math.round((correct / total) * 100);
 
@@ -2921,6 +3012,8 @@ export default function App() {
           />
         )}
       </main>
+
+      <FeedbackWidget />
       
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeIn {
