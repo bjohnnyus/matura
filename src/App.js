@@ -1,43 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { BookOpen, Edit3, Headphones, CheckCircle, XCircle, ArrowRight, ArrowLeft, Award, MessageCircle, AlertCircle, BarChart2, Mic, Camera, MessageSquare, ExternalLink, Settings, Trash2, Play, Pause, Flame, Layers } from 'lucide-react';
 
-// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---
-// Because Netlify does not have a shared database, any link placed here 
+// --- TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE ---
+// Because Netlify does not have a shared database, any link placed here
 // will be permanently available to all your students on all browsers.
 const TEACHER_AUDIO_LINKS = {
-  'l1': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526675/harry.mp3', // Add the link for "Interview with Harry" here when you have it!
-  'l2': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567/audio-project.mp3', // Interview with an author
-  'l3': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566/elevenlabs-untitled-project-1.mp3', // Supermarket
-  'l4': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526542/a-lucky-escape.mp3',
-  'l5': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526565/elevenlabs-a-spoonful-of-sugar.mp3',
-  'l6': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550/paul-stout.mp3', // Toddler bought a car
-  'l7': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526546/duke-the-rescue-dog.mp3',
-  'l8': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526547/einstein.mp3',
-  'l9': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526549/interview-with-leona-lewis.mp3',
-  'l10': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526551/slow-drivers.mp3',
-  'l11': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526544/a-philosop.mp3',
-  'l12': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526548/franz-kafka-and-the-doll.mp3',
-  'l13': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3',
-  'l14': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552/the-emperor-of-long-distance.mp3',
-  'l15': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553/the-history-of-the-bikini.mp3',
-  'l16': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554/the-lost-fisherman.mp3',
-  'l17': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543/the-money-on-the-highway.mp3', // Reusing highway audio for matching task
-  'l18': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536796/university-phone-calls.mp3', // University phone calls audio
-  'l19': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536795/the-delayed-flight.mp3', // Placeholder for delayed flight
-  'l20': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536794/interview-with-a-skydiver.mp3', // Placeholder for extreme sports
-  'l21': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547962/lost-luggage.mp3', // Placeholder for Lost Luggage
-  'l22': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547940/the-teenage-inventor.mp3', // Placeholder for Teenage Inventor
-  'l23': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547941/thev-haunted-castle.mp3', // Placeholder for Haunted Castle
-  'l24': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547937/cancelling-plans.mp3', // Placeholder for Canceling Plans
-  'l25': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547938/healthy-eating-myths.mp3' // Placeholder for Healthy Eating
-};'l26': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563181/the-science-fair.mp3', // Placeholder for The Science Fair
-'l27': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563180/the-broken-laptop.mp3', // Placeholder for The Broken Laptop
-'l28': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563178/a-trip-to-the-vet.mp3', // Placeholder for A Trip to the Vet
-'l29': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563179/the-art-gallery-tour.mp3', // Placeholder for The Art Gallery Tour
-'l30': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563182/the-stolen-bicycle.mp3' // Placeholder for The Stolen Bicycle
+  l1: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526675harry.mp3',
+  l2: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526567audio-project.mp3',
+  l3: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526566elevenlabs-untitled-project-1.mp3',
+  l4: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526542a-lucky-escape.mp3',
+  l5: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526565elevenlabs-a-spoonful-of-sugar.mp3',
+  l6: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526550paul-stout.mp3',
+  l7: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526546duke-the-rescue-dog.mp3',
+  l8: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526547einstein.mp3',
+  l9: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526549interview-with-leona-lewis.mp3',
+  l10: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526551slow-drivers.mp3',
+  l11: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526544a-philosop.mp3',
+  l12: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526548franz-kafka-and-the-doll.mp3',
+  l13: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543the-money-on-the-highway.mp3',
+  l14: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526552the-emperor-of-long-distance.mp3',
+  l15: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526553the-history-of-the-bikini.mp3',
+  l16: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526554the-lost-fisherman.mp3',
+  l17: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33526543the-money-on-the-highway.mp3',
+  l18: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536796university-phone-calls.mp3',
+  l19: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536795the-delayed-flight.mp3',
+  l20: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33536794interview-with-a-skydiver.mp3',
+  l21: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547962lost-luggage.mp3',
+  l22: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547940the-teenage-inventor.mp3',
+  l23: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547941thev-haunted-castle.mp3',
+  l24: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547937cancelling-plans.mp3',
+  l25: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547938healthy-eating-myths.mp3',
+  l26: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563181the-science-fair.mp3',
+  l27: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563180the-broken-laptop.mp3',
+  l28: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563178a-trip-to-the-vet.mp3',
+  l29: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563179the-art-gallery-tour.mp3',
+  l30: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563182the-stolen-bicycle.mp3'
 };
 // -------------------------------------------------------------
-
 : Flashcards (Batch 1-5: 1-300) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
