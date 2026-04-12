@@ -37,7 +37,8 @@ const TEACHER_AUDIO_LINKS = {
   l30: 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563182the-stolen-bicycle.mp3'
 };
 // -------------------------------------------------------------
-: Flashcards (Batch 1-5: 1-300) ---
+
+// --- DATA: Flashcards (Batch 1-6: 1-600) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
   { id: 2, category: 'Adjective + Prep', term: 'bad at', context: "I'm bad at remembering names.", grammar: 'Meaning: rossz vmiben' },
