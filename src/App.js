@@ -30,9 +30,13 @@ const TEACHER_AUDIO_LINKS = {
   'l23': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547941/thev-haunted-castle.mp3', // Placeholder for Haunted Castle
   'l24': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547937/cancelling-plans.mp3', // Placeholder for Canceling Plans
   'l25': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33547938/healthy-eating-myths.mp3' // Placeholder for Healthy Eating
+};'l26': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563181/the-science-fair.mp3', // Placeholder for The Science Fair
+'l27': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563180/the-broken-laptop.mp3', // Placeholder for The Broken Laptop
+'l28': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563178/a-trip-to-the-vet.mp3', // Placeholder for A Trip to the Vet
+'l29': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563179/the-art-gallery-tour.mp3', // Placeholder for The Art Gallery Tour
+'l30': 'https://ws-customer-file-upload-storage.s3.amazonaws.com/wscfus/10805606/33563182/the-stolen-bicycle.mp3' // Placeholder for The Stolen Bicycle
 };
 // -------------------------------------------------------------
-
 // --- DATA: Flashcards (Batch 1-5: 1-300) ---
 const flashcardsData = [
   { id: 1, category: 'Adjective + Prep', term: 'good at', context: 'She is good at drawing.', grammar: 'Meaning: jó vmiben' },
@@ -832,6 +836,61 @@ const tasksDatabase = {
         { id: 'q2', text: '2. How were left-handed children treated in the past?', options: ['A) They were sent to special schools.', 'B) They were forced to use their right hand.', 'C) They were celebrated as geniuses.'], correct: 'B) They were forced to use their right hand.', explanation: 'Many children "were forced to write with their right hand in school."', tip: 'Exam Tip: Contrast phrases like "Today, however..." show how things were different in the past.' },
         { id: 'q3', text: '3. What determines if a person is left-handed?', options: ['A) Only their genetics.', 'B) Only environmental factors.', 'C) A combination of genetics and the environment.'], correct: 'C) A combination of genetics and the environment.', explanation: 'Scientists believe "genetics play a big part... but environmental factors are also important."', tip: 'Exam Tip: Words like "but... also" mean it\'s a combination of both factors.' }
       ]
+    },
+    {
+      id: 'r26',
+      title: 'Reading: The Secret Apartment',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "When Gustave Eiffel designed the famous Eiffel Tower in Paris, he included a secret apartment at the very top. This small but cozy flat was furnished with wooden cabinets, a piano, and patterned wallpaper. Eiffel used it to entertain important guests, such as the famous inventor Thomas Edison. Despite receiving many generous offers, Eiffel refused to rent it out to wealthy tourists. Today, visitors can look into the apartment through a glass window and see wax models of Eiffel and Edison having a conversation.",
+      questions: [
+        { id: 'q1', text: '1. Where was the apartment located?', options: ['A) At the bottom of the tower.', 'B) At the very top of the tower.', 'C) In a nearby building.'], correct: 'B) At the very top of the tower.', explanation: 'The text states Eiffel included it "at the very top".', tip: 'Exam Tip: Read carefully to find exact locations mentioned in the text.' },
+        { id: 'q2', text: '2. What did Gustave Eiffel use the apartment for?', options: ['A) To hide from the government.', 'B) To entertain important guests.', 'C) To store extra building materials.'], correct: 'B) To entertain important guests.', explanation: 'The text mentions "Eiffel used it to entertain important guests".', tip: 'Exam Tip: Look for purpose clauses starting with "to".' },
+        { id: 'q3', text: '3. Who can sleep in the apartment today?', options: ['A) Wealthy tourists.', 'B) Famous inventors.', 'C) Nobody.'], correct: 'C) Nobody.', explanation: 'The text says visitors can only "look into the apartment through a glass window" and see wax models. Nobody sleeps there.', tip: 'Exam Tip: If a direct answer isn\'t given, infer the reality from what is explicitly described.' }
+      ]
+    },
+    {
+      id: 'r27',
+      title: 'Reading: A Sticky Invention',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "The invention of the Post-it Note was actually a happy accident. In 1968, a scientist named Spencer Silver was trying to create a super-strong glue. Instead, he ended up inventing a very weak adhesive that could be removed without leaving any marks. For years, nobody knew what to do with it. Then, a colleague named Art Fry realized he could use the weak glue to keep bookmarks from falling out of his choir book. Eventually, this led to the creation of the sticky yellow notes we use today in offices around the world.",
+      questions: [
+        { id: 'q1', text: '1. What was Spencer Silver originally trying to invent?', options: ['A) A super-strong glue.', 'B) A weak adhesive.', 'C) A yellow bookmark.'], correct: 'A) A super-strong glue.', explanation: 'The text states he "was trying to create a super-strong glue."', tip: 'Exam Tip: Distinguish between the goal and the actual outcome.' },
+        { id: 'q2', text: '2. What was the main characteristic of the glue he invented?', options: ['A) It dried incredibly fast.', 'B) It could be removed without leaving marks.', 'C) It was highly toxic.'], correct: 'B) It could be removed without leaving marks.', explanation: 'He invented a weak adhesive "that could be removed without leaving any marks."', tip: 'Exam Tip: Descriptions of objects often follow the "that" clause.' },
+        { id: 'q3', text: '3. How did Art Fry first use the glue?', options: ['A) To fix his broken glasses.', 'B) To stick posters to the wall.', 'C) To keep bookmarks in his book.'], correct: 'C) To keep bookmarks in his book.', explanation: 'Art Fry used it "to keep bookmarks from falling out of his choir book."', tip: 'Exam Tip: Find the specific name mentioned in the question and read the associated action.' }
+      ]
+    },
+    {
+      id: 'r28',
+      title: 'Reading: The Clever Crow',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "Parrots are not the only birds that can talk. A family in London has a pet crow named Charlie who is incredibly intelligent. Charlie learned to imitate the sound of the family's telephone perfectly. Whenever the phone rings, Charlie shouts \"Hello!\" before anyone can pick it up. Recently, he even learned how to bark like the neighbour's dog, causing a lot of confusion in the garden. Scientists state that crows are excellent problem solvers and can easily mimic sounds if they are raised in a human environment.",
+      questions: [
+        { id: 'q1', text: '1. What animal is the text primarily about?', options: ['A) A parrot.', 'B) A crow.', 'C) A dog.'], correct: 'B) A crow.', explanation: 'The story focuses on "a pet crow named Charlie".', tip: 'Exam Tip: The first sentence often provides context, but the main subject is introduced right after.' },
+        { id: 'q2', text: '2. What does Charlie do when the phone rings?', options: ['A) He barks.', 'B) He shouts "Hello!".', 'C) He hides.'], correct: 'B) He shouts "Hello!".', explanation: 'The text states: "Whenever the phone rings, Charlie shouts \'Hello!\'"', tip: 'Exam Tip: Connect the condition ("when the phone rings") to the direct action.' },
+        { id: 'q3', text: '3. Why did Charlie cause confusion in the garden?', options: ['A) Because he stole food.', 'B) Because he barked like a dog.', 'C) Because he attacked a cat.'], correct: 'B) Because he barked like a dog.', explanation: 'He learned "how to bark like the neighbour\'s dog, causing a lot of confusion".', tip: 'Exam Tip: Look for words like "causing" or "leading to" to find reasons.' }
+      ]
+    },
+    {
+      id: 'r29',
+      title: 'Reading: The First Marathon',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "The marathon is a long-distance race that covers exactly 42.195 kilometres. The name comes from an ancient Greek legend. According to the story, a messenger named Pheidippides ran all the way from the battlefield of Marathon to Athens to announce that the Greeks had won a major battle. As soon as he delivered his message, he collapsed and died from exhaustion. When the modern Olympic Games were introduced in 1896, the organizers created the marathon race to honor his legendary run.",
+      questions: [
+        { id: 'q1', text: '1. Where does the name \'marathon\' come from?', options: ['A) The name of the winning runner.', 'B) The name of a battlefield.', 'C) The ancient Greek word for running.'], correct: 'B) The name of a battlefield.', explanation: 'He ran from "the battlefield of Marathon to Athens".', tip: 'Exam Tip: Read the whole sentence to understand the context of a capitalized word.' },
+        { id: 'q2', text: '2. Why did Pheidippides run to Athens?', options: ['A) To win a gold medal.', 'B) To announce a military victory.', 'C) To escape from the enemy.'], correct: 'B) To announce a military victory.', explanation: 'He ran "to announce that the Greeks had won a major battle."', tip: 'Exam Tip: Winning a battle is synonymous with a military victory.' },
+        { id: 'q3', text: '3. What happened to the messenger after delivering the news?', options: ['A) He became a famous general.', 'B) He competed in the Olympics.', 'C) He died from exhaustion.'], correct: 'C) He died from exhaustion.', explanation: 'The text states he "collapsed and died from exhaustion."', tip: 'Exam Tip: Follow the chronological order of events described.' }
+      ]
+    },
+    {
+      id: 'r30',
+      title: 'Reading: Space Tourism',
+      instructions: 'Read the text and choose the best answer (A, B, or C).',
+      text: "In the past, traveling to space was something only highly trained astronauts could do. Today, however, space tourism is becoming a reality. Several private companies are building spacecraft designed to take wealthy passengers on short trips into space. Passengers will experience a few minutes of weightlessness and see the curvature of the Earth before returning. While tickets currently cost hundreds of thousands of dollars, experts predict that prices will drop in the next few decades, making space travel accessible to more ordinary people.",
+      questions: [
+        { id: 'q1', text: '1. Who used to be the only people traveling to space?', options: ['A) Wealthy tourists.', 'B) Highly trained astronauts.', 'C) Private company owners.'], correct: 'B) Highly trained astronauts.', explanation: 'The text says space travel was "something only highly trained astronauts could do."', tip: 'Exam Tip: Distinguish between the past ("used to be") and the present.' },
+        { id: 'q2', text: '2. What will space tourists experience during their trip?', options: ['A) A landing on the Moon.', 'B) Several days in a space station.', 'C) A few minutes of weightlessness.'], correct: 'C) A few minutes of weightlessness.', explanation: 'Passengers will "experience a few minutes of weightlessness".', tip: 'Exam Tip: Focus on the exact details provided without assuming extra information.' },
+        { id: 'q3', text: '3. What do experts predict will happen in the future?', options: ['A) Prices will go down.', 'B) Space travel will be banned.', 'C) Trips will last for years.'], correct: 'A) Prices will go down.', explanation: 'Experts predict that "prices will drop in the next few decades".', tip: 'Exam Tip: "Drop" is a synonym for "go down" when discussing prices.' }
+      ]
     }
   ],
   useOfEnglish: [
@@ -1108,6 +1167,61 @@ const tasksDatabase = {
         { id: 'q1', answer: 'on', explanation: 'Preposition of place: Something lies "on" a flat surface like a pavement or floor.', tip: 'Exam Tip: Visualize the physical location. Surfaces take "on".' },
         { id: 'q2', answer: 'to', explanation: 'Verb + Preposition: Something "belongs to" someone.', tip: 'Exam Tip: "Belong" is exclusively followed by "to".' },
         { id: 'q3', answer: 'so', explanation: 'Conjunction: "So that" expresses purpose.', tip: 'Exam Tip: If a gap is right before "that" and explains a reason/purpose, it is almost definitely "so".' }
+      ]
+    },
+    {
+      id: 'u26',
+      title: 'Use of English: The Broken Window',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['Last Saturday, my brother and I were playing football in the garden. Unfortunately, I kicked the ball too hard, and it flew straight ', ' the kitchen window. We heard a loud crash and immediately knew we were in trouble. Our mother came rushing out of the house. We apologized and promised to pay ', ' the damage from our pocket money. She was angry at first, but eventually, she calmed ', ' and forgave us.'],
+      questions: [
+        { id: 'q1', answer: 'through', explanation: 'Preposition of movement: Something goes "through" a window.', tip: 'Exam Tip: Visualize the action. Piercing or breaking a barrier often uses "through".' },
+        { id: 'q2', answer: 'for', explanation: 'Verb + Preposition: You "pay for" something you buy or damage.', tip: 'Exam Tip: "Pay for" is one of the most common verb-preposition collocations.' },
+        { id: 'q3', answer: 'down', explanation: 'Phrasal Verb: "Calm down" means to stop feeling angry or upset.', tip: 'Exam Tip: "Calm down" is a very frequent everyday expression.' }
+      ]
+    },
+    {
+      id: 'u27',
+      title: 'Use of English: The Perfect Holiday',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['Choosing the perfect holiday destination can be stressful. My family usually argues ', ' where to go. My dad prefers relaxing by the beach, while my mom loves visiting museums and historical sites. This year, we decided to compromise and book a trip to Barcelona. It is a city ', ' offers both fantastic architecture and beautiful sandy beaches. We are all really looking forward ', ' our summer vacation.'],
+      questions: [
+        { id: 'q1', answer: 'about', explanation: 'Verb + Preposition: You "argue about" a topic.', tip: 'Exam Tip: You argue "with" someone "about" something.' },
+        { id: 'q2', answer: 'which', explanation: 'Relative Pronoun: "Which" (or "that") refers to the non-human noun "city".', tip: 'Exam Tip: Both "which" and "that" are grammatically correct here as it is a defining relative clause.' },
+        { id: 'q3', answer: 'to', explanation: 'Phrasal Verb: "Look forward to" means to feel excited about something in the future.', tip: 'Exam Tip: Remember that "look forward to" is a fixed phrase.' }
+      ]
+    },
+    {
+      id: 'u28',
+      title: 'Use of English: A Strange Discovery',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['While renovating their old farmhouse, the Smith family found a hidden box under the floorboards. The box was completely covered ', ' dust and dirt. When they opened it, they discovered a collection of silver coins and a mysterious map. They took the coins to a local historian, ', ' confirmed that they dated back to the 18th century. The family decided to donate the treasure to the local museum rather ', ' selling it.'],
+      questions: [
+        { id: 'q1', answer: 'in', explanation: 'Adjective + Preposition: Something can be "covered in" or "covered with" dust.', tip: 'Exam Tip: Both "in" and "with" are acceptable answers for this collocation.' },
+        { id: 'q2', answer: 'who', explanation: 'Relative Pronoun: Refers to the person ("local historian").', tip: 'Exam Tip: After a comma, use "who" for people instead of "that".' },
+        { id: 'q3', answer: 'than', explanation: 'Phrase: "Rather than" is used to express a preference or alternative.', tip: 'Exam Tip: "Rather than" is a very common connector meaning "instead of".' }
+      ]
+    },
+    {
+      id: 'u29',
+      title: 'Use of English: Digital Detox',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['Many teenagers find it difficult to survive a single day without their smartphones. However, my school recently organized a "digital detox" weekend in the mountains. We were not allowed to bring any electronic devices ', ' us. At first, everyone complained because we couldn\'t check social media or play games. But by the end of the second day, we realised we were actually having a lot ', ' fun just talking and playing board games. It was a great opportunity to connect with each ', ' in person.'],
+      questions: [
+        { id: 'q1', answer: 'with', explanation: 'Preposition: You bring something "with" you.', tip: 'Exam Tip: Think of physical possession.' },
+        { id: 'q2', answer: 'of', explanation: 'Phrase: "A lot of" is a standard quantifier.', tip: 'Exam Tip: If you see "a lot" before a noun, the missing word is almost always "of".' },
+        { id: 'q3', answer: 'other', explanation: 'Reciprocal Pronoun: "Each other" refers to two or more people interacting.', tip: 'Exam Tip: "Each other" or "one another" are fixed expressions.' }
+      ]
+    },
+    {
+      id: 'u30',
+      title: 'Use of English: Getting Fit',
+      instructions: 'Type ONE correct word into each gap to complete the text.',
+      textParts: ['After the winter holidays, I realised I had gained some weight. I decided it was high time to take ', ' a new sport. A friend recommended joining a local running club. In the beginning, I could barely run two kilometres without getting out of ', '. But I didn\'t give up, and I kept practicing three times a week. Now, I feel much healthier and I have even registered to participate ', ' a charity marathon next month.'],
+      questions: [
+        { id: 'q1', answer: 'up', explanation: 'Phrasal Verb: "Take up" means to start a new hobby or sport.', tip: 'Exam Tip: This is a classic B1 phrasal verb.' },
+        { id: 'q2', answer: 'breath', explanation: 'Phrase: "Out of breath" means breathing heavily after exercise.', tip: 'Exam Tip: Look for physical descriptions related to the context (running).' },
+        { id: 'q3', answer: 'in', explanation: 'Verb + Preposition: You "participate in" an event.', tip: 'Exam Tip: "Participate in" means the same as "take part in".' }
       ]
     }
   ],
@@ -1408,6 +1522,66 @@ const tasksDatabase = {
         { id: 'q2', text: '2. What is the real cause of weight problems according to the speaker?', options: ['A) Sugary drinks and processed foods.', 'B) Eating too many vegetables.', 'C) Drinking too much water.'], correct: 'A) Sugary drinks and processed foods.', explanation: 'She points out, "The real problem is usually sugary drinks and processed foods."', tip: 'Exam Tip: Match the direct cause stated by the expert.' },
         { id: 'q3', text: '3. Why is skipping breakfast a bad idea?', options: ['A) It makes you tired all day.', 'B) It causes you to overeat at lunch.', 'C) It gives you a stomach ache.'], correct: 'B) It causes you to overeat at lunch.', explanation: 'She explains that skipping meals makes you "end up eating double the amount at lunch."', tip: 'Exam Tip: Cause and effect are crucial in listening comprehension.' }
       ]
+    },
+    {
+      id: 'l26',
+      title: 'The Science Fair',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the announcement and choose the correct answer.',
+      transcript: `Welcome to the 10th annual regional science fair. We have over 50 projects this year, ranging from robotics to biology. The judges will walk around at 11 AM, so please stay by your booths. The award ceremony will take place at 3 PM in the main hall. Don't forget to grab your free lunch voucher from the information desk!`,
+      questions: [
+        { id: 'q1', text: '1. How many projects are at the science fair?', options: ['A) Exactly 10.', 'B) Over 50.', 'C) Around 100.'], correct: 'B) Over 50.', explanation: 'The announcer mentions "We have over 50 projects this year".', tip: 'Exam Tip: Be careful confusing ordinal numbers (10th) with quantities.' },
+        { id: 'q2', text: '2. When will the judges evaluate the projects?', options: ['A) At 10 AM.', 'B) At 11 AM.', 'C) At 3 PM.'], correct: 'B) At 11 AM.', explanation: 'The transcript says "The judges will walk around at 11 AM".', tip: 'Exam Tip: Note down times associated with specific events.' },
+        { id: 'q3', text: '3. What can participants get from the information desk?', options: ['A) A map of the fair.', 'B) A free lunch voucher.', 'C) Extra batteries.'], correct: 'B) A free lunch voucher.', explanation: 'Participants are reminded to "grab your free lunch voucher from the information desk!"', tip: 'Exam Tip: Listen for action verbs like "grab" or "pick up".' }
+      ]
+    },
+    {
+      id: 'l27',
+      title: 'The Broken Laptop',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the conversation in the electronics store and answer the questions.',
+      transcript: `Customer: Hi, I bought this laptop here last week, but the screen keeps freezing. I tried restarting it multiple times, but that didn't help. I use it for my university studies, so I really need it fixed quickly. If it can't be repaired today, I'd like a replacement.\nAssistant: I understand your frustration. Let me have our technician take a look at it. It might just be a software update issue.`,
+      questions: [
+        { id: 'q1', text: '1. When did the customer buy the laptop?', options: ['A) Yesterday.', 'B) Last week.', 'C) A month ago.'], correct: 'B) Last week.', explanation: 'The customer states, "I bought this laptop here last week".', tip: 'Exam Tip: Listen closely for time expressions related to past actions.' },
+        { id: 'q2', text: '2. What is the problem with the device?', options: ['A) It doesn\'t turn on.', 'B) The screen keeps freezing.', 'C) The battery is broken.'], correct: 'B) The screen keeps freezing.', explanation: 'The customer says "the screen keeps freezing".', tip: 'Exam Tip: Match the technical complaint to the options.' },
+        { id: 'q3', text: '3. What does the customer want if a quick repair is impossible?', options: ['A) A full refund.', 'B) A replacement.', 'C) A discount on a new one.'], correct: 'B) A replacement.', explanation: 'The customer demands, "If it can\'t be repaired today, I\'d like a replacement."', tip: 'Exam Tip: Conditional sentences often hide the final answer.' }
+      ]
+    },
+    {
+      id: 'l28',
+      title: 'A Trip to the Vet',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the pet owner and choose the correct answer.',
+      transcript: `Owner: Hello, Dr. Evans. My cat, Bella, hasn't been eating her food for two days. She usually loves her fish, but she just sleeps all day now. Also, her nose feels a bit warm. I'm worried she might have caught an infection.\nVet: Let's take her temperature and do a quick blood test. It's quite common for cats to lose their appetite when they have a minor fever.`,
+      questions: [
+        { id: 'q1', text: '1. How long has the cat not been eating?', options: ['A) For two days.', 'B) For a week.', 'C) Since yesterday morning.'], correct: 'A) For two days.', explanation: 'The owner mentions, "Bella hasn\'t been eating her food for two days".', tip: 'Exam Tip: Listen for durations connected to symptoms.' },
+        { id: 'q2', text: '2. What is the cat\'s usual favorite food?', options: ['A) Chicken.', 'B) Fish.', 'C) Dry biscuits.'], correct: 'B) Fish.', explanation: 'The owner notes, "She usually loves her fish".', tip: 'Exam Tip: Distinguish between normal behavior and current illness.' },
+        { id: 'q3', text: '3. What other symptom does the cat have?', options: ['A) She is scratching a lot.', 'B) She is drinking too much water.', 'C) She sleeps all day and feels warm.'], correct: 'C) She sleeps all day and feels warm.', explanation: 'The owner adds, "she just sleeps all day now. Also, her nose feels a bit warm."', tip: 'Exam Tip: Secondary symptoms usually follow transition words like "Also".' }
+      ]
+    },
+    {
+      id: 'l29',
+      title: 'The Art Gallery Tour',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the tour guide and answer the questions.',
+      transcript: `Tour Guide: On your left is our most famous painting, 'The Blue River', painted in 1912 by Arthur Pendelton. Notice how he used dark blue colors to create a sad atmosphere. Interestingly, he painted this masterpiece in just three days! Please remember that flash photography is strictly prohibited here, as the bright light can damage the old paint.`,
+      questions: [
+        { id: 'q1', text: '1. When was the famous painting created?', options: ['A) In 1902.', 'B) In 1912.', 'C) In 1920.'], correct: 'B) In 1912.', explanation: 'The guide says it was "painted in 1912 by Arthur Pendelton".', tip: 'Exam Tip: Dates are frequently tested in short tour guide monologues.' },
+        { id: 'q2', text: '2. How long did it take the artist to finish the painting?', options: ['A) Three days.', 'B) Three weeks.', 'C) Three years.'], correct: 'A) Three days.', explanation: 'The guide points out "he painted this masterpiece in just three days!"', tip: 'Exam Tip: Adverbs like "just" emphasize surprisingly short amounts of time.' },
+        { id: 'q3', text: '3. Why is flash photography prohibited?', options: ['A) It distracts the other visitors.', 'B) It can damage the old paint.', 'C) It ruins the sad atmosphere.'], correct: 'B) It can damage the old paint.', explanation: 'The guide explicitly states "the bright light can damage the old paint".', tip: 'Exam Tip: Look out for consequences of breaking the rules.' }
+      ]
+    },
+    {
+      id: 'l30',
+      title: 'The Stolen Bicycle',
+      audioFile: 'placeholder',
+      instructions: 'Listen to the report given to a police officer and choose the best answer.',
+      transcript: `Victim: Officer, my bicycle was stolen outside the library. I locked it to the bike rack at 2 PM, but when I came out at 4 PM, it was gone! It's a red mountain bike with a black seat. The only thing left on the ground was my cut lock. It cost me 300 pounds just a month ago.`,
+      questions: [
+        { id: 'q1', text: '1. Where was the bicycle stolen?', options: ['A) Outside the supermarket.', 'B) Outside the library.', 'C) In a park.'], correct: 'B) Outside the library.', explanation: 'The victim states, "my bicycle was stolen outside the library".', tip: 'Exam Tip: Listen for prepositions of place combined with locations.' },
+        { id: 'q2', text: '2. What does the bicycle look like?', options: ['A) It is blue with a white seat.', 'B) It is a red mountain bike with a black seat.', 'C) It is a silver racing bike.'], correct: 'B) It is a red mountain bike with a black seat.', explanation: 'The victim describes it as "a red mountain bike with a black seat".', tip: 'Exam Tip: Visualize the physical description given in the audio.' },
+        { id: 'q3', text: '3. What did the thief leave behind?', options: ['A) The cut lock.', 'B) A broken pedal.', 'C) A helmet.'], correct: 'A) The cut lock.', explanation: 'The victim says, "The only thing left on the ground was my cut lock".', tip: 'Exam Tip: Pay attention to objects mentioned as being found or left at the scene.' }
+      ]
     }
   ]
 };
@@ -1416,37 +1590,23 @@ const tasksDatabase = {
 
 const ChallengeTracker = ({ completedDays, onStartDay }) => {
   const totalDays = 30;
-  
   return (
     <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 sm:p-8 shadow-sm mb-8 text-white relative overflow-hidden">
        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
        <div className="absolute bottom-0 right-20 w-24 h-24 bg-blue-300 opacity-20 rounded-full blur-xl"></div>
-       
        <div className="relative z-10">
          <div className="flex items-center justify-between mb-2">
-           <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
-             <Flame size={24} className="text-orange-400" /> 30-Day Matura Challenge
-           </h3>
-           <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold backdrop-blur-sm">
-             {completedDays.length} / {totalDays} Completed
-           </span>
+           <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2"><Flame size={24} className="text-orange-400" /> 30-Day Matura Challenge</h3>
+           <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold backdrop-blur-sm">{completedDays.length} / {totalDays} Completed</span>
          </div>
-         <p className="text-blue-100 mb-6 text-sm sm:text-base max-w-xl">
-           Click on a day to launch your daily set: Reading, Use of English, Listening, and Flashcards!
-         </p>
-         
+         <p className="text-blue-100 mb-6 text-sm sm:text-base max-w-xl">Click on a day to launch your daily set: Reading, Use of English, Listening, and Flashcards!</p>
          <div className="flex flex-wrap gap-2 sm:gap-3">
            {[...Array(totalDays)].map((_, i) => {
               const dayNum = i + 1;
               const isCompleted = completedDays.includes(dayNum);
               return (
-                <button 
-                  key={i} 
-                  onClick={() => onStartDay(dayNum)}
-                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-110
-                    ${isCompleted 
-                      ? 'bg-red-500 text-white shadow-md border-2 border-red-500'
-                      : 'bg-white/10 text-blue-200 border border-white/30 hover:bg-white/20'}`}
+                <button key={i} onClick={() => onStartDay(dayNum)}
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 transform hover:scale-110 ${isCompleted ? 'bg-red-500 text-white shadow-md border-2 border-red-500' : 'bg-white/10 text-blue-200 border border-white/30 hover:bg-white/20'}`}
                   title={isCompleted ? `Day ${dayNum} (Completed)` : `Start Day ${dayNum}`}
                 >
                    {isCompleted ? '✓' : dayNum}
@@ -1454,12 +1614,7 @@ const ChallengeTracker = ({ completedDays, onStartDay }) => {
               );
            })}
          </div>
-         
-         {completedDays.length > 0 && (
-           <p className="mt-5 font-medium text-sm text-blue-50 flex items-center gap-2">
-             <Award size={16} className="text-yellow-400"/> You are doing great! Keep the momentum going.
-           </p>
-         )}
+         {completedDays.length > 0 && <p className="mt-5 font-medium text-sm text-blue-50 flex items-center gap-2"><Award size={16} className="text-yellow-400"/> You are doing great! Keep the momentum going.</p>}
        </div>
     </div>
   );
@@ -1473,133 +1628,56 @@ const CustomAudioPlayer = ({ src }) => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    setIsPlaying(false);
-    setCurrentTime(0);
-    setHasError(false);
-    if (audioRef.current) {
-      audioRef.current.pause();
-      if (src) {
-        audioRef.current.load();
-      }
-    }
+    setIsPlaying(false); setCurrentTime(0); setHasError(false);
+    if (audioRef.current) { audioRef.current.pause(); if (src) audioRef.current.load(); }
   }, [src]);
 
   const togglePlay = () => {
     if (hasError || !src) return;
-
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      } else {
+      if (isPlaying) { audioRef.current.pause(); setIsPlaying(false); } 
+      else {
         const playPromise = audioRef.current.play();
         if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setIsPlaying(true);
-              setHasError(false);
-            })
-            .catch(e => {
-              console.error("Error playing audio:", e);
-              setIsPlaying(false);
-              setHasError(true);
-            });
+          playPromise.then(() => { setIsPlaying(true); setHasError(false); }).catch(e => { setIsPlaying(false); setHasError(true); });
         }
       }
     }
   };
 
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
-      setHasError(false);
-    }
-  };
-
-  const handleError = () => {
-    if (src) {
-      setHasError(true);
-      setIsPlaying(false);
-    }
-  };
-
+  const handleTimeUpdate = () => { if (audioRef.current) setCurrentTime(audioRef.current.currentTime); };
+  const handleLoadedMetadata = () => { if (audioRef.current) { setDuration(audioRef.current.duration); setHasError(false); } };
+  const handleError = () => { if (src) { setHasError(true); setIsPlaying(false); } };
   const handleSeek = (e) => {
     const time = Number(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.currentTime = time;
-    }
+    if (audioRef.current) audioRef.current.currentTime = time;
     setCurrentTime(time);
   };
-
   const formatTime = (time) => {
     if (isNaN(time) || !isFinite(time)) return "00:00";
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    return `${Math.floor(time / 60).toString().padStart(2, '0')}:${Math.floor(time % 60).toString().padStart(2, '0')}`;
   };
 
   return (
     <div className="w-full mt-2">
       <div className="flex items-center gap-4 bg-white p-3 rounded-xl border border-slate-200 shadow-sm w-full">
-        <audio
-          ref={audioRef}
-          src={src || undefined} 
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleLoadedMetadata}
-          onEnded={() => setIsPlaying(false)}
-          onError={handleError}
-        />
-        <button
-          onClick={togglePlay}
-          disabled={hasError || !src}
-          className={`w-10 h-10 flex items-center justify-center text-white rounded-full transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm ${hasError || !src ? 'bg-slate-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
-        >
+        <audio ref={audioRef} src={src || undefined} onTimeUpdate={handleTimeUpdate} onLoadedMetadata={handleLoadedMetadata} onEnded={() => setIsPlaying(false)} onError={handleError} />
+        <button onClick={togglePlay} disabled={hasError || !src} className={`w-10 h-10 flex items-center justify-center text-white rounded-full transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm ${hasError || !src ? 'bg-slate-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}>
           {isPlaying ? <Pause size={18} /> : <Play size={18} className="ml-1" />}
         </button>
-        
         <div className="flex-1 flex items-center gap-3">
           <span className="text-xs text-slate-500 font-medium w-10 text-right">{formatTime(currentTime)}</span>
-          <input
-            type="range"
-            min="0"
-            max={duration || 100}
-            value={currentTime}
-            onChange={handleSeek}
-            disabled={hasError || !src}
-            className="flex-1 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-          />
+          <input type="range" min="0" max={duration || 100} value={currentTime} onChange={handleSeek} disabled={hasError || !src} className="flex-1 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed" />
           <span className="text-xs text-slate-500 font-medium w-10">{formatTime(duration)}</span>
         </div>
       </div>
-      
       {hasError && src && (
         <div className="mt-3 p-3 bg-red-50 rounded-xl border border-red-100 flex flex-col gap-2">
-          <p className="text-xs text-red-600 flex items-start gap-1.5">
-            <AlertCircle size={16} className="flex-shrink-0" />
-            <span>Browser blocked the direct stream (very common with Google Drive links due to strict security rules).</span>
-          </p>
-          <a 
-            href={src} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white text-red-700 text-sm font-semibold rounded-lg border border-red-200 hover:bg-red-50 transition-colors w-full sm:w-auto shadow-sm"
-          >
-            <ExternalLink size={16} /> Open Audio in New Tab
-          </a>
+          <p className="text-xs text-red-600 flex items-start gap-1.5"><AlertCircle size={16} className="flex-shrink-0" /><span>Browser blocked the direct stream (very common with Google Drive links).</span></p>
+          <a href={src} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white text-red-700 text-sm font-semibold rounded-lg border border-red-200 hover:bg-red-50 transition-colors w-full sm:w-auto shadow-sm"><ExternalLink size={16} /> Open Audio in New Tab</a>
         </div>
       )}
-      
-      {!src && (
-        <p className="text-xs text-amber-600 mt-2 ml-1 flex items-center gap-1">
-          <AlertCircle size={14} /> No audio linked. Please check TEACHER_AUDIO_LINKS in the code.
-        </p>
-      )}
+      {!src && <p className="text-xs text-amber-600 mt-2 ml-1 flex items-center gap-1"><AlertCircle size={14} /> No audio linked. Please check TEACHER_AUDIO_LINKS.</p>}
     </div>
   );
 };
@@ -1608,9 +1686,7 @@ const ManageAudio = ({ onBack, audioMap, onSaveMap }) => {
   const listeningTasks = tasksDatabase.listening;
   const [urlInputs, setUrlInputs] = useState(() => {
     const initial = {};
-    listeningTasks.forEach(task => {
-      initial[task.id] = audioMap[task.id] || '';
-    });
+    listeningTasks.forEach(task => { initial[task.id] = audioMap[task.id] || ''; });
     return initial;
   });
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -1620,84 +1696,45 @@ const ManageAudio = ({ onBack, audioMap, onSaveMap }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (password === 'teacher2024') { 
-      setIsAuthorized(true);
-      setError(false);
-    } else {
-      setError(true);
-      setPassword('');
-    }
+    if (password === 'teacher2024') { setIsAuthorized(true); setError(false); } 
+    else { setError(true); setPassword(''); }
   };
 
-  const handleUrlChange = (taskId, value) => {
-    setUrlInputs(prev => ({ ...prev, [taskId]: value }));
-  };
-
+  const handleUrlChange = (taskId, value) => setUrlInputs(prev => ({ ...prev, [taskId]: value }));
   const handleTestUrl = (taskId) => {
     const input = urlInputs[taskId];
     if (input && input.trim() !== '') {
       let finalUrl = input.trim();
-      
       const driveMatch = finalUrl.match(/\/d\/([a-zA-Z0-9_-]+)/) || finalUrl.match(/id=([a-zA-Z0-9_-]+)/);
-      if (finalUrl.includes('drive.google.com') && driveMatch && driveMatch[1]) {
-        finalUrl = `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`;
-      }
-      
-      if (finalUrl.includes('dropbox.com')) {
-        finalUrl = finalUrl.replace('www.dropbox.com', 'dl.dropboxusercontent.com').replace('?dl=0', '');
-      }
-
+      if (finalUrl.includes('drive.google.com') && driveMatch && driveMatch[1]) finalUrl = `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`;
+      if (finalUrl.includes('dropbox.com')) finalUrl = finalUrl.replace('www.dropbox.com', 'dl.dropboxusercontent.com').replace('?dl=0', '');
       setTempMap(prev => ({ ...prev, [taskId]: finalUrl }));
     }
   };
-
   const handleRemoveTempUrl = (taskId) => {
-    setTempMap(prev => {
-      const newMap = { ...prev };
-      delete newMap[taskId];
-      return newMap;
-    });
+    setTempMap(prev => { const newMap = { ...prev }; delete newMap[taskId]; return newMap; });
     setUrlInputs(prev => ({ ...prev, [taskId]: '' }));
   };
-
-  const handleSaveChanges = () => {
-    onSaveMap(tempMap);
-    onBack();
-  };
-
+  const handleSaveChanges = () => { onSaveMap(tempMap); onBack(); };
   const generateCodeSnippet = () => {
-    const lines = Object.entries(tempMap)
-      .filter(([_, url]) => url && url.trim() !== '')
-      .map(([id, url]) => `  '${id}': '${url}',`);
-    if (lines.length === 0) return "  // No links added yet";
-    return lines.join('\n');
+    const lines = Object.entries(tempMap).filter(([_, url]) => url && url.trim() !== '').map(([id, url]) => `  '${id}': '${url}',`);
+    return lines.length === 0 ? "  // No links added yet" : lines.join('\n');
   };
 
   if (!isAuthorized) {
     return (
       <div className="max-w-md mx-auto mt-12 animate-fade-in bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
         <div className="flex flex-col items-center text-center mb-8">
-          <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4">
-            <Settings size={32} />
-          </div>
+          <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-4"><Settings size={32} /></div>
           <h2 className="text-2xl font-bold text-slate-800">Teacher Access</h2>
           <p className="text-slate-500 mt-2">Please enter the password to manage audio links.</p>
         </div>
         <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password..."
-              className={`w-full px-4 py-3 border ${error ? 'border-red-300 bg-red-50' : 'border-slate-300'} rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors`}
-              autoFocus
-            />
-            {error && <p className="text-red-500 text-xs mt-2 text-center">Incorrect password. Please try again.</p>}
-          </div>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password..." className={`w-full px-4 py-3 border ${error ? 'border-red-300 bg-red-50' : 'border-slate-300'} rounded-xl focus:outline-none focus:border-blue-500`} autoFocus />
+          {error && <p className="text-red-500 text-xs mt-2 text-center">Incorrect password. Please try again.</p>}
           <div className="flex gap-3 pt-2">
-            <button type="button" onClick={onBack} className="flex-1 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200 transition-colors">Cancel</button>
-            <button type="submit" className="flex-1 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm">Unlock</button>
+            <button type="button" onClick={onBack} className="flex-1 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200">Cancel</button>
+            <button type="submit" className="flex-1 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 shadow-sm">Unlock</button>
           </div>
         </form>
       </div>
@@ -1708,79 +1745,32 @@ const ManageAudio = ({ onBack, audioMap, onSaveMap }) => {
     <div className="max-w-4xl mx-auto animate-fade-in pb-12">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 border-b border-slate-200 pb-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
-            <Settings className="text-blue-600" /> Manage Listening Audio
-          </h2>
+          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2"><Settings className="text-blue-600" /> Manage Listening Audio</h2>
           <p className="text-slate-500 mt-1">Generate permanent code for your custom audio files.</p>
         </div>
-        <button 
-          onClick={handleSaveChanges} 
-          className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md flex items-center gap-2"
-        >
-          <CheckCircle size={18} /> Save Links & Return
-        </button>
+        <button onClick={handleSaveChanges} className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 shadow-md flex items-center gap-2"><CheckCircle size={18} /> Save Links & Return</button>
       </div>
-
       <div className="mb-8 p-6 bg-slate-800 rounded-2xl text-white shadow-lg border border-slate-700">
-        <h3 className="text-xl font-bold mb-2 flex items-center gap-2 text-amber-400">
-          <AlertCircle size={20} /> How to make links permanent
-        </h3>
-        <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-          Because Netlify is a static website host, links saved directly in your browser will vanish when the page refreshes for your students. To permanently share audio links with all your students across all browsers, you must paste your Dropbox links below, then copy the generated code and replace the <code>TEACHER_AUDIO_LINKS</code> dictionary at the very top of your <strong>App.jsx</strong> file in StackBlitz.
-        </p>
+        <h3 className="text-xl font-bold mb-2 flex items-center gap-2 text-amber-400"><AlertCircle size={20} /> How to make links permanent</h3>
+        <p className="text-sm text-slate-300 mb-4 leading-relaxed">Because Netlify is a static website host, links saved directly in your browser will vanish when the page refreshes. To permanently share audio links, paste them below, then copy the generated code and replace the <code>TEACHER_AUDIO_LINKS</code> dictionary in your code.</p>
         <div className="bg-slate-900 p-4 rounded-xl border border-slate-700 relative group">
-          <pre className="text-green-400 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
-{`// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---
-// Because Netlify does not have a shared database, any link placed here 
-// will be permanently available to all your students on all browsers.
-const TEACHER_AUDIO_LINKS = {
-${generateCodeSnippet()}
-};
-// -------------------------------------------------------------`}
-          </pre>
+          <pre className="text-green-400 font-mono text-sm overflow-x-auto whitespace-pre-wrap">{`// --- 🔴 TEACHER: PASTE YOUR PERMANENT AUDIO LINKS HERE 🔴 ---\nconst TEACHER_AUDIO_LINKS = {\n${generateCodeSnippet()}\n};\n// -------------------------------------------------------------`}</pre>
         </div>
       </div>
-
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
         {listeningTasks.map((task, index) => (
-          <div key={task.id} className={`p-6 flex flex-col items-start justify-between gap-4 ${index !== listeningTasks.length - 1 ? 'border-b border-slate-100' : ''}`}>
-            <div className="w-full flex justify-between items-start">
-              <div>
-                <h4 className="font-semibold text-slate-800 text-lg">{task.id.toUpperCase()}: {task.title}</h4>
-              </div>
-            </div>
-            
+          <div key={task.id} className={`p-6 flex flex-col gap-4 ${index !== listeningTasks.length - 1 ? 'border-b border-slate-100' : ''}`}>
+            <h4 className="font-semibold text-slate-800 text-lg">{task.id.toUpperCase()}: {task.title}</h4>
             <div className="w-full mt-2">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4">
-                <input
-                  type="url"
-                  placeholder="Paste a Google Drive or Dropbox link here to test..."
-                  value={urlInputs[task.id] !== undefined ? urlInputs[task.id] : ''}
-                  onChange={(e) => handleUrlChange(task.id, e.target.value)}
-                  className="flex-1 px-4 py-3 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-shadow"
-                />
-                <button 
-                  onClick={() => handleTestUrl(task.id)}
-                  disabled={!urlInputs[task.id]}
-                  className="px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
-                >
-                  {tempMap[task.id] ? 'Update Link' : 'Add Link'}
-                </button>
+                <input type="url" placeholder="Paste link here..." value={urlInputs[task.id] !== undefined ? urlInputs[task.id] : ''} onChange={(e) => handleUrlChange(task.id, e.target.value)} className="flex-1 px-4 py-3 border border-slate-300 rounded-xl text-sm focus:outline-none focus:border-blue-500" />
+                <button onClick={() => handleTestUrl(task.id)} disabled={!urlInputs[task.id]} className="px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 disabled:opacity-50">{tempMap[task.id] ? 'Update Link' : 'Add Link'}</button>
               </div>
-
               {tempMap[task.id] && (
                 <div className="w-full animate-fade-in bg-slate-50 p-4 rounded-xl border border-slate-200">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
-                      <Headphones size={14}/> Current Audio Connection:
-                    </p>
-                    <button 
-                      onClick={() => handleRemoveTempUrl(task.id)}
-                      className="text-red-500 hover:text-red-700 p-1.5 rounded-md hover:bg-red-50 transition-colors flex items-center gap-1 text-xs font-semibold"
-                      title="Remove from generator"
-                    >
-                      <Trash2 size={14} /> Remove
-                    </button>
+                    <p className="text-xs font-bold text-slate-500 uppercase flex items-center gap-1"><Headphones size={14}/> Current Audio Connection:</p>
+                    <button onClick={() => handleRemoveTempUrl(task.id)} className="text-red-500 hover:text-red-700 p-1.5 rounded-md hover:bg-red-50 text-xs font-semibold flex items-center gap-1"><Trash2 size={14} /> Remove</button>
                   </div>
                   <CustomAudioPlayer src={tempMap[task.id]} />
                 </div>
@@ -1797,96 +1787,53 @@ const DailyFlashcards = ({ cards, onFinish }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleNext = () => {
-    setIsFlipped(false);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % cards.length);
-    }, 150);
-  };
-
-  const handleStatus = (status) => {
-    updateFcStatus(cards[currentIndex].id, status);
-    handleNext();
-  };
+  const handleNext = () => { setIsFlipped(false); setTimeout(() => { setCurrentIndex((prev) => (prev + 1) % cards.length); }, 150); };
+  const handleStatus = (status) => { updateFcStatus(cards[currentIndex].id, status); handleNext(); };
 
   if (!cards || cards.length === 0) return null;
   const card = cards[currentIndex];
 
   return (
     <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col items-center">
-      <div className="w-full mb-6">
-        <h2 className="text-2xl font-bold text-slate-800 text-center">Daily Flashcards</h2>
-        <p className="text-slate-500 text-center mt-1">Review these {cards.length} key expressions to finish your set.</p>
+      <div className="w-full mb-6 text-center">
+        <h2 className="text-2xl font-bold text-slate-800">Daily Flashcards</h2>
+        <p className="text-slate-500 mt-1">Review these {cards.length} key expressions to finish your set.</p>
       </div>
-
-      <div 
-        className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
+      <div className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" onClick={() => setIsFlipped(!isFlipped)}>
          <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-            
             <div className="absolute inset-0 w-full h-full bg-slate-50 rounded-3xl shadow-sm border border-slate-200 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-md transition-shadow">
-               <span className="px-3 py-1 bg-indigo-100 text-indigo-700 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
-                 {card.category}
-               </span>
+               <span className="px-3 py-1 bg-indigo-100 text-indigo-700 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">{card.category}</span>
                <h2 className="text-4xl md:text-5xl font-bold text-slate-800">{card.term}</h2>
-               <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm">
-                 <ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/>
-               </div>
+               <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm"><ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/></div>
             </div>
-
             <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
-               <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
-                 "{card.context}"
-               </p>
+               <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">"{card.context}"</p>
                <div className="bg-indigo-900/40 px-5 py-3 rounded-xl backdrop-blur-sm border border-indigo-500/30">
-                 <p className="text-sm text-indigo-100 font-medium flex items-center gap-2">
-                   <AlertCircle size={16}/> {card.grammar}
-                 </p>
+                 <p className="text-sm text-indigo-100 font-medium flex items-center gap-2"><AlertCircle size={16}/> {card.grammar}</p>
                </div>
             </div>
          </div>
       </div>
-
-      {/* Interactive Assessment Controls */}
       <div className="h-16 flex items-center justify-center w-full mt-6 mb-4">
          {isFlipped ? (
            <div className="flex gap-4 animate-fade-in">
-             <button onClick={(e) => { e.stopPropagation(); handleStatus('learning'); }} className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
-                <span className="text-xl">🔄</span> Still Learning
-             </button>
-             <button onClick={(e) => { e.stopPropagation(); handleStatus('mastered'); }} className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
-                <span className="text-xl">✅</span> I got it.
-             </button>
+             <button onClick={(e) => { e.stopPropagation(); handleStatus('learning'); }} className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105"><span className="text-xl">🔄</span> Still Learning</button>
+             <button onClick={(e) => { e.stopPropagation(); handleStatus('mastered'); }} className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105"><span className="text-xl">✅</span> I got it.</button>
            </div>
-         ) : (
-           <p className="text-slate-400 text-sm font-medium animate-pulse">Click the card to reveal the meaning!</p>
-         )}
+         ) : <p className="text-slate-400 text-sm font-medium animate-pulse">Click the card to reveal the meaning!</p>}
       </div>
-
-      <div className="flex items-center gap-6 mt-2 mb-8">
-        <span className="font-semibold text-slate-400">
-          Card {currentIndex + 1} of {cards.length}
-        </span>
-      </div>
-
-      <button 
-        onClick={onFinish}
-        className="w-full max-w-sm px-6 py-4 bg-slate-800 text-white text-lg font-bold rounded-xl hover:bg-slate-900 transition-colors shadow-md flex items-center justify-center gap-2"
-      >
-        <CheckCircle size={24} /> Complete Daily Set
-      </button>
+      <div className="flex items-center gap-6 mt-2 mb-8"><span className="font-semibold text-slate-400">Card {currentIndex + 1} of {cards.length}</span></div>
+      <button onClick={onFinish} className="w-full max-w-sm px-6 py-4 bg-slate-800 text-white text-lg font-bold rounded-xl hover:bg-slate-900 transition-colors shadow-md flex items-center justify-center gap-2"><CheckCircle size={24} /> Complete Daily Set</button>
     </div>
   );
 };
 
 const FlashcardsApp = ({ onBack }) => {
-  const [filter, setFilter] = useState('All Words'); // 'All Words', 'New', 'Learning', 'Mastered'
+  const [filter, setFilter] = useState('All Words');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [fcProgress, setFcProgress] = useState(getFcProgress());
 
-  // Filter the cards based on current tab selection
   const filteredCards = flashcardsData.filter(c => {
     const status = fcProgress[c.id] || 'new';
     if (filter === 'All Words') return true;
@@ -1896,36 +1843,14 @@ const FlashcardsApp = ({ onBack }) => {
     return false;
   });
 
-  // Reset index when filter changes
-  useEffect(() => {
-    setCurrentIndex(0);
-    setIsFlipped(false);
-  }, [filter]);
+  useEffect(() => { setCurrentIndex(0); setIsFlipped(false); }, [filter]);
 
-  const handleNext = () => {
-    setIsFlipped(false);
-    setTimeout(() => {
-      if (filteredCards.length > 0) {
-        setCurrentIndex((prev) => (prev + 1) % filteredCards.length);
-      }
-    }, 150);
-  };
-
-  const handlePrev = () => {
-    setIsFlipped(false);
-    setTimeout(() => {
-      if (filteredCards.length > 0) {
-        setCurrentIndex((prev) => (prev - 1 + filteredCards.length) % filteredCards.length);
-      }
-    }, 150);
-  };
-
+  const handleNext = () => { setIsFlipped(false); setTimeout(() => { if (filteredCards.length > 0) setCurrentIndex((prev) => (prev + 1) % filteredCards.length); }, 150); };
+  const handlePrev = () => { setIsFlipped(false); setTimeout(() => { if (filteredCards.length > 0) setCurrentIndex((prev) => (prev - 1 + filteredCards.length) % filteredCards.length); }, 150); };
   const handleStatus = (status) => {
     if (filteredCards.length > 0) {
-      const currentCard = filteredCards[currentIndex];
-      updateFcStatus(currentCard.id, status);
-      setFcProgress(getFcProgress()); // Refresh local state
-      handleNext();
+      updateFcStatus(filteredCards[currentIndex].id, status);
+      setFcProgress(getFcProgress()); handleNext();
     }
   };
 
@@ -1933,95 +1858,45 @@ const FlashcardsApp = ({ onBack }) => {
     <div className="max-w-3xl mx-auto animate-fade-in pb-12">
       <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
-            <Layers className="text-indigo-600" /> Grammar & Vocab Flashcards
-          </h2>
+          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2"><Layers className="text-indigo-600" /> Grammar & Vocab Flashcards</h2>
           <p className="text-slate-500 mt-1">Review key expressions and structures from past exams.</p>
         </div>
-        <button 
-          onClick={onBack} 
-          className="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors"
-        >
-          Back to Dashboard
-        </button>
+        <button onClick={onBack} className="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors">Back to Dashboard</button>
       </div>
-
-      {/* TABS FOR CATEGORIES */}
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
         {['All Words', 'New', 'Learning', 'Mastered'].map(tab => (
-          <button 
-            key={tab}
-            onClick={() => setFilter(tab)} 
-            className={`px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-colors ${filter === tab ? 'bg-indigo-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
-          >
-            {tab}
-          </button>
+          <button key={tab} onClick={() => setFilter(tab)} className={`px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-colors ${filter === tab ? 'bg-indigo-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}>{tab}</button>
         ))}
       </div>
-
       {filteredCards.length === 0 ? (
-        <div className="bg-slate-50 p-12 rounded-3xl border border-slate-200 text-center flex flex-col items-center">
-          <Award size={48} className="text-slate-300 mb-4" />
-          <h3 className="text-xl font-bold text-slate-700">No cards here yet!</h3>
-          <p className="text-slate-500 mt-2">Change your category tab to find more cards to review.</p>
-        </div>
+        <div className="bg-slate-50 p-12 rounded-3xl border border-slate-200 text-center flex flex-col items-center"><Award size={48} className="text-slate-300 mb-4" /><h3 className="text-xl font-bold text-slate-700">No cards here yet!</h3></div>
       ) : (
         <div className="flex flex-col items-center">
-          <div 
-            className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" 
-            onClick={() => setIsFlipped(!isFlipped)}
-          >
+          <div className="relative w-full max-w-lg h-80 perspective-1000 cursor-pointer group" onClick={() => setIsFlipped(!isFlipped)}>
              <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-                
                 <div className="absolute inset-0 w-full h-full bg-white rounded-3xl shadow-lg border border-slate-100 backface-hidden flex flex-col items-center justify-center p-8 text-center group-hover:shadow-xl transition-shadow">
-                   <span className="px-3 py-1 bg-indigo-50 text-indigo-600 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">
-                     {filteredCards[currentIndex]?.category}
-                   </span>
+                   <span className="px-3 py-1 bg-indigo-50 text-indigo-600 font-semibold text-xs rounded-full uppercase tracking-wider mb-6">{filteredCards[currentIndex]?.category}</span>
                    <h2 className="text-4xl md:text-5xl font-bold text-slate-800">{filteredCards[currentIndex]?.term}</h2>
-                   <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm">
-                     <ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/>
-                   </div>
+                   <div className="absolute bottom-6 flex items-center gap-2 text-slate-400 text-sm"><ArrowRight size={16}/> Click to reveal meaning <ArrowLeft size={16}/></div>
                 </div>
-
                 <div className="absolute inset-0 w-full h-full bg-indigo-600 rounded-3xl shadow-lg border border-indigo-700 backface-hidden flex flex-col items-center justify-center p-8 text-center rotate-y-180 text-white">
-                   <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">
-                     "{filteredCards[currentIndex]?.context}"
-                   </p>
-                   <div className="bg-indigo-900/40 px-5 py-3 rounded-xl backdrop-blur-sm border border-indigo-500/30">
-                     <p className="text-sm text-indigo-100 font-medium flex items-center gap-2">
-                       <AlertCircle size={16}/> {filteredCards[currentIndex]?.grammar}
-                     </p>
-                   </div>
+                   <p className="text-xl md:text-2xl font-medium leading-relaxed mb-8">"{filteredCards[currentIndex]?.context}"</p>
+                   <div className="bg-indigo-900/40 px-5 py-3 rounded-xl backdrop-blur-sm border border-indigo-500/30"><p className="text-sm text-indigo-100 font-medium flex items-center gap-2"><AlertCircle size={16}/> {filteredCards[currentIndex]?.grammar}</p></div>
                 </div>
-
              </div>
           </div>
-
           <div className="h-16 flex items-center justify-center w-full mt-6 mb-2">
              {isFlipped ? (
                <div className="flex gap-4 animate-fade-in">
-                 <button onClick={(e) => { e.stopPropagation(); handleStatus('learning'); }} className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
-                    <span className="text-xl">🔄</span> Still Learning
-                 </button>
-                 <button onClick={(e) => { e.stopPropagation(); handleStatus('mastered'); }} className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 transition-transform transform hover:scale-105">
-                    <span className="text-xl">✅</span> I got it.
-                 </button>
+                 <button onClick={(e) => { e.stopPropagation(); handleStatus('learning'); }} className="px-6 py-3 bg-amber-500 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 hover:scale-105"><span className="text-xl">🔄</span> Still Learning</button>
+                 <button onClick={(e) => { e.stopPropagation(); handleStatus('mastered'); }} className="px-6 py-3 bg-green-500 text-white font-bold rounded-xl shadow-sm flex items-center gap-2 hover:scale-105"><span className="text-xl">✅</span> I got it.</button>
                </div>
-             ) : (
-               <p className="text-slate-400 text-sm font-medium animate-pulse">Click the card to reveal the meaning!</p>
-             )}
+             ) : <p className="text-slate-400 text-sm font-medium animate-pulse">Click the card to reveal the meaning!</p>}
           </div>
-
           <div className="flex items-center gap-6 mt-4">
-            <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
-              <ArrowLeft size={24} />
-            </button>
-            <span className="font-semibold text-slate-500">
-              {currentIndex + 1} / {filteredCards.length}
-            </span>
-            <button onClick={handleNext} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 hover:text-indigo-600">
-              <ArrowRight size={24} />
-            </button>
+            <button onClick={handlePrev} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-indigo-600"><ArrowLeft size={24} /></button>
+            <span className="font-semibold text-slate-500">{currentIndex + 1} / {filteredCards.length}</span>
+            <button onClick={handleNext} className="p-4 bg-white rounded-full shadow-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-indigo-600"><ArrowRight size={24} /></button>
           </div>
         </div>
       )}
@@ -2029,50 +1904,26 @@ const FlashcardsApp = ({ onBack }) => {
   );
 };
 
-const SpeakingApp = ({ onBack }) => {
-  return (
-    <div className="max-w-4xl mx-auto animate-fade-in pb-12">
-      <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
-        <div>
-          <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
-            <Mic className="text-purple-600" /> Speaking Practice
-          </h2>
-          <p className="text-slate-500 mt-1">Choose a speaking module to practice.</p>
-        </div>
-        <button 
-          onClick={onBack} 
-          className="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors"
-        >
-          Back to Dashboard
-        </button>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        <a href="https://docs.craft.do/editor/d/9afedc20-1f48-2a8b-e75f-adf59f3c88d9/83ED2C00-2D1D-41AF-86B9-E1D6800F6D34?s=X8KZSkgzyEDCT4Vy5XgyoCvS1biwoFiYNCWsR1qSCmJM" target="_blank" rel="noopener noreferrer" className="group bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-purple-400 hover:shadow-xl transition-all text-center flex flex-col items-center">
-          <div className="w-20 h-20 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <Camera size={40} />
-          </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-3">Picture Description</h3>
-          <p className="text-slate-500 mb-8 leading-relaxed">Practice talking about images, comparing, and contrasting to build fluency.</p>
-          <span className="w-full py-4 bg-purple-50 text-purple-700 font-semibold rounded-xl flex items-center justify-center gap-2 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-            Open Material <ExternalLink size={18}/>
-          </span>
-        </a>
-
-        <a href="https://docs.craft.do/editor/d/9afedc20-1f48-2a8b-e75f-adf59f3c88d9/23B560C4-FC01-411D-BDFA-B5AFFEA20668?s=VqRDRqX4mT1JWseirwnUuqVHbBbsycw9SyFTUgTC8nBG" target="_blank" rel="noopener noreferrer" className="group bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-pink-400 hover:shadow-xl transition-all text-center flex flex-col items-center">
-          <div className="w-20 h-20 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-            <MessageSquare size={40} />
-          </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-3">Role Play</h3>
-          <p className="text-slate-500 mb-8 leading-relaxed">Simulate real-life conversations and everyday situations with interactive scripts.</p>
-          <span className="w-full py-4 bg-pink-50 text-pink-700 font-semibold rounded-xl flex items-center justify-center gap-2 group-hover:bg-pink-600 group-hover:text-white transition-colors">
-            Open Material <ExternalLink size={18}/>
-          </span>
-        </a>
-      </div>
+const SpeakingApp = ({ onBack }) => (
+  <div className="max-w-4xl mx-auto animate-fade-in pb-12">
+    <div className="flex items-center justify-between mb-8 border-b border-slate-200 pb-4">
+      <div><h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2"><Mic className="text-purple-600" /> Speaking Practice</h2><p className="text-slate-500 mt-1">Choose a speaking module to practice.</p></div>
+      <button onClick={onBack} className="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors">Back to Dashboard</button>
     </div>
-  );
-};
+    <div className="grid md:grid-cols-2 gap-8">
+      <a href="https://docs.craft.do/editor/d/9afedc20-1f48-2a8b-e75f-adf59f3c88d9/83ED2C00-2D1D-41AF-86B9-E1D6800F6D34" target="_blank" rel="noopener noreferrer" className="group bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-purple-400 hover:shadow-xl transition-all text-center flex flex-col items-center">
+        <div className="w-20 h-20 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><Camera size={40} /></div>
+        <h3 className="text-2xl font-bold text-slate-800 mb-3">Picture Description</h3><p className="text-slate-500 mb-8 leading-relaxed">Practice talking about images, comparing, and contrasting to build fluency.</p>
+        <span className="w-full py-4 bg-purple-50 text-purple-700 font-semibold rounded-xl flex items-center justify-center gap-2 group-hover:bg-purple-600 group-hover:text-white transition-colors">Open Material <ExternalLink size={18}/></span>
+      </a>
+      <a href="https://docs.craft.do/editor/d/9afedc20-1f48-2a8b-e75f-adf59f3c88d9/23B560C4-FC01-411D-BDFA-B5AFFEA20668" target="_blank" rel="noopener noreferrer" className="group bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-pink-400 hover:shadow-xl transition-all text-center flex flex-col items-center">
+        <div className="w-20 h-20 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"><MessageSquare size={40} /></div>
+        <h3 className="text-2xl font-bold text-slate-800 mb-3">Role Play</h3><p className="text-slate-500 mb-8 leading-relaxed">Simulate real-life conversations and everyday situations with interactive scripts.</p>
+        <span className="w-full py-4 bg-pink-50 text-pink-700 font-semibold rounded-xl flex items-center justify-center gap-2 group-hover:bg-pink-600 group-hover:text-white transition-colors">Open Material <ExternalLink size={18}/></span>
+      </a>
+    </div>
+  </div>
+);
 
 const DailySummary = ({ day, scores, onFinish }) => {
   const safeReadingScore = Number(scores?.reading?.score) || 0;
@@ -2081,48 +1932,30 @@ const DailySummary = ({ day, scores, onFinish }) => {
   const safeUoeTotal = Number(scores?.useOfEnglish?.total) || 0;
   const safeListScore = Number(scores?.listening?.score) || 0;
   const safeListTotal = Number(scores?.listening?.total) || 0;
-
   const totalScore = safeReadingScore + safeUoeScore + safeListScore;
   const totalQuestions = safeReadingTotal + safeUoeTotal + safeListTotal;
   const percentage = totalQuestions === 0 ? 0 : Math.round((totalScore / totalQuestions) * 100);
 
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 shadow-sm border border-slate-100 animate-fade-in text-center">
-      <div className="inline-flex items-center justify-center w-24 h-24 bg-red-100 text-red-600 rounded-full mb-6 shadow-inner">
-        <Award size={48} />
-      </div>
+      <div className="inline-flex items-center justify-center w-24 h-24 bg-red-100 text-red-600 rounded-full mb-6 shadow-inner"><Award size={48} /></div>
       <h2 className="text-4xl font-black text-slate-800 mb-2">Day {day} Completed!</h2>
       <p className="text-xl text-slate-600 mb-8">Fantastic effort. Here is your daily breakdown:</p>
-
       <div className="grid sm:grid-cols-3 gap-4 mb-10">
         <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-          <BookOpen className="mx-auto text-red-500 mb-3" size={28}/>
-          <p className="text-sm text-red-600 font-bold uppercase tracking-wider mb-1">Reading</p>
-          <p className="text-3xl font-black text-red-800">{safeReadingScore}<span className="text-lg text-red-500">/{safeReadingTotal}</span></p>
+          <BookOpen className="mx-auto text-red-500 mb-3" size={28}/><p className="text-sm text-red-600 font-bold uppercase tracking-wider mb-1">Reading</p><p className="text-3xl font-black text-red-800">{safeReadingScore}<span className="text-lg text-red-500">/{safeReadingTotal}</span></p>
         </div>
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-          <Edit3 className="mx-auto text-blue-500 mb-3" size={28}/>
-          <p className="text-sm text-blue-600 font-bold uppercase tracking-wider mb-1">English</p>
-          <p className="text-3xl font-black text-blue-800">{safeUoeScore}<span className="text-lg text-blue-500">/{safeUoeTotal}</span></p>
+          <Edit3 className="mx-auto text-blue-500 mb-3" size={28}/><p className="text-sm text-blue-600 font-bold uppercase tracking-wider mb-1">English</p><p className="text-3xl font-black text-blue-800">{safeUoeScore}<span className="text-lg text-blue-500">/{safeUoeTotal}</span></p>
         </div>
         <div className="bg-green-50 p-6 rounded-xl border border-green-100">
-          <Headphones className="mx-auto text-green-500 mb-3" size={28}/>
-          <p className="text-sm text-green-600 font-bold uppercase tracking-wider mb-1">Listening</p>
-          <p className="text-3xl font-black text-green-800">{safeListScore}<span className="text-lg text-green-500">/{safeListTotal}</span></p>
+          <Headphones className="mx-auto text-green-500 mb-3" size={28}/><p className="text-sm text-green-600 font-bold uppercase tracking-wider mb-1">Listening</p><p className="text-3xl font-black text-green-800">{safeListScore}<span className="text-lg text-green-500">/{safeListTotal}</span></p>
         </div>
       </div>
-
       <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-10">
-        <p className="text-slate-500 font-medium uppercase tracking-widest text-sm mb-2">Total Daily Accuracy</p>
-        <p className="text-5xl font-black text-slate-800">{percentage}%</p>
+        <p className="text-slate-500 font-medium uppercase tracking-widest text-sm mb-2">Total Daily Accuracy</p><p className="text-5xl font-black text-slate-800">{percentage}%</p>
       </div>
-
-      <button 
-        onClick={onFinish}
-        className="px-8 py-4 bg-slate-800 text-white text-lg font-bold rounded-xl hover:bg-slate-900 transition-colors shadow-lg flex items-center justify-center gap-2 mx-auto"
-      >
-        <ArrowLeft size={24} /> Return to Dashboard
-      </button>
+      <button onClick={onFinish} className="px-8 py-4 bg-slate-800 text-white text-lg font-bold rounded-xl hover:bg-slate-900 transition-colors shadow-lg flex items-center justify-center gap-2 mx-auto"><ArrowLeft size={24} /> Return to Dashboard</button>
     </div>
   );
 };
@@ -2132,17 +1965,13 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
   const [scores, setScores] = useState({ reading: null, useOfEnglish: null, listening: null });
 
   const safeDay = Number(day) || 1;
-  
-  // Exactly ONE test of each type per day!
   const readingTask = tasksDatabase.reading[(safeDay - 1) % tasksDatabase.reading.length];
   const uoeTask = tasksDatabase.useOfEnglish[(safeDay - 1) % tasksDatabase.useOfEnglish.length];
   const listeningTask = tasksDatabase.listening[(safeDay - 1) % tasksDatabase.listening.length];
   
   const startIndex = ((safeDay - 1) * 20) % flashcardsData.length;
   const dayFlashcards = [];
-  for (let i = 0; i < 20; i++) {
-     dayFlashcards.push(flashcardsData[(startIndex + i) % flashcardsData.length]);
-  }
+  for (let i = 0; i < 20; i++) { dayFlashcards.push(flashcardsData[(startIndex + i) % flashcardsData.length]); }
 
   const handleStepComplete = (score, total, taskType) => {
     setScores(prev => ({ ...prev, [taskType]: { score: Number(score) || 0, total: Number(total) || 0 } }));
@@ -2154,95 +1983,35 @@ const DailySetRunner = ({ day, audioMap, onCompleteDay, onCancel }) => {
 
   return (
     <div className="max-w-4xl mx-auto pb-12 animate-fade-in">
-      
       <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 sticky top-20 z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-black shadow-inner">
-            {safeDay}
-          </div>
-          <div>
-            <h2 className="font-bold text-slate-800">Daily Challenge Set</h2>
-            <p className="text-xs text-slate-500">Complete all 4 steps</p>
-          </div>
+          <div className="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-black shadow-inner">{safeDay}</div>
+          <div><h2 className="font-bold text-slate-800">Daily Challenge Set</h2><p className="text-xs text-slate-500">Complete all 4 steps</p></div>
         </div>
-
         <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-400 bg-slate-50 px-4 py-2 rounded-xl border border-slate-100 overflow-x-auto w-full md:w-auto">
-          <span className={step === 'reading' ? 'text-red-600' : (scores.reading ? 'text-green-500' : '')}>1. Reading</span>
-          <ArrowRight size={14}/>
-          <span className={step === 'useOfEnglish' ? 'text-blue-600' : (scores.useOfEnglish ? 'text-green-500' : '')}>2. English</span>
-          <ArrowRight size={14}/>
-          <span className={step === 'listening' ? 'text-green-600' : (scores.listening ? 'text-green-500' : '')}>3. Listening</span>
-          <ArrowRight size={14}/>
+          <span className={step === 'reading' ? 'text-red-600' : (scores.reading ? 'text-green-500' : '')}>1. Reading</span><ArrowRight size={14}/>
+          <span className={step === 'useOfEnglish' ? 'text-blue-600' : (scores.useOfEnglish ? 'text-green-500' : '')}>2. English</span><ArrowRight size={14}/>
+          <span className={step === 'listening' ? 'text-green-600' : (scores.listening ? 'text-green-500' : '')}>3. Listening</span><ArrowRight size={14}/>
           <span className={step === 'flashcards' ? 'text-indigo-600' : ''}>4. Flashcards</span>
         </div>
-
         <button onClick={onCancel} className="text-xs text-slate-500 hover:text-slate-800 underline">Cancel Set</button>
       </div>
 
-      {step === 'reading' && (
-        <TaskRunner 
-          key={`d${safeDay}-reading`}
-          taskType="reading" 
-          taskData={readingTask}
-          audioMap={audioMap}
-          onComplete={handleStepComplete}
-          onSkip={() => handleStepComplete(0, readingTask.questions ? readingTask.questions.length : 0, 'reading')}
-          isDailySet={true}
-        />
-      )}
-      
-      {step === 'useOfEnglish' && (
-        <TaskRunner 
-          key={`d${safeDay}-uoe`}
-          taskType="useOfEnglish" 
-          taskData={uoeTask}
-          audioMap={audioMap}
-          onComplete={handleStepComplete}
-          onSkip={() => handleStepComplete(0, uoeTask.questions ? uoeTask.questions.length : 0, 'useOfEnglish')}
-          isDailySet={true}
-        />
-      )}
-
-      {step === 'listening' && (
-        <TaskRunner 
-          key={`d${safeDay}-list`}
-          taskType="listening" 
-          taskData={listeningTask}
-          audioMap={audioMap}
-          onComplete={handleStepComplete}
-          onSkip={() => handleStepComplete(0, listeningTask.questions ? listeningTask.questions.length : 0, 'listening')}
-          isDailySet={true}
-        />
-      )}
-
-      {step === 'flashcards' && (
-        <DailyFlashcards 
-          cards={dayFlashcards} 
-          onFinish={() => setStep('summary')} 
-        />
-      )}
-
-      {step === 'summary' && (
-        <DailySummary 
-          day={safeDay} 
-          scores={scores} 
-          onFinish={() => onCompleteDay(safeDay, scores)} 
-        />
-      )}
-
+      {step === 'reading' && <TaskRunner key={`d${safeDay}-reading`} taskType="reading" taskData={readingTask} audioMap={audioMap} onComplete={handleStepComplete} onSkip={() => handleStepComplete(0, readingTask.questions ? readingTask.questions.length : 0, 'reading')} isDailySet={true} />}
+      {step === 'useOfEnglish' && <TaskRunner key={`d${safeDay}-uoe`} taskType="useOfEnglish" taskData={uoeTask} audioMap={audioMap} onComplete={handleStepComplete} onSkip={() => handleStepComplete(0, uoeTask.questions ? uoeTask.questions.length : 0, 'useOfEnglish')} isDailySet={true} />}
+      {step === 'listening' && <TaskRunner key={`d${safeDay}-list`} taskType="listening" taskData={listeningTask} audioMap={audioMap} onComplete={handleStepComplete} onSkip={() => handleStepComplete(0, listeningTask.questions ? listeningTask.questions.length : 0, 'listening')} isDailySet={true} />}
+      {step === 'flashcards' && <DailyFlashcards cards={dayFlashcards} onFinish={() => setStep('summary')} />}
+      {step === 'summary' && <DailySummary day={safeDay} scores={scores} onFinish={() => onCompleteDay(safeDay, scores)} />}
     </div>
   );
 };
-
 
 const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailySet = false }) => {
   const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
 
-  const handleInputChange = (qId, value) => {
-    setAnswers(prev => ({ ...prev, [qId]: value }));
-  };
+  const handleInputChange = (qId, value) => setAnswers(prev => ({ ...prev, [qId]: value }));
 
   const checkAnswers = () => {
     let currentScore = 0;
@@ -2250,10 +2019,7 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
       taskData.questions.forEach(q => {
         const userAnswer = (answers[q.id] || '').trim().toLowerCase();
         const correctAnswer = q.type === 'mc' ? (q.correct || '').trim().toLowerCase() : (q.answer || q.correct || '').trim().toLowerCase();
-        
-        if (userAnswer === correctAnswer) {
-          currentScore += 1;
-        }
+        if (userAnswer === correctAnswer) currentScore += 1;
       });
     }
     setScore(currentScore);
@@ -2275,28 +2041,17 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
             <div className="space-y-2">
               {q.options && q.options.map(opt => (
                 <label key={opt} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${userAnswer === opt ? 'border-blue-500 bg-blue-50' : 'border-slate-100 hover:bg-slate-50 bg-white'}`}>
-                  <input
-                    type="radio"
-                    name={q.id}
-                    value={opt}
-                    checked={userAnswer === opt}
-                    onChange={(e) => handleInputChange(q.id, e.target.value)}
-                    disabled={isSubmitted}
-                    className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
-                  />
+                  <input type="radio" name={q.id} value={opt} checked={userAnswer === opt} onChange={(e) => handleInputChange(q.id, e.target.value)} disabled={isSubmitted} className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500" />
                   <span className="text-slate-700">{opt}</span>
                 </label>
               ))}
             </div>
-            
             {showFeedback && (
               <div className="mt-4 pt-4 border-t border-slate-200/50">
                 <div className="flex items-start gap-2">
                   {isCorrect ? <CheckCircle className="text-green-600 mt-1" size={20}/> : <XCircle className="text-red-600 mt-1" size={20}/>}
                   <div>
-                    <p className={`font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>
-                      {isCorrect ? 'Correct!' : `Incorrect. The right answer is: ${q.correct}`}
-                    </p>
+                    <p className={`font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>{isCorrect ? 'Correct!' : `Incorrect. The right answer is: ${q.correct}`}</p>
                     <p className="text-slate-600 text-sm mt-1">{q.explanation}</p>
                     <div className="mt-3 bg-blue-50 p-3 rounded-lg border border-blue-100 flex items-start gap-2">
                        <MessageCircle size={16} className="text-blue-500 mt-0.5 flex-shrink-0"/>
@@ -2317,45 +2072,30 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
       {taskData.textParts && taskData.textParts.map((part, index) => {
         const q = taskData.questions && taskData.questions[index];
         if (!q) return <span key={`part-${index}`}>{part}</span>;
-        
         const userAnswer = answers[q.id] || '';
         const isCorrect = isSubmitted && (userAnswer || '').trim().toLowerCase() === (q.answer || '').trim().toLowerCase();
-        const showFeedback = isSubmitted;
-
+        
         return (
           <React.Fragment key={`frag-${index}`}>
             <span>{part}</span>
             <span className="inline-block mx-1 relative group">
-              <input
-                type="text"
-                value={userAnswer}
-                onChange={(e) => handleInputChange(q.id, e.target.value)}
-                disabled={isSubmitted}
-                className={`w-32 px-2 py-1 text-center font-semibold rounded-md border-b-2 outline-none transition-colors
-                  ${showFeedback ? 
-                    (isCorrect ? 'border-green-500 text-green-700 bg-green-50' : 'border-red-500 text-red-700 bg-red-50') 
-                    : 'border-slate-300 focus:border-blue-500 bg-slate-50'}`}
-                placeholder={`(${index + 1})`}
-              />
+              <input type="text" value={userAnswer} onChange={(e) => handleInputChange(q.id, e.target.value)} disabled={isSubmitted} className={`w-32 px-2 py-1 text-center font-semibold rounded-md border-b-2 outline-none transition-colors ${isSubmitted ? (isCorrect ? 'border-green-500 text-green-700 bg-green-50' : 'border-red-500 text-red-700 bg-red-50') : 'border-slate-300 focus:border-blue-500 bg-slate-50'}`} placeholder={`(${index + 1})`} />
             </span>
           </React.Fragment>
         );
       })}
-      
       {isSubmitted && taskData.questions && (
         <div className="mt-8 space-y-4">
           <h3 className="font-bold text-slate-800 text-xl border-b pb-2">Teacher's Feedback</h3>
           {taskData.questions.map((q, idx) => {
-            const userAnswer = answers[q.id]?.trim().toLowerCase() || '';
+            const userAnswer = (answers[q.id] || '').trim().toLowerCase();
             const isCorrect = userAnswer === q.answer.toLowerCase();
             return (
               <div key={q.id} className={`p-4 rounded-xl border ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
                 <div className="flex items-start gap-3">
                   <span className="font-bold text-slate-500">({idx + 1})</span>
                   <div>
-                    <p className={`font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>
-                      {isCorrect ? `Correct! "${q.answer}"` : `Incorrect. You wrote "${userAnswer || '-'}". The correct word is "${q.answer}".`}
-                    </p>
+                    <p className={`font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>{isCorrect ? `Correct! "${q.answer}"` : `Incorrect. You wrote "${userAnswer || '-'}". The correct word is "${q.answer}".`}</p>
                     <p className="text-slate-600 text-sm mt-1">{q.explanation}</p>
                     <p className="text-blue-700 text-sm mt-2 italic flex items-center gap-1"><AlertCircle size={14}/> {q.tip}</p>
                   </div>
@@ -2372,71 +2112,30 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
     <div className={`max-w-4xl mx-auto space-y-6 animate-fade-in ${!isDailySet ? 'pb-12' : ''}`}>
       <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
         <div className="flex justify-between items-start mb-6 border-b border-slate-100 pb-4">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-800">{taskType === 'listening' ? 'Listening: ' + taskData.title : taskData.title}</h2>
-            <p className="text-slate-500 mt-2">{taskData.instructions}</p>
-          </div>
+          <div><h2 className="text-2xl font-bold text-slate-800">{taskType === 'listening' ? 'Listening: ' + taskData.title : taskData.title}</h2><p className="text-slate-500 mt-2">{taskData.instructions}</p></div>
         </div>
-
-        {taskType === 'reading' && (
-          <div className="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200 text-slate-700 leading-relaxed text-lg whitespace-pre-line shadow-inner">
-            {taskData.text}
-          </div>
-        )}
-
+        {taskType === 'reading' && <div className="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200 text-slate-700 leading-relaxed text-lg whitespace-pre-line shadow-inner">{taskData.text}</div>}
         {taskType === 'listening' && (
           <div className="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner">
             <div className="flex items-center gap-4 mb-4 p-4 bg-white rounded-lg border border-slate-200">
-              <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <Headphones size={24} />
-              </div>
+              <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center flex-shrink-0"><Headphones size={24} /></div>
               <div className="flex-1 overflow-hidden">
-                <p className="font-semibold text-slate-800 flex flex-wrap items-center gap-2">
-                  Audio Track: {taskData.title}
-                  {audioMap && audioMap[taskData.id] && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full border border-green-200 whitespace-nowrap">Custom URL Linked</span>}
-                </p>
+                <p className="font-semibold text-slate-800 flex flex-wrap items-center gap-2">Audio Track: {taskData.title} {audioMap && audioMap[taskData.id] && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full border border-green-200 whitespace-nowrap">Custom URL Linked</span>}</p>
                 <CustomAudioPlayer src={audioMap ? audioMap[taskData.id] : undefined} />
               </div>
             </div>
-            <div className="mt-4 p-4 border border-amber-200 bg-amber-50 rounded-lg">
-               <p className="text-sm text-amber-800 font-medium flex items-center gap-2 mb-2">
-                 <AlertCircle size={16}/> Simulated Transcript Feature
-               </p>
-               <p className="text-slate-700 italic text-sm whitespace-pre-line border-l-4 border-amber-300 pl-4 py-2">
-                 {taskData.transcript}
-               </p>
-            </div>
           </div>
         )}
-
         {taskType === 'useOfEnglish' ? renderUseOfEnglishTask() : renderReadingOrListeningTask()}
-
         {!isSubmitted ? (
           <div className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <button
-              onClick={onSkip}
-              className="px-6 py-3 text-slate-600 font-medium rounded-xl hover:bg-slate-100 transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
-            >
-              Skip {isDailySet ? 'Section' : 'Exercise'} <ArrowRight size={18} />
-            </button>
-            <button 
-              onClick={checkAnswers}
-              className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-md flex items-center gap-2 w-full sm:w-auto justify-center"
-            >
-              <CheckCircle size={20} /> Check My Answers
-            </button>
+            <button onClick={onSkip} className="px-6 py-3 text-slate-600 font-medium rounded-xl hover:bg-slate-100 transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">Skip {isDailySet ? 'Section' : 'Exercise'} <ArrowRight size={18} /></button>
+            <button onClick={checkAnswers} className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-md flex items-center gap-2 w-full sm:w-auto justify-center"><CheckCircle size={20} /> Check My Answers</button>
           </div>
         ) : (
           <div className="mt-8 flex justify-between items-center bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <div className="text-lg font-bold text-slate-800">
-              Score: {score} / {taskData.questions ? taskData.questions.length : 0}
-            </div>
-            <button 
-              onClick={() => onComplete(score, taskData.questions ? taskData.questions.length : 0, taskType)}
-              className="px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
-            >
-              {isDailySet ? 'Next Section →' : 'Finish Review & See Summary'}
-            </button>
+            <div className="text-lg font-bold text-slate-800">Score: {score} / {taskData.questions ? taskData.questions.length : 0}</div>
+            <button onClick={() => onComplete(score, taskData.questions ? taskData.questions.length : 0, taskType)} className="px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors">{isDailySet ? 'Next Section →' : 'Finish Review & See Summary'}</button>
           </div>
         )}
       </div>
@@ -2446,68 +2145,116 @@ const TaskRunner = ({ taskType, taskData, audioMap, onComplete, onSkip, isDailyS
 
 const TaskSummary = ({ score, total, taskType, onHome, onNextTask }) => {
   const percentage = total === 0 ? 0 : (score / total) * 100;
-  
   const getFeedback = () => {
-    if (taskType === 'reading') {
-      return {
-        pros: ["You read the text carefully before answering.", "You demonstrated good understanding of the main ideas."],
-        next: ["Practise finding specific synonyms in texts.", "Try scanning for detailed information faster."],
-        suggestion: "Let's try a Use of English gap-fill next to test your grammar in context!"
-      };
-    } else if (taskType === 'useOfEnglish') {
-      return {
-        pros: ["You attempted all the gaps without giving up.", "You have a good feeling for sentence structure."],
-        next: ["Review common phrasal verbs (like give away, come out).", "Pay attention to fixed collocations."],
-        suggestion: "Next time, let's do a Reading task to see how vocabulary works in a longer text."
-      };
-    } else {
-      return {
-        pros: ["You extracted specific details from the audio/text.", "You handled the tricky options well."],
-        next: ["Watch out for negative words that change meaning.", "Listen carefully to the first sentence of a response."],
-        suggestion: "Let's move on to Use of English to practice word formation."
-      };
-    }
+    if (taskType === 'reading') return { pros: ["You read the text carefully before answering.", "You demonstrated good understanding of the main ideas."], next: ["Practise finding specific synonyms in texts.", "Try scanning for detailed information faster."], suggestion: "Let's try a Use of English gap-fill next to test your grammar in context!" };
+    if (taskType === 'useOfEnglish') return { pros: ["You attempted all the gaps without giving up.", "You have a good feeling for sentence structure."], next: ["Review common phrasal verbs.", "Pay attention to fixed collocations."], suggestion: "Next time, let's do a Reading task to see how vocabulary works in a longer text." };
+    return { pros: ["You extracted specific details from the audio.", "You handled the tricky options well."], next: ["Watch out for negative words.", "Listen carefully to the first sentence of a response."], suggestion: "Let's move on to Use of English to practice word formation." };
   };
-
   const feedback = getFeedback();
 
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 shadow-sm border border-slate-100 animate-fade-in">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-100 text-yellow-600 rounded-full mb-4">
-          <Award size={40} />
-        </div>
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-100 text-yellow-600 rounded-full mb-4"><Award size={40} /></div>
         <h2 className="text-3xl font-bold text-slate-800">Session Complete!</h2>
         <p className="text-xl text-slate-600 mt-2">You scored <span className="font-bold text-blue-600">{score}</span> out of <span className="font-bold">{total}</span> ({percentage.toFixed(0)}%)</p>
       </div>
-
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <div className="bg-green-50 p-6 rounded-xl border border-green-100">
           <h3 className="font-semibold text-green-800 mb-3 flex items-center gap-2"><CheckCircle size={18}/> Things you did well:</h3>
-          <ul className="list-disc list-inside text-green-700 space-y-1 text-sm">
-            {feedback.pros.map((pro, i) => <li key={i}>{pro}</li>)}
-          </ul>
+          <ul className="list-disc list-inside text-green-700 space-y-1 text-sm">{feedback.pros.map((pro, i) => <li key={i}>{pro}</li>)}</ul>
         </div>
         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
           <h3 className="font-semibold text-blue-800 mb-3 flex items-center gap-2"><Edit3 size={18}/> What to practise next:</h3>
-          <ul className="list-disc list-inside text-blue-700 space-y-1 text-sm">
-            {feedback.next.map((n, i) => <li key={i}>{n}</li>)}
-          </ul>
+          <ul className="list-disc list-inside text-blue-700 space-y-1 text-sm">{feedback.next.map((n, i) => <li key={i}>{n}</li>)}</ul>
         </div>
       </div>
-
       <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center mb-8">
-        <p className="text-slate-700 font-medium">Teacher's Suggestion:</p>
-        <p className="text-slate-600 italic mt-1">"{feedback.suggestion}"</p>
+        <p className="text-slate-700 font-medium">Teacher's Suggestion:</p><p className="text-slate-600 italic mt-1">"{feedback.suggestion}"</p>
+      </div>
+      <div className="flex justify-center gap-4">
+        <button onClick={onHome} className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200 transition-colors">Back to Dashboard</button>
+        <button onClick={onNextTask} className="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 shadow-sm">Try Another Activity</button>
+      </div>
+    </div>
+  );
+};
+
+const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFlashcards, onOpenSpeaking }) => {
+  const calculatePercentage = (correct, total) => total === 0 ? 0 : Math.round((correct / total) * 100);
+
+  return (
+    <div className="max-w-4xl mx-auto animate-fade-in pb-12">
+      <ChallengeTracker completedDays={completedDays} onStartDay={onStartDay} />
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8">
+        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><BarChart2 size={22} className="text-blue-600" /> Skill Statistics</h3>
+        <div className="grid grid-cols-3 gap-4">
+          {Object.entries(progress || {}).map(([key, stats]) => {
+            const safeStats = stats || {};
+            const correct = Number(safeStats.correctAnswers) || 0;
+            const total = Number(safeStats.totalQuestions) || 0;
+            const attempts = Number(safeStats.attempts) || 0;
+
+            let bgClass = key === 'reading' ? 'bg-red-50 border-red-100' : key === 'useOfEnglish' ? 'bg-blue-50 border-blue-100' : 'bg-green-50 border-green-100';
+            let titleClass = key === 'reading' ? 'text-red-600' : key === 'useOfEnglish' ? 'text-blue-600' : 'text-green-600';
+            let valueClass = key === 'reading' ? 'text-red-800' : key === 'useOfEnglish' ? 'text-blue-800' : 'text-green-800';
+            let subClass = key === 'reading' ? 'text-red-500' : key === 'useOfEnglish' ? 'text-blue-500' : 'text-green-500';
+
+            return (
+              <div key={key} className={`${bgClass} rounded-xl p-4 border flex flex-col items-center text-center transition-colors`}>
+                <div className={`text-sm font-semibold capitalize mb-1 ${titleClass}`}>{key.replace(/([A-Z])/g, ' $1').trim()}</div>
+                <div className={`text-3xl font-bold my-1 ${valueClass}`}>{calculatePercentage(correct, total)}%</div>
+                <div className={`text-xs ${subClass}`}>{correct}/{total} correct <br/> ({attempts} {attempts === 1 ? 'attempt' : 'attempts'})</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2"><Edit3 size={24} className="text-indigo-600"/> Interactive Practice</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <button onClick={() => onSelectTask('reading')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-red-300 hover:shadow-md transition-all text-left flex flex-col items-start">
+          <div className="p-3 bg-red-50 text-red-600 rounded-xl mb-3 group-hover:scale-110 transition-transform"><BookOpen size={24} /></div>
+          <h3 className="text-lg font-semibold text-slate-800 mb-1">Reading</h3><p className="text-slate-500 text-xs mb-4">Texts & multiple choice.</p>
+          <span className="text-red-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-red-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
+        </button>
+        <button onClick={() => onSelectTask('useOfEnglish')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all text-left flex flex-col items-start">
+          <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-3 group-hover:scale-110 transition-transform"><Edit3 size={24} /></div>
+          <h3 className="text-lg font-semibold text-slate-800 mb-1">English Use</h3><p className="text-slate-500 text-xs mb-4">Grammar & gap-fills.</p>
+          <span className="text-blue-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-blue-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
+        </button>
+        <button onClick={() => onSelectTask('listening')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-green-300 hover:shadow-md transition-all text-left flex flex-col items-start">
+          <div className="p-3 bg-green-50 text-green-600 rounded-xl mb-3 group-hover:scale-110 transition-transform"><Headphones size={24} /></div>
+          <h3 className="text-lg font-semibold text-slate-800 mb-1">Listening</h3><p className="text-slate-500 text-xs mb-4">Audio & comprehension.</p>
+          <span className="text-green-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-green-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
+        </button>
+        <button onClick={onOpenFlashcards} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all text-left flex flex-col items-start">
+          <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl mb-3 group-hover:scale-110 transition-transform"><Layers size={24} /></div>
+          <h3 className="text-lg font-semibold text-slate-800 mb-1">Flashcards</h3><p className="text-slate-500 text-xs mb-4">Review vocab & grammar.</p>
+          <span className="text-indigo-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-indigo-700 transition-colors">Study <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
+        </button>
       </div>
 
-      <div className="flex justify-center gap-4">
-        <button onClick={onHome} className="px-6 py-3 bg-slate-100 text-slate-700 font-medium rounded-xl hover:bg-slate-200 transition-colors">
-          Back to Dashboard
-        </button>
-        <button onClick={onNextTask} className="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm">
-          Try Another Activity
-        </button>
+      <h3 className="text-xl font-bold text-slate-800 mb-4 mt-8 flex items-center gap-2"><Mic size={24} className="text-purple-600"/> Speaking Practice</h3>
+      <div role="button" tabIndex={0} onClick={onOpenSpeaking} onKeyDown={(e) => e.key === 'Enter' && onOpenSpeaking()} className="w-full cursor-pointer group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all text-left flex items-center justify-between mb-8 border-0">
+         <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
+         <div className="flex items-center gap-4 relative z-10">
+           <div className="p-4 bg-white/20 backdrop-blur-sm text-white rounded-xl group-hover:scale-110 transition-transform shadow-sm"><Mic size={32} /></div>
+           <div><h3 className="text-xl font-bold text-white mb-1 drop-shadow-sm">Speaking Exam Prep</h3><p className="text-fuchsia-100 text-sm font-medium">Practice Picture Description and Role-Play tasks.</p></div>
+         </div>
+         <div className="text-white font-bold text-sm hidden sm:flex items-center gap-1 group-hover:text-fuchsia-100 transition-colors relative z-20">Click to Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/></div>
+      </div>
+
+      <div className="mt-12 p-6 bg-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-white shadow-lg mb-6">
+        <div className="mb-4 sm:mb-0"><h3 className="text-lg font-bold">Official Past Papers</h3><p className="text-slate-300 text-sm mt-1">Access the full archive of Hungarian Matura exams directly from the official website.</p></div>
+        <a href="https://www.oktatas.hu/kozneveles/erettsegi/feladatsorok" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition-colors flex items-center gap-2 whitespace-nowrap">Visit oktatas.hu <ExternalLink size={18}/></a>
+      </div>
+
+      <div className="p-6 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl flex flex-col md:flex-row items-center justify-between text-white shadow-lg">
+        <div className="mb-4 md:mb-0 text-center md:text-left"><h3 className="text-lg font-bold">More from English Matura with JB</h3><p className="text-blue-100 text-sm mt-1">Boost your prep with our dedicated podcast and comprehensive online course.</p></div>
+        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          <a href="https://englishmaturawithjb.org" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 whitespace-nowrap border border-white/30"><Headphones size={18}/> Listen to Podcast</a>
+          <a href="https://jbstudio.onlinecoursehost.com/courses/english-matura-guide" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white text-indigo-700 hover:bg-indigo-50 font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 whitespace-nowrap shadow-sm"><BookOpen size={18}/> View Full Course</a>
+        </div>
       </div>
     </div>
   );
@@ -2522,244 +2269,42 @@ const FeedbackWidget = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!message.trim()) return;
-
-    // Use mailto: to forward the form data directly to the specified email address
     const subject = encodeURIComponent(`[${category}] Matura Tutor Feedback`);
     const body = encodeURIComponent(message);
     window.location.href = `mailto:englishmaturawithjb@gmail.com?subject=${subject}&body=${body}`;
-
-    // Show success momentarily
     setShowSuccess(true);
-    setTimeout(() => {
-      setShowSuccess(false);
-      setIsOpen(false);
-      setMessage('');
-      setCategory('General Feedback');
-    }, 3000);
+    setTimeout(() => { setShowSuccess(false); setIsOpen(false); setMessage(''); setCategory('General Feedback'); }, 3000);
   };
 
-  if (!isOpen) {
-    return (
-      <button 
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-xl hover:bg-indigo-700 transition-transform transform hover:scale-105 z-50 flex items-center justify-center group"
-        title="Share Feedback"
-      >
-        <MessageSquare size={24} />
-      </button>
-    );
-  }
+  if (!isOpen) return (
+    <button onClick={() => setIsOpen(true)} className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-xl hover:bg-indigo-700 transition-transform transform hover:scale-105 z-50 flex items-center justify-center group" title="Share Feedback"><MessageSquare size={24} /></button>
+  );
 
   return (
     <div className="fixed bottom-6 right-6 w-[calc(100vw-3rem)] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-fade-in flex flex-col">
       <div className="bg-indigo-600 p-4 text-white flex items-center justify-between">
         <h3 className="font-bold flex items-center gap-2"><MessageSquare size={18}/> Share Feedback</h3>
-        <button onClick={() => setIsOpen(false)} className="text-indigo-200 hover:text-white transition-colors">
-          <XCircle size={20} />
-        </button>
+        <button onClick={() => setIsOpen(false)} className="text-indigo-200 hover:text-white transition-colors"><XCircle size={20} /></button>
       </div>
-      
       {showSuccess ? (
-        <div className="p-8 text-center flex flex-col items-center justify-center bg-slate-50">
-          <CheckCircle size={48} className="text-green-500 mb-4" />
-          <p className="font-bold text-slate-800 text-lg">Opening Email...</p>
-          <p className="text-slate-500 text-sm mt-1">Thank you for your feedback!</p>
-        </div>
+        <div className="p-8 text-center flex flex-col items-center justify-center bg-slate-50"><CheckCircle size={48} className="text-green-500 mb-4" /><p className="font-bold text-slate-800 text-lg">Opening Email...</p><p className="text-slate-500 text-sm mt-1">Thank you for your feedback!</p></div>
       ) : (
         <form onSubmit={handleSubmit} className="p-5 flex flex-col gap-4">
           <div>
             <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Category</label>
-            <select 
-              value={category} 
-              onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white text-slate-700 text-sm"
-            >
+            <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white text-slate-700 text-sm">
               <option value="General Feedback">General Feedback</option>
               <option value="Feature Request">Feature Request</option>
               <option value="Bug Report">Bug Report</option>
             </select>
           </div>
-          
           <div>
             <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Your Message</label>
-            <textarea 
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Tell us what's on your mind..."
-              required
-              rows={4}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white text-slate-700 text-sm resize-none"
-            ></textarea>
+            <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Tell us what's on your mind..." required rows={4} className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 bg-white text-slate-700 text-sm resize-none"></textarea>
           </div>
-          
-          <button 
-            type="submit"
-            className="w-full py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-900 transition-colors mt-2 flex justify-center items-center gap-2"
-          >
-            <MessageCircle size={18}/> Send Feedback
-          </button>
+          <button type="submit" className="w-full py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-900 transition-colors mt-2 flex justify-center items-center gap-2"><MessageCircle size={18}/> Send Feedback</button>
         </form>
       )}
-    </div>
-  );
-};
-
-const Dashboard = ({ onSelectTask, progress, completedDays, onStartDay, onOpenFlashcards, onOpenSpeaking }) => {
-  const calculatePercentage = (correct, total) => total === 0 ? 0 : Math.round((correct / total) * 100);
-
-  return (
-    <div className="max-w-4xl mx-auto animate-fade-in pb-12">
-      
-      {/* 30-Day Challenge Tracker Section */}
-      <ChallengeTracker completedDays={completedDays} onStartDay={onStartDay} />
-      
-      {/* Overall Progress Tracker Section */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8">
-        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
-          <BarChart2 size={22} className="text-blue-600" /> Skill Statistics
-        </h3>
-        <div className="grid grid-cols-3 gap-4">
-          {Object.entries(progress || {}).map(([key, stats]) => {
-            const safeStats = stats || {};
-            const correct = Number(safeStats.correctAnswers) || 0;
-            const total = Number(safeStats.totalQuestions) || 0;
-            const attempts = Number(safeStats.attempts) || 0;
-
-            let bgClass = 'bg-slate-50 border-slate-100';
-            let titleClass = 'text-slate-500';
-            let valueClass = 'text-slate-800';
-            let subClass = 'text-slate-400';
-
-            if (key === 'reading') {
-              bgClass = 'bg-red-50 border-red-100';
-              titleClass = 'text-red-600';
-              valueClass = 'text-red-800';
-              subClass = 'text-red-500';
-            } else if (key === 'useOfEnglish') {
-              bgClass = 'bg-blue-50 border-blue-100';
-              titleClass = 'text-blue-600';
-              valueClass = 'text-blue-800';
-              subClass = 'text-blue-500';
-            } else if (key === 'listening') {
-              bgClass = 'bg-green-50 border-green-100';
-              titleClass = 'text-green-600';
-              valueClass = 'text-green-800';
-              subClass = 'text-green-500';
-            }
-
-            return (
-              <div key={key} className={`${bgClass} rounded-xl p-4 border flex flex-col items-center text-center transition-colors`}>
-                <div className={`text-sm font-semibold capitalize mb-1 ${titleClass}`}>
-                  {key.replace(/([A-Z])/g, ' $1').trim()}
-                </div>
-                <div className={`text-3xl font-bold my-1 ${valueClass}`}>
-                  {calculatePercentage(correct, total)}%
-                </div>
-                <div className={`text-xs ${subClass}`}>
-                  {correct}/{total} correct <br/> ({attempts} {attempts === 1 ? 'attempt' : 'attempts'})
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Interactive Practice Section */}
-      <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-        <Edit3 size={24} className="text-indigo-600"/> Interactive Practice
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <button onClick={() => onSelectTask('reading')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-red-300 hover:shadow-md transition-all text-left flex flex-col items-start">
-          <div className="p-3 bg-red-50 text-red-600 rounded-xl mb-3 group-hover:scale-110 transition-transform">
-            <BookOpen size={24} />
-          </div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-1">Reading</h3>
-          <p className="text-slate-500 text-xs mb-4">Texts & multiple choice.</p>
-          <span className="text-red-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-red-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
-        </button>
-
-        <button onClick={() => onSelectTask('useOfEnglish')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all text-left flex flex-col items-start">
-          <div className="p-3 bg-blue-50 text-blue-600 rounded-xl mb-3 group-hover:scale-110 transition-transform">
-            <Edit3 size={24} />
-          </div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-1">English Use</h3>
-          <p className="text-slate-500 text-xs mb-4">Grammar & gap-fills.</p>
-          <span className="text-blue-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-blue-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
-        </button>
-
-        <button onClick={() => onSelectTask('listening')} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-green-300 hover:shadow-md transition-all text-left flex flex-col items-start">
-          <div className="p-3 bg-green-50 text-green-600 rounded-xl mb-3 group-hover:scale-110 transition-transform">
-            <Headphones size={24} />
-          </div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-1">Listening</h3>
-          <p className="text-slate-500 text-xs mb-4">Audio & comprehension.</p>
-          <span className="text-green-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-green-700 transition-colors">Start <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
-        </button>
-
-        <button onClick={onOpenFlashcards} className="group bg-white p-5 rounded-2xl shadow-sm border border-slate-100 hover:border-indigo-300 hover:shadow-md transition-all text-left flex flex-col items-start">
-          <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl mb-3 group-hover:scale-110 transition-transform">
-            <Layers size={24} />
-          </div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-1">Flashcards</h3>
-          <p className="text-slate-500 text-xs mb-4">Review vocab & grammar.</p>
-          <span className="text-indigo-600 font-medium text-xs mt-auto flex items-center gap-1 group-hover:text-indigo-700 transition-colors">Study <ArrowRight size={14} className="transition-transform group-hover:translate-x-1"/></span>
-        </button>
-      </div>
-
-      {/* Speaking Section */}
-      <h3 className="text-xl font-bold text-slate-800 mb-4 mt-8 flex items-center gap-2">
-        <Mic size={24} className="text-purple-600"/> Speaking Practice
-      </h3>
-      <div 
-        role="button"
-        tabIndex={0}
-        onClick={onOpenSpeaking}
-        onKeyDown={(e) => e.key === 'Enter' && onOpenSpeaking()}
-        className="w-full cursor-pointer group relative overflow-hidden bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-xl transition-all text-left flex items-center justify-between mb-8 border-0"
-      >
-         <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
-         
-         <div className="flex items-center gap-4 relative z-10">
-           <div className="p-4 bg-white/20 backdrop-blur-sm text-white rounded-xl group-hover:scale-110 transition-transform shadow-sm">
-             <Mic size={32} />
-           </div>
-           <div>
-             <h3 className="text-xl font-bold text-white mb-1 drop-shadow-sm">Speaking Exam Prep</h3>
-             <p className="text-fuchsia-100 text-sm font-medium">Practice Picture Description and Role-Play tasks.</p>
-           </div>
-         </div>
-         <div className="text-white font-bold text-sm hidden sm:flex items-center gap-1 group-hover:text-fuchsia-100 transition-colors relative z-20">
-           Click to Open Module <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1"/>
-         </div>
-      </div>
-
-      {/* Official Website Links */}
-      <div className="mt-12 p-6 bg-slate-800 rounded-2xl flex flex-col sm:flex-row items-center justify-between text-white shadow-lg mb-6">
-        <div className="mb-4 sm:mb-0">
-          <h3 className="text-lg font-bold">Official Past Papers</h3>
-          <p className="text-slate-300 text-sm mt-1">Access the full archive of Hungarian Matura exams directly from the official website.</p>
-        </div>
-        <a href="https://www.oktatas.hu/kozneveles/erettsegi/feladatsorok" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-400 transition-colors flex items-center gap-2 whitespace-nowrap">
-          Visit oktatas.hu <ExternalLink size={18}/>
-        </a>
-      </div>
-
-      {/* JB Studio Resources */}
-      <div className="p-6 bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl flex flex-col md:flex-row items-center justify-between text-white shadow-lg">
-        <div className="mb-4 md:mb-0 text-center md:text-left">
-          <h3 className="text-lg font-bold">More from English Matura with JB</h3>
-          <p className="text-blue-100 text-sm mt-1">Boost your prep with our dedicated podcast and comprehensive online course.</p>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-          <a href="https://englishmaturawithjb.org" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 whitespace-nowrap border border-white/30">
-            <Headphones size={18}/> Listen to Podcast
-          </a>
-          <a href="https://jbstudio.onlinecoursehost.com/courses/english-matura-guide" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 bg-white text-indigo-700 hover:bg-indigo-50 font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 whitespace-nowrap shadow-sm">
-            <BookOpen size={18}/> View Full Course
-          </a>
-        </div>
-      </div>
-
     </div>
   );
 };
@@ -2768,10 +2313,7 @@ export default function App() {
   const [tailwindLoaded, setTailwindLoaded] = useState(false);
 
   useEffect(() => {
-    if (window.tailwind) {
-      setTailwindLoaded(true);
-      return;
-    }
+    if (window.tailwind) { setTailwindLoaded(true); return; }
     let script = document.getElementById('tailwind-cdn');
     if (!script) {
       script = document.createElement('script');
@@ -2779,9 +2321,7 @@ export default function App() {
       script.src = 'https://cdn.tailwindcss.com';
       script.onload = () => setTailwindLoaded(true);
       document.head.appendChild(script);
-    } else {
-      script.addEventListener('load', () => setTailwindLoaded(true));
-    }
+    } else { script.addEventListener('load', () => setTailwindLoaded(true)); }
   }, []);
 
   const [view, setView] = useState('home');
@@ -2790,244 +2330,104 @@ export default function App() {
   const [latestScore, setLatestScore] = useState({ score: 0, total: 0 });
   const [currentDailyDay, setCurrentDailyDay] = useState(null);
 
-  // Audio Links Tracker: Merges LocalStorage and Code (Code overrides LocalStorage if present)
   const [audioMap, setAudioMap] = useState(() => {
     let localMap = {};
-    try {
-      const saved = localStorage.getItem('maturaAudioMap');
-      if (saved) localMap = JSON.parse(saved);
-    } catch (e) {}
+    try { const saved = localStorage.getItem('maturaAudioMap'); if (saved) localMap = JSON.parse(saved); } catch (e) {}
     return { ...localMap, ...TEACHER_AUDIO_LINKS };
   });
 
   const handleSaveAudioMap = (newMap) => {
     setAudioMap(newMap);
-    try {
-      localStorage.setItem('maturaAudioMap', JSON.stringify(newMap));
-    } catch(e) {}
+    try { localStorage.setItem('maturaAudioMap', JSON.stringify(newMap)); } catch(e) {}
   };
 
-  // 30-Day Challenge Tracker
   const [completedDays, setCompletedDays] = useState(() => {
-    try {
-      const saved = localStorage.getItem('maturaCompletedDaysV2');
-      if (saved) {
-        return JSON.parse(saved);
-      }
-    } catch (e) {}
-    return [1]; // Start with Day 1 completed automatically
+    try { const saved = localStorage.getItem('maturaCompletedDaysV2'); if (saved) return JSON.parse(saved); } catch (e) {}
+    return [1];
   });
 
-  useEffect(() => {
-    try {
-      localStorage.setItem('maturaCompletedDaysV2', JSON.stringify(completedDays));
-    } catch (e) {}
-  }, [completedDays]);
+  useEffect(() => { try { localStorage.setItem('maturaCompletedDaysV2', JSON.stringify(completedDays)); } catch (e) {} }, [completedDays]);
 
-  // Overall Statistics
   const [progress, setProgress] = useState(() => {
-    try {
-      const saved = localStorage.getItem('maturaProgressTracker');
-      if (saved) {
-        return JSON.parse(saved);
-      }
-    } catch (e) {}
-    return {
-      reading: { totalQuestions: 0, correctAnswers: 0, attempts: 0 },
-      useOfEnglish: { totalQuestions: 0, correctAnswers: 0, attempts: 0 },
-      listening: { totalQuestions: 0, correctAnswers: 0, attempts: 0 }
-    };
+    try { const saved = localStorage.getItem('maturaProgressTracker'); if (saved) return JSON.parse(saved); } catch (e) {}
+    return { reading: { totalQuestions: 0, correctAnswers: 0, attempts: 0 }, useOfEnglish: { totalQuestions: 0, correctAnswers: 0, attempts: 0 }, listening: { totalQuestions: 0, correctAnswers: 0, attempts: 0 } };
   });
 
-  useEffect(() => {
-    try {
-      localStorage.setItem('maturaProgressTracker', JSON.stringify(progress));
-    } catch (e) {}
-  }, [progress]);
+  useEffect(() => { try { localStorage.setItem('maturaProgressTracker', JSON.stringify(progress)); } catch (e) {} }, [progress]);
 
   const handleSelectTask = (type, currentTaskId = null) => {
     setActiveTaskType(type);
     const tasksOfType = tasksDatabase[type] || [];
     let availableTasks = tasksOfType;
-    if (currentTaskId && tasksOfType.length > 1) {
-      availableTasks = tasksOfType.filter(t => t.id !== currentTaskId);
-    }
-    
+    if (currentTaskId && tasksOfType.length > 1) availableTasks = tasksOfType.filter(t => t.id !== currentTaskId);
     if (availableTasks.length > 0) {
       const randomTask = availableTasks[Math.floor(Math.random() * availableTasks.length)];
-      setActiveTaskData(randomTask);
-      setView('task');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setActiveTaskData(randomTask); setView('task'); window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const handleTaskComplete = (score, total, completedTaskType) => {
     const typeToUpdate = completedTaskType || activeTaskType;
     setLatestScore({ score: Number(score) || 0, total: Number(total) || 0 });
-    
     setProgress(prev => {
       const currentStats = prev[typeToUpdate] || { totalQuestions: 0, correctAnswers: 0, attempts: 0 };
-      return {
-        ...prev,
-        [typeToUpdate]: {
-          totalQuestions: currentStats.totalQuestions + (Number(total) || 0),
-          correctAnswers: currentStats.correctAnswers + (Number(score) || 0),
-          attempts: currentStats.attempts + 1
-        }
-      };
+      return { ...prev, [typeToUpdate]: { totalQuestions: currentStats.totalQuestions + (Number(total) || 0), correctAnswers: currentStats.correctAnswers + (Number(score) || 0), attempts: currentStats.attempts + 1 } };
     });
-
-    setView('summary');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setView('summary'); window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleStartDay = (dayNum) => {
-    setCurrentDailyDay(dayNum);
-    setView('dailySet');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const handleStartDay = (dayNum) => { setCurrentDailyDay(dayNum); setView('dailySet'); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
   const handleCompleteDailySet = (dayNum, dailyScores) => {
-    setCompletedDays(prev => {
-      if (!prev.includes(dayNum)) return [...prev, dayNum];
-      return prev;
-    });
-
+    setCompletedDays(prev => { if (!prev.includes(dayNum)) return [...prev, dayNum]; return prev; });
     setProgress(prev => {
       const readingStats = prev.reading || { totalQuestions: 0, correctAnswers: 0, attempts: 0 };
       const uoeStats = prev.useOfEnglish || { totalQuestions: 0, correctAnswers: 0, attempts: 0 };
       const listStats = prev.listening || { totalQuestions: 0, correctAnswers: 0, attempts: 0 };
-
       return {
-        reading: {
-          totalQuestions: readingStats.totalQuestions + (Number(dailyScores?.reading?.total) || 0),
-          correctAnswers: readingStats.correctAnswers + (Number(dailyScores?.reading?.score) || 0),
-          attempts: readingStats.attempts + 1
-        },
-        useOfEnglish: {
-          totalQuestions: uoeStats.totalQuestions + (Number(dailyScores?.useOfEnglish?.total) || 0),
-          correctAnswers: uoeStats.correctAnswers + (Number(dailyScores?.useOfEnglish?.score) || 0),
-          attempts: uoeStats.attempts + 1
-        },
-        listening: {
-          totalQuestions: listStats.totalQuestions + (Number(dailyScores?.listening?.total) || 0),
-          correctAnswers: listStats.correctAnswers + (Number(dailyScores?.listening?.score) || 0),
-          attempts: listStats.attempts + 1
-        }
+        reading: { totalQuestions: readingStats.totalQuestions + (Number(dailyScores?.reading?.total) || 0), correctAnswers: readingStats.correctAnswers + (Number(dailyScores?.reading?.score) || 0), attempts: readingStats.attempts + 1 },
+        useOfEnglish: { totalQuestions: uoeStats.totalQuestions + (Number(dailyScores?.useOfEnglish?.total) || 0), correctAnswers: uoeStats.correctAnswers + (Number(dailyScores?.useOfEnglish?.score) || 0), attempts: uoeStats.attempts + 1 },
+        listening: { totalQuestions: listStats.totalQuestions + (Number(dailyScores?.listening?.total) || 0), correctAnswers: listStats.correctAnswers + (Number(dailyScores?.listening?.score) || 0), attempts: listStats.attempts + 1 }
       };
     });
-
-    setView('home');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setView('home'); window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const resetToHome = () => {
-    setView('home');
-    setActiveTaskType(null);
-    setActiveTaskData(null);
-    setCurrentDailyDay(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const resetToHome = () => { setView('home'); setActiveTaskType(null); setActiveTaskData(null); setCurrentDailyDay(null); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-  if (!tailwindLoaded) {
-    return <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>Loading...</div>;
-  }
+  if (!tailwindLoaded) return <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>Loading...</div>;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-slate-900 font-sans selection:bg-blue-200">
       <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-10 shadow-sm transition-all duration-300">
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={resetToHome}>
-             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-               <BookOpen size={18} />
-             </div>
+             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white"><BookOpen size={18} /></div>
              <span className="font-bold text-xl text-slate-800 tracking-tight hidden sm:block">English Matura with JB - Tutor</span>
              <span className="font-bold text-xl text-slate-800 tracking-tight sm:hidden">Matura Tutor</span>
           </div>
-          
           <div className="flex items-center gap-4">
-            <button 
-              onClick={() => { setView('manage'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
-            >
+            <button onClick={() => { setView('manage'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
               <Settings size={18} /> <span className="hidden sm:inline">Manage Audio</span>
             </button>
-            <div className="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
-              A2-B1
-            </div>
+            <div className="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">A2-B1</div>
           </div>
         </div>
       </header>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 md:py-12">
-        {view === 'home' && (
-          <Dashboard 
-            onSelectTask={handleSelectTask} 
-            progress={progress} 
-            completedDays={completedDays}
-            onStartDay={handleStartDay}
-            onOpenFlashcards={() => setView('flashcards')}
-            onOpenSpeaking={() => setView('speaking')}
-          />
-        )}
-        
-        {view === 'dailySet' && currentDailyDay && (
-          <DailySetRunner
-            day={currentDailyDay}
-            audioMap={audioMap}
-            onCompleteDay={handleCompleteDailySet}
-            onCancel={resetToHome}
-          />
-        )}
-
+        {view === 'home' && <Dashboard onSelectTask={handleSelectTask} progress={progress} completedDays={completedDays} onStartDay={handleStartDay} onOpenFlashcards={() => setView('flashcards')} onOpenSpeaking={() => setView('speaking')} />}
+        {view === 'dailySet' && currentDailyDay && <DailySetRunner day={currentDailyDay} audioMap={audioMap} onCompleteDay={handleCompleteDailySet} onCancel={resetToHome} />}
         {view === 'flashcards' && <FlashcardsApp onBack={resetToHome} />}
         {view === 'speaking' && <SpeakingApp onBack={resetToHome} />}
-        
-        {view === 'manage' && (
-          <ManageAudio 
-            onBack={resetToHome} 
-            audioMap={audioMap} 
-            onSaveMap={handleSaveAudioMap}
-          />
-        )}
-
-        {view === 'task' && activeTaskData && (
-          <TaskRunner 
-            key={activeTaskData.id}
-            taskType={activeTaskType} 
-            taskData={activeTaskData}
-            audioMap={audioMap}
-            onComplete={handleTaskComplete}
-            onSkip={() => handleSelectTask(activeTaskType, activeTaskData.id)}
-          />
-        )}
-
-        {view === 'summary' && (
-          <TaskSummary 
-            score={latestScore?.score} 
-            total={latestScore?.total} 
-            taskType={activeTaskType}
-            onHome={resetToHome}
-            onNextTask={() => handleSelectTask(activeTaskType === 'reading' ? 'useOfEnglish' : 'reading')}
-          />
-        )}
+        {view === 'manage' && <ManageAudio onBack={resetToHome} audioMap={audioMap} onSaveMap={handleSaveAudioMap} />}
+        {view === 'task' && activeTaskData && <TaskRunner key={activeTaskData.id} taskType={activeTaskType} taskData={activeTaskData} audioMap={audioMap} onComplete={handleTaskComplete} onSkip={() => handleSelectTask(activeTaskType, activeTaskData.id)} />}
+        {view === 'summary' && <TaskSummary score={latestScore?.score} total={latestScore?.total} taskType={activeTaskType} onHome={resetToHome} onNextTask={() => handleSelectTask(activeTaskType === 'reading' ? 'useOfEnglish' : 'reading')} />}
       </main>
-
+      
       <FeedbackWidget />
       
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.4s forwards;
-        }
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
-      `}} />
+      <style dangerouslySetInnerHTML={{__html: `@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } .animate-fade-in { animation: fadeIn 0.4s forwards; } .perspective-1000 { perspective: 1000px; } .transform-style-3d { transform-style: preserve-3d; } .backface-hidden { backface-visibility: hidden; } .rotate-y-180 { transform: rotateY(180deg); }`}} />
     </div>
   );
 }
